@@ -1,26 +1,28 @@
-// JavaScript for menu toggling
-document.getElementById('toggleButton').addEventListener('click', function() {
-    document.getElementById('mainMenu').classList.toggle('active');
-});
+<script>
+        const toggleButton = document.querySelector("#toggleButton");
+        const mainMenu = document.querySelector("#mainMenu");
+        const closeMenuButton = document.querySelector("#closeMenuButton");
 
-// Close menu when a link is clicked
-function closeMenuAndNavigate(target) {
-    document.getElementById('mainMenu').classList.remove('active');
-    window.location.href = target;
-}
+        toggleButton.addEventListener('click', function () {
+            mainMenu.classList.toggle('active');
+            toggleButton.innerHTML = mainMenu.classList.contains("active") ? "&#215;" : "&#9776;";
+        });
 
-// Cookie Popup
-document.addEventListener("DOMContentLoaded", function() {
-    var cookiePopup = document.getElementById('cookiePopup');
-    var acceptCookies = document.getElementById('acceptCookies');
+        closeMenuButton.addEventListener('click', function () {
+            mainMenu.classList.remove('active');
+            toggleButton.innerHTML = "&#9776;";
+        });
 
-    // Show cookie popup
-    setTimeout(function() {
-        cookiePopup.style.display = 'block';
-    }, 2000);
+        document.addEventListener('click', function(event) {
+            if (!mainMenu.contains(event.target) && !toggleButton.contains(event.target)) {
+                mainMenu.classList.remove('active');
+                toggleButton.innerHTML = "&#9776;";
+            }
+        });
 
-    // Hide the cookie popup when accepted
-    acceptCookies.addEventListener('click', function() {
-        cookiePopup.style.display = 'none';
-    });
-});
+        function closeMenuAndNavigate(target) {
+            mainMenu.classList.remove('active');
+            toggleButton.innerHTML = "&#9776;";
+            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
