@@ -6,6 +6,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <style>
+ /* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure consistent box sizing */
+    font-family: 'Roboto', sans-serif; /* Ensure uniform font family for all elements */
+}
+
+/* Body Styles */
+body {
+    font-family: 'Inter', sans-serif; /* Keep 'Inter' for the body font */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Consistent background gradient */
+    color: #333; /* Dark text for readability */
+    line-height: 1.6; /* Improve readability with line height */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    margin: 0;
+    padding: 0;
+}
+
+/* Section Styles */
+section {
+    padding: 80px 20px;
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    backdrop-filter: blur(20px); /* Add background blur */
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+    margin-top: 80px;
+    text-align: center;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for section */
+section:hover {
+    background: rgba(255, 255, 255, 0.2); /* Darken on hover */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+}
+
+/* Heading for Sections */
+section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+}
+
+/* Paragraph styling for Sections */
+section p {
+    font-size: 1.1rem;
+    color: #ddd; /* Lighter text for descriptions */
+    line-height: 1.8; /* Improved readability */
+    max-width: 900px;
+    margin: 0 auto; /* Center align text */
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    background-color: #FFD700; /* Golden background */
+    color: #333; /* Dark text color */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for Buttons */
+.btn:hover {
+    background-color: #ffcc00; /* Slightly darker yellow */
+    transform: translateY(-5px); /* Hover lift effect */
+}
+        
 /* Global Reset */
 * {
     margin: 0;
