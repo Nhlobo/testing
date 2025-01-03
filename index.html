@@ -10,17 +10,17 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box; /* Ensure consistent box sizing */
-            font-family: 'Roboto', sans-serif; /* Ensure uniform font family for all elements */
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
         }
 
         /* Body Styles */
         body {
-            font-family: 'Inter', sans-serif; /* Keep 'Inter' for the body font */
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Consistent background gradient */
-            color: #333; /* Dark text for readability */
-            line-height: 1.6; /* Improve readability with line height */
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1));
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
             margin: 0;
             padding: 0;
         }
@@ -56,11 +56,11 @@
         /* Centering the grid container */
         .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+            grid-template-columns: repeat(3, 1fr); /* Ensure 3 equal columns */
             gap: 30px;
-            justify-items: center; /* Center the items within the grid */
+            justify-content: center; /* Center the entire grid */
             max-width: 1200px;
-            margin: 0 auto; /* Center the entire grid */
+            margin: 0 auto;
         }
 
         .expertise-item {
@@ -113,8 +113,8 @@
             padding: 12px 30px;
             font-size: 1.1rem;
             text-transform: uppercase;
-            background-color: #FFD700; /* Golden background */
-            color: #333; /* Dark text color */
+            background-color: #FFD700;
+            color: #333;
             border: none;
             border-radius: 5px;
             text-decoration: none;
@@ -124,8 +124,8 @@
 
         /* Hover effect for Buttons */
         .btn:hover {
-            background-color: #ffcc00; /* Slightly darker yellow */
-            transform: translateY(-5px); /* Hover lift effect */
+            background-color: #ffcc00;
+            transform: translateY(-5px);
         }
 
     </style>
