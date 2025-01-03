@@ -10,17 +10,17 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box; /* Ensure consistent box sizing */
+            font-family: 'Roboto', sans-serif; /* Ensure uniform font family for all elements */
         }
 
         /* Body Styles */
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1));
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif; /* Keep 'Inter' for the body font */
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Consistent background gradient */
+            color: #333; /* Dark text for readability */
+            line-height: 1.6; /* Improve readability with line height */
+            overflow-x: hidden; /* Prevent horizontal scroll */
             margin: 0;
             padding: 0;
         }
@@ -56,11 +56,12 @@
         /* Centering the grid container */
         .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Ensure 3 equal columns */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
             gap: 30px;
-            justify-content: center; /* Center the entire grid */
-            max-width: 1200px;
-            margin: 0 auto;
+            justify-items: center; /* Center the items within the grid */
+            max-width: 1200px; /* Control the max width of the grid */
+            margin: 0 auto; /* Center the entire grid */
+            padding: 0 15px; /* Padding to avoid touching the screen edges */
         }
 
         .expertise-item {
@@ -113,8 +114,8 @@
             padding: 12px 30px;
             font-size: 1.1rem;
             text-transform: uppercase;
-            background-color: #FFD700;
-            color: #333;
+            background-color: #FFD700; /* Golden background */
+            color: #333; /* Dark text color */
             border: none;
             border-radius: 5px;
             text-decoration: none;
@@ -124,8 +125,8 @@
 
         /* Hover effect for Buttons */
         .btn:hover {
-            background-color: #ffcc00;
-            transform: translateY(-5px);
+            background-color: #ffcc00; /* Slightly darker yellow */
+            transform: translateY(-5px); /* Hover lift effect */
         }
 
     </style>
