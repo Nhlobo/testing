@@ -37,7 +37,6 @@ body {
     text-align: center;
 }
 
-/* Expertise Header */
 .expertise h2 {
     font-size: 2.5rem;
     font-weight: 600;
@@ -56,13 +55,13 @@ body {
 
 /* Expertise Grid Container */
 .expertise-grid {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Makes the cards responsive */
+    gap: 30px;
+    justify-items: center; /* Center the items horizontally */
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    margin: 0 auto; /* Center the entire grid */
+    padding: 0 15px; /* Padding to avoid touching the screen edges */
 }
 
 /* Expertise Item */
@@ -72,8 +71,8 @@ body {
     padding: 20px;
     transition: transform 0.3s ease;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Full width inside the container */
-    max-width: 350px; /* Control the maximum width of the card */
+    width: 100%; /* Ensure cards are fully responsive */
+    max-width: 350px; /* Control maximum size of each card */
     margin-bottom: 20px; /* Space between cards */
 }
 
@@ -140,19 +139,14 @@ body {
 /* Media Queries for Larger Screens (Optional) */
 @media screen and (min-width: 768px) {
     .expertise-grid {
-        flex-direction: column; /* Stack items vertically for both mobile and desktop */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ensure cards are responsive on tablets */
     }
 }
 
 @media screen and (min-width: 1024px) {
     .expertise-grid {
-        flex-direction: column; /* Ensure vertical stacking on larger screens */
-        justify-content: center; /* Center items horizontally */
-        align-items: center; /* Center items vertically */
-    }
-
-    .expertise-item {
-        margin-bottom: 20px; /* Space between cards */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* On larger screens, cards are in a flexible grid */
+        justify-items: center; /* Center the cards horizontally */
     }
 }
 
