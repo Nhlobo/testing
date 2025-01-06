@@ -187,6 +187,33 @@ body {
   }
 }
 
+ /* Hide hamburger menu on larger screens */
+.toggle-button {
+  display: none; /* Hide on larger screens by default */
+}
+
+/* Show hamburger menu on smaller screens */
+@media (max-width: 768px) {
+  .toggle-button {
+    display: block; /* Display on small screens */
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Hide default navigation links on small screens */
+  .nav-links {
+    display: none;
+  }
+
+  /* Show the main-menu for the hamburger */
+  .main-menu ul {
+    padding-left: 0;
+  }
+}
+      
+       
        
 /* Section Styles */
 section {
