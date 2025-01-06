@@ -166,7 +166,27 @@ body {
   color: white;
   text-decoration: none;
 }
+/* Display hamburger icon on smaller screens */
+  .toggle-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
+  /* Hide default navigation links */
+  .nav-links {
+    display: none;
+  }
+
+  /* Show menu items in main-menu */
+  .main-menu ul {
+    padding-left: 0;
+  }
+}
+
+       
 /* Section Styles */
 section {
     padding: 80px 20px;
