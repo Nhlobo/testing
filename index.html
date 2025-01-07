@@ -1,373 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Logo Scroll</title>
     <style>
-        /* General Styling */
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Background gradient */
-            color: #fff; /* Text color */
+            box-sizing: border-box;
         }
 
-        .portfolio {
-            padding: 60px 20px;
-            background-color: transparent; /* Make the portfolio section transparent to see the gradient background */
+        body {
+            font-family: Arial, sans-serif;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .portfolio-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .portfolio-header .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            color: #fff; /* White text to stand out against the dark gradient */
-        }
-
-        .portfolio-header .section-description {
-            font-size: 18px;
-            color: #ddd; /* Lighter color for description */
-        }
-
-        /* Filter Buttons */
-        .portfolio-filters {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .filter-btn {
-            padding: 10px 20px;
-            margin: 0 5px;
-            font-size: 16px;
-            border: 2px solid #007bff;
-            border-radius: 50px;
-            background-color: white;
-            color: #007bff;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background-color: #007bff;
-            color: white;
-        }
-
-        /* Portfolio Grid */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .portfolio-item {
+        /* Section with gradient overlay and landscape image */
+        .logo-section {
             position: relative;
-            border-radius: 10px;
+            height: 80vh; /* Adjust the height of the section */
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Gradient overlay */
         }
 
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .portfolio-image {
+        /* Landscape image at the front, fully responsive */
+        .landscape-image {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+            object-fit: cover; /* Ensures the image covers the entire section */
+            object-position: center; /* Keeps the focus of the image centered */
         }
 
-        /* Ensure images remain untouched */
-        .portfolio-item:hover .portfolio-image {
-            transform: scale(1.05); /* Optional zoom on hover */
-        }
-
-        .portfolio-overlay {
+        /* Logo wrapper with animation */
+        .logo-wrapper {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
+            bottom: 20px; /* Position logos towards the bottom */
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            animation: logoScroll 20s linear infinite; /* Slower animation speed for smoothness */
+            z-index: 1; /* Ensure logos are on top of the image */
         }
 
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
+        /* Individual logo styling */
+        .logo {
+            width: 150px; /* Uniform logo size */
+            margin: 0 50px; /* Consistent space between logos */
+            opacity: 1; /* Fully visible logos */
         }
 
-        .project-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .project-description {
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .view-details-btn {
-            background-color: #007bff;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .view-details-btn:hover {
-            background-color: #0056b3;
-        }
-
-        /* Modal Styling */
-        .portfolio-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 600px;
-            width: 100%;
-            color: #333;
-        }
-
-        .modal-content h3 {
-            margin-top: 0;
-            font-size: 24px;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 30px;
-            cursor: pointer;
-            color: #333;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
+        /* Animation for smooth scrolling of logos */
+        @keyframes logoScroll {
             0% {
-                opacity: 0;
-                transform: translateY(50px);
+                transform: translateX(100%); /* Start off-screen to the right */
             }
-
             100% {
-                opacity: 1;
-                transform: translateY(0);
+                transform: translateX(-100%); /* End off-screen to the left */
             }
         }
 
-        .portfolio-item {
-            animation: fadeIn 0.5s ease-out;
+        /* Button Styling */
+        .btn {
+            position: absolute;
+            left: 20px; /* Position the button on the far left */
+            top: 50%; /* Vertically center the button */
+            transform: translateY(-50%); /* Adjust exactly in the middle */
+            padding: 8px 20px; /* Reduced padding for a smaller button */
+            font-size: 0.9rem; /* Slightly smaller font size */
+            text-transform: uppercase;
+            background-color: #FFD700; /* Golden background */
+            color: #333; /* Dark text color */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 2; /* Make sure the button is above the landscape image */
+        }
+
+        /* Hover effect for Buttons */
+        .btn:hover {
+            background-color: #ffcc00; /* Slightly darker yellow */
+            transform: translateY(-3px); /* Slight hover lift effect */
+        }
+
+        /* Ensure responsiveness */
+        @media (max-width: 768px) {
+            .logo {
+                width: 120px; /* Smaller logo size for mobile */
+                margin: 0 40px; /* Smaller space between logos */
+            }
+            /* Make the landscape image responsive on small screens */
+            .landscape-image {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        /* Make the image fully responsive */
+        @media (max-width: 480px) {
+            .landscape-image {
+                object-fit: cover;
+                object-position: center; /* Keep the important part of the image in view */
+            }
         }
     </style>
 </head>
-
 <body>
+    <section class="logo-section">
+        <!-- Landscape Image -->
+        <img src="white.jpg" alt="Landscape" class="landscape-image"> <!-- Replace with your landscape image -->
 
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <!-- Portfolio Title & Description -->
-            <div class="portfolio-header">
-                <h2 class="section-title">Our Work</h2>
-                <p class="section-description">Explore the various projects  we've developed, ranging from web applications to professional services websites.</p>
-            </div>
-
-            <!-- Filter Buttons (Dynamic) -->
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="app">Web Apps</button>
-                <button class="filter-btn" data-filter="services">Business Services</button>
-            </div>
-
-            <!-- Portfolio Grid -->
-            <div class="portfolio-grid">
-                <!-- Project 1: Madya Swa Nyuku Business Services -->
-                <div class="portfolio-item" data-category="services">
-                    <img src="copy.png" alt="Madya Swa Nyuku" class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h3 class="project-title">Madya Swa Nyuku</h3>
-                        <p class="project-description">Eco-friendly pest control solutions for homes and businesses.</p>
-                        <button class="view-details-btn" data-modal="modal1">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Project 2: TechConnect -->
-                <div class="portfolio-item" data-category="web">
-                    <img src="copy1.png" alt="TechConnect" class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h3 class="project-title">TechConnect</h3>
-                        <p class="project-description">A landing page to showcase the latest technology, with real-time updates and job search functionality.</p>
-                        <button class="view-details-btn" data-modal="modal2">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Project 3: Weather App -->
-                <div class="portfolio-item" data-category="app">
-                    <img src="copy2.png" alt="Weather App" class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h3 class="project-title">Weather App</h3>
-                        <p class="project-description">Fetches and displays weather data for South African cities using the OpenWeatherMap API.</p>
-                        <button class="view-details-btn" data-modal="modal3">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Project 4: Investment Calculator -->
-                <div class="portfolio-item" data-category="app">
-                    <img src="copy3.png" alt="Investment Calculator" class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h3 class="project-title">Investment Calculator</h3>
-                        <p class="project-description">A web-based tool to calculate the future value of investments.</p>
-                        <button class="view-details-btn" data-modal="modal4">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Project 5: Quran Quiz -->
-                <div class="portfolio-item" data-category="app">
-                    <img src="copy4.png" alt="Quran Quiz" class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h3 class="project-title">Quran Quiz</h3>
-                        <p class="project-description">A quiz to test your knowledge of the Quran.</p>
-                        <button class="view-details-btn" data-modal="modal5">View Details</button>
-                    </div>
-                </div>
-            </div>
+        <!-- Logos moving over the landscape image -->
+        <div class="logo-wrapper">
+            <img src="logo-Photoroom.png" alt="Logo 1" class="logo"> <!-- Replace with your logos -->
+            <img src="bg-dceb5d0c-5ae2-4d5e-91ca-f146a6781687 (1).png" alt="Logo 2" class="logo">
+            <img src="bg-0cc3a803-bfa1-4a52-931d-092d8400927e.png" alt="Logo 3" class="logo">
         </div>
 
-        <!-- Modals for Project Details -->
-        <div id="modal1" class="portfolio-modal">
-            <div class="modal-content">
-                <span class="close-btn" data-close="modal1">&times;</span>
-                <h3>Madya Swa Nyuku</h3>
-                <p>Eco-friendly pest control solutions for homes and businesses.</p>
-                <a href="https://nhlobo.github.io/MADYASWANYUKU/" target="_blank" class="btn btn-primary">View Live</a>
-            </div>
-        </div>
-
-        <div id="modal2" class="portfolio-modal">
-            <div class="modal-content">
-                <span class="close-btn" data-close="modal2">&times;</span>
-                <h3>TechConnect</h3>
-                <p>A project to showcase the latest technology with real-time updates, user rewards, and job search functionality.</p>
-                <a href="https://nhlobo.github.io/Landing-page-demo/" target="_blank" class="btn btn-primary">View Live</a>
-            </div>
-        </div>
-
-        <div id="modal3" class="portfolio-modal">
-            <div class="modal-content">
-                <span class="close-btn" data-close="modal3">&times;</span>
-                <h3>Weather App</h3>
-                <p>Displays current weather and 5-day forecast for South African cities using the OpenWeatherMap API.</p>
-                <a href="https://weather-ebon-beta.vercel.app/" target="_blank" class="btn btn-primary">View Live</a>
-            </div>
-        </div>
-
-        <div id="modal4" class="portfolio-modal">
-            <div class="modal-content">
-                <span class="close-btn" data-close="modal4">&times;</span>
-                <h3>Investment Calculator</h3>
-                <p>A web-based tool to calculate the future value of investments.</p>
-                <a href="https://nhlobo.github.io/calculator/" target="_blank" class="btn btn-primary">View Live</a>
-            </div>
-        </div>
-
-        <div id="modal5" class="portfolio-modal">
-            <div class="modal-content">
-                <span class="close-btn" data-close="modal5">&times;</span>
-                <h3>Quran Quiz</h3>
-                <p>A fun and educational quiz to test your knowledge of the Quran.</p>
-                <a href="https://nhlobo.github.io/quran-knowledge-quiz/" target="_blank" class="btn btn-primary">View Live</a>
-            </div>
-        </div>
+        <!-- Button to View Portfolio -->
+        <a href="portfolio.html" class="btn">View Our Work</a>
     </section>
-
-    <script>
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-        filterBtns.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.dataset.filter;
-
-                // Toggle active class on filter buttons
-                filterBtns.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                // Filter items by category
-                portfolioItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Modal functionality
-        const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
-        const modals = document.querySelectorAll('.portfolio-modal');
-        const closeBtns = document.querySelectorAll('.close-btn');
-
-        viewDetailsBtns.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const modalId = e.target.dataset.modal;
-                document.getElementById(modalId).style.display = 'flex';
-            });
-        });
-
-        closeBtns.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const modalId = e.target.dataset.close;
-                document.getElementById(modalId).style.display = 'none';
-            });
-        });
-
-        // Close modals when clicking outside the modal content
-        window.addEventListener('click', (e) => {
-            if (e.target.classList.contains('portfolio-modal')) {
-                e.target.style.display = 'none';
-            }
-        });
-    </script>
-
 </body>
-
 </html>
