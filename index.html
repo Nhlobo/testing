@@ -41,6 +41,7 @@
             display: flex;
             animation: logoScroll 20s linear infinite; /* Slower animation speed for smoothness */
             z-index: 1; /* Ensure logos are on top of the image */
+            justify-content: center;
         }
 
         /* Individual logo styling */
@@ -63,9 +64,9 @@
         /* Button Styling */
         .btn {
             position: absolute;
-            left: 20px; /* Position the button on the far left */
-            top: 50%; /* Vertically center the button */
-            transform: translateY(-50%); /* Adjust exactly in the middle */
+            left: 50%; /* Center the button horizontally */
+            top: 20px; /* Place button slightly below the top */
+            transform: translateX(-50%); /* Adjust exactly in the middle */
             padding: 8px 20px; /* Reduced padding for a smaller button */
             font-size: 0.9rem; /* Slightly smaller font size */
             text-transform: uppercase;
@@ -82,6 +83,68 @@
         .btn:hover {
             background-color: #ffcc00; /* Slightly darker yellow */
             transform: translateY(-3px); /* Slight hover lift effect */
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .gallery-card {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Navigation arrows */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        /* Dots indicating more images */
+        .dots {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #FFD700;
         }
 
         /* Ensure responsiveness */
@@ -107,6 +170,7 @@
     </style>
 </head>
 <body>
+
     <section class="logo-section">
         <!-- Landscape Image -->
         <img src="white.jpg" alt="Landscape" class="landscape-image"> <!-- Replace with your landscape image -->
@@ -121,5 +185,23 @@
         <!-- Button to View Portfolio -->
         <a href="portfolio.html" class="btn">View Our Work</a>
     </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="gallery-card">
+            <!-- Image with navigation arrows -->
+            <img src="image1.jpg" alt="Gallery Image" class="gallery-image"> <!-- Replace with your image -->
+            <button class="nav-btn prev-btn">&#10094;</button>
+            <button class="nav-btn next-btn">&#10095;</button>
+        </div>
+
+        <!-- Dots showing image progression -->
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
 </body>
 </html>
