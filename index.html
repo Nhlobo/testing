@@ -23,62 +23,52 @@
             flex-direction: column;
         }
 
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            width: 80%;
-            max-width: 1200px;
+        h1 {
+            margin-bottom: 20px;
         }
 
-        .gallery-item {
+        .gallery-container {
             position: relative;
+            width: 80%;
+            max-width: 800px;
+            height: 500px;
             overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .gallery-item img {
+        .gallery-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            display: block;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .lightbox-close {
+        /* Arrow buttons styling */
+        .arrow-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
+            top: 50%;
+            font-size: 2em;
             color: white;
             background: rgba(0, 0, 0, 0.5);
             border: none;
             padding: 10px;
             cursor: pointer;
+            transform: translateY(-50%);
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+
+        .left {
+            left: 10px;
+        }
+
+        .right {
+            right: 10px;
+        }
+
+        .arrow-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
     </style>
@@ -86,46 +76,45 @@
 <body>
     <h1>Car Image Gallery</h1>
 
-    <!-- Image Gallery Section -->
+    <!-- Image Display Section -->
     <div class="gallery-container">
-        <div class="gallery-item">
-            <img src="car1.jpg" alt="Car 1">
+        <!-- Left Arrow Button -->
+        <button class="arrow-btn left" onclick="changeImage(-1)">&#10094;</button>
+        
+        <!-- Image Display Section -->
+        <div class="image-container">
+            <img id="car-image" src="car1.jpg" alt="Car Image">
         </div>
-        <div class="gallery-item">
-            <img src="copy.png" alt="Car 2">
-        </div>
-        <div class="gallery-item">
-            <img src="try.png" alt="Car 3">
-        </div>
-        <div class="gallery-item">
-            <img src="car4.jpg" alt="Car 4">
-        </div>
-    </div>
-
-    <!-- Lightbox (Modal) for image preview -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" onclick="closeLightbox()">X</button>
-        <img id="lightbox-img" src="" alt="Expanded Image">
+        
+        <!-- Right Arrow Button -->
+        <button class="arrow-btn right" onclick="changeImage(1)">&#10095;</button>
     </div>
 
     <script>
-        // Get all gallery items
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
+        // JavaScript functionality
+        let currentImageIndex = 0;
+        const images = [
+            "car1.jpg",  // Image 1
+            "copy.png",  // Image 2
+            "try.png",   // Image 3
+            "car4.jpg"   // Image 4
+        ];
 
-        // Add click event to each gallery item
-        galleryItems.forEach(item => {
-            item.addEventListener('click', function() {
-                const imgSrc = this.querySelector('img').src;
-                lightboxImg.src = imgSrc;
-                lightbox.style.display = 'flex';  // Show the lightbox
-            });
-        });
+        const carImage = document.getElementById("car-image");
 
-        // Function to close the lightbox
-        function closeLightbox() {
-            lightbox.style.display = 'none';
+        function changeImage(direction) {
+            // Calculate the next image index
+            currentImageIndex += direction;
+
+            // Loop back to the start or end if we reach the last or first image
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;  // Loop to the last image
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;  // Loop to the first image
+            }
+
+            // Change the image source
+            carImage.src = images[currentImageIndex];
         }
     </script>
 </body>
