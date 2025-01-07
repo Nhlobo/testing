@@ -29,12 +29,14 @@
 
         .gallery-container {
             position: relative;
-            width: 80%;
-            max-width: 800px;
-            height: 500px;
+            width: 500px; /* Fixed width */
+            height: 300px; /* Fixed height */
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .gallery-container img {
@@ -60,11 +62,11 @@
         }
 
         .left {
-            left: 10px;
+            left: -40px; /* Position left button outside */
         }
 
         .right {
-            right: 10px;
+            right: -40px; /* Position right button outside */
         }
 
         .arrow-btn:hover {
