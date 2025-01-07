@@ -15,7 +15,7 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Section with gradient overlay and landscape image */
+        /* Section with gradient overlay */
         .logo-section {
             position: relative;
             height: 80vh; /* Adjust the height of the section */
@@ -23,25 +23,39 @@
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Gradient overlay */
         }
 
-        /* Landscape image at the front, fully responsive */
-        .landscape-image {
+        /* Button Styling */
+        .btn {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures the image covers the entire section */
-            object-position: center; /* Keeps the focus of the image centered */
+            left: 50%; /* Center the button horizontally */
+            top: 20px; /* Place button slightly below the top */
+            transform: translateX(-50%); /* Adjust exactly in the middle */
+            padding: 8px 20px; /* Reduced padding for a smaller button */
+            font-size: 0.9rem; /* Slightly smaller font size */
+            text-transform: uppercase;
+            background-color: #FFD700; /* Golden background */
+            color: #333; /* Dark text color */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 2; /* Make sure the button is above the gradient */
         }
 
-        /* Logo wrapper with animation */
+        /* Hover effect for Buttons */
+        .btn:hover {
+            background-color: #ffcc00; /* Slightly darker yellow */
+            transform: translateY(-3px); /* Slight hover lift effect */
+        }
+
+        /* Logos moving over the gradient section */
         .logo-wrapper {
             position: absolute;
-            bottom: 20px; /* Position logos towards the bottom */
+            bottom: -60px; /* Position logos below the gallery */
+            left: 50%; /* Center logos horizontally */
+            transform: translateX(-50%); /* Align logos to the center */
             display: flex;
             animation: logoScroll 20s linear infinite; /* Slower animation speed for smoothness */
-            z-index: 1; /* Ensure logos are on top of the image */
-            justify-content: center;
+            z-index: 1; /* Ensure logos are on top of the gradient */
         }
 
         /* Individual logo styling */
@@ -61,34 +75,12 @@
             }
         }
 
-        /* Button Styling */
-        .btn {
-            position: absolute;
-            left: 50%; /* Center the button horizontally */
-            top: 20px; /* Place button slightly below the top */
-            transform: translateX(-50%); /* Adjust exactly in the middle */
-            padding: 8px 20px; /* Reduced padding for a smaller button */
-            font-size: 0.9rem; /* Slightly smaller font size */
-            text-transform: uppercase;
-            background-color: #FFD700; /* Golden background */
-            color: #333; /* Dark text color */
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            z-index: 2; /* Make sure the button is above the landscape image */
-        }
-
-        /* Hover effect for Buttons */
-        .btn:hover {
-            background-color: #ffcc00; /* Slightly darker yellow */
-            transform: translateY(-3px); /* Slight hover lift effect */
-        }
-
         /* Gallery Section */
         .gallery-section {
+            position: relative;
             padding: 40px 20px;
             text-align: center;
+            height: 500px; /* Set the height of the gallery */
         }
 
         .gallery-card {
@@ -105,7 +97,7 @@
             border-radius: 10px;
         }
 
-        /* Navigation arrows */
+        /* Navigation arrows outside the gallery image */
         .nav-btn {
             position: absolute;
             top: 50%;
@@ -120,11 +112,11 @@
         }
 
         .prev-btn {
-            left: 10px;
+            left: -40px; /* Position left arrow outside image */
         }
 
         .next-btn {
-            right: 10px;
+            right: -40px; /* Position right arrow outside image */
         }
 
         /* Dots indicating more images */
@@ -172,16 +164,6 @@
 <body>
 
     <section class="logo-section">
-        <!-- Landscape Image -->
-        <img src="white.jpg" alt="Landscape" class="landscape-image"> <!-- Replace with your landscape image -->
-
-        <!-- Logos moving over the landscape image -->
-        <div class="logo-wrapper">
-            <img src="logo-Photoroom.png" alt="Logo 1" class="logo"> <!-- Replace with your logos -->
-            <img src="bg-dceb5d0c-5ae2-4d5e-91ca-f146a6781687 (1).png" alt="Logo 2" class="logo">
-            <img src="bg-0cc3a803-bfa1-4a52-931d-092d8400927e.png" alt="Logo 3" class="logo">
-        </div>
-
         <!-- Button to View Portfolio -->
         <a href="portfolio.html" class="btn">View Our Work</a>
     </section>
@@ -190,6 +172,7 @@
     <section class="gallery-section">
         <div class="gallery-card">
             <!-- Image with navigation arrows -->
+            <img src="try.png" alt="Gallery Image" class="gallery-image"> <!-- Replace with your image -->
             <img src="try.png" alt="Gallery Image" class="gallery-image"> <!-- Replace with your image -->
             <button class="nav-btn prev-btn">&#10094;</button>
             <button class="nav-btn next-btn">&#10095;</button>
@@ -202,6 +185,13 @@
             <span class="dot"></span>
         </div>
     </section>
+
+    <!-- Logos moving below the gallery -->
+    <div class="logo-wrapper">
+        <img src="logo-Photoroom.png" alt="Logo 1" class="logo"> <!-- Replace with your logos -->
+        <img src="bg-dceb5d0c-5ae2-4d5e-91ca-f146a6781687 (1).png" alt="Logo 2" class="logo">
+        <img src="bg-0cc3a803-bfa1-4a52-931d-092d8400927e.png" alt="Logo 3" class="logo">
+    </div>
 
 </body>
 </html>
