@@ -24,8 +24,8 @@
 
         .gallery-container {
             position: relative;
-            width: 612px; /* Card width */
-            height: 407px; /* Card height */
+            width: 612px; /* Fixed width for the card */
+            height: 407px; /* Fixed height for the card */
             overflow: hidden;
             border-radius: 15px; /* Rounded corners for the card */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for card */
@@ -78,7 +78,7 @@
         
         <!-- Image Display Section -->
         <div class="image-container">
-            <img id="almost.jpg" src="car1.jpg" alt="Car Image">
+            <img id="car-image" src="car1.jpg" alt="Car Image">
         </div>
         
         <!-- Right Arrow Button -->
@@ -89,7 +89,7 @@
         // JavaScript functionality
         let currentImageIndex = 0;
         const images = [
-            "almost.jpg",  // Ensure there are no trailing spaces
+            "car1.jpg",  // Ensure this is a valid image path
             "copy.png",
             "try.png",
             "car4.jpg"
