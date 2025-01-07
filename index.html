@@ -742,6 +742,64 @@ footer {
         });
     </script>
 
+    <script>
+   // Select all filter buttons and portfolio items
+const filterBtns = document.querySelectorAll('.filter-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+// Handle filter button clicks
+filterBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove 'active' class from all filter buttons
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        
+        // Add 'active' class to the clicked button
+        button.classList.add('active');
+
+        // Get the filter category from the button's data attribute
+        const filterValue = button.dataset.filter;
+
+        // Show all items if 'all' is selected, otherwise filter by category
+        portfolioItems.forEach(item => {
+            if (filterValue === 'all' || item.dataset.category === filterValue) {
+                item.style.display = 'block'; // Show item
+            } else {
+                item.style.display = 'none'; // Hide item
+            }
+        });
+    });
+});
+
+// Handle modal open functionality
+const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
+const closeBtns = document.querySelectorAll('.close-btn');
+
+// Open modal functionality
+viewDetailsBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        const modalId = button.dataset.modal;
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'flex';
+    });
+});
+
+// Close modal functionality
+closeBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        const modalId = button.dataset.close;
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'none';
+    });
+});
+
+// Close modals when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('portfolio-modal')) {
+        e.target.style.display = 'none';
+    }
+});
+ </script>
+
    <footer>
     <ul class="wrapper">
       <li class="icon facebook" onclick="redirectTo('https://facebook.com')">
