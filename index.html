@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo Scroll</title>
+    <title>Car Gallery</title>
     <style>
+        /* styles.css */
         * {
             margin: 0;
             padding: 0;
@@ -13,185 +14,91 @@
 
         body {
             font-family: Arial, sans-serif;
-        }
-
-        /* Section with gradient overlay */
-        .logo-section {
-            position: relative;
-            height: 80vh; /* Adjust the height of the section */
-            overflow: hidden;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Gradient overlay */
-        }
-
-        /* Button Styling */
-        .btn {
-            position: absolute;
-            left: 50%; /* Center the button horizontally */
-            top: 20px; /* Place button slightly below the top */
-            transform: translateX(-50%); /* Adjust exactly in the middle */
-            padding: 8px 20px; /* Reduced padding for a smaller button */
-            font-size: 0.9rem; /* Slightly smaller font size */
-            text-transform: uppercase;
-            background-color: #FFD700; /* Golden background */
-            color: #333; /* Dark text color */
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            z-index: 2; /* Make sure the button is above the gradient */
-        }
-
-        /* Hover effect for Buttons */
-        .btn:hover {
-            background-color: #ffcc00; /* Slightly darker yellow */
-            transform: translateY(-3px); /* Slight hover lift effect */
-        }
-
-        /* Logos moving over the gradient section */
-        .logo-wrapper {
-            position: absolute;
-            bottom: -60px; /* Position logos below the gallery */
-            left: 50%; /* Center logos horizontally */
-            transform: translateX(-50%); /* Align logos to the center */
-            display: flex;
-            animation: logoScroll 20s linear infinite; /* Slower animation speed for smoothness */
-            z-index: 1; /* Ensure logos are on top of the gradient */
-        }
-
-        /* Individual logo styling */
-        .logo {
-            width: 150px; /* Uniform logo size */
-            margin: 0 50px; /* Consistent space between logos */
-            opacity: 1; /* Fully visible logos */
-        }
-
-        /* Animation for smooth scrolling of logos */
-        @keyframes logoScroll {
-            0% {
-                transform: translateX(100%); /* Start off-screen to the right */
-            }
-            100% {
-                transform: translateX(-100%); /* End off-screen to the left */
-            }
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            position: relative;
-            padding: 40px 20px;
-            text-align: center;
-            height: 500px; /* Set the height of the gallery */
-        }
-
-        .gallery-card {
-            position: relative;
-            width: 80%;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        /* Navigation arrows outside the gallery image */
-        .nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        .prev-btn {
-            left: -40px; /* Position left arrow outside image */
-        }
-
-        .next-btn {
-            right: -40px; /* Position right arrow outside image */
-        }
-
-        /* Dots indicating more images */
-        .dots {
-            margin-top: 10px;
+            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #ccc;
-            margin: 0 5px;
+        .gallery-container {
+            position: relative;
+            width: 70%;
+            max-width: 800px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .arrow-btn {
+            position: absolute;
+            top: 50%;
+            font-size: 2em;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px;
             cursor: pointer;
+            transform: translateY(-50%);
         }
 
-        .dot.active {
-            background-color: #FFD700;
+        .left {
+            left: 10px;
         }
 
-        /* Ensure responsiveness */
-        @media (max-width: 768px) {
-            .logo {
-                width: 120px; /* Smaller logo size for mobile */
-                margin: 0 40px; /* Smaller space between logos */
-            }
-            /* Make the landscape image responsive on small screens */
-            .landscape-image {
-                object-fit: cover;
-                object-position: center;
-            }
+        .right {
+            right: 10px;
         }
 
-        /* Make the image fully responsive */
-        @media (max-width: 480px) {
-            .landscape-image {
-                object-fit: cover;
-                object-position: center; /* Keep the important part of the image in view */
-            }
+        .arrow-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
 <body>
-
-    <section class="logo-section">
-        <!-- Button to View Portfolio -->
-        <a href="portfolio.html" class="btn">View Our Work</a>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery-section">
-        <div class="gallery-card">
-            <!-- Image with navigation arrows -->
-            <img src="try.png" alt="Gallery Image" class="gallery-image"> <!-- Replace with your image -->
-            <img src="almost.jpg" alt="Gallery Image" class="gallery-image"> <!-- Replace with your image -->
-            <button class="nav-btn prev-btn">&#10094;</button>
-            <button class="nav-btn next-btn">&#10095;</button>
+    <div class="gallery-container">
+        <!-- Left Arrow Button -->
+        <button class="arrow-btn left" onclick="changeImage(-1)">&#10094;</button>
+        
+        <!-- Image Display Section -->
+        <div class="image-container">
+            <img id="car-image" src="car1.jpg" alt="Car Image">
         </div>
-
-        <!-- Dots showing image progression -->
-        <div class="dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
-
-    <!-- Logos moving below the gallery -->
-    <div class="logo-wrapper">
-        <img src="logo-Photoroom.png" alt="Logo 1" class="logo"> <!-- Replace with your logos -->
-        <img src="bg-dceb5d0c-5ae2-4d5e-91ca-f146a6781687 (1).png" alt="Logo 2" class="logo">
-        <img src="bg-0cc3a803-bfa1-4a52-931d-092d8400927e.png" alt="Logo 3" class="logo">
+        
+        <!-- Right Arrow Button -->
+        <button class="arrow-btn right" onclick="changeImage(1)">&#10095;</button>
     </div>
 
+    <script>
+        // script.js
+        let currentImageIndex = 0;
+        const images = [
+            "almost.jpg ",  // Replace with your image file paths
+            "copy.png",
+            "try.png",
+            "car4.jpg"
+        ];
+
+        const carImage = document.getElementById("car-image");
+
+        function changeImage(direction) {
+            // Calculate next image index
+            currentImageIndex += direction;
+
+            // Loop back to the start or end if we reach the last or first image
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;  // Loop to the last image
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;  // Loop to the first image
+            }
+
+            // Change the image source
+            carImage.src = images[currentImageIndex];
+        }
+    </script>
 </body>
 </html>
