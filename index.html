@@ -194,276 +194,133 @@ body {
   /* Adjust any further styles for smaller screens if needed */
 }
        
-       
+ /* PORTFOLIO SECTION */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure consistent box sizing */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Body Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
+  color: #333;
+  line-height: 1.8; /* Increased line height for better readability */
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 /* Section Styles */
 section {
-    padding: 80px 20px;
-    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
-    backdrop-filter: blur(20px); /* Add background blur */
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
-    margin-top: 80px;
-    text-align: center;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem 1.5rem; /* Increased padding for more spacious sections */
+  margin-bottom: 30px; /* Increased space between sections */
 }
 
-/* Hover effect for section */
-section:hover {
-    background: rgba(255, 255, 255, 0.2); /* Darken on hover */
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+/* Link Style */
+a {
+  text-decoration: none;
+  color: #FFD700; /* Golden color for links */
+  font-weight: 500; /* Slightly bolder links */
 }
 
-/* Heading for Sections */
-section h2 {
-    font-size: 3.5rem; /* Large, bold heading */
-    font-weight: 600; /* Strong weight */
-    color: #fff; /* White text */
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase; /* Uppercase for headings */
+
+/* Gallery Section */
+.gallery-section {
+  padding: 60px 0;
+  text-align: center;
+   font-size: 2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+}
 }
 
-/* Paragraph styling for Sections */
-section p {
-    font-size: 1.1rem;
-    color: #ddd; /* Lighter text for descriptions */
-    line-height: 1.8; /* Improved readability */
-    max-width: 900px;
-    margin: 0 auto; /* Center align text */
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Darker shadow for emphasis */
 }
 
-/* Button Styling */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    background-color: #FFD700; /* Golden background */
-    color: #333; /* Dark text color */
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.carousel-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide .item {
+  display: none;
+  text-align: center;
+}
+
+.carousel-slide .item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Darker shadow for images */
+}
+
+.carousel-description {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #ddd; /* Light grey text for description */
+}
+
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-buttons button {
+  background: rgba(0, 0, 0, 0.7); /* Darker background for buttons */
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-buttons button:hover {
+  background: rgba(0, 0, 0, 0.9); /* Darker on hover */
+}
+
+/* View Live Button */
+.view-live-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  background-color: #FFD700; /* Golden background */
+  color: #333; /* Dark text color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Hover effect for Buttons */
-.btn:hover {
-    background-color: #ffcc00; /* Slightly darker yellow */
-    transform: translateY(-5px); /* Hover lift effect */
-}
-
-/* Portfolio Section Styles */
-.portfolio {
-    padding: 60px 20px;
-    background-color: transparent;
-}
-
-/* Container for consistent layout */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Portfolio Header Styles */
-.portfolio-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.portfolio-header .section-title {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1e293b;
-}
-
-.portfolio-header .section-description {
-    font-size: 18px;
-    color: #ddd;
-}
-
-/* Portfolio Filter Buttons */
-.portfolio-filters {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.filter-btn {
-    padding: 10px 20px;
-    margin: 0 5px;
-    font-size: 16px;
-    border: 2px solid #007bff;
-    border-radius: 50px;
-    background-color: white;
-    color: #007bff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Hover and active states for filter buttons */
-.filter-btn.active,
-.filter-btn:hover {
-    background-color: #007bff;
-    color: white;
-}
-
-/* Portfolio Grid Layout */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 30px;
-}
-
-/* Individual Portfolio Items */
-.portfolio-item {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-/* Hover effect on portfolio items */
-.portfolio-item:hover {
-    transform: translateY(-10px);
-}
-
-/* Image inside portfolio items */
-.portfolio-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-/* Hover effect for image */
-.portfolio-item:hover .portfolio-image {
-    transform: scale(1.05); /* Slight zoom effect */
-}
-
-/* Overlay for portfolio items */
-.portfolio-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* Darkened overlay */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* Show overlay on hover */
-.portfolio-item:hover .portfolio-overlay {
-    opacity: 1;
-}
-
-/* Project title inside overlay */
-.project-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* Project description inside overlay */
-.project-description {
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* View details button */
-.view-details-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-/* Hover effect for the details button */
-.view-details-btn:hover {
-    background-color: #0056b3;
-}
-
-/* Modal Styling */
-.portfolio-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    animation: fadeIn 0.3s ease-out;
-    padding: 20px;
-}
-
-.modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    max-width: 600px;
-    width: 80%;
-    color: #333;
-    margin: 0 20px;
-    position: relative;
-    text-align: center;
-}
-
-.modal-content h3 {
-    margin-top: 0;
-    font-size: 24px;
-    color: #333;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    cursor: pointer;
-    color: #333;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .modal-content {
-        width: 90%;
-        padding: 20px;
-    }
-
-    .modal-content h3 {
-        font-size: 20px;
-    }
-
-    .close-btn {
-        font-size: 25px;
-        top: 5px;
-        right: 10px;
-    }
-}
+.view-live-btn:hover {
+  background-color: #ffcc00; /* Slightly darker yellow */
+  transform: translateY(-5px); /* Hover lift effect */
+}      
 
  /* Footer Styles */
 footer {
@@ -596,174 +453,168 @@ footer {
             document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+<!-- ================= PORTFOLIO Section ================= -->
+    <section class="gallery-section">
+    <!-- Gallery Introduction Section -->
+    <div class="gallery-intro">
+      <h3>Portfolio</h3>
+      </div>
 
-   <section id="portfolio" class="portfolio">
-        <div class="container">
-            <!-- Portfolio Title & Description -->
-            <div class="portfolio-header">
-                <h2 class="section-title">Our Work</h2>
-                <p class="section-description">Explore the various projects  we've developed, ranging from web applications to professional services websites.</p>
-            </div>
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        
+        <!-- Starter Package -->
+        <div class="item">
+          <img src="images/Clyde-2.jpg" alt="Personal Blog">
+          <p>Custom personal blog design featuring post categories, responsive layouts, and user-friendly navigation, making it perfect for bloggers.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+         </div>
 
-            <!-- Filter Buttons (Dynamic) -->
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="app">Web Apps</button>
-                <button class="filter-btn" data-filter="services">Business Services</button>
-            </div>
-
-            <!-- Portfolio Grid -->
-            <div class="portfolio-grid">
-                <!-- Project 1: Madya Swa Nyuku Business Services -->
-                <div class="portfolio-item" data-category="services">
-                    <img src="images/copy.png" alt="Madya Swa Nyuku" class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h3 class="project-title">Madya Swa Nyuku</h3>
-                        <p class="project-description">Eco-friendly pest control solutions for homes and businesses.</p>
-                        <button class="view-details-btn" data-modal="modal1">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Project 2: TechConnect -->
-                <div class="portfolio-item" data-category="web">
-                    <img src="images/copy1.png" alt="TechConnect" class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h3 class="project-title">TechConnect</h3>
-                        <p class="project-description">A landing page to showcase the latest technology, with real-time updates and job search functionality.</p>
-                        <button class="view-details-btn" data-modal="modal2">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Project 3: Weather App -->
-                <div class="portfolio-item" data-category="app">
-                    <img src="images/copy2.png" alt="Weather App" class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h3 class="project-title">Weather App</h3>
-                        <p class="project-description">Fetches and displays weather data for South African cities using the OpenWeatherMap API.</p>
-                        <button class="view-details-btn" data-modal="modal3">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Project 4: Investment Calculator -->
-                <div class="portfolio-item" data-category="app">
-                    <img src="images/copy3.png" alt="Investment Calculator" class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h3 class="project-title">Investment Calculator</h3>
-                        <p class="project-description">A web-based tool to calculate the future value of investments.</p>
-                        <button class="view-details-btn" data-modal="modal4">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Project 5: Quran Quiz -->
-                <div class="portfolio-item" data-category="app">
-                    <img src="images/copy4.png" alt="Quran Quiz" class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h3 class="project-title">Quran Quiz</h3>
-                        <p class="project-description">A quiz to test your knowledge of the Quran.</p>
-                        <button class="view-details-btn" data-modal="modal5">View Details</button>
-                    </div>
-                </div>
-            </div>
+        <div class="item">
+          <img src="portfolio-website.jpg" alt="Portfolio Website">
+          <p>A clean and modern portfolio website that highlights your work in a visually striking manner, making it easy for clients to explore.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
         </div>
 
-        <!-- Modals for Project Details -->
-        <div id="modal1" class="portfolio-modal">
-            <div class="modal-content">
-                <span class="close-btn" data-close="modal1">&times;</span>
-                <h3>Madya Swa Nyuku</h3>
-                <p>Eco-friendly pest control solutions for homes and businesses.</p>
-                <a href="https://nhlobo.github.io/MADYASWANYUKU/" target="_blank" class="btn btn-primary">View Live</a>
-            </div>
+        <div class="item">
+          <img src="landing-page-website.jpg" alt="Landing Page">
+          <p>A responsive landing page designed for conversions with a clear call-to-action and an optimized user experience.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
         </div>
 
-        <div id="modal2" class="portfolio-modal">
-            <div class="modal-content">
-                <span class="close-btn" data-close="modal2">&times;</span>
-                <h3>TechConnect</h3>
-                <p>A project to showcase the latest technology with real-time updates, user rewards, and job search functionality.</p>
-                <a href="https://nhlobo.github.io/Landing-page-demo/" target="_blank" class="btn btn-primary">View Live</a>
-            </div>
+        <div class="item">
+          <img src="simple-project-website.jpg" alt="Simple Project Website">
+          <p>An ideal choice for small projects, offering a straightforward design to display essential information and services clearly.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
         </div>
 
-        <div id="modal3" class="portfolio-modal">
-            <div class="modal-content">
-                <span class="close-btn" data-close="modal3">&times;</span>
-                <h3>Weather App</h3>
-                <p>Displays current weather and 5-day forecast for South African cities using the OpenWeatherMap API.</p>
-                <a href="https://weather-ebon-beta.vercel.app/" target="_blank" class="btn btn-primary">View Live</a>
-            </div>
+        <!-- Standard Package -->
+        <div class="item">
+          <h5>Standard Package</h5>
+          <img src="small-business-website.jpg" alt="Small Business Website">
+          <p>Designed for small businesses, this website package includes essential features like service details, testimonials, and a contact form.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
         </div>
 
-        <div id="modal4" class="portfolio-modal">
-            <div class="modal-content">
-                <span class="close-btn" data-close="modal4">&times;</span>
-                <h3>Investment Calculator</h3>
-                <p>A web-based tool to calculate the future value of investments.</p>
-                <a href="https://nhlobo.github.io/calculator/" target="_blank" class="btn btn-primary">View Live</a>
-            </div>
+        <div class="item">
+          <img src="consultant-website.jpg" alt="Consultant Website">
+          <p>Consultant website with a polished design and clear service offerings, designed to help consultants stand out and attract clients.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
         </div>
 
-        <div id="modal5" class="portfolio-modal">
-            <div class="modal-content">
-                <span class="close-btn" data-close="modal5">&times;</span>
-                <h3>Quran Quiz</h3>
-                <p>A fun and educational quiz to test your knowledge of the Quran.</p>
-                <a href="https://nhlobo.github.io/quran-knowledge-quiz/" target="_blank" class="btn btn-primary">View Live</a>
-            </div>
+        <div class="item">
+          <img src="non-profit-website.jpg" alt="Non-profit Website">
+          <p>A dynamic non-profit website featuring donation integration and an event calendar to boost engagement and contributions.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
         </div>
-    </section>
 
-    <script>
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        <div class="item">
+          <img src="portfolio-with-gallery.jpg" alt="Portfolio with Gallery">
+          <p>Portfolio website with a gallery or blog section, showcasing your projects, articles, and creative endeavors in an engaging way.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+        </div>
 
-        filterBtns.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.dataset.filter;
+        <!-- Premium Package -->
+        <div class="item">
+          <h5>Premium Package</h5>
+          <img src="corporate-website.jpg" alt="Corporate Website">
+          <p>Professionally designed corporate website with multiple pages, including service details, contact info, and client testimonials.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+        </div>
 
-                // Toggle active class on filter buttons
-                filterBtns.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+        <div class="item">
+          <img src="service-provider-website.jpg" alt="Service Provider Website">
+          <p>Website designed for service providers with integrated booking and contact forms to streamline client interactions.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+        </div>
 
-                // Filter items by category
-                portfolioItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
+        <div class="item">
+          <img src="multi-page-business-website.jpg" alt="Multi-page Business Website">
+          <p>Multi-page website to showcase products, services, and all aspects of your business, including client interactions and testimonials.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+        </div>
 
-        // Modal functionality
-        const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
-        const modals = document.querySelectorAll('.portfolio-modal');
-        const closeBtns = document.querySelectorAll('.close-btn');
+        <div class="item">
+          <img src="organization-website.jpg" alt="Organization Website">
+          <p>Organization website with features like an event calendar, team members section, blog, and more to connect with your community.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+        </div>
 
-        viewDetailsBtns.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const modalId = e.target.dataset.modal;
-                document.getElementById(modalId).style.display = 'flex';
-            });
-        });
+        <!-- E-commerce Package -->
+        <div class="item">
+          <h5>E-commerce Package</h5>
+          <img src="ecommerce-website.jpg" alt="E-commerce Website">
+          <p>A fully functional e-commerce site, designed to showcase products with secure payment integration and seamless shopping experience.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+        </div>
 
-        closeBtns.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const modalId = e.target.dataset.close;
-                document.getElementById(modalId).style.display = 'none';
-            });
-        });
+        <div class="item">
+          <img src="online-store.jpg" alt="Online Store">
+          <p>Online store solution with a user-friendly interface built on platforms like WooCommerce, Shopify, or Wix to sell your products online.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+        </div>
 
-        // Close modals when clicking outside the modal content
-        window.addEventListener('click', (e) => {
-            if (e.target.classList.contains('portfolio-modal')) {
-                e.target.style.display = 'none';
-            }
-        });
-    </script>
+        <!-- App Development Packages -->
+        <div class="item">
+          <h5>Basic App</h5>
+          <img src="simple-app.jpg" alt="Basic App">
+          <p>Simple mobile app with basic functionality like login and form submission, designed for small-scale projects.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+        </div>
+
+        <div class="item">
+          <h5>Standard App</h5>
+          <img src="standard-app.jpg" alt="Standard App">
+          <p>A medium complexity app featuring user profiles and third-party API integration for a more dynamic experience.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+        </div>
+
+        <div class="item">
+          <h5>Premium App</h5>
+          <img src="premium-app.jpg" alt="Premium App">
+          <p>Advanced mobile app with custom features such as payment gateways and live tracking, designed for high-demand projects.</p>
+          <a href="#" class="view-live-btn" target="_blank">View Live</a>
+        </div>
+      </div>
+
+      <!-- Carousel Navigation Buttons -->
+      <div class="carousel-buttons">
+        <button id="prev-btn">&#8592; Prev</button>
+        <button id="next-btn">Next &#8594;</button>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide .item');
+    const prevButton = document.getElementById('prev-btn');
+    const nextButton = document.getElementById('next-btn');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+      });
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+      showSlide(currentSlideIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+      showSlide(currentSlideIndex);
+    });
+
+    // Initialize the first slide
+    showSlide(currentSlideIndex);
+  </script>
+   
+ </section>
+  
 
    <footer>
     <ul class="wrapper">
