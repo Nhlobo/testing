@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery Section</title>
   <style>
-    /* Global Reset */
+   /* PORTFOLIO SECTION */
 * {
   margin: 0;
   padding: 0;
@@ -16,118 +16,140 @@
 /* Body Styles */
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.1)); /* Darker gradient */
+background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
-    h1, h2, h3, h4, h5, p {
-      font-weight: 500;
-    }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+/* Section Styles */
+section {
+   background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 2rem 1rem;
+    margin-bottom: 20px; /* Ensure there's space between sections */
+}
 
-    .gallery-section {
-      padding: 60px 0;
-      text-align: center;
-    }
+h3, .section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+}
 
-    .gallery-intro {
-      margin-bottom: 60px;
-    }
+h3, p {
+    font-size: 1rem;
+    color: #374151;
+}
 
-    .gallery-intro h3 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
+/* Link Style */
+a {
+  text-decoration: none;
+  color: #FFD700; /* Golden color for links */
+}
 
-    .gallery-intro p {
-      font-size: 18px;
-      color: #777;
-      line-height: 1.8;
-    }
+/* Gallery Section */
+.gallery-section {
+  padding: 60px 0;
+  text-align: center;
+}
 
-    .carousel-container {
-      position: relative;
-      width: 80%;
-      max-width: 800px;
-      margin: 0 auto;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    }
+/* Expertise Item Title */
+.gallery-intro h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #f1f1f1; /* Lighter text for titles */
+}
 
-    .carousel-slide {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+/* Expertise Item Paragraph */
+.gallery-intro p {
+  font-size: 1rem;
+  color: #dcdcdc; /* Light grey text for paragraph */
+  margin-bottom: 1rem;
+}
+    
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Darker shadow for emphasis */
+}
 
-    .carousel-slide .item {
-      display: none;
-      text-align: center;
-    }
+.carousel-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-    .carousel-slide .item img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
+.carousel-slide .item {
+  display: none;
+  text-align: center;
+}
 
-    .carousel-description {
-      margin-top: 15px;
-      font-size: 16px;
-      color: #555;
-    }
+.carousel-slide .item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Darker shadow for images */
+}
 
-    .carousel-buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
+.carousel-description {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #ddd; /* Light grey text for description */
+}
 
-    .carousel-buttons button {
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
 
-    .carousel-buttons button:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
+.carousel-buttons button {
+  background: rgba(0, 0, 0, 0.7); /* Darker background for buttons */
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-    /* View Live Button */
-    .view-live-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 20px;
-      background-color: #007bff;
-      color: white;
-      text-align: center;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+.carousel-buttons button:hover {
+  background: rgba(0, 0, 0, 0.9); /* Darker on hover */
+}
 
-    .view-live-btn:hover {
-      background-color: #0056b3;
-    }
+/* View Live Button */
+.view-live-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  background-color: #FFD700; /* Golden background */
+  color: #333; /* Dark text color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for Buttons */
+.view-live-btn:hover {
+  background-color: #ffcc00; /* Slightly darker yellow */
+  transform: translateY(-5px); /* Hover lift effect */
+}
   </style>
 </head>
 <body>
