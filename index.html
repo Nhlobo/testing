@@ -32,7 +32,11 @@
       text-align: center;
     }
 
-   .explore-portfolio h2 {
+    .explore-portfolio {
+      margin-bottom: 60px;
+    }
+
+    .explore-portfolio h2 {
       font-size: 48px;
       font-weight: 700;
       margin-bottom: 20px;
@@ -88,7 +92,12 @@
       justify-content: center;
     }
 
-    .carousel-slide img {
+    .carousel-slide .item {
+      display: none;
+      text-align: center;
+    }
+
+    .carousel-slide .item img {
       width: 100%;
       height: auto;
       border-radius: 8px;
@@ -123,11 +132,18 @@
     .carousel-buttons button:hover {
       background: rgba(0, 0, 0, 0.8);
     }
-    
+
   </style>
 </head>
 <body>
-  
+
+  <section class="gallery-section">
+    <!-- Top Navigation - Explore Portfolio Button -->
+    <div class="explore-portfolio">
+      <h2>Explore Our Portfolio</h2>
+      <a href="#portfolio" class="explore-btn">View Portfolio</a>
+    </div>
+
     <!-- Gallery Introduction Section -->
     <div class="gallery-intro">
       <h3>Explore Our Projects</h3>
@@ -137,87 +153,102 @@
     <!-- Carousel Section -->
     <div class="carousel-container">
       <div class="carousel-slide">
+        
+        <!-- Starter Package -->
         <div class="item">
           <h5>Starter Package</h5>
-            <img src="personal-blog.jpg" alt="Personal Blog">
-            <p>Custom personal blog design with post categories and responsive layout.</p>
-          </div>
-          <div class="item">
-            <img src="portfolio-website.jpg" alt="Portfolio Website">
-            <p>Portfolio website with clean design to showcase your work.</p>
-          </div>
-          <div class="item">
-            <img src="landing-page-website.jpg" alt="Landing Page">
-            <p>Responsive landing page with clear call-to-action and simple design.</p>
-          </div>
-          <div class="item">
-            <img src="simple-project-website.jpg" alt="Simple Project Website">
-            <p>Perfect for small projects, showcasing basic information and services.</p>
-          </div>
-          <div class="item">
-            <h5>Standard Package</h5>
-            <img src="small-business-website.jpg" alt="Small Business Website">
-            <p>Website for small businesses with basic services and contact info.</p>
-          </div>
-          <div class="item">
-            <img src="consultant-website.jpg" alt="Consultant Website">
-            <p>Consultant website with service offerings and contact details.</p>
-          </div>
-          <div class="item">
-            <img src="non-profit-website.jpg" alt="Non-profit Website">
-            <p>Website for non-profits with donation integration and event calendar.</p>
-          </div>
-          <div class="item">
-            <img src="portfolio-with-gallery.jpg" alt="Portfolio with Gallery">
-            <p>Portfolio with a gallery or blog section to highlight projects and articles.</p>
-          </div>
-          <div class="item">
-            <h5>Premium Package</h5>
-            <img src="corporate-website.jpg" alt="Corporate Website">
-            <p>Corporate website with multiple pages and professional design.</p>
-          </div>
-          <div class="item">
-            <img src="service-provider-website.jpg" alt="Service Provider Website">
-            <p>Service provider website with booking and contact form integration.</p>
-          </div>
-          <div class="item">
-            <img src="multi-page-business-website.jpg" alt="Multi-page Business Website">
-            <p>Multi-page website to showcase products, services, and business information.</p>
-          </div>
-          <div class="item">
-            <img src="organization-website.jpg" alt="Organization Website">
-            <p>Organization website with event calendar, team members, and blog.</p>
-          </div>
-          <div class="item">
-            <h5>E-commerce Package</h5>
-            <img src="ecommerce-website.jpg" alt="E-commerce Website">
-            <p>Fully functional e-commerce website with product pages, payment integration.</p>
-          </div>
-          <div class="item">
-            <img src="online-store.jpg" alt="Online Store">
-            <p>Online store built on WooCommerce, Shopify, or Wix with product catalog.</p>
-          </div>
+          <img src="almost.jpg" alt="Personal Blog">
+          <p>Custom personal blog design with post categories and responsive layout.</p>
         </div>
-      </div>
-      <div class="category">
-        <h4>App Development</h4>
-        <div class="gallery-items">
-          <!-- Basic App -->
-          <div class="item">
-            <h5>Basic App</h5>
-            <img src="simple-app.jpg" alt="Basic App">
-            <p>Simple app with login, form submission, and basic functionality.</p>
-          </div>
-          <div class="item">
-            <h5>Standard App</h5>
-            <img src="standard-app.jpg" alt="Standard App">
-            <p>Medium complexity app with user profiles and third-party API integration.</p>
-          </div>
-          <div class="item">
-            <h5>Premium App</h5>
-            <img src="premium-app.jpg" alt="Premium App">
-            <p>Complex app with custom features like payment gateways and live tracking.</p>
-          </div>
+
+        <div class="item">
+          <img src="try.png" alt="Portfolio Website">
+          <p>Portfolio website with clean design to showcase your work.</p>
+        </div>
+
+        <div class="item">
+          <img src="landing-page-website.jpg" alt="Landing Page">
+          <p>Responsive landing page with clear call-to-action and simple design.</p>
+        </div>
+
+        <div class="item">
+          <img src="simple-project-website.jpg" alt="Simple Project Website">
+          <p>Perfect for small projects, showcasing basic information and services.</p>
+        </div>
+
+        <!-- Standard Package -->
+        <div class="item">
+          <h5>Standard Package</h5>
+          <img src="small-business-website.jpg" alt="Small Business Website">
+          <p>Website for small businesses with basic services and contact info.</p>
+        </div>
+
+        <div class="item">
+          <img src="consultant-website.jpg" alt="Consultant Website">
+          <p>Consultant website with service offerings and contact details.</p>
+        </div>
+
+        <div class="item">
+          <img src="non-profit-website.jpg" alt="Non-profit Website">
+          <p>Website for non-profits with donation integration and event calendar.</p>
+        </div>
+
+        <div class="item">
+          <img src="portfolio-with-gallery.jpg" alt="Portfolio with Gallery">
+          <p>Portfolio with a gallery or blog section to highlight projects and articles.</p>
+        </div>
+
+        <!-- Premium Package -->
+        <div class="item">
+          <h5>Premium Package</h5>
+          <img src="corporate-website.jpg" alt="Corporate Website">
+          <p>Corporate website with multiple pages and professional design.</p>
+        </div>
+
+        <div class="item">
+          <img src="service-provider-website.jpg" alt="Service Provider Website">
+          <p>Service provider website with booking and contact form integration.</p>
+        </div>
+
+        <div class="item">
+          <img src="multi-page-business-website.jpg" alt="Multi-page Business Website">
+          <p>Multi-page website to showcase products, services, and business information.</p>
+        </div>
+
+        <div class="item">
+          <img src="organization-website.jpg" alt="Organization Website">
+          <p>Organization website with event calendar, team members, and blog.</p>
+        </div>
+
+        <!-- E-commerce Package -->
+        <div class="item">
+          <h5>E-commerce Package</h5>
+          <img src="ecommerce-website.jpg" alt="E-commerce Website">
+          <p>Fully functional e-commerce website with product pages, payment integration.</p>
+        </div>
+
+        <div class="item">
+          <img src="online-store.jpg" alt="Online Store">
+          <p>Online store built on WooCommerce, Shopify, or Wix with product catalog.</p>
+        </div>
+
+        <!-- App Development Packages -->
+        <div class="item">
+          <h5>Basic App</h5>
+          <img src="simple-app.jpg" alt="Basic App">
+          <p>Simple app with login, form submission, and basic functionality.</p>
+        </div>
+
+        <div class="item">
+          <h5>Standard App</h5>
+          <img src="standard-app.jpg" alt="Standard App">
+          <p>Medium complexity app with user profiles and third-party API integration.</p>
+        </div>
+
+        <div class="item">
+          <h5>Premium App</h5>
+          <img src="premium-app.jpg" alt="Premium App">
+          <p>Complex app with custom features like payment gateways and live tracking.</p>
         </div>
       </div>
 
