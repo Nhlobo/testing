@@ -194,7 +194,8 @@ body {
   /* Adjust any further styles for smaller screens if needed */
 }
        
- /* Section Styles */
+       
+/* Section Styles */
 section {
     padding: 80px 20px;
     background: rgba(255, 255, 255, 0.1); /* Light transparent background */
@@ -206,13 +207,20 @@ section {
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover effect for section */
+section:hover {
+    background: rgba(255, 255, 255, 0.2); /* Darken on hover */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+}
 
 /* Heading for Sections */
 section h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 1.5rem;
+    font-size: 3.5rem; /* Large, bold heading */
+    font-weight: 600; /* Strong weight */
+    color: #fff; /* White text */
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase; /* Uppercase for headings */
 }
 
 /* Paragraph styling for Sections */
@@ -244,126 +252,218 @@ section p {
     background-color: #ffcc00; /* Slightly darker yellow */
     transform: translateY(-5px); /* Hover lift effect */
 }
-        
-/* Expertise Section */
-.expertise {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); /* Darker gradient */
-    backdrop-filter: blur(15px);
-    border-radius: 15px;
-    color: white;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
-    margin-top: 80px;
-    text-align: center;
+
+/* Portfolio Section Styles */
+.portfolio {
+    padding: 60px 20px;
+    background-color: transparent;
 }
-        
-.expertise h2 {
-    font-size: 2.5rem;
+
+/* Container for consistent layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Portfolio Header Styles */
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.portfolio-header .section-title {
+    font-size: 2rem;
     font-weight: 600;
     color: #1e293b;
-    margin-bottom: 1rem;
 }
 
-.expertise p {
-    font-size: 1.2rem;
+.portfolio-header .section-description {
+    font-size: 18px;
     color: #ddd;
-    line-height: 1.8;
-    max-width: 900px;
-    margin: 0 auto;
-    margin-bottom: 2rem;
 }
 
-/* Expertise Grid Container */
-.expertise-grid {
+/* Portfolio Filter Buttons */
+.portfolio-filters {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 50px;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover and active states for filter buttons */
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Portfolio Grid Layout */
+.portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Makes the cards responsive */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
     gap: 30px;
-    justify-items: center; /* Center the items horizontally */
-    max-width: 1200px;
-    margin: 0 auto; /* Center the entire grid */
-    padding: 0 15px; /* Padding to avoid touching the screen edges */
 }
 
-/* Expertise Item */
-.expertise-item {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 20px;
-    transition: transform 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Ensure cards are fully responsive */
-    max-width: 350px; /* Control maximum size of each card */
-    margin-bottom: 20px; /* Space between cards */
-}
-
-/* Expertise Image Container */
-.expertise-img-container {
+/* Individual Portfolio Items */
+.portfolio-item {
     position: relative;
-    overflow: hidden;
     border-radius: 10px;
-    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-/* Expertise Image */
-.expertise-img {
+/* Hover effect on portfolio items */
+.portfolio-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Image inside portfolio items */
+.portfolio-image {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.expertise-item:hover .expertise-img {
-    transform: scale(1.05);
+/* Hover effect for image */
+.portfolio-item:hover .portfolio-image {
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
-/* Expertise Item Title */
-.expertise h3 {
-    font-size: 1.5rem;
+/* Overlay for portfolio items */
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Darkened overlay */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show overlay on hover */
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+/* Project title inside overlay */
+.project-title {
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 10px;
-    color: #1e293b;
 }
 
-/* Expertise Item Paragraph */
-.expertise-item p {
-    font-size: 1rem;
-    color: #ddd;
-    margin-bottom: 1rem;
+/* Project description inside overlay */
+.project-description {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Button Styling */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    background-color: #FFD700; /* Golden background */
-    color: #333; /* Dark text color */
-    border: none;
-    border-radius: 5px;
+/* View details button */
+.view-details-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
     text-decoration: none;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-/* Hover effect for Buttons */
-.btn:hover {
-    background-color: #ffcc00; /* Slightly darker yellow */
-    transform: translateY(-5px); /* Hover lift effect */
+/* Hover effect for the details button */
+.view-details-btn:hover {
+    background-color: #0056b3;
 }
 
-/* Media Queries for Larger Screens (Optional) */
-@media screen and (min-width: 768px) {
-    .expertise-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ensure cards are responsive on tablets */
+/* Modal Styling */
+.portfolio-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease-out;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 80%;
+    color: #333;
+    margin: 0 20px;
+    position: relative;
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@media screen and (min-width: 1024px) {
-    .expertise-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* On larger screens, cards are in a flexible grid */
-        justify-items: center; /* Center the cards horizontally */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 20px;
     }
-}    
+
+    .modal-content h3 {
+        font-size: 20px;
+    }
+
+    .close-btn {
+        font-size: 25px;
+        top: 5px;
+        right: 10px;
+    }
+}
 
  /* Footer Styles */
 footer {
@@ -497,36 +597,174 @@ footer {
         }
     </script>
 
-<!-- Expertise Section -->
-    <section class="expertise">
+   <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2>Our Expertise</h2>
-            <p>We specialize in delivering high-quality digital solutions across multiple domains, ensuring your business achieves the results it deserves.</p>
+            <!-- Portfolio Title & Description -->
+            <div class="portfolio-header">
+                <h2 class="section-title">Our Work</h2>
+                <p class="section-description">Explore the various projects  we've developed, ranging from web applications to professional services websites.</p>
+            </div>
 
-            <div class="expertise-grid">
-                <div class="expertise-item">
-                    <div class="expertise-img-container">
-                        <img src="images/try.png" alt="Web Development" class="expertise-img">
+            <!-- Filter Buttons (Dynamic) -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="app">Web Apps</button>
+                <button class="filter-btn" data-filter="services">Business Services</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Project 1: Madya Swa Nyuku Business Services -->
+                <div class="portfolio-item" data-category="services">
+                    <img src="images/copy.png" alt="Madya Swa Nyuku" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="project-title">Madya Swa Nyuku</h3>
+                        <p class="project-description">Eco-friendly pest control solutions for homes and businesses.</p>
+                        <button class="view-details-btn" data-modal="modal1">View Details</button>
                     </div>
-                    <h3>Web Development</h3>
-                    <p>Custom websites built with performance, security, and user experience in mind.</p>
                 </div>
-                <div class="expertise-item">
-                    <div class="expertise-img-container">
-                        <img src="images/mobile-application.jpeg" alt="Mobile Apps" class="expertise-img">
+
+                <!-- Project 2: TechConnect -->
+                <div class="portfolio-item" data-category="web">
+                    <img src="images/copy1.png" alt="TechConnect" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="project-title">TechConnect</h3>
+                        <p class="project-description">A landing page to showcase the latest technology, with real-time updates and job search functionality.</p>
+                        <button class="view-details-btn" data-modal="modal2">View Details</button>
                     </div>
-                    <h3>Mobile Apps</h3>
-                    <p>Innovative mobile apps for Android and iOS that engage and retain users.</p>
                 </div>
-                <div class="expertise-item">
-                    <div class="expertise-img-container">
-                        <img src="images/preview-600x450.png" alt="E-Commerce" class="expertise-img">
+
+                <!-- Project 3: Weather App -->
+                <div class="portfolio-item" data-category="app">
+                    <img src="images/copy2.png" alt="Weather App" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="project-title">Weather App</h3>
+                        <p class="project-description">Fetches and displays weather data for South African cities using the OpenWeatherMap API.</p>
+                        <button class="view-details-btn" data-modal="modal3">View Details</button>
                     </div>
-                    <h3>E-Commerce</h3>
-                    <p>Scalable e-commerce platforms with seamless integration and user-friendly designs.</p>
+                </div>
+
+                <!-- Project 4: Investment Calculator -->
+                <div class="portfolio-item" data-category="app">
+                    <img src="images/copy3.png" alt="Investment Calculator" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="project-title">Investment Calculator</h3>
+                        <p class="project-description">A web-based tool to calculate the future value of investments.</p>
+                        <button class="view-details-btn" data-modal="modal4">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Project 5: Quran Quiz -->
+                <div class="portfolio-item" data-category="app">
+                    <img src="images/copy4.png" alt="Quran Quiz" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="project-title">Quran Quiz</h3>
+                        <p class="project-description">A quiz to test your knowledge of the Quran.</p>
+                        <button class="view-details-btn" data-modal="modal5">View Details</button>
+                    </div>
                 </div>
             </div>
-      </section>
+        </div>
+
+        <!-- Modals for Project Details -->
+        <div id="modal1" class="portfolio-modal">
+            <div class="modal-content">
+                <span class="close-btn" data-close="modal1">&times;</span>
+                <h3>Madya Swa Nyuku</h3>
+                <p>Eco-friendly pest control solutions for homes and businesses.</p>
+                <a href="https://nhlobo.github.io/MADYASWANYUKU/" target="_blank" class="btn btn-primary">View Live</a>
+            </div>
+        </div>
+
+        <div id="modal2" class="portfolio-modal">
+            <div class="modal-content">
+                <span class="close-btn" data-close="modal2">&times;</span>
+                <h3>TechConnect</h3>
+                <p>A project to showcase the latest technology with real-time updates, user rewards, and job search functionality.</p>
+                <a href="https://nhlobo.github.io/Landing-page-demo/" target="_blank" class="btn btn-primary">View Live</a>
+            </div>
+        </div>
+
+        <div id="modal3" class="portfolio-modal">
+            <div class="modal-content">
+                <span class="close-btn" data-close="modal3">&times;</span>
+                <h3>Weather App</h3>
+                <p>Displays current weather and 5-day forecast for South African cities using the OpenWeatherMap API.</p>
+                <a href="https://weather-ebon-beta.vercel.app/" target="_blank" class="btn btn-primary">View Live</a>
+            </div>
+        </div>
+
+        <div id="modal4" class="portfolio-modal">
+            <div class="modal-content">
+                <span class="close-btn" data-close="modal4">&times;</span>
+                <h3>Investment Calculator</h3>
+                <p>A web-based tool to calculate the future value of investments.</p>
+                <a href="https://nhlobo.github.io/calculator/" target="_blank" class="btn btn-primary">View Live</a>
+            </div>
+        </div>
+
+        <div id="modal5" class="portfolio-modal">
+            <div class="modal-content">
+                <span class="close-btn" data-close="modal5">&times;</span>
+                <h3>Quran Quiz</h3>
+                <p>A fun and educational quiz to test your knowledge of the Quran.</p>
+                <a href="https://nhlobo.github.io/quran-knowledge-quiz/" target="_blank" class="btn btn-primary">View Live</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+
+                // Toggle active class on filter buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filter items by category
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal functionality
+        const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
+        const modals = document.querySelectorAll('.portfolio-modal');
+        const closeBtns = document.querySelectorAll('.close-btn');
+
+        viewDetailsBtns.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const modalId = e.target.dataset.modal;
+                document.getElementById(modalId).style.display = 'flex';
+            });
+        });
+
+        closeBtns.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const modalId = e.target.dataset.close;
+                document.getElementById(modalId).style.display = 'none';
+            });
+        });
+
+        // Close modals when clicking outside the modal content
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('portfolio-modal')) {
+                e.target.style.display = 'none';
+            }
+        });
+    </script>
+
    <footer>
     <ul class="wrapper">
       <li class="icon facebook" onclick="redirectTo('https://facebook.com')">
