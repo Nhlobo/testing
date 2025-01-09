@@ -3,37 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Showcase</title>
+    <title>Responsive Showcase</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset and Global Styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
             background-color: #f9f9f9;
+            color: #333;
         }
 
+        /* Showcase Section */
         .showcase {
+            padding: 40px 20px;
             text-align: center;
-            padding: 20px;
         }
 
-        h2 {
+        .showcase h2 {
             font-size: 2rem;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
-        p {
+        .showcase p {
+            font-size: 1rem;
             color: #666;
+            margin-bottom: 20px;
         }
 
+        /* Carousel Wrapper */
         .carousel {
             position: relative;
-            width: 80%;
+            max-width: 100%;
             margin: auto;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .carousel-inner {
@@ -43,33 +53,33 @@
 
         .carousel-item {
             min-width: 100%;
-            box-sizing: border-box;
             padding: 20px;
-            text-align: center;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .carousel-item img {
             max-width: 100%;
-            height: auto;
+            max-height: 300px;
+            object-fit: cover;
             border-radius: 8px;
+            margin-bottom: 15px;
         }
 
-        h3 {
-            margin: 10px 0;
+        .carousel-item h3 {
             font-size: 1.5rem;
+            margin: 10px 0;
         }
 
-        p {
-            color: #333;
-            margin: 10px 0;
+        .carousel-item p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
         }
 
         .view-btn {
             display: inline-block;
-            margin-top: 10px;
             padding: 10px 20px;
             background-color: #5f6cff;
             color: #fff;
@@ -82,15 +92,16 @@
             background-color: #4c57cc;
         }
 
+        /* Navigation Buttons */
         button {
-            background-color: transparent;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #666;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
             z-index: 10;
         }
 
@@ -105,6 +116,47 @@
         button.next {
             right: 10px;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .carousel-item img {
+                max-height: 200px;
+            }
+
+            .carousel-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .carousel-item p {
+                font-size: 0.9rem;
+            }
+
+            .view-btn {
+                padding: 8px 16px;
+            }
+
+            button {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-item img {
+                max-height: 150px;
+            }
+
+            .carousel-item h3 {
+                font-size: 1rem;
+            }
+
+            .carousel-item p {
+                font-size: 0.8rem;
+            }
+
+            .view-btn {
+                padding: 6px 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -116,7 +168,7 @@
             <div class="carousel-inner">
                 <!-- Add your projects here -->
                 <div class="carousel-item">
-                    <img src="almost.jpg" alt="Project 1">
+                    <img src="image1.jpg" alt="Project 1">
                     <h3>Project Title 1</h3>
                     <p>Description of project 1. Keep it brief and engaging.</p>
                     <a href="#" class="view-btn">View</a>
@@ -127,7 +179,7 @@
                     <p>Description of project 2. Keep it brief and engaging.</p>
                     <a href="#" class="view-btn">View</a>
                 </div>
-                <!-- Add more carousel items up to 14 -->
+                <!-- Add up to 14 projects -->
             </div>
             <button class="next">&gt;</button>
         </div>
