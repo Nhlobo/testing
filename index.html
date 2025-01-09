@@ -3,161 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Gallery</title>
+    <title>Showcase</title>
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            flex-direction: column;
+            padding: 0;
+            background-color: #f9f9f9;
         }
 
-        h1 {
-            margin-bottom: 20px;
-            font-size: 2em;
-            color: #333;
+        .showcase {
+            text-align: center;
+            padding: 20px;
         }
 
-        .gallery-container {
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .carousel {
             position: relative;
-            width: 100%;
-            max-width: 900px;
-            height: 500px;
+            width: 80%;
+            margin: auto;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            background-color: #000;
-        }
-
-        .image-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: opacity 1s ease-in-out;
         }
 
-        .gallery-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
         }
 
-        .gallery-container img.active {
-            opacity: 1;
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
 
-        /* Title Styling */
-        .image-title {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            font-size: 1.5em;
+        .carousel-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        h3 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        p {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .view-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #5f6cff;
             color: #fff;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
+            text-decoration: none;
             border-radius: 5px;
-        }
-
-        /* Arrow buttons styling */
-        .arrow-btn {
-            position: absolute;
-            top: 50%;
-            font-size: 2em;
-            color: white;
-            background: rgba(0, 0, 0, 0.5);
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transform: translateY(-50%);
-            z-index: 10;
             transition: background-color 0.3s ease;
         }
 
-        .left {
+        .view-btn:hover {
+            background-color: #4c57cc;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        button:hover {
+            color: #333;
+        }
+
+        button.prev {
             left: 10px;
         }
 
-        .right {
+        button.next {
             right: 10px;
         }
-
-        .arrow-btn:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
     </style>
 </head>
 <body>
-    <h1>Car Image Gallery</h1>
-
-    <!-- Image Display Section -->
-    <div class="gallery-container">
-        <!-- Left Arrow Button -->
-        <button class="arrow-btn left" onclick="changeImage(-1)" aria-label="Previous image">&#10094;</button>
-        
-        <!-- Image Display Section -->
-        <div class="image-container">
-            <img id="car-image" src="car1.jpg" alt="Car Image 1" class="active">
-            <div id="image-title" class="image-title">Car 1</div>
+    <section class="showcase">
+        <h2>Showcase</h2>
+        <p>Projects & Collaborations</p>
+        <div class="carousel">
+            <button class="prev">&lt;</button>
+            <div class="carousel-inner">
+                <!-- Add your projects here -->
+                <div class="carousel-item">
+                    <img src="image1.jpg" alt="Project 1">
+                    <h3>Project Title 1</h3>
+                    <p>Description of project 1. Keep it brief and engaging.</p>
+                    <a href="#" class="view-btn">View</a>
+                </div>
+                <div class="carousel-item">
+                    <img src="image2.jpg" alt="Project 2">
+                    <h3>Project Title 2</h3>
+                    <p>Description of project 2. Keep it brief and engaging.</p>
+                    <a href="#" class="view-btn">View</a>
+                </div>
+                <!-- Add more carousel items up to 14 -->
+            </div>
+            <button class="next">&gt;</button>
         </div>
-        
-        <!-- Right Arrow Button -->
-        <button class="arrow-btn right" onclick="changeImage(1)" aria-label="Next image">&#10095;</button>
-    </div>
-
+    </section>
     <script>
-        // JavaScript functionality
-        let currentImageIndex = 0;
-        const images = [
-            { src: "car1.jpg", title: "Car 1" },  // Image 1
-            { src: "copy.png", title: "Car 2" },  // Image 2
-            { src: "try.png", title: "Car 3" },   // Image 3
-            { src: "car4.jpg", title: "Car 4" }   // Image 4
-        ];
+        const carouselInner = document.querySelector('.carousel-inner');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
 
-        const carImage = document.getElementById("car-image");
-        const imageTitle = document.getElementById("image-title");
+        let index = 0;
 
-        function changeImage(direction) {
-            // Calculate the next image index
-            currentImageIndex += direction;
-
-            // Loop back to the start or end if we reach the last or first image
-            if (currentImageIndex < 0) {
-                currentImageIndex = images.length - 1;  // Loop to the last image
-            } else if (currentImageIndex >= images.length) {
-                currentImageIndex = 0;  // Loop to the first image
+        prevButton.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+                updateCarousel();
             }
+        });
 
-            // Fade out the current image
-            carImage.classList.remove("active");
+        nextButton.addEventListener('click', () => {
+            if (index < 13) { // Adjust based on the number of items (14 - 1 = 13)
+                index++;
+                updateCarousel();
+            }
+        });
 
-            // Wait for the fade-out to complete before changing the image
-            setTimeout(() => {
-                // Change the image source and title
-                carImage.src = images[currentImageIndex].src;
-                imageTitle.textContent = images[currentImageIndex].title;
-
-                // Fade in the new image
-                carImage.classList.add("active");
-            }, 1000);  // Match the transition duration
+        function updateCarousel() {
+            carouselInner.style.transform = `translateX(-${index * 100}%)`;
         }
     </script>
 </body>
