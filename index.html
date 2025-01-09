@@ -28,19 +28,13 @@
     }
 
     .gallery-section {
-      padding: 40px 0; /* Reduced padding */
-      margin: 0; /* Removed margin to not affect other sections */
-    }
-
-    .explore-portfolio {
+      padding: 60px 0;
       text-align: center;
-      margin-bottom: 40px; /* Reduced bottom margin */
     }
 
-    .explore-portfolio h2 {
+   .explore-portfolio h2 {
       font-size: 48px;
       font-weight: 700;
-      color: #333;
       margin-bottom: 20px;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -62,13 +56,11 @@
     }
 
     .gallery-intro {
-      text-align: center;
-      margin-bottom: 40px; /* Reduced bottom margin */
+      margin-bottom: 60px;
     }
 
     .gallery-intro h3 {
       font-size: 36px;
-      color: #333;
       margin-bottom: 20px;
       font-weight: 700;
     }
@@ -79,175 +71,189 @@
       line-height: 1.8;
     }
 
-    .gallery-categories {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    .category {
-      width: 48%;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .carousel-container {
       position: relative;
-      margin-bottom: 20px; /* Reduced space between categories */
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .category:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-    }
-
-    .category h4 {
-      font-size: 24px;
-      text-align: center;
-      margin-top: 20px;
-      color: #333;
-    }
-
-    .gallery-items {
+    .carousel-slide {
       display: flex;
-      flex-direction: column; /* Stack items vertically */
-      gap: 20px;
-      padding: 20px;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
     }
 
-    .item {
-      width: 100%;
-      text-align: center;
-      background: #f4f4f4;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: none;
-    }
-
-    .item.active {
-      display: block;
-    }
-
-    .item img {
+    .carousel-slide img {
       width: 100%;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
-    .item p {
+    .carousel-description {
       margin-top: 15px;
+      font-size: 16px;
       color: #555;
-      font-size: 16px;
     }
 
-    .navigation-btns {
-      text-align: center;
-      margin-top: 20px;
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
     }
 
-    .navigation-btns button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #007bff;
+    .carousel-buttons button {
+      background: rgba(0, 0, 0, 0.5);
       color: white;
       border: none;
-      border-radius: 5px;
+      padding: 10px;
+      font-size: 18px;
       cursor: pointer;
-      margin: 0 10px;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
     }
 
-    .navigation-btns button:hover {
-      background-color: #0056b3;
+    .carousel-buttons button:hover {
+      background: rgba(0, 0, 0, 0.8);
     }
-
-    @media screen and (max-width: 768px) {
-      .category, .item {
-        width: 100%;
-      }
-    }
+    
   </style>
 </head>
 <body>
-
-  <section class="gallery-section">
-    <div class="explore-portfolio">
-      <h2>Explore Our Portfolio</h2>
-      <a href="#portfolio" class="explore-btn">View Portfolio</a>
-    </div>
-
+  
+    <!-- Gallery Introduction Section -->
     <div class="gallery-intro">
       <h3>Explore Our Projects</h3>
-      <p>Discover our previous work and get an idea of the websites and apps we've created.</p>
+      <p>Discover our previous work and get an idea of the websites and apps we've created. Whether you are looking for a landing page, blog, or a full-service website, we have a solution for you.</p>
     </div>
 
-    <div class="gallery-categories">
-      
-      <div class="category">
-        <h4>Website Development</h4>
-        <div class="gallery-items">
-          <div class="item active">
-            <h5>Starter Package</h5>
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <div class="item">
+          <h5>Starter Package</h5>
             <img src="personal-blog.jpg" alt="Personal Blog">
             <p>Custom personal blog design with post categories and responsive layout.</p>
           </div>
-
           <div class="item">
-            <h5>Portfolio Website</h5>
             <img src="portfolio-website.jpg" alt="Portfolio Website">
             <p>Portfolio website with clean design to showcase your work.</p>
           </div>
-
           <div class="item">
-            <h5>Landing Page</h5>
-            <img src="try.png" alt="Landing Page">
+            <img src="landing-page-website.jpg" alt="Landing Page">
             <p>Responsive landing page with clear call-to-action and simple design.</p>
           </div>
-
           <div class="item">
-            <h5>Simple Project Website</h5>
             <img src="simple-project-website.jpg" alt="Simple Project Website">
             <p>Perfect for small projects, showcasing basic information and services.</p>
           </div>
+          <div class="item">
+            <h5>Standard Package</h5>
+            <img src="small-business-website.jpg" alt="Small Business Website">
+            <p>Website for small businesses with basic services and contact info.</p>
+          </div>
+          <div class="item">
+            <img src="consultant-website.jpg" alt="Consultant Website">
+            <p>Consultant website with service offerings and contact details.</p>
+          </div>
+          <div class="item">
+            <img src="non-profit-website.jpg" alt="Non-profit Website">
+            <p>Website for non-profits with donation integration and event calendar.</p>
+          </div>
+          <div class="item">
+            <img src="portfolio-with-gallery.jpg" alt="Portfolio with Gallery">
+            <p>Portfolio with a gallery or blog section to highlight projects and articles.</p>
+          </div>
+          <div class="item">
+            <h5>Premium Package</h5>
+            <img src="corporate-website.jpg" alt="Corporate Website">
+            <p>Corporate website with multiple pages and professional design.</p>
+          </div>
+          <div class="item">
+            <img src="service-provider-website.jpg" alt="Service Provider Website">
+            <p>Service provider website with booking and contact form integration.</p>
+          </div>
+          <div class="item">
+            <img src="multi-page-business-website.jpg" alt="Multi-page Business Website">
+            <p>Multi-page website to showcase products, services, and business information.</p>
+          </div>
+          <div class="item">
+            <img src="organization-website.jpg" alt="Organization Website">
+            <p>Organization website with event calendar, team members, and blog.</p>
+          </div>
+          <div class="item">
+            <h5>E-commerce Package</h5>
+            <img src="ecommerce-website.jpg" alt="E-commerce Website">
+            <p>Fully functional e-commerce website with product pages, payment integration.</p>
+          </div>
+          <div class="item">
+            <img src="online-store.jpg" alt="Online Store">
+            <p>Online store built on WooCommerce, Shopify, or Wix with product catalog.</p>
+          </div>
         </div>
-
-        <div class="navigation-btns">
-          <button class="prevBtn">Previous</button>
-          <button class="nextBtn">Next</button>
+      </div>
+      <div class="category">
+        <h4>App Development</h4>
+        <div class="gallery-items">
+          <!-- Basic App -->
+          <div class="item">
+            <h5>Basic App</h5>
+            <img src="simple-app.jpg" alt="Basic App">
+            <p>Simple app with login, form submission, and basic functionality.</p>
+          </div>
+          <div class="item">
+            <h5>Standard App</h5>
+            <img src="standard-app.jpg" alt="Standard App">
+            <p>Medium complexity app with user profiles and third-party API integration.</p>
+          </div>
+          <div class="item">
+            <h5>Premium App</h5>
+            <img src="premium-app.jpg" alt="Premium App">
+            <p>Complex app with custom features like payment gateways and live tracking.</p>
+          </div>
         </div>
       </div>
 
+      <!-- Carousel Navigation Buttons -->
+      <div class="carousel-buttons">
+        <button id="prev-btn">&#8592; Prev</button>
+        <button id="next-btn">Next &#8594;</button>
+      </div>
     </div>
+
   </section>
 
   <script>
-    const items = document.querySelectorAll('.item');
-    let currentIndex = 0;
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide .item');
+    const prevButton = document.getElementById('prev-btn');
+    const nextButton = document.getElementById('next-btn');
 
-    const showItem = (index) => {
-      items.forEach((item, i) => {
-        item.classList.remove('active');
-        if (i === index) {
-          item.classList.add('active');
-        }
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
       });
-    };
+    }
 
-    document.querySelector('.nextBtn').addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % items.length; // Loop to first item
-      showItem(currentIndex);
+    prevButton.addEventListener('click', () => {
+      currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+      showSlide(currentSlideIndex);
     });
 
-    document.querySelector('.prevBtn').addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + items.length) % items.length; // Loop to last item
-      showItem(currentIndex);
+    nextButton.addEventListener('click', () => {
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+      showSlide(currentSlideIndex);
     });
+
+    // Initialize the first slide
+    showSlide(currentSlideIndex);
   </script>
 
 </body>
