@@ -67,7 +67,7 @@
         /* Centered card layout */
         .pricing-card {
             width: 80%;
-            max-width: 600px;
+            max-width: 400px;
             margin: 50px auto;
             background: #fff;
             border-radius: 8px;
@@ -75,11 +75,10 @@
             transition: transform 0.3s ease;
             text-align: center;
             padding: 30px;
-            display: none;
         }
 
-        .pricing-card.active {
-            display: block;
+        .pricing-card:hover {
+            transform: translateY(-10px);
         }
 
         .pricing-card .card-header {
@@ -166,103 +165,94 @@
                 <input type="radio" id="website-tab" name="tab" checked>
                 <input type="radio" id="app-tab" name="tab">
 
-                <label for="website-tab">Website Development</label>
-                <label for="app-tab">App Development</label>
+                <label for="website-tab" class="tab-label">Website Development</label>
+                <label for="app-tab" class="tab-label">App Development</label>
 
                 <div class="slider"></div>
             </div>
 
-            <!-- Website Development Tab Content -->
-            <div id="website" class="tab-section">
-                <div class="pricing-card" id="website-basic" class="active">
-                    <div class="card-header">Starter Package</div>
-                    <div class="price">R3,000 – R5,000 <span>Once-off</span></div>
-                    <p><strong>Pages:</strong> 1-3 pages</p>
-                    <p><strong>Ideal for:</strong> Individuals, bloggers, personal portfolios, or small projects.</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Custom landing page design</li>
-                        <li><i class="fas fa-check"></i> Contact form integration</li>
-                        <li><i class="fas fa-check"></i> Basic SEO setup</li>
-                        <li><i class="fas fa-check"></i> Responsive design (mobile-friendly)</li>
-                    </ul>
-                    <button onclick="nextCard('website')">Next Plan</button>
+            <!-- Pricing Content -->
+            <div class="tab-content">
+                <!-- Website Development Tab Content -->
+                <div id="website" class="tab-section">
+                    <div class="pricing-card" id="website-basic">
+                        <div class="card-header">Basic Website</div>
+                        <div class="price">R3,000 <span>Once-off</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Custom landing page design</li>
+                            <li><i class="fas fa-check"></i> Contact form integration</li>
+                            <li><i class="fas fa-check"></i> Basic SEO setup</li>
+                            <li><i class="fas fa-check"></i> Mobile-friendly design</li>
+                        </ul>
+                        <button onclick="nextCard('website')">Next Plan</button>
+                    </div>
+
+                    <div class="pricing-card" id="website-standard" style="display:none;">
+                        <div class="card-header">Standard Website</div>
+                        <div class="price">R6,000 <span>Once-off</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Custom homepage and inner pages</li>
+                            <li><i class="fas fa-check"></i> Contact form, gallery, or blog</li>
+                            <li><i class="fas fa-check"></i> Basic SEO optimization</li>
+                            <li><i class="fas fa-check"></i> Social media integration</li>
+                            <li><i class="fas fa-check"></i> Mobile responsiveness</li>
+                        </ul>
+                        <button onclick="nextCard('website')">Next Plan</button>
+                    </div>
+
+                    <div class="pricing-card" id="website-premium" style="display:none;">
+                        <div class="card-header">Premium Website</div>
+                        <div class="price">R12,000 <span>Once-off</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Custom homepage and service/product pages</li>
+                            <li><i class="fas fa-check"></i> Blog or portfolio section</li>
+                            <li><i class="fas fa-check"></i> Advanced SEO setup</li>
+                            <li><i class="fas fa-check"></i> Social media and chat integration</li>
+                            <li><i class="fas fa-check"></i> Newsletter subscription</li>
+                        </ul>
+                        <button onclick="nextCard('website')">Next Plan</button>
+                    </div>
                 </div>
 
-                <div class="pricing-card" id="website-standard">
-                    <div class="card-header">Standard Package</div>
-                    <div class="price">R6,000 – R12,000 <span>Once-off</span></div>
-                    <p><strong>Pages:</strong> 4-8 pages</p>
-                    <p><strong>Ideal for:</strong> Small businesses, consultants, or non-profits.</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Custom homepage and inner page design</li>
-                        <li><i class="fas fa-check"></i> Contact form, gallery, or blog</li>
-                        <li><i class="fas fa-check"></i> Basic SEO optimization</li>
-                        <li><i class="fas fa-check"></i> Social media integration</li>
-                        <li><i class="fas fa-check"></i> Mobile responsiveness</li>
-                    </ul>
-                    <button onclick="nextCard('website')">Next Plan</button>
-                </div>
+                <!-- App Development Tab Content -->
+                <div id="app" class="tab-section" style="display:none;">
+                    <div class="pricing-card" id="app-basic">
+                        <div class="card-header">Basic App</div>
+                        <div class="price">R50,000 <span>Once-off</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> User login and registration</li>
+                            <li><i class="fas fa-check"></i> Basic UI/UX design</li>
+                            <li><i class="fas fa-check"></i> Simple functionality</li>
+                            <li><i class="fas fa-check"></i> Push notifications (optional)</li>
+                        </ul>
+                        <button onclick="nextCard('app')">Next Plan</button>
+                    </div>
 
-                <div class="pricing-card" id="website-premium">
-                    <div class="card-header">Premium Package</div>
-                    <div class="price">R12,000 – R20,000 <span>Once-off</span></div>
-                    <p><strong>Pages:</strong> 8-16 pages</p>
-                    <p><strong>Ideal for:</strong> Growing businesses, service providers, or organizations.</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Custom homepage and multiple service/product pages</li>
-                        <li><i class="fas fa-check"></i> Blog or portfolio section</li>
-                        <li><i class="fas fa-check"></i> Advanced SEO setup</li>
-                        <li><i class="fas fa-check"></i> Social media, chat integration, and more</li>
-                        <li><i class="fas fa-check"></i> Newsletter subscription form</li>
-                    </ul>
-                    <button onclick="nextCard('website')">Next Plan</button>
-                </div>
-            </div>
+                    <div class="pricing-card" id="app-standard" style="display:none;">
+                        <div class="card-header">Standard App</div>
+                        <div class="price">R75,000 <span>Once-off</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> User profiles and login system</li>
+                            <li><i class="fas fa-check"></i> Advanced UI/UX design</li>
+                            <li><i class="fas fa-check"></i> Integration with third-party APIs</li>
+                            <li><i class="fas fa-check"></i> In-app messaging or notifications</li>
+                            <li><i class="fas fa-check"></i> Admin dashboard</li>
+                        </ul>
+                        <button onclick="nextCard('app')">Next Plan</button>
+                    </div>
 
-            <!-- App Development Tab Content -->
-            <div id="app" class="tab-section" style="display:none;">
-                <div class="pricing-card" id="app-basic">
-                    <div class="card-header">Basic App</div>
-                    <div class="price">R50,000 – R75,000 <span>Once-off</span></div>
-                    <p><strong>Development Time:</strong> 2-4 months</p>
-                    <p><strong>Ideal for:</strong> Simple apps with limited features.</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> User login and registration</li>
-                        <li><i class="fas fa-check"></i> Basic UI/UX design</li>
-                        <li><i class="fas fa-check"></i> Simple functionality (form submission, calculators)</li>
-                        <li><i class="fas fa-check"></i> Push notifications (optional)</li>
-                    </ul>
-                    <button onclick="nextCard('app')">Next Plan</button>
-                </div>
-
-                <div class="pricing-card" id="app-standard">
-                    <div class="card-header">Standard App</div>
-                    <div class="price">R75,000 – R120,000 <span>Once-off</span></div>
-                    <p><strong>Development Time:</strong> 4-6 months</p>
-                    <p><strong>Ideal for:</strong> Apps with medium complexity.</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> User profiles and login system</li>
-                        <li><i class="fas fa-check"></i> Advanced UI/UX design with custom features</li>
-                        <li><i class="fas fa-check"></i> Integration with third-party APIs</li>
-                        <li><i class="fas fa-check"></i> In-app messaging or notifications</li>
-                        <li><i class="fas fa-check"></i> Admin dashboard for content management</li>
-                    </ul>
-                    <button onclick="nextCard('app')">Next Plan</button>
-                </div>
-
-                <div class="pricing-card" id="app-premium">
-                    <div class="card-header">Premium App</div>
-                    <div class="price">R120,000 and up <span>Once-off</span></div>
-                    <p><strong>Development Time:</strong> 9-12 months</p>
-                    <p><strong>Ideal for:</strong> Complex apps with custom features.</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Complete custom app design and development</li>
-                        <li><i class="fas fa-check"></i> Multiple integrations (payment gateways, cloud storage, etc.)</li>
-                        <li><i class="fas fa-check"></i> Real-time features (chat, live tracking)</li>
-                        <li><i class="fas fa-check"></i> Advanced user roles and permissions</li>
-                        <li><i class="fas fa-check"></i> Admin control panel, analytics, and reports</li>
-                    </ul>
-                    <button onclick="nextCard('app')">Next Plan</button>
+                    <div class="pricing-card" id="app-premium" style="display:none;">
+                        <div class="card-header">Premium App</div>
+                        <div class="price">R120,000 <span>Once-off</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Complete custom app design</li>
+                            <li><i class="fas fa-check"></i> Multiple integrations</li>
+                            <li><i class="fas fa-check"></i> Real-time features</li>
+                            <li><i class="fas fa-check"></i> Advanced user roles</li>
+                            <li><i class="fas fa-check"></i> Admin control panel, analytics</li>
+                        </ul>
+                        <button onclick="nextCard('app')">Next Plan</button>
+                    </div>
                 </div>
             </div>
         </div>
