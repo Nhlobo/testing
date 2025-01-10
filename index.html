@@ -5,13 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gray Section with Logo</title>
     <style>
-        body {
+        /* Global Reset */
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            height: 100%;
-            overflow: hidden;
+            padding: 0;
+            box-sizing: border-box; /* Ensure consistent box sizing */
+            font-family: 'Roboto', sans-serif;
         }
 
+        /* Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Gray Section Styles */
         .gray-section {
             display: flex;
             justify-content: center;
@@ -20,6 +33,7 @@
             position: relative; /* Ensures content stays on top */
             background-color: #8D918D; /* The first color covers the entire section */
             z-index: 0; /* Ensures the background stays behind the content */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
         }
 
         /* First Wave (using BCBEBC) */
