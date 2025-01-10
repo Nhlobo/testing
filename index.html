@@ -235,21 +235,24 @@
     /* Glassmorphism Button */
     .cta-button {
       display: inline-block;
-      padding: 12px 24px;
-      background: rgba(0, 0, 0, 0.1); /* Slightly transparent black background */
-      color: #000;
-      font-size: 1rem;
-      text-decoration: none;
-      border-radius: 10px;
-      border: 2px solid rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px); /* Glass effect */
-      transition: all 0.3s ease-in-out;
-    }
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    background-color: #FFD700; /* Golden background */
+    color: #333; /* Dark text color */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-    .cta-button:hover {
-      background: rgba(0, 0, 0, 0.2);
-      border-color: rgba(0, 0, 0, 0.5);
-    }
+   /* Hover effect for Buttons */
+.btn:hover {
+    background-color: #ffcc00; /* Slightly darker yellow */
+    transform: translateY(-5px); /* Hover lift effect */
+}
+        
 
     /* Headings for Subsections */
     .subheading {
@@ -276,7 +279,7 @@
 
     /* Background Overlay for Better Text Visibility */
     .overlay {
-      background: none; /* Remove gradient as it's not needed */
+      background: none; 
       position: absolute;
       top: 0;
       left: 0;
@@ -486,13 +489,7 @@ footer {
       <p>At Mapengo Innovations, we’re always looking for talented individuals who are passionate about making a difference. Join us and be part of the next generation of innovators.</p>
       <a href="#" class="cta-button">Join Us Now</a>
     </section>
-
-    <section>
-      <h2 class="subheading">Get in Touch</h2>
-      <p>If you have any questions or would like to work with us, don’t hesitate to reach out. We’d love to hear from you!</p>
-      <a href="mailto:contact@mapengo.com" class="cta-button">Contact Us</a>
-    </section>
-     </div>
+     
 <footer>
     <ul class="wrapper">
       <li class="icon facebook" onclick="redirectTo('https://facebook.com')">
