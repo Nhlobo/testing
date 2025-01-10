@@ -5,88 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us</title>
   <style>
-    /* General Styling */
-    body {
+    /* Global Reset */
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #333;
-      line-height: 1.6;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
     }
 
+    /* Body Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Page Container */
     .page-container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 20px;
-      text-align: left;
+      padding: 40px;
+      background-color: #ffffff; /* White background for a clean feel */
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow to lift the content */
     }
 
     /* Header */
     header {
-      background: linear-gradient(to bottom, #808080, #c5c5c5);
-      color: white;
       text-align: center;
-      padding: 50px 20px;
-      border-radius: 10px;
+      padding: 40px 20px;
+      background-color: #f8f8f8; /* Soft white background */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Light shadow effect */
     }
 
     header h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
+      color: #333;
       margin-bottom: 10px;
     }
 
     header p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      color: #555;
       margin-bottom: 20px;
     }
 
     header button {
-      padding: 10px 20px;
-      background-color: #ffffff;
-      color: #333;
+      padding: 12px 30px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 1rem;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 1rem;
+      transition: background-color 0.3s;
     }
 
     header button:hover {
-      background-color: #f0f0f0;
+      background-color: #0056b3;
     }
 
     /* About Us Section */
     .about-us {
-      margin-top: 20px;
+      margin-top: 40px;
     }
 
     .about-us h2 {
-      font-size: 1.5rem;
-      color: #555;
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 15px;
     }
 
-    .about-us .info-box {
+    .about-us p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+
+    /* Info Box */
+    .info-box {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin: 10px 0;
+      gap: 15px;
+      margin-top: 10px;
     }
 
-    .about-us .info-sample {
-      background-color: #808080;
+    .info-sample {
+      background-color: #007BFF;
       width: 50px;
       height: 50px;
       border-radius: 5px;
     }
 
-    .about-us .hex-code {
-      font-size: 1.1rem;
+    .hex-code {
+      font-size: 1.2rem;
       font-weight: bold;
+      color: #333;
     }
 
-    /* Details Section */
-    .details h3 {
-      font-size: 1.4rem;
-      margin-top: 20px;
-      color: #555;
+    /* Values Section */
+    .values {
+      margin-top: 40px;
+    }
+
+    .values h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .values p {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.7;
     }
   </style>
 </head>
@@ -94,29 +131,31 @@
   <div class="page-container">
     <header>
       <h1>About Us</h1>
-      <p>Learn more about our mission, vision, and values.</p>
+      <p>We are committed to creating impactful solutions for a better future.</p>
       <button>Contact Us</button>
     </header>
+
     <section class="about-us">
       <h2>Our Story</h2>
       <p>
-        We are a team dedicated to providing quality services and products that make a real impact. Our goal is to make the world a better place by offering innovative solutions in various industries.
+        Founded with a passion for innovation, we aim to provide top-tier services and products that make a meaningful difference in the lives of our customers.
       </p>
       <div class="info-box">
-        <div class="info-sample">Our Mission</div>
-        <div class="hex-code">#808080</div>
+        <div class="info-sample"></div>
+        <div class="hex-code">#007BFF</div>
       </div>
       <p>
-        Our mission is to create high-quality, sustainable, and impactful products that improve the lives of our customers and communities.
+        Our story began with a small group of dreamers who envisioned a world where technology and creativity could work hand in hand to solve real-world challenges.
       </p>
     </section>
-    <section class="details">
+
+    <section class="values">
       <h3>Our Values</h3>
       <p>
-        We believe in integrity, collaboration, and innovation. These core values guide us in everything we do, from product development to customer service. We aim to build trust and long-lasting relationships with our clients.
+        Integrity, collaboration, and continuous innovation are the foundation of our company. We value sustainability and are committed to providing solutions that not only serve our customers but also contribute positively to the world around us.
       </p>
       <p>
-        At the heart of our company is a commitment to sustainability, innovation, and customer satisfaction. We work hard every day to achieve our goals and make a positive impact.
+        We believe in building trust and relationships with our clients through dedication, transparency, and delivering on our promises.
       </p>
     </section>
   </div>
