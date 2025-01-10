@@ -21,6 +21,8 @@
             position: relative;
             overflow: hidden;
             color: #fff;
+            box-sizing: border-box;
+            flex-wrap: wrap;
         }
 
         .text-content {
@@ -53,6 +55,7 @@
 
         .logo {
             max-width: 40%;
+            flex-basis: 40%;
         }
 
         .logo img {
@@ -69,6 +72,61 @@
             height: 200px;
             background: linear-gradient(to right, #C0C0C0, #A9A9A9, #808080, #696969);
             clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .gray-section {
+                padding: 0 5%;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .text-content {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .text-content h1 {
+                font-size: 2rem;
+            }
+
+            .text-content p {
+                font-size: 1rem;
+            }
+
+            .text-content button {
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                max-width: 70%;
+                flex-basis: 70%;
+            }
+
+            .wave {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .text-content p {
+                font-size: 0.9rem;
+            }
+
+            .text-content button {
+                font-size: 0.8rem;
+                padding: 8px 16px;
+            }
+
+            .logo {
+                max-width: 80%;
+            }
         }
     </style>
 </head>
