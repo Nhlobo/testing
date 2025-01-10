@@ -12,14 +12,14 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     /* Body Styles */
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
-      color: #333;
+      color: #fff;
       line-height: 1.6;
       overflow-x: hidden;
       margin: 0;
@@ -28,8 +28,9 @@
 
     /* Section Styles */
     section {
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
+      position: relative;
     }
 
     h1, h2 {
@@ -40,9 +41,9 @@
 
     p {
       font-size: 1.2rem;
-      color: #fff;
       margin: 0 auto;
       max-width: 800px;
+      color: rgba(255, 255, 255, 0.8); /* Slightly lighter text color for readability */
     }
 
     /* About Us Image */
@@ -53,6 +54,25 @@
       background-size: cover;
       border-radius: 10px;
       margin-bottom: 40px;
+    }
+
+    /* Glassmorphism Button */
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.2); /* Transparent white background */
+      color: #fff;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px); /* Glass effect */
+      transition: all 0.3s ease-in-out;
+    }
+
+    .cta-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
     }
 
     /* Headings for Subsections */
@@ -67,28 +87,32 @@
       display: flex;
       justify-content: center;
       margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .section-img img {
-      width: 45%;
-      margin: 0 20px;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Background Overlay for Better Text Visibility */
+    .overlay {
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay for better contrast */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1; /* Keep it behind text */
       border-radius: 10px;
     }
 
-    /* Call to Action Button */
-    .cta-button {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #FF6600;
-      color: #fff;
-      font-size: 1.2rem;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 20px;
-    }
-
-    .cta-button:hover {
-      background-color: #cc5200;
+    /* Extra Padding for Section Titles */
+    section > h1, section > h2 {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     }
 
   </style>
@@ -96,7 +120,9 @@
 <body>
 
   <section>
-    <div class="about-img"></div>
+    <div class="about-img">
+      <div class="overlay"></div>
+    </div>
     <h1>About Us - Mapengo Innovations</h1>
     <p>Welcome to Mapengo Innovations. We are a forward-thinking company focused on creating innovative solutions for a better tomorrow.</p>
   </section>
