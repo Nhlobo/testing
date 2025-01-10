@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>About Us - Mapengo Innovations</title>
     <style>
-        /* General Reset */
+        /* Reset default styles */
         * {
             margin: 0;
             padding: 0;
@@ -15,31 +15,30 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f9f9f9;
-            color: #333;
-            line-height: 1.7;
+            background-color: #fafafa;
+            color: #444;
+            line-height: 1.6;
         }
 
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: #222;
+        h1, h2, h3, p {
             margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         /* Header */
         header {
-            background: linear-gradient(45deg, #6e7e8f, #283848);
+            background-color: #2b3a42;
             color: #fff;
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
             margin-bottom: 50px;
-            border-bottom: 2px solid #ddd;
+            border-bottom: 3px solid #ddd;
         }
 
         header h1 {
-            font-size: 3.5em;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
+            font-size: 4em;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
         }
 
         header p {
@@ -60,25 +59,24 @@
             margin: 0 auto;
         }
 
-        /* About Section */
-        .intro p {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
         .intro {
-            border-left: 4px solid #6e7e8f;
-            padding-left: 20px;
+            border-left: 5px solid #2980b9;
+            padding-left: 30px;
             margin-bottom: 40px;
         }
 
         .intro h2 {
             font-size: 2.8em;
-            color: #222;
+            color: #333;
+            font-weight: 600;
         }
 
-        /* Expertise Section */
+        .intro p {
+            font-size: 1.2em;
+            color: #666;
+            margin-top: 20px;
+        }
+
         .expertise {
             display: flex;
             justify-content: space-between;
@@ -88,27 +86,18 @@
 
         .expertise-item {
             flex: 1;
-            border-left: 3px solid #6e7e8f;
+            border-left: 3px solid #2980b9;
             padding-left: 20px;
-            transition: border-color 0.3s ease;
+            font-size: 1.1em;
         }
 
         .expertise-item h3 {
             font-size: 2.2em;
-            color: #283848;
+            color: #2b3a42;
             margin-bottom: 20px;
+            font-weight: 600;
         }
 
-        .expertise-item p {
-            font-size: 1.1em;
-            color: #555;
-        }
-
-        .expertise-item:hover {
-            border-color: #283848;
-        }
-
-        /* Why Choose Us Section */
         .why-choose ul {
             list-style-type: none;
             padding-left: 0;
@@ -116,56 +105,56 @@
 
         .why-choose li {
             font-size: 1.1em;
-            color: #555;
-            margin-bottom: 20px;
+            color: #666;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
         }
 
         .why-choose li::before {
             content: '✔';
-            color: #6e7e8f;
+            color: #2980b9;
             margin-right: 15px;
-            font-size: 1.5em;
+            font-size: 1.4em;
         }
 
         /* Contact Section */
         .contact {
-            background: #283848;
+            background-color: #2980b9;
             color: #fff;
-            padding: 40px;
-            border-radius: 12px;
+            padding: 50px 20px;
             text-align: center;
+            border-radius: 12px;
         }
 
         .contact h2 {
-            font-size: 2.2em;
+            font-size: 2.5em;
             margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .contact p {
-            font-size: 1.1em;
+            font-size: 1.2em;
             margin-bottom: 20px;
         }
 
         .contact a {
-            color: #6e7e8f;
             font-weight: bold;
             text-decoration: none;
-            transition: color 0.3s ease;
+            color: #fff;
         }
 
         .contact a:hover {
-            color: #fff;
+            color: #f39c12;
         }
 
-        /* Footer */
+        /* Footer Section */
         footer {
-            background-color: #222;
+            background-color: #2b3a42;
             color: #fff;
             padding: 20px 0;
             text-align: center;
-            font-size: 1.1em;
+            font-size: 1em;
         }
 
         footer p {
@@ -184,21 +173,21 @@
             }
 
             header h1 {
-                font-size: 2.5em;
+                font-size: 3em;
             }
 
             header p {
-                font-size: 1.1em;
+                font-size: 1.2em;
             }
 
             .contact h2 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
         }
 
         @media (max-width: 480px) {
             header h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
 
             header p {
@@ -210,7 +199,7 @@
             }
 
             .contact h2 {
-                font-size: 1.6em;
+                font-size: 1.8em;
             }
         }
     </style>
@@ -221,7 +210,7 @@
     <header>
         <div class="container">
             <h1>Mapengo Innovations</h1>
-            <p>Innovating the Future of Technology</p>
+            <p>Revolutionizing Digital Solutions</p>
         </div>
     </header>
 
@@ -230,14 +219,14 @@
         <section class="intro">
             <div class="container">
                 <h2>About Us</h2>
-                <p>Mapengo Innovations is a cutting-edge, online-based technology company specializing in providing high-quality digital solutions. Founded by Novice Nhlovo Mathebula, a passionate and highly skilled Software Engineer, we aim to empower businesses with innovative web development, custom software solutions, and dynamic mobile applications.</p>
+                <p>Mapengo Innovations is an innovative, online-based technology company specializing in delivering high-quality digital solutions. We are dedicated to empowering businesses with cutting-edge web development, mobile applications, and custom software solutions.</p>
             </div>
         </section>
 
         <section class="vision">
             <div class="container">
                 <h2>Our Founder and Vision</h2>
-                <p>Founded by Novice Nhlovo Mathebula, a qualified Software Engineer with a foundation in computer science and software engineering from the prestigious ALX African Leadership Experience program, our vision is to bridge the gap between businesses and digital solutions, empowering them with affordable and efficient technology.</p>
+                <p>Founded by Novice Nhlovo Mathebula, a qualified Software Engineer, Mapengo Innovations strives to create affordable, innovative, and efficient digital solutions to help businesses navigate the complexities of today’s digital world. Our founder's deep expertise drives our company's mission.</p>
             </div>
         </section>
 
@@ -245,15 +234,15 @@
             <div class="container">
                 <div class="expertise-item">
                     <h3>Web Development</h3>
-                    <p>Responsive, secure, and dynamic websites that help businesses connect with their audience.</p>
+                    <p>We specialize in building responsive, secure, and professional websites that drive results and enhance user experiences.</p>
                 </div>
                 <div class="expertise-item">
                     <h3>Mobile App Development</h3>
-                    <p>Innovative mobile apps for Android and iOS that are functional, user-friendly, and scalable.</p>
+                    <p>We create dynamic and scalable mobile apps for Android and iOS, providing seamless experiences across devices.</p>
                 </div>
                 <div class="expertise-item">
                     <h3>Custom Software Solutions</h3>
-                    <p>Tailor-made software solutions designed to solve business challenges and enhance operational efficiency.</p>
+                    <p>Our custom software is designed to optimize your workflow, increase efficiency, and solve your unique business challenges.</p>
                 </div>
             </div>
         </section>
@@ -262,11 +251,11 @@
             <div class="container">
                 <h2>Why Choose Us?</h2>
                 <ul>
-                    <li><strong>Customer-Centric Approach:</strong> Tailored solutions that make a real difference to your business.</li>
-                    <li><strong>Expertise and Experience:</strong> Led by a qualified Software Engineer with hands-on experience.</li>
-                    <li><strong>End-to-End Solutions:</strong> Comprehensive services from consultation to support.</li>
-                    <li><strong>Quality and Innovation:</strong> Solutions that adhere to the best industry standards.</li>
-                    <li><strong>Scalability:</strong> We provide scalable solutions that grow with your business.</li>
+                    <li><strong>Customer Focus:</strong> We tailor our solutions to meet your unique needs and objectives.</li>
+                    <li><strong>Expertise:</strong> Led by a qualified Software Engineer with hands-on experience, we bring industry-leading knowledge to every project.</li>
+                    <li><strong>Comprehensive Solutions:</strong> From design to deployment, we offer end-to-end services that cover all aspects of digital development.</li>
+                    <li><strong>Innovation:</strong> We are committed to staying ahead of the curve and delivering the latest tech to optimize your business.</li>
+                    <li><strong>Scalability:</strong> Our solutions grow with you. Whether you're a startup or a large enterprise, we ensure your technology evolves with your business.</li>
                 </ul>
             </div>
         </section>
@@ -274,7 +263,7 @@
         <section class="contact">
             <div class="container">
                 <h2>Get in Touch</h2>
-                <p>If you're ready to elevate your business with innovative solutions, we'd love to hear from you!</p>
+                <p>Ready to bring your digital vision to life? Let’s work together to transform your business.</p>
                 <p>Email: <a href="mailto:ceofounder24@gmail.com">ceofounder24@gmail.com</a></p>
                 <p>CEO and Founder: Novice Nhlovo Mathebula</p>
             </div>
