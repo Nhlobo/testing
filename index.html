@@ -9,18 +9,19 @@
             margin: 0;
             font-family: Arial, sans-serif;
             height: 100%;
+            overflow: hidden;
         }
 
         .gray-section {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             height: 100vh;
             position: relative; /* Ensures content stays on top */
             overflow: hidden;
         }
 
-        /* Pseudo-element for background gradient */
+        /* Pseudo-element for advanced background gradient */
         .gray-section::before {
             content: '';
             position: absolute;
@@ -28,50 +29,43 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, #999999, #E3E3E3);
+            background: linear-gradient(135deg, #999999, #A9A9A9, #D3D3D3, #E3E3E3);
             z-index: -1; /* Places gradient behind content */
+            opacity: 0.8;
         }
 
         .text-content {
-            max-width: 50%;
+            max-width: 70%;
+            text-align: center; /* Center align text for landscape */
+            color: #fff;
             position: relative; /* Ensure text stays on top */
-            z-index: 1; /* Keeps text in front */
+            z-index: 1;
         }
 
         .text-content h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             margin: 0;
+            font-weight: bold;
         }
 
         .text-content p {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin: 10px 0 20px;
+            line-height: 1.6;
         }
 
         .text-content button {
             background-color: #333;
             color: #fff;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
 
         .text-content button:hover {
             background-color: #555;
-        }
-
-        .logo {
-            max-width: 40%;
-            position: relative; /* Ensure logo stays on top */
-            z-index: 1; /* Keeps logo in front */
-        }
-
-        .logo img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
         }
 
         .wave {
@@ -92,9 +86,6 @@
             <h1>Everything about the color Gray</h1>
             <p>The meaning of the color Gray and color combinations to inspire your next design.</p>
             <button>Start designing</button>
-        </div>
-        <div class="logo">
-            <img src="logo-Photoroom.png" alt="Logo">
         </div>
         <div class="wave"></div>
     </div>
