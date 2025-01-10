@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f4f4f9;
+            background: #f9f9f9;
             color: #333;
             line-height: 1.7;
         }
@@ -33,6 +33,7 @@
             text-align: center;
             padding: 80px 20px;
             margin-bottom: 50px;
+            border-bottom: 2px solid #ddd;
         }
 
         header h1 {
@@ -63,38 +64,48 @@
         .intro p {
             font-size: 1.2em;
             color: #666;
+            margin-bottom: 30px;
+        }
+
+        .intro {
+            border-left: 4px solid #6e7e8f;
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        .intro h2 {
+            font-size: 2.8em;
+            color: #222;
         }
 
         /* Expertise Section */
         .expertise {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            justify-content: space-between;
             gap: 30px;
+            margin-bottom: 60px;
         }
 
         .expertise-item {
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .expertise-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+            flex: 1;
+            border-left: 3px solid #6e7e8f;
+            padding-left: 20px;
+            transition: border-color 0.3s ease;
         }
 
         .expertise-item h3 {
-            font-size: 1.7em;
+            font-size: 2.2em;
             color: #283848;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .expertise-item p {
-            font-size: 1em;
+            font-size: 1.1em;
             color: #555;
+        }
+
+        .expertise-item:hover {
+            border-color: #283848;
         }
 
         /* Why Choose Us Section */
@@ -164,7 +175,8 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .expertise {
-                grid-template-columns: 1fr 1fr;
+                flex-direction: column;
+                gap: 30px;
             }
 
             .container {
@@ -194,7 +206,7 @@
             }
 
             .expertise {
-                grid-template-columns: 1fr;
+                flex-direction: column;
             }
 
             .contact h2 {
@@ -231,7 +243,6 @@
 
         <section class="expertise">
             <div class="container">
-                <h2>Our Expertise</h2>
                 <div class="expertise-item">
                     <h3>Web Development</h3>
                     <p>Responsive, secure, and dynamic websites that help businesses connect with their audience.</p>
