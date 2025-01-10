@@ -1,163 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us</title>
-  <style>
-    /* Global Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Us - Mapengo Innovations</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Body Styles */
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-    }
+        /* Body and Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-    /* Page Container */
-    .page-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px;
-      background-color: #ffffff; /* White background for a clean feel */
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow to lift the content */
-    }
+        /* Container for consistent padding */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
 
-    /* Header */
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #f8f8f8; /* Soft white background */
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Light shadow effect */
-    }
+        /* Header */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #333;
-      margin-bottom: 10px;
-    }
+        header h1 {
+            font-size: 3em;
+        }
 
-    header p {
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 20px;
-    }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
 
-    header button {
-      padding: 12px 30px;
-      background-color: #007BFF;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+        /* Main Section */
+        main {
+            padding: 50px 0;
+        }
 
-    header button:hover {
-      background-color: #0056b3;
-    }
+        section {
+            margin-bottom: 50px;
+        }
 
-    /* About Us Section */
-    .about-us {
-      margin-top: 40px;
-    }
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #444;
+        }
 
-    .about-us h2 {
-      font-size: 1.8rem;
-      color: #333;
-      margin-bottom: 15px;
-    }
+        section p {
+            font-size: 1.1em;
+            color: #666;
+        }
 
-    .about-us p {
-      font-size: 1.1rem;
-      color: #666;
-      margin-bottom: 15px;
-      line-height: 1.7;
-    }
+        /* Expertise Section */
+        .expertise {
+            display: flex;
+            gap: 30px;
+            justify-content: space-between;
+        }
 
-    /* Info Box */
-    .info-box {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-top: 10px;
-    }
+        .expertise-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex-basis: 30%;
+            text-align: center;
+        }
 
-    .info-sample {
-      background-color: #007BFF;
-      width: 50px;
-      height: 50px;
-      border-radius: 5px;
-    }
+        .expertise-item h3 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+        }
 
-    .hex-code {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #333;
-    }
+        .expertise-item p {
+            color: #888;
+        }
 
-    /* Values Section */
-    .values {
-      margin-top: 40px;
-    }
+        /* Why Choose Section */
+        .why-choose ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-    .values h3 {
-      font-size: 1.5rem;
-      color: #333;
-      margin-bottom: 15px;
-    }
+        .why-choose li {
+            background: url('checkmark-icon.png') no-repeat left center;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
 
-    .values p {
-      font-size: 1.1rem;
-      color: #666;
-      line-height: 1.7;
-    }
-  </style>
+        /* Contact Section */
+        .contact a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+    </style>
 </head>
 <body>
-  <div class="page-container">
+
+    <!-- Header Section -->
     <header>
-      <h1>About Us</h1>
-      <p>We are committed to creating impactful solutions for a better future.</p>
-      <button>Contact Us</button>
+        <div class="container">
+            <h1>Mapengo Innovations</h1>
+            <p>Innovating the Future of Technology</p>
+        </div>
     </header>
 
-    <section class="about-us">
-      <h2>Our Story</h2>
-      <p>
-        Founded with a passion for innovation, we aim to provide top-tier services and products that make a meaningful difference in the lives of our customers.
-      </p>
-      <div class="info-box">
-        <div class="info-sample"></div>
-        <div class="hex-code">#007BFF</div>
-      </div>
-      <p>
-        Our story began with a small group of dreamers who envisioned a world where technology and creativity could work hand in hand to solve real-world challenges.
-      </p>
-    </section>
+    <!-- Main Content Section -->
+    <main>
+        <section class="intro">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>Mapengo Innovations is a cutting-edge, online-based technology company specializing in providing high-quality digital solutions. Founded by Novice Nhlovo Mathebula, a passionate and highly skilled Software Engineer, we aim to empower businesses with innovative web development, custom software solutions, and dynamic mobile applications.</p>
+            </div>
+        </section>
 
-    <section class="values">
-      <h3>Our Values</h3>
-      <p>
-        Integrity, collaboration, and continuous innovation are the foundation of our company. We value sustainability and are committed to providing solutions that not only serve our customers but also contribute positively to the world around us.
-      </p>
-      <p>
-        We believe in building trust and relationships with our clients through dedication, transparency, and delivering on our promises.
-      </p>
-    </section>
-  </div>
+        <section class="vision">
+            <div class="container">
+                <h2>Our Founder and Vision</h2>
+                <p>Founded by Novice Nhlovo Mathebula, a qualified Software Engineer with a foundation in computer science and software engineering from the prestigious ALX African Leadership Experience program, our vision is to bridge the gap between businesses and digital solutions, empowering them with affordable and efficient technology.</p>
+            </div>
+        </section>
+
+        <section class="expertise">
+            <div class="container">
+                <h2>Our Expertise</h2>
+                <div class="expertise-item">
+                    <h3>Web Development</h3>
+                    <p>Responsive, secure, and dynamic websites that help businesses connect with their audience.</p>
+                </div>
+                <div class="expertise-item">
+                    <h3>Mobile App Development</h3>
+                    <p>Innovative mobile apps for Android and iOS that are functional, user-friendly, and scalable.</p>
+                </div>
+                <div class="expertise-item">
+                    <h3>Custom Software Solutions</h3>
+                    <p>Tailor-made software solutions designed to solve business challenges and enhance operational efficiency.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="team">
+            <div class="container">
+                <h2>Our Team</h2>
+                <p>Led by Novice Nhlovo Mathebula, Mapengo Innovations is supported by a team of talented developers, designers, and project managers committed to delivering excellence and innovation.</p>
+            </div>
+        </section>
+
+        <section class="philosophy">
+            <div class="container">
+                <h2>Our Philosophy and Inspiration</h2>
+                <p>We believe technology should be an enabler for success, not a barrier. Our mission is to provide businesses with the tools they need to navigate the digital age confidently and drive measurable growth.</p>
+            </div>
+        </section>
+
+        <section class="why-choose">
+            <div class="container">
+                <h2>Why Choose Us?</h2>
+                <ul>
+                    <li><strong>Customer-Centric Approach:</strong> Tailored solutions that make a real difference to your business.</li>
+                    <li><strong>Expertise and Experience:</strong> Led by a qualified Software Engineer with hands-on experience.</li>
+                    <li><strong>End-to-End Solutions:</strong> Comprehensive services from consultation to support.</li>
+                    <li><strong>Quality and Innovation:</strong> Solutions that adhere to the best industry standards.</li>
+                    <li><strong>Scalability:</strong> We provide scalable solutions that grow with your business.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="commitment">
+            <div class="container">
+                <h2>Our Commitment to Excellence</h2>
+                <p>We are committed to delivering high-quality, innovative solutions that exceed expectations, making a real impact in the digital world.</p>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p>If you're ready to elevate your business with innovative solutions, we'd love to hear from you!</p>
+                <p>Email: <a href="mailto:ceofounder24@gmail.com">ceofounder24@gmail.com</a></p>
+                <p>CEO and Founder: Novice Nhlovo Mathebula</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mapengo Innovations. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
