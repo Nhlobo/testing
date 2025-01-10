@@ -3,279 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About Us - Mapengo Innovations</title>
+    <title>About Us - Huawei Style</title>
     <style>
-        /* Reset default styles */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Body Styling */
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fafafa;
-            color: #444;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, p {
-            margin-bottom: 20px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* Header */
-        header {
-            background-color: #2b3a42;
-            color: #fff;
-            text-align: center;
-            padding: 100px 20px;
-            margin-bottom: 50px;
-            border-bottom: 3px solid #ddd;
-        }
-
-        header h1 {
-            font-size: 4em;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        header p {
-            font-size: 1.2em;
-        }
-
-        /* Main Content */
-        main {
-            padding: 80px 20px;
-        }
-
-        section {
-            margin-bottom: 60px;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        .intro {
-            border-left: 5px solid #2980b9;
-            padding-left: 30px;
-            margin-bottom: 40px;
-        }
-
-        .intro h2 {
-            font-size: 2.8em;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
             color: #333;
-            font-weight: 600;
         }
 
-        .intro p {
-            font-size: 1.2em;
-            color: #666;
-            margin-top: 20px;
+        /* Navigation Bar */
+        header {
+            background-color: #232f3e;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
         }
 
-        .expertise {
+        header .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
             display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            margin-bottom: 60px;
+            justify-content: center;
+            gap: 20px;
         }
 
-        .expertise-item {
-            flex: 1;
-            border-left: 3px solid #2980b9;
-            padding-left: 20px;
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
             font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
 
-        .expertise-item h3 {
-            font-size: 2.2em;
-            color: #2b3a42;
-            margin-bottom: 20px;
-            font-weight: 600;
+        nav ul li a:hover {
+            background-color: #00bfae;
         }
 
-        .why-choose ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .why-choose li {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 25px;
+        /* Hero Section */
+        .hero {
+            background-color: #0075d9;
+            color: white;
+            height: 60vh;
             display: flex;
+            justify-content: center;
             align-items: center;
+            text-align: center;
         }
 
-        .why-choose li::before {
-            content: '✔';
-            color: #2980b9;
-            margin-right: 15px;
-            font-size: 1.4em;
+        .hero-content h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        /* Contact Section */
-        .contact {
-            background-color: #2980b9;
-            color: #fff;
+        .hero-content p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background-color: #00bfae;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 1.2em;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #0075d9;
+        }
+
+        /* About Section */
+        .about {
             padding: 50px 20px;
             text-align: center;
-            border-radius: 12px;
+            background-color: white;
         }
 
-        .contact h2 {
+        .about h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
-            font-weight: 600;
         }
 
-        .contact p {
+        .about p {
             font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-
-        .contact a {
-            font-weight: bold;
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .contact a:hover {
-            color: #f39c12;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
         }
 
         /* Footer Section */
         footer {
-            background-color: #2b3a42;
-            color: #fff;
-            padding: 20px 0;
+            background-color: #232f3e;
+            color: white;
             text-align: center;
+            padding: 20px;
             font-size: 1em;
         }
 
-        footer p {
-            margin-top: 10px;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .expertise {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .container {
-                width: 90%;
-            }
-
-            header h1 {
-                font-size: 3em;
-            }
-
-            header p {
-                font-size: 1.2em;
-            }
-
-            .contact h2 {
-                font-size: 2em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-
-            header p {
-                font-size: 1em;
-            }
-
-            .expertise {
-                flex-direction: column;
-            }
-
-            .contact h2 {
-                font-size: 1.8em;
-            }
+        footer .footer-content p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-
-    <!-- Header Section -->
+    <!-- Navigation Bar -->
     <header>
-        <div class="container">
-            <h1>Mapengo Innovations</h1>
-            <p>Revolutionizing Digital Solutions</p>
-        </div>
+        <div class="logo">Huawei</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Main Content Section -->
-    <main>
-        <section class="intro">
-            <div class="container">
-                <h2>About Us</h2>
-                <p>Mapengo Innovations is an innovative, online-based technology company specializing in delivering high-quality digital solutions. We are dedicated to empowering businesses with cutting-edge web development, mobile applications, and custom software solutions.</p>
-            </div>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Huawei</h1>
+            <p>Empowering the world through innovative technology</p>
+            <a href="#" class="cta-btn">Learn More</a>
+        </div>
+    </section>
 
-        <section class="vision">
-            <div class="container">
-                <h2>Our Founder and Vision</h2>
-                <p>Founded by Novice Nhlovo Mathebula, a qualified Software Engineer, Mapengo Innovations strives to create affordable, innovative, and efficient digital solutions to help businesses navigate the complexities of today’s digital world. Our founder's deep expertise drives our company's mission.</p>
-            </div>
-        </section>
-
-        <section class="expertise">
-            <div class="container">
-                <div class="expertise-item">
-                    <h3>Web Development</h3>
-                    <p>We specialize in building responsive, secure, and professional websites that drive results and enhance user experiences.</p>
-                </div>
-                <div class="expertise-item">
-                    <h3>Mobile App Development</h3>
-                    <p>We create dynamic and scalable mobile apps for Android and iOS, providing seamless experiences across devices.</p>
-                </div>
-                <div class="expertise-item">
-                    <h3>Custom Software Solutions</h3>
-                    <p>Our custom software is designed to optimize your workflow, increase efficiency, and solve your unique business challenges.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="why-choose">
-            <div class="container">
-                <h2>Why Choose Us?</h2>
-                <ul>
-                    <li><strong>Customer Focus:</strong> We tailor our solutions to meet your unique needs and objectives.</li>
-                    <li><strong>Expertise:</strong> Led by a qualified Software Engineer with hands-on experience, we bring industry-leading knowledge to every project.</li>
-                    <li><strong>Comprehensive Solutions:</strong> From design to deployment, we offer end-to-end services that cover all aspects of digital development.</li>
-                    <li><strong>Innovation:</strong> We are committed to staying ahead of the curve and delivering the latest tech to optimize your business.</li>
-                    <li><strong>Scalability:</strong> Our solutions grow with you. Whether you're a startup or a large enterprise, we ensure your technology evolves with your business.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="contact">
-            <div class="container">
-                <h2>Get in Touch</h2>
-                <p>Ready to bring your digital vision to life? Let’s work together to transform your business.</p>
-                <p>Email: <a href="mailto:ceofounder24@gmail.com">ceofounder24@gmail.com</a></p>
-                <p>CEO and Founder: Novice Nhlovo Mathebula</p>
-            </div>
-        </section>
-    </main>
+    <!-- About Us Section -->
+    <section class="about">
+        <h2>About Us</h2>
+        <p>Huawei is a global provider of information and communications technology (ICT) infrastructure and smart devices. Our mission is to enrich life through innovation, empowering individuals, businesses, and society.</p>
+        <p>With cutting-edge technology, we aim to build a fully connected and intelligent world for the next generation. Join us as we lead the way in 5G, AI, Cloud Computing, and more!</p>
+    </section>
 
     <!-- Footer Section -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Mapengo Innovations. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Huawei Technologies Co., Ltd. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>
