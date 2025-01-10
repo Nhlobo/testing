@@ -13,110 +13,193 @@
             box-sizing: border-box;
         }
 
-        /* Body and Global Styles */
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            background: #f4f4f9;
             color: #333;
+            line-height: 1.7;
         }
 
-        /* Container for consistent padding */
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(45deg, #6e7e8f, #283848);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        /* Main Content */
+        main {
+            padding: 80px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
         .container {
             width: 80%;
             margin: 0 auto;
         }
 
-        /* Header */
-        header {
-            background: #333;
-            color: #fff;
-            padding: 30px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 3em;
-        }
-
-        header p {
+        /* About Section */
+        .intro p {
             font-size: 1.2em;
-            margin-top: 10px;
-        }
-
-        /* Main Section */
-        main {
-            padding: 50px 0;
-        }
-
-        section {
-            margin-bottom: 50px;
-        }
-
-        section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #444;
-        }
-
-        section p {
-            font-size: 1.1em;
             color: #666;
         }
 
         /* Expertise Section */
         .expertise {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            justify-content: space-between;
         }
 
         .expertise-item {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            flex-basis: 30%;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
         }
 
         .expertise-item h3 {
-            font-size: 1.6em;
+            font-size: 1.7em;
+            color: #283848;
             margin-bottom: 10px;
         }
 
         .expertise-item p {
-            color: #888;
+            font-size: 1em;
+            color: #555;
         }
 
-        /* Why Choose Section */
+        /* Why Choose Us Section */
         .why-choose ul {
             list-style-type: none;
-            padding: 0;
+            padding-left: 0;
         }
 
         .why-choose li {
-            background: url('checkmark-icon.png') no-repeat left center;
-            padding-left: 30px;
-            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .why-choose li::before {
+            content: '✔';
+            color: #6e7e8f;
+            margin-right: 15px;
+            font-size: 1.5em;
         }
 
         /* Contact Section */
+        .contact {
+            background: #283848;
+            color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
         .contact a {
-            color: #007BFF;
+            color: #6e7e8f;
+            font-weight: bold;
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: #fff;
         }
 
         /* Footer */
         footer {
-            background-color: #333;
+            background-color: #222;
             color: #fff;
             padding: 20px 0;
             text-align: center;
+            font-size: 1.1em;
         }
 
         footer p {
-            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .expertise {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            .contact h2 {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .expertise {
+                grid-template-columns: 1fr;
+            }
+
+            .contact h2 {
+                font-size: 1.6em;
+            }
         }
     </style>
 </head>
@@ -164,20 +247,6 @@
             </div>
         </section>
 
-        <section class="team">
-            <div class="container">
-                <h2>Our Team</h2>
-                <p>Led by Novice Nhlovo Mathebula, Mapengo Innovations is supported by a team of talented developers, designers, and project managers committed to delivering excellence and innovation.</p>
-            </div>
-        </section>
-
-        <section class="philosophy">
-            <div class="container">
-                <h2>Our Philosophy and Inspiration</h2>
-                <p>We believe technology should be an enabler for success, not a barrier. Our mission is to provide businesses with the tools they need to navigate the digital age confidently and drive measurable growth.</p>
-            </div>
-        </section>
-
         <section class="why-choose">
             <div class="container">
                 <h2>Why Choose Us?</h2>
@@ -188,13 +257,6 @@
                     <li><strong>Quality and Innovation:</strong> Solutions that adhere to the best industry standards.</li>
                     <li><strong>Scalability:</strong> We provide scalable solutions that grow with your business.</li>
                 </ul>
-            </div>
-        </section>
-
-        <section class="commitment">
-            <div class="container">
-                <h2>Our Commitment to Excellence</h2>
-                <p>We are committed to delivering high-quality, innovative solutions that exceed expectations, making a real impact in the digital world.</p>
             </div>
         </section>
 
