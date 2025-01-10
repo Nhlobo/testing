@@ -9,6 +9,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             height: 100%;
+            overflow: hidden;
         }
 
         .gray-section {
@@ -34,28 +35,37 @@
 
         .text-content {
             max-width: 50%;
-            position: relative; /* Ensure text stays on top */
-            z-index: 1; /* Keeps text in front */
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.6));
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            padding: 20px;
         }
 
         .text-content h1 {
             font-size: 3rem;
             margin: 0;
+            line-height: 1.3;
         }
 
         .text-content p {
             font-size: 1.2rem;
             margin: 10px 0 20px;
+            line-height: 1.5;
         }
 
         .text-content button {
             background-color: #333;
             color: #fff;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
         }
 
         .text-content button:hover {
@@ -72,14 +82,92 @@
             clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
             z-index: 1; /* Keep wave above the gradient but below the content */
         }
+
+        /* Media Query for Landscape Orientation */
+        @media (orientation: landscape) {
+            .gray-section {
+                flex-direction: row;
+                height: 100vh;
+            }
+
+            .text-content {
+                max-width: 50%;
+                text-align: left;
+                padding: 30px;
+            }
+
+            .text-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .text-content p {
+                font-size: 1.4rem;
+            }
+
+            .text-content button {
+                font-size: 1.2rem;
+                padding: 14px 28px;
+            }
+
+            .wave {
+                height: 200px;
+            }
+        }
+
+        /* Media Query for Portrait Orientation */
+        @media (orientation: portrait) {
+            .gray-section {
+                flex-direction: column;
+                height: auto;
+                justify-content: center;
+            }
+
+            .text-content {
+                max-width: 100%;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .text-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .text-content p {
+                font-size: 1.2rem;
+            }
+
+            .text-content button {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+
+            .wave {
+                height: 150px;
+            }
+        }
+
+        /* Additional mobile styles for smaller screens */
+        @media (max-width: 480px) {
+            .text-content h1 {
+                font-size: 2rem;
+            }
+
+            .text-content p {
+                font-size: 1rem;
+            }
+
+            .text-content button {
+                padding: 10px 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="gray-section">
         <div class="text-content">
-            <h1>Everything about the color Gray</h1>
-            <p>The meaning of the color Gray and color combinations to inspire your next design.</p>
-            <button>Start designing</button>
+            <h1>We Build What You Need</h1>
+            <p>High-performance websites, mobile apps, and custom digital solutions tailored to drive success.</p>
+            <button aria-label="Start designing">Start designing</button>
         </div>
         <div class="wave"></div>
     </div>
