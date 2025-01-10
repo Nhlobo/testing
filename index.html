@@ -8,22 +8,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Ensure consistent box sizing */
-  font-family: 'Roboto', sans-serif;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; /* Ensure consistent box sizing */
+      font-family: 'Roboto', sans-serif;
+    }
 
-/* Body Styles */
-body {
-  font-family: 'Inter', sans-serif;
-   background: #000000;
-  line-height: 1.6;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
+    /* Body Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff; /* Pure white background */
+      color: #000000; /* Black text for readability */
+      line-height: 1.6;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
 
     /* Section Styles */
     section {
@@ -36,13 +37,14 @@ body {
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 20px;
+      color: #000000; /* Ensure headings are black */
     }
 
     p {
       font-size: 1.2rem;
       margin: 0 auto;
       max-width: 800px;
-      color: rgba(255, 255, 255, 0.8); /* Slightly lighter text color for readability */
+      color: #000000; /* Ensure paragraph text is black */
     }
 
     /* About Us Image */
@@ -59,26 +61,26 @@ body {
     .cta-button {
       display: inline-block;
       padding: 12px 24px;
-      background: rgba(255, 255, 255, 0.2); /* Transparent white background */
-      color: #fff;
+      background: rgba(0, 0, 0, 0.1); /* Slightly transparent black background */
+      color: #000;
       font-size: 1rem;
       text-decoration: none;
       border-radius: 10px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
+      border: 2px solid rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px); /* Glass effect */
       transition: all 0.3s ease-in-out;
     }
 
     .cta-button:hover {
-      background: rgba(255, 255, 255, 0.3);
-      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(0, 0, 0, 0.5);
     }
 
     /* Headings for Subsections */
     .subheading {
       font-size: 2rem;
       margin-top: 40px;
-      color: #fff;
+      color: #000000; /* Ensure subheadings are black */
     }
 
     /* Sections with Images */
@@ -99,7 +101,7 @@ body {
 
     /* Background Overlay for Better Text Visibility */
     .overlay {
-       background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
+      background: none; /* Remove gradient as it's not needed */
       position: absolute;
       top: 0;
       left: 0;
@@ -111,7 +113,7 @@ body {
 
     /* Extra Padding for Section Titles */
     section > h1, section > h2 {
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      text-shadow: none; /* Remove shadow for clearer text */
     }
 
   </style>
