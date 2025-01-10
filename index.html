@@ -1,657 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Mapengo Innovations - Portfolio</title>
-
-   <!-- Meta Description -->
-   <meta name="description" content="Mapengo Innovations offers professional web and app development services. Specializing in custom websites, mobile apps, and e-commerce solutions. Contact us for tailored, innovative solutions for your business.">
-
-   <!-- Meta Keywords -->
-   <meta name="keywords" content="web development, app development, e-commerce solutions, custom websites, mobile app development, software development, website design, mobile app design, web development company, app development company">
-
-   <!-- Open Graph Tags for Facebook -->
-   <meta property="og:title" content="Mapengo Innovations - Web and App Development Solutions">
-   <meta property="og:description" content="We offer web and app development services, providing custom solutions for websites, mobile apps, and e-commerce platforms.">
-   <meta property="og:image" content="https://www.mapengoinnovations.com/images/logo.png">
-   <meta property="og:url" content="https://www.mapengoinnovations.com">
-
-   <!-- Structured Data (JSON-LD) Schema for Local Business -->
-   <script type="application/ld+json">
-   {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Mapengo Innovations",
-      "image": "https://www.mapengoinnovations.com/images/logo.png",
-      "telephone": "+27665520197",
-      "email": "info@mapengoinnovations.com",
-      "address": {
-         "@type": "PostalAddress",
-         "addressLocality": "Johannesburg",
-         "addressRegion": "Gauteng",
-         "postalCode": "1819",
-         "addressCountry": "ZA"
-      },
-      "url": "https://www.mapengoinnovations.com",
-      "sameAs": [
-         "https://www.facebook.com/yourcompany",
-         "https://www.tiktok.com/@yourcompany",
-         "https://www.instagram.com/yourcompany",
-         "https://www.linkedin.com/in/yourcompany"
-      ]
-   }
-   </script>
-
-   <!-- Linking Google Fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-   <!-- Linking Font Awesome for Icons -->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans</title>
     <style>
-     /* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Ensure consistent box sizing */
-    font-family: 'Roboto', sans-serif; /* Ensure uniform font family for all elements */
-}
-
-/* Body Styles */
-body {
-    font-family: 'Inter', sans-serif; /* Keep 'Inter' for the body font */
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1)); /* Consistent background gradient */
-    color: #333; /* Dark text for readability */
-    line-height: 1.6; /* Improve readability with line height */
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    margin: 0;
-    padding: 0;
-}
-
-/* Navbar Styles (for all screens) */
-.navbar {
-  display: flex;
-  justify-content: center; /* Center navigation links */
-  align-items: center;
-  padding: 20px 50px;
-  background-color: transparent; /* Transparent for the glassmorphism effect */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  position: absolute; /* Position navbar over the hero section */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  backdrop-filter: blur(15px); /* Glassmorphism effect */
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2)); /* Glassmorphism gradient */
-  animation: gradientAnimation 8s ease infinite; /* Gradient animation */
-}
-
-/* Logo Styles */
-.logo img {
-  height: 60px; /* Adjust logo size */
-  max-width: 160%;
-}
-
-/* Navigation Links (for larger screens) */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #1a73e8;
-  transform: translateY(-3px);
-}
-
-/* Hamburger Menu (centered on small screens) */
-.toggle-button {
-  font-size: 30px;
-  cursor: pointer;
-  display: none;
-  color: white; /* Set hamburger color to white */
-}
-
-/* Sliding Menu for smaller screens */
-.main-menu {
-  position: fixed;
-  top: 0;
-  left: -300px;
-  width: 300px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
-  color: white;
-  transition: left 0.3s ease-in-out;
-  padding-top: 80px;
-  z-index: 2000;
-  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
-  animation: gradientAnimation 8s ease infinite;
-}
-
-.main-menu.active {
-  left: 0;
-}
-
-.main-menu .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 25px;
-  cursor: pointer;
-  color: white;
-}
-
-.main-menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.main-menu ul li {
-  padding: 15px;
-  font-size: 20px;
-  text-align: center;
-}
-
-.main-menu ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-  /* Display hamburger icon on smaller screens */
-  .toggle-button {
-    display: block;
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* Hide default navigation links */
-  .nav-links {
-    display: none;
-  }
-
-  /* Show menu items in main-menu */
-  .main-menu ul {
-    padding-left: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Adjust any further styles for smaller screens if needed */
-}
-       
- /* PORTFOLIO SECTION */
-/* Section Styles */
-section {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  padding: 2.5rem 1.5rem; /* Increased padding for more spacious sections */
-  margin-bottom: 30px; /* Increased space between sections */
-}
-
-/* Link Style */
-a {
-  text-decoration: none;
-  color: #FFD700; /* Golden color for links */
-  font-weight: 500; /* Slightly bolder links */
-}
-
-
-/* Gallery Section */
-.gallery-section {
-  padding: 60px 0;
-  text-align: center;
-   font-size: 2rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 1.5rem;
-}
-}
-
-
-/* Carousel Styles */
-.carousel-container {
-  position: relative;
-  width: 80%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Darker shadow for emphasis */
-}
-
-.carousel-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-slide .item {
-  display: none;
-  text-align: center;
-}
-
-.carousel-slide .item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Darker shadow for images */
-}
-
-.carousel-description {
-  margin-top: 15px;
-  font-size: 16px;
-  color: #ddd; /* Light grey text for description */
-}
-
-.carousel-buttons {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-}
-
-.carousel-buttons button {
-  background: rgba(0, 0, 0, 0.7); /* Darker background for buttons */
-  color: white;
-  border: none;
-  padding: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.carousel-buttons button:hover {
-  background: rgba(0, 0, 0, 0.9); /* Darker on hover */
-}
-
-/* View Live Button */
-.view-live-btn {
-  display: inline-block;
-  padding: 12px 30px;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  background-color: #FFD700; /* Golden background */
-  color: #333; /* Dark text color */
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-top: 20px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Hover effect for Buttons */
-.view-live-btn:hover {
-  background-color: #ffcc00; /* Slightly darker yellow */
-  transform: translateY(-5px); /* Hover lift effect */
-}      
-
- /* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #f8f8f8;
-    color: #666;
-    font-size: 14px;
-}
-
-/* Social Media Icons */
-.wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
-    list-style: none;
-    flex-wrap: wrap;
-}
-
-.wrapper .icon {
-    width: 3em;
-    height: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.wrapper .icon:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.tooltip {
-    position: absolute;
-    top: -40px;
-    background: #333;
-    color: white;
-    font-size: 0.9em;
-    padding: 5px 10px;
-    border-radius: 5px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.icon:hover .tooltip {
-    opacity: 1;
-}
-
-/* Footer Links */
-.footer-links {
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.footer-links a {
-    color: #666;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.footer-links a:hover {
-    color: #1e293b;
-}
-      
+        /* From Uiverse.io by Manish-Tamang */ 
+        .wrapper {
+            width: 100%;
+            max-width: 1000px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+            margin: 20px auto;
+        }
+        .wrapper header {
+            height: 55px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            position: relative;
+        }
+        header label {
+            height: 100%;
+            z-index: 2;
+            width: 30%;
+            display: flex;
+            cursor: pointer;
+            font-size: 18px;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+        }
+        #tab-1:checked ~ header .tab-1,
+        #tab-2:checked ~ header .tab-2,
+        #tab-3:checked ~ header .tab-3 {
+            color: #fff;
+        }
+        header label:nth-child(2) {
+            width: 40%;
+        }
+        header .slider {
+            position: absolute;
+            height: 85%;
+            border-radius: inherit;
+            background: linear-gradient(145deg, #d5a3ff 0%, #77a5f8 100%);
+            transition: all 0.3s ease;
+        }
+        #tab-1:checked ~ header .slider {
+            left: 0%;
+            width: 90px;
+            transform: translateX(5%);
+        }
+        #tab-2:checked ~ header .slider {
+            left: 50%;
+            width: 120px;
+            transform: translateX(-50%);
+        }
+        #tab-3:checked ~ header .slider {
+            left: 100%;
+            width: 95px;
+            transform: translateX(-105%);
+        }
+        .wrapper input[type="radio"] {
+            display: none;
+        }
+        .card-area {
+            overflow: hidden;
+        }
+        .card-area .cards {
+            display: flex;
+            width: 300%;
+        }
+        .cards .row {
+            width: 33.4%;
+        }
+        .cards .row-1 {
+            transition: all 0.3s ease;
+        }
+        #tab-1:checked ~ .card-area .cards .row-1 {
+            margin-left: 0%;
+        }
+        #tab-2:checked ~ .card-area .cards .row-1 {
+            margin-left: -33.4%;
+        }
+        #tab-3:checked ~ .card-area .cards .row-1 {
+            margin-left: -66.8%;
+        }
+        .row .price-details {
+            margin: 20px 0;
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .price-details .price {
+            font-size: 65px;
+            font-weight: 600;
+            position: relative;
+            font-family: "Noto Sans", sans-serif;
+        }
+        .price-details .price::before,
+        .price-details .price::after {
+            position: absolute;
+            font-weight: 400;
+            font-family: "Poppins", sans-serif;
+        }
+        .price-details .price::before {
+            content: "R";
+            left: -27px;
+            top: 17px;
+            font-size: 28px;
+        }
+        .price-details .price::after {
+            content: "/mon";
+            right: -33px;
+            bottom: 17px;
+            font-size: 13px;
+        }
+        .price-details p {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        .row .features li {
+            display: flex;
+            font-size: 15px;
+            list-style: none;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .features li i {
+            background: linear-gradient(#d5a3ff 0%, #77a5f8 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .features li span {
+            margin-left: 10px;
+        }
+        .wrapper button {
+            width: 100%;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            height: 50px;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 20px;
+            background: linear-gradient(145deg, #d5a3ff 0%, #77a5f8 100%);
+            transition: transform 0.3s ease;
+        }
+        .wrapper button:hover {
+            transform: scale(0.98);
+        }
     </style>
 </head>
-
 <body>
-<header class="navbar" id="navbar">
-        <div class="logo">
-            <img src="images/logo.png" alt="Mapengo Innovations">
+    <main class="container">
+        <h2>Website & App Development Packages</h2>
+        <div class="wrapper">
+            <!-- Tabs for Website Development -->
+            <input id="tab-1" name="slider" type="radio" />
+            <input checked="" id="tab-2" name="slider" type="radio" />
+            <input id="tab-3" name="slider" type="radio" />
+            <header>
+                <label class="tab-1" for="tab-1">Website Dev</label>
+                <label class="tab-2" for="tab-2">App Dev</label>
+                <div class="slider"></div>
+            </header>
+            <div class="card-area">
+                <div class="cards">
+                    <!-- Website Development Package 1 -->
+                    <div class="row row-1">
+                        <div class="price-details">
+                            <span class="price">R3,000 – R5,000</span>
+                            <p>Starter Package</p>
+                        </div>
+                        <ul class="features">
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Custom landing page design</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Contact form integration</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Basic SEO setup</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Responsive design (mobile-friendly)</span></li>
+                        </ul>
+                    </div>
+                    <!-- Website Development Package 2 -->
+                    <div class="row">
+                        <div class="price-details">
+                            <span class="price">R6,000 – R12,000</span>
+                            <p>Standard Package</p>
+                        </div>
+                        <ul class="features">
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Custom homepage and inner page design</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Contact form, gallery, or blog</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Basic SEO optimization</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Social media integration</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Mobile responsiveness</span></li>
+                        </ul>
+                    </div>
+                    <!-- Website Development Package 3 -->
+                    <div class="row">
+                        <div class="price-details">
+                            <span class="price">R12,000 – R20,000</span>
+                            <p>Premium Package</p>
+                        </div>
+                        <ul class="features">
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Custom homepage and multiple service/product pages</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Blog or portfolio section</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Advanced SEO setup</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Social media, chat integration, and more</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Newsletter subscription form</span></li>
+                        </ul>
+                    </div>
+                    <!-- App Development Package 1 -->
+                    <div class="row">
+                        <div class="price-details">
+                            <span class="price">R50,000 – R75,000</span>
+                            <p>Basic App</p>
+                        </div>
+                        <ul class="features">
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>User login and registration</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Basic UI/UX design</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Simple functionality</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Push notifications (optional)</span></li>
+                        </ul>
+                    </div>
+                    <!-- App Development Package 2 -->
+                    <div class="row">
+                        <div class="price-details">
+                            <span class="price">R75,000 – R120,000</span>
+                            <p>Standard App</p>
+                        </div>
+                        <ul class="features">
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>User profiles and login system</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Advanced UI/UX design</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Integration with third-party APIs</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>In-app messaging or notifications</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Admin dashboard</span></li>
+                        </ul>
+                    </div>
+                    <!-- App Development Package 3 -->
+                    <div class="row">
+                        <div class="price-details">
+                            <span class="price">R120,000 and up</span>
+                            <p>Premium App</p>
+                        </div>
+                        <ul class="features">
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Complete custom app design</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Multiple integrations</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Real-time features</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Advanced user roles</span></li>
+                            <li><i class="text-white text-2xs bg-green-500 rounded-full mr-2 p-1"></i><span>Admin control panel, analytics</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button>Choose Plan</button>
         </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')">Home</a></li>
-                <li><a href="about.html" onclick="closeMenuAndNavigate('about.html')">About</a></li>
-                <li><a href="services.html" onclick="closeMenuAndNavigate('services.html')">Services</a></li>
-                <li><a href="portfolio.html" onclick="closeMenuAndNavigate('portfolio.html')">Portfolio</a></li>
-                <li><a href="pricing.html" onclick="closeMenuAndNavigate('pricing.html')">Pricing</a></li>
-                <li><a href="contact" onclick="closeMenuAndNavigate('contact')">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="toggle-button" id="toggleButton">&#9776;</div>
-    </header>
-
-    <!-- Sliding Menu -->
-    <div id="mainMenu" class="main-menu">
-        <span class="close-btn" id="closeMenuButton">&#215;</span>
-        <ul>
-            <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')">Home</a></li>
-            <li><a href="about.html" onclick="closeMenuAndNavigate('about.html')">About</a></li>
-            <li><a href="services.html" onclick="closeMenuAndNavigate('services.html')">Services</a></li>
-            <li><a href="portfolio.html" onclick="closeMenuAndNavigate('portfolio.html')">Portfolio</a></li>
-            <li><a href="pricing.html" onclick="closeMenuAndNavigate('pricing.html')">Pricing</a></li>
-            <li><a href="contact" onclick="closeMenuAndNavigate('contact')">Contact</a></li>
-        </ul>
-    </div>
-
-    <script>
-        const toggleButton = document.querySelector("#toggleButton");
-        const mainMenu = document.querySelector("#mainMenu");
-        const closeMenuButton = document.querySelector("#closeMenuButton");
-
-        toggleButton.addEventListener('click', function () {
-            mainMenu.classList.toggle('active');
-            toggleButton.innerHTML = mainMenu.classList.contains("active") ? "&#215;" : "&#9776;";
-        });
-
-        closeMenuButton.addEventListener('click', function () {
-            mainMenu.classList.remove('active');
-            toggleButton.innerHTML = "&#9776;";
-        });
-
-        document.addEventListener('click', function(event) {
-            if (!mainMenu.contains(event.target) && !toggleButton.contains(event.target)) {
-                mainMenu.classList.remove('active');
-                toggleButton.innerHTML = "&#9776;";
-            }
-        });
-
-        function closeMenuAndNavigate(target) {
-            mainMenu.classList.remove('active');
-            toggleButton.innerHTML = "&#9776;";
-            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-<!-- ================= PORTFOLIO Section ================= -->
-    <section class="gallery-section">
-    <!-- Gallery Introduction Section -->
-    <div class="gallery-intro">
-      <h3>Portfolio</h3>
-      </div>
-
-    <!-- Carousel Section -->
-    <div class="carousel-container">
-      <div class="carousel-slide">
-        
-        <!-- Starter Package -->
-        <div class="item">
-          <img src="Clyde-2.jpg" alt="Personal Blog">
-          <p>Custom personal blog design featuring post categories, responsive layouts, and user-friendly navigation, making it perfect for bloggers.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-         </div>
-
-        <div class="item">
-          <img src="portfolio-website.jpg" alt="Portfolio Website">
-          <p>A clean and modern portfolio website that highlights your work in a visually striking manner, making it easy for clients to explore.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <img src="landing-page-website.jpg" alt="Landing Page">
-          <p>A responsive landing page designed for conversions with a clear call-to-action and an optimized user experience.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <img src="simple-project-website.jpg" alt="Simple Project Website">
-          <p>An ideal choice for small projects, offering a straightforward design to display essential information and services clearly.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <!-- Standard Package -->
-        <div class="item">
-          <h5>Standard Package</h5>
-          <img src="small-business-website.jpg" alt="Small Business Website">
-          <p>Designed for small businesses, this website package includes essential features like service details, testimonials, and a contact form.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <img src="consultant-website.jpg" alt="Consultant Website">
-          <p>Consultant website with a polished design and clear service offerings, designed to help consultants stand out and attract clients.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <img src="non-profit-website.jpg" alt="Non-profit Website">
-          <p>A dynamic non-profit website featuring donation integration and an event calendar to boost engagement and contributions.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <img src="portfolio-with-gallery.jpg" alt="Portfolio with Gallery">
-          <p>Portfolio website with a gallery or blog section, showcasing your projects, articles, and creative endeavors in an engaging way.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <!-- Premium Package -->
-        <div class="item">
-          <h5>Premium Package</h5>
-          <img src="corporate-website.jpg" alt="Corporate Website">
-          <p>Professionally designed corporate website with multiple pages, including service details, contact info, and client testimonials.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <img src="service-provider-website.jpg" alt="Service Provider Website">
-          <p>Website designed for service providers with integrated booking and contact forms to streamline client interactions.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <img src="multi-page-business-website.jpg" alt="Multi-page Business Website">
-          <p>Multi-page website to showcase products, services, and all aspects of your business, including client interactions and testimonials.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <img src="organization-website.jpg" alt="Organization Website">
-          <p>Organization website with features like an event calendar, team members section, blog, and more to connect with your community.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <!-- E-commerce Package -->
-        <div class="item">
-          <h5>E-commerce Package</h5>
-          <img src="ecommerce-website.jpg" alt="E-commerce Website">
-          <p>A fully functional e-commerce site, designed to showcase products with secure payment integration and seamless shopping experience.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <img src="online-store.jpg" alt="Online Store">
-          <p>Online store solution with a user-friendly interface built on platforms like WooCommerce, Shopify, or Wix to sell your products online.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <!-- App Development Packages -->
-        <div class="item">
-          <h5>Basic App</h5>
-          <img src="simple-app.jpg" alt="Basic App">
-          <p>Simple mobile app with basic functionality like login and form submission, designed for small-scale projects.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <h5>Standard App</h5>
-          <img src="standard-app.jpg" alt="Standard App">
-          <p>A medium complexity app featuring user profiles and third-party API integration for a more dynamic experience.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-
-        <div class="item">
-          <h5>Premium App</h5>
-          <img src="premium-app.jpg" alt="Premium App">
-          <p>Advanced mobile app with custom features such as payment gateways and live tracking, designed for high-demand projects.</p>
-          <a href="#" class="view-live-btn" target="_blank">View Live</a>
-        </div>
-      </div>
-
-      <!-- Carousel Navigation Buttons -->
-      <div class="carousel-buttons">
-        <button id="prev-btn">&#8592; Prev</button>
-        <button id="next-btn">Next &#8594;</button>
-      </div>
-    </div>
-
-  </section>
-
-  <script>
-    let currentSlideIndex = 0;
-    const slides = document.querySelectorAll('.carousel-slide .item');
-    const prevButton = document.getElementById('prev-btn');
-    const nextButton = document.getElementById('next-btn');
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.style.display = i === index ? 'block' : 'none';
-      });
-    }
-
-    prevButton.addEventListener('click', () => {
-      currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-      showSlide(currentSlideIndex);
-    });
-
-    nextButton.addEventListener('click', () => {
-      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-      showSlide(currentSlideIndex);
-    });
-
-    // Initialize the first slide
-    showSlide(currentSlideIndex);
-  </script>
-   
- </section>
-  
-
-   <footer>
-    <ul class="wrapper">
-      <li class="icon facebook" onclick="redirectTo('https://facebook.com')">
-        <span class="tooltip">Facebook</span>
-        <svg
-          viewBox="0 0 320 512"
-          height="1.2em"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
-        </svg>
-      </li>
-      <li class="icon twitter" onclick="redirectTo('https://twitter.com')">
-        <span class="tooltip">Twitter</span>
-        <svg
-          height="1.8em"
-          fill="currentColor"
-          viewBox="0 0 48 48"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"></path>
-        </svg>
-      </li>
-      <li class="icon instagram" onclick="redirectTo('https://instagram.com')">
-        <span class="tooltip">Instagram</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="1.2em"
-          fill="currentColor"
-          class="bi bi-instagram"
-          viewBox="0 0 16 16"
-        >
-          <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
-        </svg>
-      </li>
-    </ul>
-    
-    <!-- Privacy & Terms Links -->
-    <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a> | 
-      <a href="terms.html">Terms of Service</a>
-    </div>
-    
-    <p>© 2025 Mapengo Innovations. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function redirectTo(url) {
-      setTimeout(() => {
-        window.location.href = url;
-      }, 300);  // Delay of 0.3 seconds
-    }
-  </script>
+    </main>
 </body>
-
 </html>
