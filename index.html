@@ -1,166 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Huawei Style</title>
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>About Us - Mapengo Innovations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
 
-        /* Body Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+    /* Body Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Navigation Bar */
-        header {
-            background-color: #232f3e;
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-        }
+    /* Section Styles */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
 
-        header .logo {
-            font-size: 2em;
-            font-weight: bold;
-        }
+    h1, h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+    p {
+      font-size: 1.2rem;
+      color: #fff;
+      margin: 0 auto;
+      max-width: 800px;
+    }
 
-        nav ul li {
-            display: inline;
-        }
+    /* About Us Image */
+    .about-img {
+      width: 100%;
+      height: 300px;
+      background: url('https://via.placeholder.com/1500x600') no-repeat center center;
+      background-size: cover;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
+    /* Headings for Subsections */
+    .subheading {
+      font-size: 2rem;
+      margin-top: 40px;
+      color: #fff;
+    }
 
-        nav ul li a:hover {
-            background-color: #00bfae;
-        }
+    /* Sections with Images */
+    .section-img {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
 
-        /* Hero Section */
-        .hero {
-            background-color: #0075d9;
-            color: white;
-            height: 60vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+    .section-img img {
+      width: 45%;
+      margin: 0 20px;
+      border-radius: 10px;
+    }
 
-        .hero-content h1 {
-            font-size: 3em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+    /* Call to Action Button */
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #FF6600;
+      color: #fff;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
 
-        .hero-content p {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
+    .cta-button:hover {
+      background-color: #cc5200;
+    }
 
-        .cta-btn {
-            background-color: #00bfae;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-size: 1.2em;
-            color: white;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-btn:hover {
-            background-color: #0075d9;
-        }
-
-        /* About Section */
-        .about {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: white;
-        }
-
-        .about h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #555;
-        }
-
-        /* Footer Section */
-        footer {
-            background-color: #232f3e;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 1em;
-        }
-
-        footer .footer-content p {
-            margin: 0;
-        }
-    </style>
+  </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <div class="logo">Huawei</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Support</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Huawei</h1>
-            <p>Empowering the world through innovative technology</p>
-            <a href="#" class="cta-btn">Learn More</a>
-        </div>
-    </section>
+  <section>
+    <div class="about-img"></div>
+    <h1>About Us - Mapengo Innovations</h1>
+    <p>Welcome to Mapengo Innovations. We are a forward-thinking company focused on creating innovative solutions for a better tomorrow.</p>
+  </section>
 
-    <!-- About Us Section -->
-    <section class="about">
-        <h2>About Us</h2>
-        <p>Huawei is a global provider of information and communications technology (ICT) infrastructure and smart devices. Our mission is to enrich life through innovation, empowering individuals, businesses, and society.</p>
-        <p>With cutting-edge technology, we aim to build a fully connected and intelligent world for the next generation. Join us as we lead the way in 5G, AI, Cloud Computing, and more!</p>
-    </section>
+  <section>
+    <h2 class="subheading">Our Founder and Vision</h2>
+    <div class="section-img">
+      <img src="https://via.placeholder.com/600x400" alt="Founder Image">
+      <img src="https://via.placeholder.com/600x400" alt="Vision Image">
+    </div>
+    <p>Our founder, John Mapengo, had a vision to create a tech-driven company that prioritizes sustainability and progress. His aim is to foster a better world through innovative solutions.</p>
+  </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Huawei Technologies Co., Ltd. All rights reserved.</p>
-        </div>
-    </footer>
+  <section>
+    <h2 class="subheading">Our Expertise</h2>
+    <div class="section-img">
+      <img src="https://via.placeholder.com/600x400" alt="Expertise Image">
+    </div>
+    <p>We specialize in software development, AI solutions, and sustainable technology. Our team is dedicated to leveraging cutting-edge tech to solve real-world problems.</p>
+  </section>
+
+  <section>
+    <h2 class="subheading">The Development Process</h2>
+    <div class="section-img">
+      <img src="https://via.placeholder.com/600x400" alt="Development Process Image">
+    </div>
+    <p>Our development process is rooted in collaboration, innovation, and a commitment to delivering high-quality solutions. We work closely with clients to ensure every project meets their needs.</p>
+  </section>
+
+  <section>
+    <h2 class="subheading">Our Team</h2>
+    <div class="section-img">
+      <img src="https://via.placeholder.com/600x400" alt="Team Image">
+    </div>
+    <p>Our team is a diverse group of professionals passionate about technology and innovation. We work together to bring the best ideas to life.</p>
+  </section>
+
+  <section>
+    <h2 class="subheading">Our Philosophy and Inspiration</h2>
+    <div class="section-img">
+      <img src="https://via.placeholder.com/600x400" alt="Philosophy Image">
+    </div>
+    <p>Our philosophy is to always think big, stay humble, and continuously push the boundaries of what's possible. We are inspired by the endless potential of technology to improve lives.</p>
+  </section>
+
+  <section>
+    <h2 class="subheading">Our Commitment to Excellence</h2>
+    <div class="section-img">
+      <img src="https://via.placeholder.com/600x400" alt="Excellence Image">
+    </div>
+    <p>We are committed to providing excellence in everything we do. Whether it’s in our products, customer service, or our relationships, we strive for the highest standards.</p>
+  </section>
+
+  <section>
+    <h2 class="subheading">Join Us on Our Journey</h2>
+    <p>At Mapengo Innovations, we’re always looking for talented individuals who are passionate about making a difference. Join us and be part of the next generation of innovators.</p>
+    <a href="#" class="cta-button">Join Us Now</a>
+  </section>
+
+  <section>
+    <h2 class="subheading">Get in Touch</h2>
+    <p>If you have any questions or would like to work with us, don’t hesitate to reach out. We’d love to hear from you!</p>
+    <a href="mailto:contact@mapengo.com" class="cta-button">Contact Us</a>
+  </section>
+
 </body>
 </html>
