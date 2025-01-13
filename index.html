@@ -197,7 +197,7 @@
       padding-bottom: 20px;
     }
 
-   /* Section Styles */
+/* Section Styles */
 section {
   padding: 60px 20px;
   text-align: center;
@@ -267,21 +267,21 @@ p {
   font-weight: 600;
 }
 
-/* Flex Layout for Images in Sections */
+/* Sections with Images (No gap, images wrapped tightly) */
 .section-img {
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 0; /* Removed the gap between images */
 }
 
 .section-img img {
   width: 100%;
-  max-width: 600px;
+  max-width: 100%; /* Ensure the images fill the available width */
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  object-fit: cover; /* Ensures images maintain good aspect ratio */
+  object-fit: cover; /* Ensures images maintain a good aspect ratio */
 }
 
 /* Section Background Overlay for Improved Text Visibility */
@@ -326,7 +326,6 @@ section p, .cta-button {
   }
 }
 
-  
       /* Footer Styles */
 footer {
     text-align: center;
