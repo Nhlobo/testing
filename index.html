@@ -197,103 +197,136 @@
       padding-bottom: 20px;
     }
 
-    /* Section Styles */
-    section {
-      padding: 80px 20px;
-      text-align: center;
-      position: relative;
-      background-color: #ffffff; /* Pure white background for sections */
-      color:  #1e293b; /* Title */
-      border-radius: 10px;
-      margin: 20px;
-    }
-
-    h1, h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color:  #1e293b; 
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin: 0 auto;
-      max-width: 800px;
-      color: #000000; /* Ensure paragraph text is black */
-    }
-
-    /* About Us Image */
-    .about-img {
-      width: 100%;
-      height: 300px;
-      background: url('logo-Photoroom.png') no-repeat center center;
-      background-size: cover;
-      border-radius: 10px;
-      margin-bottom: 40px;
-    }
-
-    /* Glassmorphism Button */
-    .cta-button {
-      display: inline-block;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    background-color: #FFD700; /* Golden background */
-    color: #333; /* Dark text color */
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+   /* Section Styles */
+section {
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  background-color: #ffffff; /* Pure white background for sections */
+  color: #1e293b; /* Title */
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
-   /* Hover effect for Buttons */
-.btn:hover {
-    background-color: #ffcc00; /* Slightly darker yellow */
-    transform: translateY(-5px); /* Hover lift effect */
+/* Heading Styles */
+h1, h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #1e293b;
+  text-transform: uppercase; /* Add uppercase style for headings */
 }
-        
 
-    /* Headings for Subsections */
-    .subheading {
-      font-size: 2rem;
-      margin-top: 40px;
-      color: #000000; /* Ensure subheadings are black */
-    }
+/* Paragraph Text */
+p {
+  font-size: 1.125rem;
+  margin: 0 auto;
+  max-width: 800px;
+  color: #333333; /* Slightly darker color for text for better readability */
+  line-height: 1.6; /* Increased line-height for better readability */
+}
 
-    /* Sections with Images */
-    .section-img {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+/* About Us Image */
+.about-img {
+  width: 100%;
+  height: 350px;
+  background: url('logo-Photoroom.png') no-repeat center center;
+  background-size: cover;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
 
-    .section-img img {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
+/* Button Styles */
+.cta-button {
+  display: inline-block;
+  padding: 12px 35px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  background-color: #FFD700; /* Golden background */
+  color: #333; /* Dark text color */
+  border: none;
+  border-radius: 30px; /* More rounded corners for a modern look */
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: 600;
+}
 
-    /* Background Overlay for Better Text Visibility */
-    .overlay {
-      background: none; 
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: -1; /* Keep it behind text */
-      border-radius: 10px;
-    }
+.cta-button:hover {
+  background-color: #ffcc00; /* Slightly darker yellow */
+  transform: translateY(-5px); /* Hover lift effect */
+}
 
-    /* Extra Padding for Section Titles */
-    section > h1, section > h2 {
-      text-shadow: none; /* Remove shadow for clearer text */
-    }
+/* Subheading Style */
+.subheading {
+  font-size: 1.8rem;
+  margin-top: 40px;
+  color: #000000; /* Ensure subheadings are black */
+  font-weight: 600;
+}
 
+/* Flex Layout for Images in Sections */
+.section-img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section-img img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: cover; /* Ensures images maintain good aspect ratio */
+}
+
+/* Section Background Overlay for Improved Text Visibility */
+.overlay {
+  background: rgba(0, 0, 0, 0.5); /* Slight dark overlay for contrast */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Keep it behind text */
+  border-radius: 15px;
+}
+
+/* Extra Padding for Section Titles */
+section > h1, section > h2 {
+  text-shadow: none; /* Remove shadow for clearer text */
+  margin-bottom: 20px; /* Add space below titles */
+}
+
+/* Additional spacing for clarity */
+section p, .cta-button {
+  margin-bottom: 20px; /* Space between paragraph and button */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 2rem; /* Slightly smaller font on mobile for better fit */
+  }
+
+  .about-img {
+    height: 250px; /* Smaller image on mobile */
+  }
+
+  .cta-button {
+    padding: 10px 25px; /* Adjust button padding on smaller screens */
+  }
+
+  .section-img img {
+    max-width: 100%; /* Ensure images are responsive */
+  }
+}
+
+  
       /* Footer Styles */
 footer {
     text-align: center;
