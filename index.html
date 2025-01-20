@@ -147,6 +147,34 @@
         #send-button:hover {
             background: #0055a4;
         }
+
+        /* Collapsible section styles */
+        .collapsible {
+            background-color: #003366;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .collapsible:hover {
+            background-color: #0055a4;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #0055a4;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f4f4f9;
+        }
     </style>
 </head>
 <body>
@@ -206,57 +234,63 @@
 
             chatbotBody.innerHTML = `
                 <div class="chatbot-message">
-                    <p>Step 1: Initial Meeting</p>
-                    <p>What Happens: We start with either an in-person or online meeting to discuss your project requirements in detail.</p>
-                    <p>Outcome: We provide recommendations to help you achieve the best results.</p>
+                    <p><strong>Step 1: Initial Meeting</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>We start with either an in-person or online meeting to discuss your project requirements in detail.</p>
+                        <p><strong>Outcome:</strong> We provide recommendations to help you achieve the best results.</p>
+                    </div>
                 </div>
                 <div class="chatbot-message">
-                    <p>Step 2: Agreement & Payment</p>
-                    <p>Online Contract: After the meeting, we prepare and send you an online contract outlining the agreed terms.</p>
-                    <p>Invoice: Once you sign the contract, we send you an invoice.</p>
-                    <p>Initial Payment: You pay 50% of the agreed amount to initiate the project.</p>
+                    <p><strong>Step 2: Agreement & Payment</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>After the meeting, we prepare and send you an online contract outlining the agreed terms. Once you sign it, we send you an invoice.</p>
+                        <p><strong>Payment:</strong> You pay 50% upfront to start the project.</p>
+                    </div>
                 </div>
                 <div class="chatbot-message">
-                    <p>Step 3: Development Phase</p>
-                    <p>Progress Updates: We keep you updated regularly during the development process to ensure the project aligns with your expectations.</p>
-                    <p>Collaboration: We welcome your feedback to make necessary adjustments.</p>
+                    <p><strong>Step 3: Development Phase</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>We keep you updated regularly during the development process to ensure the project aligns with your expectations.</p>
+                        <p>We welcome your feedback to make necessary adjustments.</p>
+                    </div>
                 </div>
                 <div class="chatbot-message">
-                    <p>Step 4: Testing & Finalization</p>
-                    <p>Thorough Testing: Before finalizing, we conduct rigorous testing to meet quality standards.</p>
-                    <p>Final Review: We provide a comprehensive walkthrough to confirm everything is in place.</p>
+                    <p><strong>Step 4: Testing & Finalization</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>Before finalizing, we conduct thorough testing to ensure the project meets our high standards.</p>
+                        <p>We provide a comprehensive walkthrough of the finished product to confirm it’s what you envisioned.</p>
+                    </div>
                 </div>
                 <div class="chatbot-message">
-                    <p>Step 5: Final Payment & Delivery</p>
-                    <p>Final Payment: You pay the remaining 50% once the project is ready.</p>
-                    <p>Handover: After receiving final payment, we deploy the project live or hand it over, based on your preference.</p>
+                    <p><strong>Step 5: Final Payment & Delivery</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>Once the project is ready, you pay the remaining 50% balance, and we either deploy it live or hand it over to you based on your preference.</p>
+                    </div>
                 </div>
             `;
 
             chatbotOptions.innerHTML = `
                 <button onclick="goBack()">Back</button>
             `;
-        }
 
-        // Show "Our Services" options
-        function showServiceOptions() {
-            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
-            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
-
-            const chatbotBody = document.getElementById('chatbot-body');
-            const chatbotOptions = document.getElementById('chatbot-options');
-
-            chatbotBody.innerHTML = `
-                <div class="chatbot-message">
-                    <p>Web Development: Custom websites designed for performance, security, and user experience.</p>
-                    <p>Mobile Apps: Innovative mobile applications for Android and iOS, built to engage and retain users.</p>
-                    <p>E-Commerce: Scalable e-commerce platforms with seamless integration and attractive designs.</p>
-                </div>
-            `;
-
-            chatbotOptions.innerHTML = `
-                <button onclick="goBack()">Back</button>
-            `;
+            // Add collapsible functionality
+            var coll = document.getElementsByClassName("collapsible");
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
         }
 
         // Show "Website & App Development Pricing" options
@@ -269,16 +303,67 @@
 
             chatbotBody.innerHTML = `
                 <div class="chatbot-message">
-                    <p><b>Website Development</b></p>
-                    <p><b>Basic Website:</b> R3,000 (Starting from) – 1-3 pages, custom landing page, contact form, basic SEO setup.</p>
-                    <p><b>Standard Website:</b> R6,000 (Starting from) – 4-8 pages, contact forms, galleries, social media integration.</p>
-                    <p><b>Premium Website:</b> R12,000 (Starting from) – 8-16 pages, advanced SEO, blog, portfolio, social media/chat integration.</p>
+                    <button class="collapsible">Basic Website Pricing</button>
+                    <div class="content">
+                        <p>R3,000 – 1-3 pages, basic SEO setup, contact form.</p>
+                    </div>
                 </div>
                 <div class="chatbot-message">
-                    <p><b>App Development</b></p>
-                    <p><b>Basic App:</b> R50,000 (Starting from) – Simple features like form submissions, user login.</p>
-                    <p><b>Standard App:</b> R75,000 (Starting from) – Advanced UI/UX design, API integration, admin dashboard.</p>
-                    <p><b>Premium App:</b> R120,000 (Starting from) – Full custom design, real-time features, payment gateway integration.</p>
+                    <button class="collapsible">Standard Website Pricing</button>
+                    <div class="content">
+                        <p>R5,000 – 3-5 pages, SEO optimization, responsive design, and basic integration (e.g., contact form, blog).</p>
+                    </div>
+                </div>
+                <div class="chatbot-message">
+                    <button class="collapsible">Premium Website Pricing</button>
+                    <div class="content">
+                        <p>R8,000 – 5-7 pages, advanced SEO, e-commerce integration, and full customization.</p>
+                    </div>
+                </div>
+                <div class="chatbot-message">
+                    <button class="collapsible">App Development Pricing</button>
+                    <div class="content">
+                        <p>Basic – R10,000, Standard – R15,000, Premium – R25,000.</p>
+                    </div>
+                </div>
+            `;
+
+            chatbotOptions.innerHTML = `
+                <button onclick="goBack()">Back</button>
+            `;
+
+            // Add collapsible functionality for pricing
+            var coll = document.getElementsByClassName("collapsible");
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        }
+
+        // Show "Our Services" options
+        function showServiceOptions() {
+            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
+            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
+
+            const chatbotBody = document.getElementById('chatbot-body');
+            const chatbotOptions = document.getElementById('chatbot-options');
+
+            chatbotBody.innerHTML = `
+                <div class="chatbot-message">
+                    <p><strong>Web Development:</strong> Custom website creation, including responsive design, CMS integration, and more.</p>
+                </div>
+                <div class="chatbot-message">
+                    <p><strong>Mobile App Development:</strong> Native and hybrid app solutions for both iOS and Android.</p>
+                </div>
+                <div class="chatbot-message">
+                    <p><strong>E-Commerce Solutions:</strong> Online store setup, payment gateway integration, and inventory management.</p>
                 </div>
             `;
 
