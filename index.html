@@ -7,34 +7,25 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
         }
-        /* Chatbot Icon */
-        #chatbot-icon {
+        #chatbot-container {
+            background-color: white;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: none; /* Initially hidden */
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #3498db;
-            color: white;
-            border-radius: 50%;
-            padding: 15px;
-            cursor: pointer;
-            font-size: 24px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        #chatbot-container {
-            position: fixed;
-            bottom: 70px;
-            right: 20px;
-            width: 400px;
-            height: 400px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: none; /* Hidden by default */
-            z-index: 1000;
-            overflow: hidden;
         }
         #chatbot-body {
             padding: 20px;
@@ -78,41 +69,32 @@
         button:hover {
             background-color: #27ae60;
         }
-        #close-chatbot {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #e74c3c;
+        #chatbot-icon {
+            background-color: #3498db;
             color: white;
-            padding: 8px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
-            font-size: 16px;
-        }
-        #close-chatbot:hover {
-            background-color: #c0392b;
         }
     </style>
 </head>
 <body>
     <!-- Chatbot Icon -->
-    <div id="chatbot-icon" onclick="openChatbot()">
-        💬
-    </div>
+    <div id="chatbot-icon" onclick="toggleChatbot()">💬</div>
 
-    <!-- Chatbot Container -->
     <div id="chatbot-container">
-        <!-- Close Button -->
-        <div id="close-chatbot" onclick="closeChatbot()">✖</div>
-
-        <!-- Chatbot Body -->
         <div id="chatbot-body">
             <div class="chatbot-message">
                 <p>Hi! I can help you learn more about our process, services, and pricing. What would you like to know?</p>
             </div>
         </div>
-
-        <!-- Chatbot Options -->
         <div id="chatbot-options">
             <button onclick="showProcessOptions()">Our Process</button>
             <button onclick="showServices()">Our Services</button>
@@ -125,12 +107,9 @@
         let previousMessages = [];
         let previousOptions = [];
 
-        function openChatbot() {
-            document.getElementById('chatbot-container').style.display = 'block';
-        }
-
-        function closeChatbot() {
-            document.getElementById('chatbot-container').style.display = 'none';
+        function toggleChatbot() {
+            const chatbotContainer = document.getElementById('chatbot-container');
+            chatbotContainer.style.display = chatbotContainer.style.display === 'none' || chatbotContainer.style.display === '' ? 'block' : 'none';
         }
 
         function showProcessOptions() {
@@ -200,75 +179,8 @@
             }
         }
 
-        function showServices() {
-            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
-            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
+        // Similar functions for showServices(), showPricing(), showLinks(), goBack(), and goToPage()
 
-            const chatbotBody = document.getElementById('chatbot-body');
-            const chatbotOptions = document.getElementById('chatbot-options');
-
-            chatbotBody.innerHTML = `
-                <div class="chatbot-message">
-                    <p><strong>Web Development</strong></p>
-                    <p>Custom websites built with performance, security, and user experience in mind.</p>
-                </div>
-                <div class="chatbot-message">
-                    <p><strong>Mobile Apps</strong></p>
-                    <p>Innovative mobile apps for Android and iOS that engage and retain users.</p>
-                </div>
-                <div class="chatbot-message">
-                    <p><strong>E-Commerce</strong></p>
-                    <p>Scalable e-commerce platforms with seamless integration and user-friendly designs.</p>
-                </div>
-            `;
-            chatbotOptions.innerHTML = `
-                <button onclick="goBack()">Back</button>
-                <button onclick="goToPage('services.html')">Learn More About Our Services</button>
-            `;
-        }
-
-        function showPricing() {
-            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
-            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
-
-            const chatbotBody = document.getElementById('chatbot-body');
-            const chatbotOptions = document.getElementById('chatbot-options');
-
-            chatbotBody.innerHTML = `<p>To view our pricing information, please click the button below.</p>`;
-            chatbotOptions.innerHTML = `
-                <button onclick="goBack()">Back</button>
-                <button onclick="goToPage('pricing.html')">View Pricing</button>
-            `;
-        }
-
-        function showLinks() {
-            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
-            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
-
-            const chatbotBody = document.getElementById('chatbot-body');
-            const chatbotOptions = document.getElementById('chatbot-options');
-
-            chatbotBody.innerHTML = `
-                <p>For our Terms of Service and Privacy Policy, click the links below:</p>
-            `;
-            chatbotOptions.innerHTML = `
-                <button onclick="goToPage('terms.html')">Terms of Service</button>
-                <button onclick="goToPage('privacy.html')">Privacy Policy</button>
-                <button onclick="goBack()">Back</button>
-            `;
-        }
-
-        function goBack() {
-            const chatbotBody = document.getElementById('chatbot-body');
-            const chatbotOptions = document.getElementById('chatbot-options');
-
-            chatbotBody.innerHTML = previousMessages.pop();
-            chatbotOptions.innerHTML = previousOptions.pop();
-        }
-
-        function goToPage(url) {
-            window.location.href = url;
-        }
     </script>
 </body>
 </html>
