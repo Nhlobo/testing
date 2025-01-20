@@ -3,247 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapengo Chatbot</title>
+    <title>Smart Chatbot</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f9;
         }
-
-        .chatbot-logo {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            cursor: pointer;
-            border-radius: 50%;
+        #chatbot-container {
+            background-color: white;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        .chatbot-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .chatbot-container {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 350px;
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: none; /* Initially hidden */
-            flex-direction: column;
-            overflow: hidden;
-            max-height: 80vh;
+        #chatbot-body {
+            padding: 20px;
+            height: 300px;
             overflow-y: auto;
+            border-bottom: 1px solid #ddd;
         }
-
-        .chatbot-header {
-            background: #003366;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            position: relative;
-        }
-
-        .chatbot-header h3 {
-            margin: 0;
-        }
-
-        .chatbot-header .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff5f5f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-        .chatbot-header .close-button:hover {
-            background: #ff3f3f;
-        }
-
-        .chatbot-body {
-            padding: 15px;
-            flex: 1;
+        #chatbot-options {
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            overflow-y: auto;
         }
-
         .chatbot-message {
-            margin-bottom: 15px;
-        }
-
-        .chatbot-message p {
-            margin: 5px 0;
-        }
-
-        .instruction {
-            font-size: 0.85em;
-            color: gray;
-        }
-
-        .chatbot-options {
+            margin: 10px 0;
             padding: 10px;
-            border-top: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 5px;
         }
-
-        .chatbot-options button {
-            display: block;
+        button.collapsible {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
             width: 100%;
-            margin: 5px 0;
-            padding: 10px;
-            background: #003366;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
             text-align: left;
+            font-size: 16px;
         }
-
-        .chatbot-options button:hover {
-            background: #0055a4;
+        button.collapsible.active, button.collapsible:hover {
+            background-color: #2980b9;
         }
-
-        .chatbot-footer {
-            display: flex;
-            padding: 10px;
-            background: #f1f1f1;
-            border-top: 1px solid #ccc;
-        }
-
-        #user-input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        #send-button {
-            background: #003366;
+        button {
+            background-color: #2ecc71;
             color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-
-        #send-button:hover {
-            background: #0055a4;
-        }
-
-        /* Collapsible section styles */
-        .collapsible {
-            background-color: #003366;
-            color: white;
-            cursor: pointer;
             padding: 10px;
-            width: 100%;
             border: none;
-            text-align: left;
-            outline: none;
-            font-size: 15px;
-            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
         }
-
-        .collapsible:hover {
-            background-color: #0055a4;
-        }
-
-        .active, .collapsible:hover {
-            background-color: #0055a4;
-        }
-
-        .content {
-            padding: 0 18px;
-            display: none;
-            overflow: hidden;
-            background-color: #f4f4f9;
-        }
-
-        /* Responsive Styles */
-        @media screen and (max-width: 600px) {
-            .chatbot-container {
-                width: 90%;
-                bottom: 10px;
-            }
-
-            .chatbot-options button {
-                font-size: 14px;
-            }
-
-            .collapsible {
-                font-size: 13px;
-            }
+        button:hover {
+            background-color: #27ae60;
         }
     </style>
 </head>
 <body>
-    <!-- Logo for opening the chatbot -->
-    <div class="chatbot-logo" onclick="toggleChatbot()">
-        <img src="logo.jpg" alt="Chatbot Logo">
-    </div>
-
-    <!-- Chatbot container -->
-    <div class="chatbot-container" id="chatbot-container">
-        <div class="chatbot-header">
-            <h3>Mapengo Support</h3>
-            <button class="close-button" onclick="toggleChatbot()">Close</button>
-        </div>
-        <div class="chatbot-body" id="chatbot-body">
-            <!-- Initial Message -->
+    <div id="chatbot-container">
+        <div id="chatbot-body">
             <div class="chatbot-message">
-                <p>Welcome! How can I assist you today?</p>
+                <p>Hi! I can help you learn more about our process, services, and pricing. What would you like to know?</p>
             </div>
         </div>
-        <div class="chatbot-options" id="chatbot-options">
+        <div id="chatbot-options">
             <button onclick="showProcessOptions()">Our Process</button>
-            <button onclick="showServiceOptions()">Our Services</button>
-            <button onclick="showPricingOptions()">Website & App Development Pricing</button>
+            <button onclick="showServices()">Our Services</button>
+            <button onclick="showPricing()">Pricing</button>
+            <button onclick="showLinks()">Terms & Privacy Policy</button>
         </div>
     </div>
 
     <script>
-        let previousOptions = [];
         let previousMessages = [];
+        let previousOptions = [];
 
-        // Function to toggle the chatbot visibility
-        function toggleChatbot() {
-            const chatbot = document.getElementById('chatbot-container');
-            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
-                chatbot.style.display = 'flex'; // Show the chatbot
-            } else {
-                chatbot.style.display = 'none'; // Hide the chatbot
-            }
-        }
-
-        // Function to handle going back to previous options
-        function goBack() {
-            const chatbotBody = document.getElementById('chatbot-body');
-            const chatbotOptions = document.getElementById('chatbot-options');
-            chatbotBody.innerHTML = previousMessages.pop(); // Remove last message
-            chatbotOptions.innerHTML = previousOptions.pop(); // Restore previous options
-        }
-
-        // Show "Our Process" options
         function showProcessOptions() {
             previousMessages.push(document.getElementById('chatbot-body').innerHTML);
             previousOptions.push(document.getElementById('chatbot-options').innerHTML);
@@ -268,13 +109,35 @@
                         <p><strong>Payment:</strong> You pay 50% upfront to start the project.</p>
                     </div>
                 </div>
+                <div class="chatbot-message">
+                    <p><strong>Step 3: Development Phase</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>We keep you updated regularly during the development process to ensure the project aligns with your expectations.</p>
+                        <p>We welcome your feedback to make necessary adjustments.</p>
+                    </div>
+                </div>
+                <div class="chatbot-message">
+                    <p><strong>Step 4: Testing & Finalization</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>Before finalizing, we conduct thorough testing to ensure the project meets our high standards.</p>
+                        <p>We provide a comprehensive walkthrough of the finished product to confirm it’s what you envisioned.</p>
+                    </div>
+                </div>
+                <div class="chatbot-message">
+                    <p><strong>Step 5: Final Payment & Delivery</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>Once the project is ready, you pay the remaining 50% balance, and we either deploy it live or hand it over to you based on your preference.</p>
+                    </div>
+                </div>
             `;
-
+            
             chatbotOptions.innerHTML = `
                 <button onclick="goBack()">Back</button>
             `;
 
-            // Add collapsible functionality
             var coll = document.getElementsByClassName("collapsible");
             for (var i = 0; i < coll.length; i++) {
                 coll[i].addEventListener("click", function() {
@@ -289,8 +152,7 @@
             }
         }
 
-        // Show "Website & App Development Pricing" options
-        function showPricingOptions() {
+        function showServices() {
             previousMessages.push(document.getElementById('chatbot-body').innerHTML);
             previousOptions.push(document.getElementById('chatbot-options').innerHTML);
 
@@ -299,37 +161,65 @@
 
             chatbotBody.innerHTML = `
                 <div class="chatbot-message">
-                    <p>We offer competitive pricing based on your needs. Please get in touch with us for a customized quote.</p>
+                    <p><strong>Web Development</strong></p>
+                    <p>Custom websites built with performance, security, and user experience in mind.</p>
+                </div>
+                <div class="chatbot-message">
+                    <p><strong>Mobile Apps</strong></p>
+                    <p>Innovative mobile apps for Android and iOS that engage and retain users.</p>
+                </div>
+                <div class="chatbot-message">
+                    <p><strong>E-Commerce</strong></p>
+                    <p>Scalable e-commerce platforms with seamless integration and user-friendly designs.</p>
                 </div>
             `;
-
             chatbotOptions.innerHTML = `
+                <button onclick="goBack()">Back</button>
+                <button onclick="goToPage('services.html')">Learn More About Our Services</button>
+            `;
+        }
+
+        function showPricing() {
+            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
+            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
+
+            const chatbotBody = document.getElementById('chatbot-body');
+            const chatbotOptions = document.getElementById('chatbot-options');
+
+            chatbotBody.innerHTML = `<p>To view our pricing information, please click the button below.</p>`;
+            chatbotOptions.innerHTML = `
+                <button onclick="goBack()">Back</button>
+                <button onclick="goToPage('pricing.html')">View Pricing</button>
+            `;
+        }
+
+        function showLinks() {
+            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
+            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
+
+            const chatbotBody = document.getElementById('chatbot-body');
+            const chatbotOptions = document.getElementById('chatbot-options');
+
+            chatbotBody.innerHTML = `
+                <p>For our Terms of Service and Privacy Policy, click the links below:</p>
+            `;
+            chatbotOptions.innerHTML = `
+                <button onclick="goToPage('terms.html')">Terms of Service</button>
+                <button onclick="goToPage('privacy.html')">Privacy Policy</button>
                 <button onclick="goBack()">Back</button>
             `;
         }
 
-        // Show "Our Services" options
-        function showServiceOptions() {
-            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
-            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
-
+        function goBack() {
             const chatbotBody = document.getElementById('chatbot-body');
             const chatbotOptions = document.getElementById('chatbot-options');
 
-            chatbotBody.innerHTML = `
-                <div class="chatbot-message">
-                    <p>We offer the following services:</p>
-                    <ul>
-                        <li>Website Design and Development</li>
-                        <li>Mobile App Development</li>
-                        <li>UI/UX Design</li>
-                    </ul>
-                </div>
-            `;
+            chatbotBody.innerHTML = previousMessages.pop();
+            chatbotOptions.innerHTML = previousOptions.pop();
+        }
 
-            chatbotOptions.innerHTML = `
-                <button onclick="goBack()">Back</button>
-            `;
+        function goToPage(url) {
+            window.location.href = url;
         }
     </script>
 </body>
