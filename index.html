@@ -3,18 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot</title>
+    <title>Mapengo Chatbot</title>
     <style>
-        /* Basic styling */
-        .chatbot-message {
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #f1f1f1;
-            border-radius: 5px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
         }
 
+        .chatbot-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .chatbot-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chatbot-header {
+            background: #003366;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+        }
+
+        .chatbot-header .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff5f5f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .chatbot-header .close-button:hover {
+            background: #ff3f3f;
+        }
+
+        .chatbot-body {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .chatbot-message {
+            margin-bottom: 15px;
+        }
+
+        .chatbot-message p {
+            margin: 5px 0;
+        }
+
+        .instruction {
+            font-size: 0.85em;
+            color: gray;
+        }
+
+        .chatbot-options {
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        .chatbot-options button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            background: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .chatbot-options button:hover {
+            background: #0055a4;
+        }
+
+        .chatbot-footer {
+            display: flex;
+            padding: 10px;
+            background: #f1f1f1;
+            border-top: 1px solid #ccc;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #send-button {
+            background: #003366;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        #send-button:hover {
+            background: #0055a4;
+        }
+
+        /* Collapsible section styles */
         .collapsible {
-            background-color: #777;
+            background-color: #003366;
             color: white;
             cursor: pointer;
             padding: 10px;
@@ -25,60 +161,71 @@
             font-size: 15px;
         }
 
+        .collapsible:hover {
+            background-color: #0055a4;
+        }
+
         .active, .collapsible:hover {
-            background-color: #555;
+            background-color: #0055a4;
         }
 
         .content {
             padding: 0 18px;
             display: none;
             overflow: hidden;
-            background-color: #f1f1f1;
-        }
-
-        button {
-            padding: 10px;
-            margin: 5px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #chatbot-body {
-            padding: 20px;
-        }
-
-        #chatbot-options {
-            padding: 20px;
+            background-color: #f4f4f9;
         }
     </style>
 </head>
 <body>
+    <!-- Logo for opening the chatbot -->
+    <div class="chatbot-logo" onclick="toggleChatbot()">
+        <img src="logo.jpg" alt="Chatbot Logo"> <!-- Replace "logo.jpg" with your actual logo file -->
+    </div>
 
-    <div id="chatbot-body">
-        <!-- Initial message -->
-        <div class="chatbot-message">
-            <p>Hello! How can I assist you today?</p>
+    <!-- Chatbot container -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Mapengo Support</h3>
+            <button class="close-button" onclick="toggleChatbot()">Close</button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <!-- Initial Message -->
+            <div class="chatbot-message">
+                <p>Welcome! How can I assist you today?</p>
+            </div>
+        </div>
+        <div class="chatbot-options" id="chatbot-options">
+            <button onclick="showProcessOptions()">Our Process</button>
+            <button onclick="showServiceOptions()">Our Services</button>
+            <button onclick="showPricingOptions()">Website & App Development Pricing</button>
         </div>
     </div>
 
-    <div id="chatbot-options">
-        <!-- Option buttons -->
-        <button onclick="showServiceOptions()">Our Services</button>
-        <button onclick="showPricingOptions()">Pricing</button>
-    </div>
-
     <script>
-        let previousMessages = [];
         let previousOptions = [];
+        let previousMessages = [];
 
-        // Show "Our Services" options
-        function showServiceOptions() {
+        // Function to toggle the chatbot visibility
+        function toggleChatbot() {
+            const chatbot = document.getElementById('chatbot-container');
+            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+                chatbot.style.display = 'flex'; // Show the chatbot
+            } else {
+                chatbot.style.display = 'none'; // Hide the chatbot
+            }
+        }
+
+        // Function to handle going back to previous options
+        function goBack() {
+            const chatbotBody = document.getElementById('chatbot-body');
+            const chatbotOptions = document.getElementById('chatbot-options');
+            chatbotBody.innerHTML = previousMessages.pop(); // Remove last message
+            chatbotOptions.innerHTML = previousOptions.pop(); // Restore previous options
+        }
+
+        // Show "Our Process" options
+        function showProcessOptions() {
             previousMessages.push(document.getElementById('chatbot-body').innerHTML);
             previousOptions.push(document.getElementById('chatbot-options').innerHTML);
 
@@ -87,22 +234,66 @@
 
             chatbotBody.innerHTML = `
                 <div class="chatbot-message">
-                    <p><strong>Web Development:</strong> Custom website creation, including responsive design, CMS integration, and more.</p>
+                    <p><strong>Step 1: Initial Meeting</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>We start with either an in-person or online meeting to discuss your project requirements in detail.</p>
+                        <p><strong>Outcome:</strong> We provide recommendations to help you achieve the best results.</p>
+                    </div>
                 </div>
                 <div class="chatbot-message">
-                    <p><strong>Mobile App Development:</strong> Native and hybrid app solutions for both iOS and Android.</p>
+                    <p><strong>Step 2: Agreement & Payment</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>After the meeting, we prepare and send you an online contract outlining the agreed terms. Once you sign it, we send you an invoice.</p>
+                        <p><strong>Payment:</strong> You pay 50% upfront to start the project.</p>
+                    </div>
                 </div>
                 <div class="chatbot-message">
-                    <p><strong>E-Commerce Solutions:</strong> Online store setup, payment gateway integration, and inventory management.</p>
+                    <p><strong>Step 3: Development Phase</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>We keep you updated regularly during the development process to ensure the project aligns with your expectations.</p>
+                        <p>We welcome your feedback to make necessary adjustments.</p>
+                    </div>
+                </div>
+                <div class="chatbot-message">
+                    <p><strong>Step 4: Testing & Finalization</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>Before finalizing, we conduct thorough testing to ensure the project meets our high standards.</p>
+                        <p>We provide a comprehensive walkthrough of the finished product to confirm it’s what you envisioned.</p>
+                    </div>
+                </div>
+                <div class="chatbot-message">
+                    <p><strong>Step 5: Final Payment & Delivery</strong></p>
+                    <button class="collapsible">Click to know more</button>
+                    <div class="content">
+                        <p>Once the project is ready, you pay the remaining 50% balance, and we either deploy it live or hand it over to you based on your preference.</p>
+                    </div>
                 </div>
             `;
 
             chatbotOptions.innerHTML = `
                 <button onclick="goBack()">Back</button>
             `;
+
+            // Add collapsible functionality
+            var coll = document.getElementsByClassName("collapsible");
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
         }
 
-        // Show "Pricing" options
+        // Show "Website & App Development Pricing" options
         function showPricingOptions() {
             previousMessages.push(document.getElementById('chatbot-body').innerHTML);
             previousOptions.push(document.getElementById('chatbot-options').innerHTML);
@@ -111,6 +302,12 @@
             const chatbotOptions = document.getElementById('chatbot-options');
 
             chatbotBody.innerHTML = `
+                <div class="chatbot-message">
+                    <button class="collapsible">Basic Website Pricing</button>
+                    <div class="content">
+                        <p>R3,000 – 1-3 pages, basic SEO setup, contact form.</p>
+                    </div>
+                </div>
                 <div class="chatbot-message">
                     <button class="collapsible">Standard Website Pricing</button>
                     <div class="content">
@@ -150,8 +347,8 @@
             }
         }
 
-        // Show "Our Process" options
-        function showProcessOptions() {
+        // Show "Our Services" options
+        function showServiceOptions() {
             previousMessages.push(document.getElementById('chatbot-body').innerHTML);
             previousOptions.push(document.getElementById('chatbot-options').innerHTML);
 
@@ -160,31 +357,19 @@
 
             chatbotBody.innerHTML = `
                 <div class="chatbot-message">
-                    <p><strong>Step 1:</strong> Consultation – We understand your requirements and vision.</p>
+                    <p><strong>Web Development:</strong> Custom website creation, including responsive design, CMS integration, and more.</p>
                 </div>
                 <div class="chatbot-message">
-                    <p><strong>Step 2:</strong> Design – We create wireframes and design mockups for approval.</p>
+                    <p><strong>Mobile App Development:</strong> Native and hybrid app solutions for both iOS and Android.</p>
                 </div>
                 <div class="chatbot-message">
-                    <p><strong>Step 3:</strong> Development – We build your product with the latest technologies.</p>
-                </div>
-                <div class="chatbot-message">
-                    <p><strong>Step 4:</strong> Launch – We ensure everything is functioning before going live.</p>
+                    <p><strong>E-Commerce Solutions:</strong> Online store setup, payment gateway integration, and inventory management.</p>
                 </div>
             `;
 
             chatbotOptions.innerHTML = `
                 <button onclick="goBack()">Back</button>
             `;
-        }
-
-        // Go back to the previous step
-        function goBack() {
-            const chatbotBody = document.getElementById('chatbot-body');
-            const chatbotOptions = document.getElementById('chatbot-options');
-
-            chatbotBody.innerHTML = previousMessages.pop();
-            chatbotOptions.innerHTML = previousOptions.pop();
         }
     </script>
 </body>
