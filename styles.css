@@ -1,6 +1,6 @@
-  body {
+body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
             margin: 0;
             padding: 0;
             display: flex;
