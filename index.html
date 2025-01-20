@@ -21,7 +21,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            position: relative; /* Added to allow positioning of the close button */
+            display: none; /* Hidden by default */
         }
         #chatbot-body {
             padding: 20px;
@@ -65,27 +65,24 @@
         button:hover {
             background-color: #27ae60;
         }
-        /* Close button styling */
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
-            font-size: 20px;
-            color: #333;
+        #chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
             cursor: pointer;
-        }
-        .close-btn:hover {
-            color: #ff0000;
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
+    <!-- Chatbot Icon -->
+    <div id="chatbot-icon" onclick="toggleChatbot()">💬</div>
+
     <div id="chatbot-container">
-        <!-- Close button -->
-        <button class="close-btn" onclick="closeChatbot()">X</button>
-        
         <div id="chatbot-body">
             <div class="chatbot-message">
                 <p>Hi! I can help you learn more about our process, services, and pricing. What would you like to know?</p>
@@ -103,6 +100,26 @@
         let previousMessages = [];
         let previousOptions = [];
 
+        function toggleChatbot() {
+            const chatbotContainer = document.getElementById('chatbot-container');
+            if (chatbotContainer.style.display === "none" || chatbotContainer.style.display === "") {
+                chatbotContainer.style.display = "block"; // Show the chatbot
+            } else {
+                chatbotContainer.style.display = "none"; // Hide the chatbot
+            }
+        }
+
+        // Add the click listener to close the chatbot when clicking outside
+    document.addEventListener("click", function(event) {
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatbotIcon = document.getElementById('chatbot-icon');
+
+        // Check if the click is outside the chatbot container and the chatbot icon
+        if (!chatbotContainer.contains(event.target) && event.target !== chatbotIcon) {
+            chatbotContainer.style.display = "none"; // Hide the chatbot
+        }
+    });
+        
         function showProcessOptions() {
             previousMessages.push(document.getElementById('chatbot-body').innerHTML);
             previousOptions.push(document.getElementById('chatbot-options').innerHTML);
@@ -149,12 +166,10 @@
                     <div class="content">
                         <p>Once the project is ready, you pay the remaining 50% balance, and we either deploy it live or hand it over to you based on your preference.</p>
                     </div>
-                </div>
-            `;
-            
+                </div>`;
+
             chatbotOptions.innerHTML = 
-                `<button onclick="goBack()">Back</button>
-            `;
+                `<button onclick="goBack()">Back</button>`;
 
             var coll = document.getElementsByClassName("collapsible");
             for (var i = 0; i < coll.length; i++) {
@@ -189,12 +204,11 @@
                 <div class="chatbot-message">
                     <p><strong>E-Commerce</strong></p>
                     <p>Scalable e-commerce platforms with seamless integration and user-friendly designs.</p>
-                </div>
-            `;
+                </div>`;
+
             chatbotOptions.innerHTML = 
                 `<button onclick="goBack()">Back</button>
-                <button onclick="goToPage('services.html')">Learn More About Our Services</button>
-            `;
+                 <button onclick="goToPage('services.html')">Learn More About Our Services</button>`;
         }
 
         function showPricing() {
@@ -207,8 +221,7 @@
             chatbotBody.innerHTML = `<p>To view our pricing information, please click the button below.</p>`;
             chatbotOptions.innerHTML = 
                 `<button onclick="goBack()">Back</button>
-                <button onclick="goToPage('pricing.html')">View Pricing</button>
-            `;
+                 <button onclick="goToPage('pricing.html')">View Pricing</button>`;
         }
 
         function showLinks() {
@@ -219,13 +232,11 @@
             const chatbotOptions = document.getElementById('chatbot-options');
 
             chatbotBody.innerHTML = 
-                `<p>For our Terms of Service and Privacy Policy, click the links below:</p>
-            `;
+                `<p>For our Terms of Service and Privacy Policy, click the links below:</p>`;
             chatbotOptions.innerHTML = 
                 `<button onclick="goToPage('terms.html')">Terms of Service</button>
-                <button onclick="goToPage('privacy.html')">Privacy Policy</button>
-                <button onclick="goBack()">Back</button>
-            `;
+                 <button onclick="goToPage('privacy.html')">Privacy Policy</button>
+                 <button onclick="goBack()">Back</button>`;
         }
 
         function goBack() {
@@ -238,10 +249,6 @@
 
         function goToPage(url) {
             window.location.href = url;
-        }
-
-        function closeChatbot() {
-            document.getElementById('chatbot-container').style.display = 'none';
         }
     </script>
 </body>
