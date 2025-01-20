@@ -1,223 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Mapengo Innovations - Web and App Development Solutions</title>
-
-   <!-- Meta Description -->
-   <meta name="description" content="Mapengo Innovations offers professional web and app development services. Specializing in custom websites, mobile apps, and e-commerce solutions. Contact us for tailored, innovative solutions for your business.">
-
-   <!-- Meta Keywords -->
-   <meta name="keywords" content="web development, app development, e-commerce solutions, custom websites, mobile app development, software development, website design, mobile app design, web development company, app development company">
-
-   <!-- Open Graph Tags for Facebook -->
-   <meta property="og:title" content="Mapengo Innovations - Web and App Development Solutions">
-   <meta property="og:description" content="We offer web and app development services, providing custom solutions for websites, mobile apps, and e-commerce platforms.">
-   <meta property="og:image" content="https://www.mapengoinnovations.com/images/logo.png">
-   <meta property="og:url" content="https://www.mapengoinnovations.com">
-
-   <!-- Structured Data (JSON-LD) Schema for Local Business -->
-   <script type="application/ld+json">
-   {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Mapengo Innovations",
-      "image": "https://www.mapengoinnovations.com/images/logo.png",
-      "telephone": "+27665520197",
-      "email": "info@mapengoinnovations.com",
-      "address": {
-         "@type": "PostalAddress",
-         "addressLocality": "Johannesburg",
-         "addressRegion": "Gauteng",
-         "postalCode": "1819",
-         "addressCountry": "ZA"
-      },
-      "url": "https://www.mapengoinnovations.com",
-      "sameAs": [
-         "https://www.facebook.com/yourcompany",
-         "https://www.tiktok.com/@yourcompany",
-         "https://www.instagram.com/yourcompany",
-         "https://www.linkedin.com/in/yourcompany"
-      ]
-   }
-   </script>
-
-   <!-- Linking Google Fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-   <!-- Linking Font Awesome for Icons -->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #chatbot-container {
+            background-color: white;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: none; /* Hidden by default */
+        }
+        #chatbot-body {
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        #chatbot-options {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chatbot-message {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+        button.collapsible {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            font-size: 16px;
+        }
+        button.collapsible.active, button.collapsible:hover {
+            background-color: #2980b9;
+        }
+        button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #27ae60;
+        }
+        #chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
-   <header class="navbar" id="navbar">
-        <div class="logo">
-            <img src="images/logo.png" alt="Mapengo Innovations">
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')">Home</a></li>
-                <li><a href="about.html" onclick="closeMenuAndNavigate('about.html')">About</a></li>
-                <li><a href="services.html" onclick="closeMenuAndNavigate('services.html')">Services</a></li>
-                <li><a href="portfolio.html" onclick="closeMenuAndNavigate('portfolio.html')">Portfolio</a></li>
-                <li><a href="pricing.html" onclick="closeMenuAndNavigate('pricing.html')">Pricing</a></li>
-                <li><a href="#contact" onclick="closeMenuAndNavigate('#contact')">Contact</a></li>
-              </ul>
-        </nav>
-        <div class="toggle-button" id="toggleButton">&#9776;</div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-       <img src="images/logo-Photoroom.png" alt="Hero Image">
-        <h1>Innovate with Confidence</h1>
-        <p>We provide cutting-edge software solutions to elevate your business and empower your team to achieve more. Transform your ideas into reality with Mapengo Innovations.</p>
-        <button class="cta-button" onclick="window.location.href='#contact'">Get Started</button>
-    </section>
-
-    <!-- Sliding Menu -->
-    <div id="mainMenu" class="main-menu">
-        <span class="close-btn" id="closeMenuButton">&#215;</span>
-        <ul>
-            <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')">Home</a></li>
-            <li><a href="about.html" onclick="closeMenuAndNavigate('about')">About</a></li>
-            <li><a href="services.html" onclick="closeMenuAndNavigate('services')">Services</a></li>
-            <li><a href="portfolio.html" onclick="closeMenuAndNavigate('portfolio')">Portfolio</a></li>
-            <li><a href="pricing.html" onclick="closeMenuAndNavigate('pricing.html')">Pricing</a></li>
-            <li><a href="#contact" onclick="closeMenuAndNavigate('#contact')">Contact</a></li>
-        </ul>
-    </div>
-
-    <script>
-        const toggleButton = document.querySelector("#toggleButton");
-        const mainMenu = document.querySelector("#mainMenu");
-        const closeMenuButton = document.querySelector("#closeMenuButton");
-
-        toggleButton.addEventListener('click', function () {
-            mainMenu.classList.toggle('active');
-            toggleButton.innerHTML = mainMenu.classList.contains("active") ? "&#215;" : "&#9776;";
-        });
-
-        closeMenuButton.addEventListener('click', function () {
-            mainMenu.classList.remove('active');
-            toggleButton.innerHTML = "&#9776;";
-        });
-
-        document.addEventListener('click', function(event) {
-            if (!mainMenu.contains(event.target) && !toggleButton.contains(event.target)) {
-                mainMenu.classList.remove('active');
-                toggleButton.innerHTML = "&#9776;";
-            }
-        });
-
-        function closeMenuAndNavigate(target) {
-            mainMenu.classList.remove('active');
-            toggleButton.innerHTML = "&#9776;";
-            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-
-   <!-- ================= COOKIE-POPUP ================= -->
-  
-  <div class="cookie-popup" id="cookiePopup">
-  <div class="cookie-content">
-    <p class="cookie-text">We use cookies to improve your experience. By using our site, you consent to our use of cookies. <a href="cookie.html">Learn more</a></p>
-    <button class="cookie-btn" id="acceptCookies">Got it!</button>
-  </div>
-</div>
-    
-     <script>
-    // Get elements
-const cookiePopup = document.getElementById('cookiePopup');
-const acceptCookiesButton = document.getElementById('acceptCookies');
-
-// Check if cookie consent is already given (via localStorage)
-if (!localStorage.getItem('cookieConsent')) {
-  // Show the popup if no consent has been given
-  cookiePopup.style.display = 'block';
-}
-
-// Set cookie consent and hide the popup when the button is clicked
-acceptCookiesButton.addEventListener('click', () => {
-  localStorage.setItem('cookieConsent', 'true');
-  cookiePopup.style.display = 'none';
-});
-
-</script>
-
-  <!-- Services Section -->
-    <section class="about">
-        <h2>We Build What You Need</h2>
-        <p>High-performance websites, mobile apps, and custom digital solutions tailored to drive success.</p>
-        <a href="services.html" class="btn">Learn More</a>
-    </section>
-
-   
-<!-- ================= FAQ Section ================= -->
-<section id="faq" class="faq-section">
-  <h2 class="section-title">Frequently Asked Questions</h2>
-  <div class="faq-container">
-    <div class="faq-item">
-      <h3>What services do you offer?</h3>
-      <p>We offer web development, mobile app development, maintenance & support.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How much do your services cost?</h3>
-      <p>Our pricing is competitive and tailored to meet the needs of businesses in South Africa. Please visit our <a href="pricing.html">Pricing Page</a> </p>
-    </div>
-    <div class="faq-item">
-      <h3>How long does a project take?</h3>
-      <p>Project timelines vary based on the complexity and requirements. We provide estimated timelines during the consultation phase.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Do you offer support after the project is completed?</h3>
-      <p>Yes, we offer maintenance and support packages to ensure your website or app continues to perform optimally.</p>
-    </div>
-  </div>
-</section>
-
-<script>
-  // FAQ Toggle Logic
-  document.querySelectorAll('.faq-item').forEach((faq) => {
-    faq.addEventListener('click', () => {
-      // Collapse other open items
-      document.querySelectorAll('.faq-item.active').forEach((activeFaq) => {
-        if (activeFaq !== faq) {
-          activeFaq.classList.remove('active');
-        }
-      });
-
-      // Toggle current item
-      faq.classList.toggle('active');
-    });
-  });
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const whatsAppIcon = document.getElementById("whatsAppIcon");
-
-        // Function to check if user has scrolled near the footer
-        function checkTriggerPoint() {
-            const scrollPosition = window.scrollY + window.innerHeight; // Bottom of the viewport
-            const triggerPoint = document.body.offsetHeight - 300; // 300px above the bottom
-            return scrollPosition >= triggerPoint;
-        }
-
-        // Event listener for scrolling
-        window.addEventListener("scroll", () => {
-            if (checkTriggerPoint()) {
-                whatsAppIcon.classList.remove("hidden"); // Show the WhatsApp icon
-            } else {
-                whatsAppIcon.classList.add("hidden"); // Hide the WhatsApp icon
-            }
-        });
-    });
-</script>
-
-    <!-- ================= Chatbot Icon ================= -->
-      <div id="chatbot-icon" onclick="toggleChatbot()">💬</div>
+    <!-- Chatbot Icon -->
+    <div id="chatbot-icon" onclick="toggleChatbot()">💬</div>
 
     <div id="chatbot-container">
         <div id="chatbot-body">
@@ -378,239 +241,5 @@ acceptCookiesButton.addEventListener('click', () => {
             window.location.href = url;
         }
     </script>
-   
-<!-- ================= TESTIMONIALS ================= -->
-<section id="testimonials" class="container">
-    <h2 class="section-title">What Our Clients Say</h2>
-    <div class="testimonials-container">
-        <div class="card">
-            <div class="rating">
-                <!-- 5/5 rating (all stars gold) -->
-                <label for="star1-1">&#9733;</label>
-                <label for="star2-1">&#9733;</label>
-                <label for="star3-1">&#9733;</label>
-                <label for="star4-1">&#9733;</label>
-                <label for="star5-1">&#9733;</label>
-            </div>
-            <img src="images/john-doe.jpg" alt="John Doe" class="testimonial-img">
-            <p class="title">"Mapengo Innovations delivered a top-notch app for our business. Their professionalism and attention to detail were exceptional!"</p>
-            <h4>- Tinyiko, CEO of Mzansi Taste Kitchen</h4>
-        </div>
-
-        <div class="card">
-            <div class="rating">
-                <!-- 4/5 rating (4 stars gold) -->
-                <label for="star1-2">&#9733;</label>
-                <label for="star2-2">&#9733;</label>
-                <label for="star3-2">&#9733;</label>
-                <label for="star4-2">&#9733;</label>
-                <label for="star5-2">&#9734;</label> <!-- Empty star -->
-            </div>
-            <img src="images/jane-smith.jpg" alt="Jane Smith" class="testimonial-img">
-            <p class="title">"The website they developed for us is exactly what we needed. Affordable and high-quality service!"</p>
-            <h4>- Mvelo, Owner of Mvelo Livestock Co.</h4>
-        </div>
-
-        <div class="card">
-            <div class="rating">
-                <!-- 3/5 rating (3 stars gold) -->
-                <label for="star1-3">&#9733;</label>
-                <label for="star2-3">&#9733;</label>
-                <label for="star3-3">&#9733;</label>
-                <label for="star4-3">&#9734;</label> <!-- Empty star -->
-                <label for="star5-3">&#9734;</label> <!-- Empty star -->
-            </div>
-            <img src="images/alice-brown.jpg" alt="Alice Brown" class="testimonial-img">
-            <p class="title">"Excellent customer service and a product that exceeds expectations! Highly recommended!"</p>
-            <h4>- Alice Brown, Founder of InnovateTech</h4>
-        </div>
-
-        <div class="card">
-            <div class="rating">
-                <!-- 2/5 rating (2 stars gold) -->
-                <label for="star1-4">&#9733;</label>
-                <label for="star2-4">&#9733;</label>
-                <label for="star3-4">&#9734;</label> <!-- Empty star -->
-                <label for="star4-4">&#9734;</label> <!-- Empty star -->
-                <label for="star5-4">&#9734;</label> <!-- Empty star -->
-            </div>
-            <img src="images/michael-johnson.jpg" alt="Michael Johnson" class="testimonial-img">
-            <p class="title">"Fast, reliable, and exceptional quality work. We couldn't be happier with the result!"</p>
-            <h4>- Michael Johnson, Director of WebWorks</h4>
-        </div>
-    </div>
-</section>
-
-<!--================= CONTACT ================ -->
-<section class="contact" id="contact">
-    <div class="contact-container">
-        <h1>Contact Us</h1>
-        <form action="https://formspree.io/f/xwpkkvnk" class="contact-form" id="contactForm">
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required minlength="2" maxlength="50" 
-                    pattern="[a-zA-Z ]+" aria-label="Name field" title="Please enter a valid name (letters and spaces only)">
-            </div>
-            <div class="form-group">
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" required aria-label="Email field" title="Please enter a valid email address">
-            </div>
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500"
-                    aria-label="Message field" title="Message should be between 10 and 500 characters"></textarea>
-            </div>
-
-            <!-- Privacy Policy and Communication Checkboxes -->
-            <div class="form-group checkbox-group">
-                <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
-                <label for="privacyPolicy">
-                    I agree to the <a href="privacy.html">Privacy Policy</a> .
-                </label>
-            </div>
-            <div class="form-group checkbox-group">
-                <input type="checkbox" id="communicationOptIn" name="communicationOptIn">
-                <label for="communicationOptIn">
-                    I would like to receive updates and promotional communications.
-                </label>
-            </div>
-
-            <button type="submit" class="button contact-button">Send Message</button>
-        </form>
-
-        <!-- Loader and Response -->
-        <div id="loader" style="display:none;" aria-live="polite">
-            <img src="loader.gif" alt="Loading..." />
-        </div>
-        <div id="response" style="display:none;" aria-live="polite"></div>
-    </div>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Show loading indicator
-            document.getElementById('loader').style.display = 'block';
-
-            // Validate inputs
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            const privacyPolicy = document.getElementById('privacyPolicy').checked;
-
-            // Validate email pattern
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                showResponse('Please enter a valid email address.', 'error');
-                return;
-            }
-
-            if (!privacyPolicy) {
-                showResponse('You must agree to the Privacy Policy before submitting.', 'error');
-                return;
-            }
-
-            if (!name || !email || !message) {
-                showResponse('Please fill in all required fields.', 'error');
-                return;
-            }
-
-            // Check if the user is online
-            if (!navigator.onLine) {
-                showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
-                return;
-            }
-
-            // Submit the form via Fetch API
-            const formData = new FormData(this);
-
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    Accept: 'application/json'
-                }
-            })
-            .then(response => {
-                document.getElementById('loader').style.display = 'none'; // Hide loader
-                if (response.ok) {
-                    showResponse('Thank you! Your message has been successfully sent.', 'success');
-                    this.reset(); // Reset the form after successful submission
-                } else {
-                    showResponse('Oops! There was an issue with your submission. Please try again later.', 'error');
-                }
-            })
-            .catch(error => {
-                document.getElementById('loader').style.display = 'none'; // Hide loader
-                if (!navigator.onLine) {
-                    showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
-                } else {
-                    showResponse('There was a problem with your submission. Please try again later.', 'error');
-                }
-            });
-        });
-
-        // Function to show messages dynamically
-        function showResponse(message, type) {
-            const responseDiv = document.getElementById('response');
-            responseDiv.style.display = 'block';
-            responseDiv.textContent = message;
-            responseDiv.className = type === 'success' ? 'success-message' : 'error-message';
-
-            // Optionally hide the message after a few seconds for a better user experience
-            setTimeout(() => {
-                responseDiv.style.display = 'none';
-            }, 5000);
-        }
-    </script>
-  
-  
-  <!-- Footer Section -->
-  <footer>
-    <ul class="wrapper">
-      <li class="icon facebook" onclick="redirectTo('https://facebook.com')">
-        <span class="tooltip">Facebook</span>
-        <svg
-          viewBox="0 0 320 512"
-          height="1.2em"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
-        </svg>
-      </li>
-      <li class="icon twitter" onclick="redirectTo('https://twitter.com')">
-        <span class="tooltip">Twitter</span>
-        <svg
-          height="1.8em"
-          fill="currentColor"
-          viewBox="0 0 48 48"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"></path>
-        </svg>
-      </li>
-      <li class="icon instagram" onclick="redirectTo('https://instagram.com')">
-        <span class="tooltip">Instagram</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="1.2em"
-          fill="currentColor"
-          class="bi bi-instagram"
-          viewBox="0 0 16 16"
-        >
-          <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
-        </svg>
-      </li>
-    </ul>
-    
-    <!-- Privacy & Terms Links -->
-    <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a> | 
-      <a href="terms.html">Terms of Service</a>
-    </div>
-    
-    <p>© 2025 Mapengo Innovations. All rights reserved.</p>
-  </footer>
 </body>
-    </html>
+</html>
