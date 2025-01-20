@@ -109,17 +109,7 @@
             }
         }
 
-        // Add the click listener to close the chatbot when clicking outside
-    document.addEventListener("click", function(event) {
-        const chatbotContainer = document.getElementById('chatbot-container');
-        const chatbotIcon = document.getElementById('chatbot-icon');
-
-        // Check if the click is outside the chatbot container and the chatbot icon
-        if (!chatbotContainer.contains(event.target) && event.target !== chatbotIcon) {
-            chatbotContainer.style.display = "none"; // Hide the chatbot
-        }
-    });
-        
+               
         function showProcessOptions() {
             previousMessages.push(document.getElementById('chatbot-body').innerHTML);
             previousOptions.push(document.getElementById('chatbot-options').innerHTML);
@@ -250,6 +240,17 @@
         function goToPage(url) {
             window.location.href = url;
         }
+
+        // Add the click listener to close the chatbot when clicking outside
+    document.addEventListener("click", function(event) {
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatbotIcon = document.getElementById('chatbot-icon');
+
+        // Check if the click is outside the chatbot container and the chatbot icon
+        if (!chatbotContainer.contains(event.target) && event.target !== chatbotIcon) {
+            chatbotContainer.style.display = "none"; // Hide the chatbot
+        }
+    });
     </script>
 </body>
 </html>
