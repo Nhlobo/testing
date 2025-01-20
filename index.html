@@ -152,7 +152,7 @@
 <body>
     <!-- Logo for opening the chatbot -->
     <div class="chatbot-logo" onclick="toggleChatbot()">
-        <img src="logo-Photoroom.png" alt="Chatbot Logo"> <!-- Replace "logo.jpg" with your actual logo file -->
+        <img src="logo.jpg" alt="Chatbot Logo"> <!-- Replace "logo.jpg" with your actual logo file -->
     </div>
 
     <!-- Chatbot container -->
@@ -162,23 +162,22 @@
             <button class="close-button" onclick="toggleChatbot()">Close</button>
         </div>
         <div class="chatbot-body" id="chatbot-body">
+            <!-- Initial Message -->
             <div class="chatbot-message">
-                <p>Hi, I'm your AI assistant! How can I assist you today?</p>
-                <p class="instruction">(Please specify your request for precise guidance)</p>
+                <p>Welcome! How can I assist you today?</p>
             </div>
         </div>
-        <div class="chatbot-options">
-            <button onclick="sendResponse('My project status is pending')">My project status is pending</button>
-            <button onclick="sendResponse('I have a technical issue')">I have a technical issue</button>
-            <button onclick="sendResponse('See more options')">See more options</button>
-        </div>
-        <div class="chatbot-footer">
-            <input type="text" id="user-input" placeholder="Send a message">
-            <button id="send-button" onclick="handleUserInput()">Send</button>
+        <div class="chatbot-options" id="chatbot-options">
+            <button onclick="showProcessOptions()">Our Process</button>
+            <button onclick="showServiceOptions()">Our Services</button>
+            <button onclick="showPricingOptions()">Website & App Development Pricing</button>
         </div>
     </div>
 
     <script>
+        let previousOptions = [];
+        let previousMessages = [];
+
         // Function to toggle the chatbot visibility
         function toggleChatbot() {
             const chatbot = document.getElementById('chatbot-container');
@@ -189,33 +188,103 @@
             }
         }
 
-        // Function to handle sending responses
-        function sendResponse(message) {
+        // Function to handle going back to previous options
+        function goBack() {
             const chatbotBody = document.getElementById('chatbot-body');
-
-            // Add user message
-            const userMessage = document.createElement('div');
-            userMessage.className = 'user-message';
-            userMessage.innerHTML = `<p>${message}</p>`;
-            chatbotBody.appendChild(userMessage);
-
-            // Add bot response
-            const botMessage = document.createElement('div');
-            botMessage.className = 'chatbot-message';
-            botMessage.innerHTML = `<p>Thank you for your message: "${message}"</p>`;
-            chatbotBody.appendChild(botMessage);
-
-            // Scroll to the latest message
-            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+            const chatbotOptions = document.getElementById('chatbot-options');
+            chatbotBody.innerHTML = previousMessages.pop(); // Remove last message
+            chatbotOptions.innerHTML = previousOptions.pop(); // Restore previous options
         }
 
-        // Function to handle user input from the text field
-        function handleUserInput() {
-            const userInput = document.getElementById('user-input').value.trim();
-            if (userInput) {
-                sendResponse(userInput);
-                document.getElementById('user-input').value = ''; // Clear input field
-            }
+        // Show "Our Process" options
+        function showProcessOptions() {
+            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
+            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
+
+            const chatbotBody = document.getElementById('chatbot-body');
+            const chatbotOptions = document.getElementById('chatbot-options');
+
+            chatbotBody.innerHTML = `
+                <div class="chatbot-message">
+                    <p>Step 1: Initial Meeting</p>
+                    <p>What Happens: We start with either an in-person or online meeting to discuss your project requirements in detail.</p>
+                    <p>Outcome: We provide recommendations to help you achieve the best results.</p>
+                </div>
+                <div class="chatbot-message">
+                    <p>Step 2: Agreement & Payment</p>
+                    <p>Online Contract: After the meeting, we prepare and send you an online contract outlining the agreed terms.</p>
+                    <p>Invoice: Once you sign the contract, we send you an invoice.</p>
+                    <p>Initial Payment: You pay 50% of the agreed amount to initiate the project.</p>
+                </div>
+                <div class="chatbot-message">
+                    <p>Step 3: Development Phase</p>
+                    <p>Progress Updates: We keep you updated regularly during the development process to ensure the project aligns with your expectations.</p>
+                    <p>Collaboration: We welcome your feedback to make necessary adjustments.</p>
+                </div>
+                <div class="chatbot-message">
+                    <p>Step 4: Testing & Finalization</p>
+                    <p>Thorough Testing: Before finalizing, we conduct rigorous testing to meet quality standards.</p>
+                    <p>Final Review: We provide a comprehensive walkthrough to confirm everything is in place.</p>
+                </div>
+                <div class="chatbot-message">
+                    <p>Step 5: Final Payment & Delivery</p>
+                    <p>Final Payment: You pay the remaining 50% once the project is ready.</p>
+                    <p>Handover: After receiving final payment, we deploy the project live or hand it over, based on your preference.</p>
+                </div>
+            `;
+
+            chatbotOptions.innerHTML = `
+                <button onclick="goBack()">Back</button>
+            `;
+        }
+
+        // Show "Our Services" options
+        function showServiceOptions() {
+            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
+            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
+
+            const chatbotBody = document.getElementById('chatbot-body');
+            const chatbotOptions = document.getElementById('chatbot-options');
+
+            chatbotBody.innerHTML = `
+                <div class="chatbot-message">
+                    <p>Web Development: Custom websites designed for performance, security, and user experience.</p>
+                    <p>Mobile Apps: Innovative mobile applications for Android and iOS, built to engage and retain users.</p>
+                    <p>E-Commerce: Scalable e-commerce platforms with seamless integration and attractive designs.</p>
+                </div>
+            `;
+
+            chatbotOptions.innerHTML = `
+                <button onclick="goBack()">Back</button>
+            `;
+        }
+
+        // Show "Website & App Development Pricing" options
+        function showPricingOptions() {
+            previousMessages.push(document.getElementById('chatbot-body').innerHTML);
+            previousOptions.push(document.getElementById('chatbot-options').innerHTML);
+
+            const chatbotBody = document.getElementById('chatbot-body');
+            const chatbotOptions = document.getElementById('chatbot-options');
+
+            chatbotBody.innerHTML = `
+                <div class="chatbot-message">
+                    <p><b>Website Development</b></p>
+                    <p><b>Basic Website:</b> R3,000 (Starting from) – 1-3 pages, custom landing page, contact form, basic SEO setup.</p>
+                    <p><b>Standard Website:</b> R6,000 (Starting from) – 4-8 pages, contact forms, galleries, social media integration.</p>
+                    <p><b>Premium Website:</b> R12,000 (Starting from) – 8-16 pages, advanced SEO, blog, portfolio, social media/chat integration.</p>
+                </div>
+                <div class="chatbot-message">
+                    <p><b>App Development</b></p>
+                    <p><b>Basic App:</b> R50,000 (Starting from) – Simple features like form submissions, user login.</p>
+                    <p><b>Standard App:</b> R75,000 (Starting from) – Advanced UI/UX design, API integration, admin dashboard.</p>
+                    <p><b>Premium App:</b> R120,000 (Starting from) – Full custom design, real-time features, payment gateway integration.</p>
+                </div>
+            `;
+
+            chatbotOptions.innerHTML = `
+                <button onclick="goBack()">Back</button>
+            `;
         }
     </script>
 </body>
