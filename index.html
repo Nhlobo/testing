@@ -1,586 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Mapengo Innovations - About Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapengo Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
 
-   <!-- Meta Description -->
-   <meta name="description" content="Mapengo Innovations offers professional web and app development services. Specializing in custom websites, mobile apps, and e-commerce solutions. Contact us for tailored, innovative solutions for your business.">
+        .chatbot-container {
+            width: 350px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-   <!-- Meta Keywords -->
-   <meta name="keywords" content="web development, app development, e-commerce solutions, custom websites, mobile app development, software development, website design, mobile app design, web development company, app development company">
+        .chatbot-header {
+            background: #003366;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
 
-   <!-- Open Graph Tags for Facebook -->
-   <meta property="og:title" content="Mapengo Innovations - Web and App Development Solutions">
-   <meta property="og:description" content="We offer web and app development services, providing custom solutions for websites, mobile apps, and e-commerce platforms.">
-   <meta property="og:image" content="https://www.mapengoinnovations.com/images/logo.png">
-   <meta property="og:url" content="https://www.mapengoinnovations.com">
+        .chatbot-header h3 {
+            margin: 0;
+        }
 
-   <!-- Structured Data (JSON-LD) Schema for Local Business -->
-   <script type="application/ld+json">
-   {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Mapengo Innovations",
-      "image": "https://www.mapengoinnovations.com/images/logo.png",
-      "telephone": "+27665520197",
-      "email": "info@mapengoinnovations.com",
-      "address": {
-         "@type": "PostalAddress",
-         "addressLocality": "Johannesburg",
-         "addressRegion": "Gauteng",
-         "postalCode": "1819",
-         "addressCountry": "ZA"
-      },
-      "url": "https://www.mapengoinnovations.com",
-      "sameAs": [
-         "https://www.facebook.com/yourcompany",
-         "https://www.tiktok.com/@yourcompany",
-         "https://www.instagram.com/yourcompany",
-         "https://www.linkedin.com/in/yourcompany"
-      ]
-   }
-   </script>
+        .chatbot-body {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
 
-   <!-- Linking Google Fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        .chatbot-message {
+            margin-bottom: 15px;
+        }
 
-   <!-- Linking Font Awesome for Icons -->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-   <style>
-    /* Global Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box; /* Ensure consistent box sizing */
-      font-family: 'Roboto', sans-serif;
-    }
+        .chatbot-message p {
+            margin: 5px 0;
+        }
 
-    /* Body Styles */
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-    }
-    /* Navbar Styles (for all screens) */
-.navbar {
-  display: flex;
-  justify-content: center; /* Center navigation links */
-  align-items: center;
-  padding: 20px 50px;
-  background-color: transparent; /* Transparent for the glassmorphism effect */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  position: absolute; /* Position navbar over the hero section */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  backdrop-filter: blur(15px); /* Glassmorphism effect */
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.3)); /* Glassmorphism gradient */
-  animation: gradientAnimation 8s ease infinite; /* Gradient animation */
-}
+        .instruction {
+            font-size: 0.85em;
+            color: gray;
+        }
 
-/* Logo Styles */
-.logo img {
-  height: 60px; /* Adjust logo size */
-  max-width: 160%;
-}
+        .chatbot-options {
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
 
-/* Navigation Links (for larger screens) */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
+        .chatbot-options button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            background: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+        }
 
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
+        .chatbot-options button:hover {
+            background: #0055a4;
+        }
 
-.nav-links a:hover {
-  color: #1a73e8;
-  transform: translateY(-3px);
-}
+        .chatbot-footer {
+            display: flex;
+            padding: 10px;
+            background: #f1f1f1;
+            border-top: 1px solid #ccc;
+        }
 
-/* Hamburger Menu (centered on small screens) */
-.toggle-button {
-  font-size: 30px;
-  cursor: pointer;
-  display: none;
-  color: white; /* Set hamburger color to white */
-}
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
 
-/* Sliding Menu for smaller screens */
-.main-menu {
-  position: fixed;
-  top: 0;
-  left: -300px;
-  width: 300px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
-  color: white;
-  transition: left 0.3s ease-in-out;
-  padding-top: 80px;
-  z-index: 2000;
-  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
-  animation: gradientAnimation 8s ease infinite;
-}
+        #send-button {
+            background: #003366;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
 
-.main-menu.active {
-  left: 0;
-}
-
-.main-menu .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 25px;
-  cursor: pointer;
-  color: white;
-}
-
-.main-menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.main-menu ul li {
-  padding: 15px;
-  font-size: 20px;
-  text-align: center;
-}
-
-.main-menu ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-  /* Display hamburger icon on smaller screens */
-  .toggle-button {
-    display: block;
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* Hide default navigation links */
-  .nav-links {
-    display: none;
-  }
-
-  /* Show menu items in main-menu */
-  .main-menu ul {
-    padding-left: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Adjust any further styles for smaller screens if needed */
-}
-    /* Wrapper with Gradient Background */
-    .gradient-wrapper {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.4)); /* Darker gradient */
-      min-height: 100vh;
-      padding-bottom: 20px;
-    }
-
-
-      
-
-h1, h2 {
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 1rem;
-}
-
-p {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  color: #555;
-}
-
-a {
-  text-decoration: none;
-  color: #007bff;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Gradient Wrapper */
-.gradient-wrapper {
- background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
-  color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.gradient-wrapper h1, 
-.gradient-wrapper h2 {
-  color: #fff;
-}
-
-/* Section Styles */
-section {
-  padding: 2rem;
-  background-color: #fff;
-  margin: 2rem 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.subheading {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #444;
-  text-transform: uppercase;
-  border-left: 4px solid #007bff;
-  padding-left: 10px;
-}
-
-/* Images */
-.section-img {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin: 1.5rem 0;
-}
-
-.section-img img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Call-to-Action */
-.cta-button {
-  display: inline-block;
-  background-color: #00b0ff;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
-  text-align: center;
-}
-.cta-button:hover {
-  background-color: #0056b3;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  body {
-    font-size: 0.9rem;
-  }
-
-  .section-img {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .section-img img {
-    max-width: 100%;
-  }
-}
-
-      /* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #f8f8f8;
-    color: #666;
-    font-size: 14px;
-}
-
-/* Social Media Icons */
-.wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
-    list-style: none;
-    flex-wrap: wrap;
-}
-
-.wrapper .icon {
-    width: 3em;
-    height: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.wrapper .icon:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.tooltip {
-    position: absolute;
-    top: -40px;
-    background: #333;
-    color: white;
-    font-size: 0.9em;
-    padding: 5px 10px;
-    border-radius: 5px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.icon:hover .tooltip {
-    opacity: 1;
-}
-
-/* Footer Links */
-.footer-links {
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.footer-links a {
-    color: #666;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.footer-links a:hover {
-    color: #1e293b;
-}
-      p {
-      margin-bottom: 20px; /* Adds space between paragraphs */
-    }
-  </style>
+        #send-button:hover {
+            background: #0055a4;
+        }
+    </style>
 </head>
 <body>
-
-  <header class="navbar" id="navbar">
-        <div class="logo">
-            <img src="images/logo.png" alt="Mapengo Innovations">
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Mapengo Support</h3>
+            <p>Ask Mapengo AI</p>
         </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')">Home</a></li>
-                <li><a href="about.html" onclick="closeMenuAndNavigate('about.html')">About</a></li>
-                <li><a href="services.html" onclick="closeMenuAndNavigate('services.html')">Services</a></li>
-                <li><a href="portfolio.html" onclick="closeMenuAndNavigate('portfolio.html')">Portfolio</a></li>
-                <li><a href="pricing.html" onclick="closeMenuAndNavigate('pricing.html')">Pricing</a></li>
-                <li><a href="contact" onclick="closeMenuAndNavigate('contact')">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="toggle-button" id="toggleButton">&#9776;</div>
-    </header>
-
-    <!-- Sliding Menu -->
-    <div id="mainMenu" class="main-menu">
-        <span class="close-btn" id="closeMenuButton">&#215;</span>
-        <ul>
-            <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')">Home</a></li>
-            <li><a href="about.html" onclick="closeMenuAndNavigate('about.html')">About</a></li>
-            <li><a href="services.html" onclick="closeMenuAndNavigate('services.html')">Services</a></li>
-            <li><a href="portfolio.html" onclick="closeMenuAndNavigate('portfolio.html')">Portfolio</a></li>
-            <li><a href="pricing.html" onclick="closeMenuAndNavigate('pricing.html')">Pricing</a></li>
-            <li><a href="contact" onclick="closeMenuAndNavigate('contact')">Contact</a></li>
-        </ul>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chatbot-message">
+                <p>Hi, I'm your AI assistant! How can I assist you today?</p>
+                <p class="instruction">(Please specify your request for precise guidance)</p>
+            </div>
+        </div>
+        <div class="chatbot-options">
+            <button onclick="sendResponse('My project status is pending')">My project status is pending</button>
+            <button onclick="sendResponse('I have a technical issue')">I have a technical issue</button>
+            <button onclick="sendResponse('See more options')">See more options</button>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="user-input" placeholder="Send a message">
+            <button id="send-button" onclick="handleUserInput()">Send</button>
+        </div>
     </div>
-
     <script>
-        const toggleButton = document.querySelector("#toggleButton");
-        const mainMenu = document.querySelector("#mainMenu");
-        const closeMenuButton = document.querySelector("#closeMenuButton");
+        function sendResponse(message) {
+            const chatbotBody = document.getElementById('chatbot-body');
 
-        toggleButton.addEventListener('click', function () {
-            mainMenu.classList.toggle('active');
-            toggleButton.innerHTML = mainMenu.classList.contains("active") ? "&#215;" : "&#9776;";
-        });
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'user-message';
+            userMessage.innerHTML = `<p>${message}</p>`;
+            chatbotBody.appendChild(userMessage);
 
-        closeMenuButton.addEventListener('click', function () {
-            mainMenu.classList.remove('active');
-            toggleButton.innerHTML = "&#9776;";
-        });
+            // Add bot response
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chatbot-message';
+            botMessage.innerHTML = `<p>Thank you for your message: "${message}"</p>`;
+            chatbotBody.appendChild(botMessage);
 
-        document.addEventListener('click', function(event) {
-            if (!mainMenu.contains(event.target) && !toggleButton.contains(event.target)) {
-                mainMenu.classList.remove('active');
-                toggleButton.innerHTML = "&#9776;";
+            // Scroll to the latest message
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+
+        function handleUserInput() {
+            const userInput = document.getElementById('user-input').value.trim();
+            if (userInput) {
+                sendResponse(userInput);
+                document.getElementById('user-input').value = ''; // Clear input field
             }
-        });
-
-        function closeMenuAndNavigate(target) {
-            mainMenu.classList.remove('active');
-            toggleButton.innerHTML = "&#9776;";
-            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
         }
     </script>
-  
-  
-  <div class="gradient-wrapper">
-    <section>
-      <div class="about-img">
-        <div class="overlay"></div>
-      </div>
-      <h1>About Us - Mapengo Innovations</h1>
-      <p>Welcome to Mapengo Innovations. We are a forward-thinking company focused on creating innovative solutions for a better tomorrow.</p>
-         
-      <p>Mapengo Innovations is a cutting-edge, online-based technology company specializing in providing high-quality digital solutions. Founded by Novice Nhlovo Mathebula, a passionate and highly skilled Software Engineer, the company was established with the vision to empower businesses through innovative web development, custom software solutions, and dynamic mobile applications. We focus on delivering scalable, secure, and user-friendly technology that enhances our clients’ ability to succeed in a rapidly changing digital landscape.</p>
-    </section>
-
-    <section>
-  <h2 class="subheading">Our Founder and Vision</h2>
-  <div class="section-img">
-    <img src="bg-08d07179-adfb-482c-a1b1-7c972cb3391f.png" alt="Founder Image">
-    <img src="https://via.placeholder.com/600x400" alt="Vision Image">
-  </div>
-  <p>The company was founded by Novice Nhlovo Mathebula, a qualified Software Engineer who graduated from the prestigious ALX African Leadership Experience program, specializing in the foundations of computer science and software engineering. This education provided Novice with a solid technical foundation and a deep understanding of the ever-evolving tech landscape. With a passion for problem-solving and digital innovation, he set out to create Mapengo Innovations to bridge the gap between businesses and the digital solutions they need to thrive in today’s competitive world.</p>
-
-  <p>The inspiration behind Mapengo Innovations comes from a deep desire to make technology more accessible and impactful. As a software engineer, Novice witnessed firsthand how businesses struggle to adopt the latest technology due to high costs, inefficiencies, and lack of expertise. Mapengo Innovations was born from this realization – to provide businesses of all sizes with professional-grade digital solutions that are affordable, efficient, and tailored to their specific needs.</p>
-</section>
-
-    <section>
-      <h2 class="subheading">Our Expertise</h2>
-      <div class="section-img">
-        <img src="https://via.placeholder.com/600x400" alt="Expertise Image">
-      </div>
-      <p>At Mapengo Innovations, we specialize in the following core areas:
-Web Development: We create responsive, secure, and dynamic websites that help businesses connect with their audience. From landing pages to full-fledged content management systems, we ensure that your online presence is professional and impactful.</p>
-
-
-<p>Mobile App Development: Our team develops innovative mobile applications for both Android and iOS. Whether you need a simple utility app or a complex enterprise solution, we build apps that are not only functional but also user-friendly and scalable.</p>
-
-
-<p>Custom Software Solutions: We understand that every business has unique needs. That's why we offer tailor-made software solutions that are designed to solve specific challenges, optimize workflows, and enhance operational efficiency.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">The Development Process</h2>
-      <div class="section-img">
-        <img src="https://via.placeholder.com/600x400" alt="Development Process Image">
-      </div>
-      <p>We believe in a collaborative approach to development, where our team works closely with clients to understand their goals and needs. Novice Nhlovo Mathebula, as the lead developer and software engineer, personally oversees the development process to ensure that each project meets the highest standards of quality, security, and performance.</p>
-         
-       <p>With a background in both computer science and software engineering, Novice brings a blend of theoretical knowledge and practical experience to every project. His expertise in modern programming languages, frameworks, and development tools ensures that every website, app, or software solution is not only functional but optimized for performance and user experience.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">Our Team</h2>
-      <div class="section-img">
-        <img src="https://via.placeholder.com/600x400" alt="Team Image">
-      </div>
-      <p>While Novice Nhlovo Mathebula leads the technical development, Mapengo Innovations is backed by a talented team of developers, designers, and project managers who share the same passion for innovation and excellence. We work together to ensure that every project is executed seamlessly, on time, and according to the client’s specifications.
-         
-         As an online-based company, we utilize cutting-edge project management and communication tools to collaborate efficiently across different locations, ensuring that distance does not hinder the quality of our work.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">Our Philosophy and Inspiration</h2>
-      <div class="section-img">
-        <img src="https://via.placeholder.com/600x400" alt="Philosophy Image">
-      </div>
-      <p>Mapengo Innovations was born out of a drive to make a difference in the technology world. Our inspiration comes from seeing how digital transformation can unlock opportunities, streamline operations, and drive growth for businesses. We believe that technology should not be a barrier but an enabler for success. Our mission is to provide businesses with the tools they need to navigate the digital age confidently.</p>
-         
-       <p>Whether it’s helping a startup establish a powerful online presence or assisting an established business in improving their digital infrastructure, our solutions are designed to create lasting impact and measurable results.</p>
-
-<p>Why Choose Mapengo Innovations?
-Customer-Centric Approach: Our clients are at the heart of everything we do. We take time to understand your vision, goals, and challenges to deliver tailored solutions that make a real difference.</p>
-         
-<p>Expertise and Experience: Led by Novice Nhlovo Mathebula, a qualified Software Engineer with a solid foundation in computer science and software engineering, we bring extensive knowledge and hands-on experience to every project.</p>
-         
-<p>End-to-End Solutions: From initial consultation to ongoing support, we offer comprehensive services that cover every aspect of web and mobile app development.</p>
-         
-<p>Quality and Innovation: We are committed to delivering high-quality, innovative solutions that meet the needs of our clients while adhering to the best industry standards.</p>
-         
-<p>Scalability: Our solutions are designed to grow with your business. Whether you are a small startup or a large corporation, we provide scalable solutions that evolve with you.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">Our Commitment to Excellence</h2>
-      <div class="section-img">
-        <img src="https://via.placeholder.com/600x400" alt="Excellence Image">
-      </div>
-      <p>At Mapengo Innovations, we pride ourselves on our unwavering commitment to excellence. Each project we undertake is guided by a passion for quality and a dedication to ensuring that the final product exceeds expectations. Our technical expertise, combined with our client-focused approach, allows us to create digital solutions that truly make a difference.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">Join Us on Our Journey</h2>
-      <p>As a company, Mapengo Innovations is constantly evolving and expanding our capabilities to keep up with technological advancements. We are excited about the future and look forward to partnering with businesses, entrepreneurs, and visionaries who share our passion for digital transformation.
-</p>
-      <a href="#" class="cta-button">Join Us Now</a>
-    </section>
-     
-<footer>
-    <ul class="wrapper">
-      <li class="icon facebook" onclick="redirectTo('https://facebook.com')">
-        <span class="tooltip">Facebook</span>
-        <svg
-          viewBox="0 0 320 512"
-          height="1.2em"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
-        </svg>
-      </li>
-      <li class="icon twitter" onclick="redirectTo('https://twitter.com')">
-        <span class="tooltip">Twitter</span>
-        <svg
-          height="1.8em"
-          fill="currentColor"
-          viewBox="0 0 48 48"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"></path>
-        </svg>
-      </li>
-      <li class="icon instagram" onclick="redirectTo('https://instagram.com')">
-        <span class="tooltip">Instagram</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="1.2em"
-          fill="currentColor"
-          class="bi bi-instagram"
-          viewBox="0 0 16 16"
-        >
-          <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
-        </svg>
-      </li>
-    </ul>
-    
-    <!-- Privacy & Terms Links -->
-    <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a> | 
-      <a href="terms.html">Terms of Service</a>
-    </div>
-    
-    <p>© 2025 Mapengo Innovations. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function redirectTo(url) {
-      setTimeout(() => {
-        window.location.href = url;
-      }, 300);  // Delay of 0.3 seconds
-    }
-  </script>
 </body>
 </html>
