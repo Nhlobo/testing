@@ -12,6 +12,7 @@
             max-width: 800px;
             padding: 2rem;
             text-align: center;
+            position: relative;
         }
 
         .faq-container {
@@ -75,26 +76,30 @@
             padding: 15px 20px;
         }
 
-        /* General styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
+        /* Chatbot Styles */
+        #chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 1000;
         }
 
-        /* Chatbot styles */
         #chatbot-container {
             position: fixed;
-            bottom: 100px;
+            bottom: 80px;
             right: 20px;
-            background-color: white;
             width: 400px;
+            background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: none; /* Hidden by default */
-            z-index: 2000; /* Ensure it appears above FAQ */
+            display: none;
+            z-index: 1001;
         }
 
         #chatbot-body {
@@ -117,19 +122,6 @@
             border-radius: 5px;
         }
 
-        #chatbot-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #3498db;
-            color: white;
-            border-radius: 50%;
-            padding: 15px;
-            cursor: pointer;
-            font-size: 24px;
-            z-index: 1000;
-        }
-
         button {
             background-color: #2ecc71;
             color: white;
@@ -138,6 +130,7 @@
             cursor: pointer;
             font-size: 16px;
             margin: 10px 0;
+            border-radius: 5px;
         }
 
         button:hover {
@@ -146,7 +139,7 @@
     </style>
 </head>
 <body>
-    <!-- FAQ Section -->
+    <!-- ================= FAQ Section ================= -->
     <section id="faq" class="faq-section">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-container">
@@ -156,7 +149,7 @@
             </div>
             <div class="faq-item">
                 <h3>How much do your services cost?</h3>
-                <p>Our pricing is competitive and tailored to meet the needs of businesses in South Africa. Please visit our <a href="pricing.html">Pricing Page</a>.</p>
+                <p>Our pricing is competitive and tailored to meet the needs of businesses in South Africa. Please visit our <a href="pricing.html">Pricing Page</a></p>
             </div>
             <div class="faq-item">
                 <h3>How long does a project take?</h3>
@@ -180,18 +173,27 @@
             </div>
         </div>
         <div id="chatbot-options">
-            <button onclick="showProcessOptions()">Our Process</button>
-            <button onclick="showServices()">Our Services</button>
-            <button onclick="showPricing()">Pricing</button>
-            <button onclick="showLinks()">Terms & Privacy Policy</button>
+            <button onclick="alert('Our process includes...')">Our Process</button>
+            <button onclick="alert('We offer web development...')">Our Services</button>
+            <button onclick="alert('Our pricing details...')">Pricing</button>
         </div>
     </div>
 
     <script>
         function toggleChatbot() {
-            const chatbotContainer = document.getElementById('chatbot-container');
-            chatbotContainer.style.display = chatbotContainer.style.display === "block" ? "none" : "block";
+            const chatbot = document.getElementById('chatbot-container');
+            chatbot.style.display = chatbot.style.display === 'block' ? 'none' : 'block';
         }
+
+        document.querySelectorAll('.faq-item h3').forEach((header) => {
+            header.addEventListener('click', () => {
+                const parent = header.parentElement;
+                document.querySelectorAll('.faq-item.active').forEach((item) => {
+                    if (item !== parent) item.classList.remove('active');
+                });
+                parent.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>
