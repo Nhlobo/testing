@@ -5,76 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Chatbot</title>
     <style>
-        /* FAQ Section */
-.faq-section {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
-    margin: 50px auto;
-    max-width: 800px;
-    padding: 2rem;
-    text-align: center;
-}
-
-.faq-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.faq-item {
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.faq-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.faq-item h3 {
-    padding: 20px;
-    font-size: 1.2rem;
-    font-weight: 500;
-    cursor: pointer;
-    background: #ffffff;
-    margin: 0;
-    transition: background 0.3s ease;
-}
-
-.faq-item h3:hover {
-    background: #f0f0f0;
-}
-
-.faq-item h3::after {
-    content: "+";
-    font-size: 1.5rem;
-    float: right;
-    color: #00b0ff;
-    transition: transform 0.3s ease;
-}
-
-.faq-item.active h3::after {
-    transform: rotate(45deg);
-}
-
-.faq-item p {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    font-size: 1rem;
-    color: #374151;
-    background: #ffffff;
-    border-top: 1px solid #ccc;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.faq-item.active p {
-    max-height: 100px;
-    padding: 15px 20px;
-}
-        
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -135,64 +65,20 @@
         button:hover {
             background-color: #27ae60;
         }
-
-       
-#chatbot-icon {
-    position: absolute; /* Positioned relative to the FAQ container */
-    bottom: 20px;
-    right: 20px;
-    background-color: #3498db;
-    color: white;
-    border-radius: 50%;
-    padding: 15px;
-    cursor: pointer;
-    font-size: 24px;
-    z-index: 1000; /* Ensure it appears above other elements */
-}
-
+        #chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+        }
     </style>
 </head>
 <body>
-    <!-- ================= FAQ Section ================= -->
-<section id="faq" class="faq-section">
-  <h2 class="section-title">Frequently Asked Questions</h2>
-  <div class="faq-container">
-    <div class="faq-item">
-      <h3>What services do you offer?</h3>
-      <p>We offer web development, mobile app development, maintenance & support.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How much do your services cost?</h3>
-      <p>Our pricing is competitive and tailored to meet the needs of businesses in South Africa. Please visit our <a href="pricing.html">Pricing Page</a> </p>
-    </div>
-    <div class="faq-item">
-      <h3>How long does a project take?</h3>
-      <p>Project timelines vary based on the complexity and requirements. We provide estimated timelines during the consultation phase.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Do you offer support after the project is completed?</h3>
-      <p>Yes, we offer maintenance and support packages to ensure your website or app continues to perform optimally.</p>
-    </div>
-  </div>
-</section>
-
-<script>
-  // FAQ Toggle Logic
-  document.querySelectorAll('.faq-item').forEach((faq) => {
-    faq.addEventListener('click', () => {
-      // Collapse other open items
-      document.querySelectorAll('.faq-item.active').forEach((activeFaq) => {
-        if (activeFaq !== faq) {
-          activeFaq.classList.remove('active');
-        }
-      });
-
-      // Toggle current item
-      faq.classList.toggle('active');
-    });
-  });
-</script>
-    
     <!-- Chatbot Icon -->
     <div id="chatbot-icon" onclick="toggleChatbot()">💬</div>
 
@@ -232,7 +118,7 @@
             const chatbotOptions = document.getElementById('chatbot-options');
 
             chatbotBody.innerHTML = 
-                <div class="chatbot-message">
+                `<div class="chatbot-message">
                     <p><strong>Step 1: Initial Meeting</strong></p>
                     <button class="collapsible">Click to know more</button>
                     <div class="content">
@@ -270,10 +156,10 @@
                     <div class="content">
                         <p>Once the project is ready, you pay the remaining 50% balance, and we either deploy it live or hand it over to you based on your preference.</p>
                     </div>
-                </div>;
+                </div>`;
 
             chatbotOptions.innerHTML = 
-                <button onclick="goBack()">Back</button>;
+                `<button onclick="goBack()">Back</button>`;
 
             var coll = document.getElementsByClassName("collapsible");
             for (var i = 0; i < coll.length; i++) {
@@ -297,7 +183,7 @@
             const chatbotOptions = document.getElementById('chatbot-options');
 
             chatbotBody.innerHTML = 
-                <div class="chatbot-message">
+                `<div class="chatbot-message">
                     <p><strong>Web Development</strong></p>
                     <p>Custom websites built with performance, security, and user experience in mind.</p>
                 </div>
@@ -308,11 +194,11 @@
                 <div class="chatbot-message">
                     <p><strong>E-Commerce</strong></p>
                     <p>Scalable e-commerce platforms with seamless integration and user-friendly designs.</p>
-                </div>;
+                </div>`;
 
             chatbotOptions.innerHTML = 
-                <button onclick="goBack()">Back</button>
-                 <button onclick="goToPage('services.html')">Learn More About Our Services</button>;
+                `<button onclick="goBack()">Back</button>
+                 <button onclick="goToPage('services.html')">Learn More About Our Services</button>`;
         }
 
         function showPricing() {
@@ -322,10 +208,10 @@
             const chatbotBody = document.getElementById('chatbot-body');
             const chatbotOptions = document.getElementById('chatbot-options');
 
-            chatbotBody.innerHTML = <p>To view our pricing information, please click the button below.</p>;
+            chatbotBody.innerHTML = `<p>To view our pricing information, please click the button below.</p>`;
             chatbotOptions.innerHTML = 
-                <button onclick="goBack()">Back</button>
-                 <button onclick="goToPage('pricing.html')">View Pricing</button>;
+                `<button onclick="goBack()">Back</button>
+                 <button onclick="goToPage('pricing.html')">View Pricing</button>`;
         }
 
         function showLinks() {
@@ -336,11 +222,11 @@
             const chatbotOptions = document.getElementById('chatbot-options');
 
             chatbotBody.innerHTML = 
-                <p>For our Terms of Service and Privacy Policy, click the links below:</p>;
+                `<p>For our Terms of Service and Privacy Policy, click the links below:</p>`;
             chatbotOptions.innerHTML = 
-                <button onclick="goToPage('terms.html')">Terms of Service</button>
+                `<button onclick="goToPage('terms.html')">Terms of Service</button>
                  <button onclick="goToPage('privacy.html')">Privacy Policy</button>
-                 <button onclick="goBack()">Back</button>;
+                 <button onclick="goBack()">Back</button>`;
         }
 
         function goBack() {
@@ -355,6 +241,5 @@
             window.location.href = url;
         }
     </script>
-
 </body>
 </html>
