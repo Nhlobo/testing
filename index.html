@@ -76,7 +76,8 @@
     max-height: 100px;
     padding: 15px 20px;
 }
-/* Chatbot Container with Glassmorphism */
+
+ /* Chatbot Container with Glassmorphism */
 #chatbot-container {
     background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
     backdrop-filter: blur(10px); /* Blurring the background behind the container */
@@ -90,15 +91,17 @@
     display: none; /* Hidden by default */
     z-index: 1000;
     margin: 0; /* No global margin affecting other sections */
-    width: 400px;
+    width: 90%; /* Use percentage for responsiveness */
+    max-width: 400px; /* Maximum width */
     transition: all 0.3s ease; /* Smooth transition for changes in size */
 }
 
 /* Chatbot Body with Glass Effect */
 #chatbot-body {
-    padding: 20px;
-    height: 300px;
-    overflow-y: auto;
+    padding: 10px 20px; /* Reduced padding for better fit */
+    height: auto; /* Allow height to grow with content */
+    max-height: 300px; /* Max height for message body */
+    overflow-y: auto; /* Allows scrolling if content exceeds max height */
     border-bottom: 1px solid #ddd;
     background: rgba(255, 255, 255, 0.5); /* Slightly more opaque for readability */
     backdrop-filter: blur(8px); /* Consistent blur effect */
@@ -106,7 +109,7 @@
 
 /* Chatbot Options with Glass Effect */
 #chatbot-options {
-    padding: 20px;
+    padding: 10px 20px; /* Reduced padding for better fit */
     display: flex;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.5); /* Slightly more opaque for readability */
@@ -115,18 +118,20 @@
 
 /* Chatbot Message with Glass Effect */
 .chatbot-message {
-    margin: 10px 0;
+    margin: 5px 0; /* Reduced margin to make messages closer */
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
     border-radius: 12px; /* Same rounded corners as FAQ */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow as FAQ section */
+    max-width: 100%; /* Ensure message doesn’t overflow */
+    word-wrap: break-word; /* Prevent long words from breaking layout */
 }
 
 /* Chatbot Button with Glass Effect */
 button.collapsible {
     background-color: rgba(0, 176, 255, 0.8); /* Semi-transparent background with a hint of blue */
     color: white;
-    padding: 15px; /* Increased padding for consistency with FAQ */
+    padding: 12px; /* Reduced padding to fit better */
     border: none;
     cursor: pointer;
     width: 100%;
@@ -144,11 +149,11 @@ button.collapsible.active, button.collapsible:hover {
 button {
     background-color: rgba(0, 176, 255, 0.8); /* Semi-transparent background */
     color: white;
-    padding: 15px; /* Matching padding */
+    padding: 12px; /* Matching padding */
     border: none;
     cursor: pointer;
     font-size: 16px;
-    margin: 10px 0;
+    margin: 5px 0; /* Reduced margin for closer fit */
     border-radius: 12px; /* Rounded corners matching FAQ */
     transition: background-color 0.3s ease;
 }
@@ -178,7 +183,6 @@ button:hover {
     background-color: rgba(41, 128, 185, 1); /* Darker blue on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-
     </style>
  </head>
 <body>
