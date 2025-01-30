@@ -219,7 +219,18 @@ button:hover {
     background-color: rgba(41, 128, 185, 1); /* Darker blue on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-       
+#whatsapp-icon-section {
+    position: fixed;
+    bottom: 10px;  /* Adjust this value to control vertical position */
+    left: 10px;    /* Adjust this value to control horizontal position */
+    z-index: 9999; /* Ensure it's above other content */
+}
+
+.whatsapp-icon img {
+    width: 50px;   /* Adjust the size of the icon */
+    height: auto;
+}
+ 
     </style>
  </head>
 <body>
@@ -439,5 +450,13 @@ button:hover {
         });
 
     </script>
+    
+    <!-- WhatsApp Icon Section -->
+<section id="whatsapp-icon-section">
+    <a href="https://wa.me/0825342006" id="whatsAppIcon" class="whatsapp-icon" target="_blank">
+        <img src="images/whatsapp-icon.png" alt="WhatsApp Icon">
+    </a>
+</section>
+
 </body>
 </html>
