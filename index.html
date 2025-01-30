@@ -250,6 +250,10 @@ button:hover {
     <div id="chatbot-icon" onclick="toggleChatbot()">💬</div>
 
     <div id="chatbot-container">
+        <!-- Close Button -->
+    <div id="close-chatbot">
+        <span>&#10006;</span> Close
+    </div>
         <div id="chatbot-body">
             <div class="chatbot-message">
                 <p>Hi! I can help you learn more about our process, services, and pricing. What would you like to know?</p>
@@ -409,13 +413,13 @@ button:hover {
         }
 
         // Get the close button and the chatbot container
-const closeButton = document.getElementById("close-chatbot");
-const chatbotContainer = document.getElementById("chatbot-container");
+        const closeButton = document.getElementById("close-chatbot");
+        const chatbotContainer = document.getElementById("chatbot-container");
 
-// When the close button is clicked, hide the chatbot container
-closeButton.addEventListener("click", function() {
-    chatbotContainer.style.display = "none"; // Hide the chatbot
-});
+        // When the close button is clicked, hide the chatbot container
+        closeButton.addEventListener("click", function() {
+        chatbotContainer.style.display = "none"; // Hide the chatbot
+        });
 
     </script>
 </body>
