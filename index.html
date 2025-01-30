@@ -97,24 +97,37 @@
 }
 
 /* Close Button */
+/* Modern Close Button */
 #close-chatbot {
     position: absolute;
     top: 10px;
     right: 10px;
-    color: red; /* Red color for the X */
-    font-size: 24px;
-    cursor: pointer;
+    width: 30px; /* Smaller width */
+    height: 30px; /* Smaller height */
+    background-color: rgba(255, 0, 0, 0.8); /* Slightly transparent red */
+    color: white; /* White color for X */
+    border-radius: 50%; /* Circular button */
+    font-size: 16px; /* Smaller X */
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 5px;
-    font-weight: 600;
+    cursor: pointer;
     z-index: 1100; /* Ensure it's above all other content */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #close-chatbot:hover {
-    color: #d32f2f; /* Darker red on hover */
+    background-color: rgba(255, 0, 0, 1); /* Solid red when hovered */
+    transform: scale(1.1); /* Slightly enlarge when hovered */
 }
 
+/* Ensure the X inside the button is centered */
+#close-chatbot span {
+    font-size: 18px; /* X is smaller */
+    font-weight: bold;
+}
+
+        
 #close-chatbot span {
     font-size: 28px; /* Larger X */
 }
