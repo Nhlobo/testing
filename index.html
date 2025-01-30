@@ -6,165 +6,180 @@
     <title>Smart Chatbot</title>
     <style>
         /* FAQ Section */
-        .faq-section {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
-            margin: 50px auto;
-            max-width: 800px;
-            padding: 2rem;
-            text-align: center;
-        }
+.faq-section {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1)); /* Darker gradient */
+    margin: 50px auto; /* margin for FAQ only, won't affect other sections */
+    max-width: 800px;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px; /* Matching rounded corners */
+}
 
-        .faq-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+/* Prevent other elements from being affected by margin 0 globally */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
-        .faq-item {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.faq-item {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .faq-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
+.faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
 
-        .faq-item h3 {
-            padding: 20px;
-            font-size: 1.2rem;
-            font-weight: 500;
-            cursor: pointer;
-            background: #ffffff;
-            margin: 0;
-            transition: background 0.3s ease;
-        }
+.faq-item h3 {
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    background: #ffffff;
+    margin: 0;
+    transition: background 0.3s ease;
+}
 
-        .faq-item h3:hover {
-            background: #f0f0f0;
-        }
+.faq-item h3:hover {
+    background: #f0f0f0;
+}
 
-        .faq-item h3::after {
-            content: "+";
-            font-size: 1.5rem;
-            float: right;
-            color: #00b0ff;
-            transition: transform 0.3s ease;
-        }
+.faq-item h3::after {
+    content: "+";
+    font-size: 1.5rem;
+    float: right;
+    color: #00b0ff;
+    transition: transform 0.3s ease;
+}
 
-        .faq-item.active h3::after {
-            transform: rotate(45deg);
-        }
+.faq-item.active h3::after {
+    transform: rotate(45deg);
+}
 
-        .faq-item p {
-            max-height: 0;
-            overflow: hidden;
-            padding: 0 20px;
-            font-size: 1rem;
-            color: #374151;
-            background: #ffffff;
-            border-top: 1px solid #ccc;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
+.faq-item p {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    font-size: 1rem;
+    color: #374151;
+    background: #ffffff;
+    border-top: 1px solid #ccc;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
 
-        .faq-item.active p {
-            max-height: 100px;
-            padding: 15px 20px;
-        }
+.faq-item.active p {
+    max-height: 100px;
+    padding: 15px 20px;
+}
 
-        /* Body Styling */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+/* Chatbot Container */
+#chatbot-container {
+    background-color: white;
+    width: 400px;
+    border-radius: 12px; /* Matching rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    margin: 0; /* Ensure no global margin */
+}
 
-        /* Chatbot Container */
-        #chatbot-container {
-            background-color: white;
-            width: 400px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: none; /* Hidden by default */
-            z-index: 1000;
-        }
+#chatbot-body {
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+}
 
-        #chatbot-body {
-            padding: 10px;
-            height: 300px;
-            overflow-y: auto;
-            border-bottom: 1px solid #ddd;
-        }
+#chatbot-options {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
 
-        #chatbot-options {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-        }
+.chatbot-message {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
 
-        .chatbot-message {
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #f1f1f1;
-            border-radius: 5px;
-        }
+/* Chatbot Button */
+button.collapsible {
+    background-color: #00b0ff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease;
+}
 
-        button.collapsible {
-            background-color: #00b0ff;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            text-align: left;
-            font-size: 16px;
-        }
+button.collapsible.active, button.collapsible:hover {
+    background-color: #0088cc; /* Slightly darker hover state */
+}
 
-        button.collapsible.active, button.collapsible:hover {
-            background-color: #00b0ff;
-        }
+button {
+    background-color: #00b0ff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+    border-radius: 8px; /* Matching rounded corners */
+    transition: background-color 0.3s ease;
+}
 
-        button {
-            background-color: #00b0ff;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 10px 0;
-        }
+button:hover {
+    background-color: #0088cc; /* Darker hover state */
+}
 
-        button:hover {
-            background-color: #00b0ff;
-        }
+/* Chatbot Icon */
+#chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
+}
 
-        /* Chatbot Icon */
-        #chatbot-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #3498db;
-            color: white;
-            border-radius: 50%;
-            padding: 15px;
-            cursor: pointer;
-            font-size: 24px;
-            z-index: 1000;
-        }
+/* Adding a slight hover effect on the chatbot icon */
+#chatbot-icon:hover {
+    background-color: #2980b9;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure no global margin affects other sections */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: 100vh;
+}
     </style>
  </head>
 <body>
