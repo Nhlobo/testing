@@ -76,13 +76,12 @@
     max-height: 100px;
     padding: 15px 20px;
 }
-
-/* Chatbot Container */
+/* Chatbot Container with Glassmorphism */
 #chatbot-container {
-    background-color: white;
-    width: 400px;
-    border-radius: 12px; /* Matching rounded corners from FAQ */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow style */
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Blurring the background behind the container */
+    border-radius: 12px; /* Matching rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow for depth */
     overflow: hidden;
     position: fixed;
     bottom: 20px;
@@ -91,35 +90,41 @@
     display: none; /* Hidden by default */
     z-index: 1000;
     margin: 0; /* No global margin affecting other sections */
+    width: 400px;
+    transition: all 0.3s ease; /* Smooth transition for changes in size */
 }
 
-/* Chatbot Body */
+/* Chatbot Body with Glass Effect */
 #chatbot-body {
-    padding: 20px; /* Same padding as FAQ section */
+    padding: 20px;
     height: 300px;
     overflow-y: auto;
     border-bottom: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.5); /* Slightly more opaque for readability */
+    backdrop-filter: blur(8px); /* Consistent blur effect */
 }
 
-/* Chatbot Options */
+/* Chatbot Options with Glass Effect */
 #chatbot-options {
-    padding: 20px; /* Consistent padding with FAQ */
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.5); /* Slightly more opaque for readability */
+    backdrop-filter: blur(8px); /* Consistent blur effect */
 }
 
-/* Chatbot Message */
+/* Chatbot Message with Glass Effect */
 .chatbot-message {
     margin: 10px 0;
     padding: 10px;
-    background-color: #f1f1f1;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
     border-radius: 12px; /* Same rounded corners as FAQ */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow for message */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow as FAQ section */
 }
 
-/* Chatbot Button */
+/* Chatbot Button with Glass Effect */
 button.collapsible {
-    background-color: #00b0ff;
+    background-color: rgba(0, 176, 255, 0.8); /* Semi-transparent background with a hint of blue */
     color: white;
     padding: 15px; /* Increased padding for consistency with FAQ */
     border: none;
@@ -132,12 +137,12 @@ button.collapsible {
 }
 
 button.collapsible.active, button.collapsible:hover {
-    background-color: #0088cc; /* Slightly darker hover state */
+    background-color: rgba(0, 176, 255, 1); /* Solid blue when hovered */
 }
 
-/* General Chatbot Button */
+/* General Chatbot Button with Glass Effect */
 button {
-    background-color: #00b0ff;
+    background-color: rgba(0, 176, 255, 0.8); /* Semi-transparent background */
     color: white;
     padding: 15px; /* Matching padding */
     border: none;
@@ -149,15 +154,15 @@ button {
 }
 
 button:hover {
-    background-color: #0088cc; /* Darker hover state */
+    background-color: rgba(0, 176, 255, 1); /* Solid blue on hover */
 }
 
-/* Chatbot Icon */
+/* Chatbot Icon with Glass Effect */
 #chatbot-icon {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #3498db;
+    background-color: rgba(52, 152, 219, 0.8); /* Semi-transparent blue */
     color: white;
     border-radius: 50%;
     padding: 15px;
@@ -165,13 +170,15 @@ button:hover {
     font-size: 24px;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow as FAQ section */
+    transition: background-color 0.3s ease;
 }
 
 /* Adding a slight hover effect on the chatbot icon */
 #chatbot-icon:hover {
-    background-color: #2980b9;
+    background-color: rgba(41, 128, 185, 1); /* Darker blue on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
     </style>
  </head>
 <body>
