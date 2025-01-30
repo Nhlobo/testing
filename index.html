@@ -81,8 +81,8 @@
 #chatbot-container {
     background-color: white;
     width: 400px;
-    border-radius: 12px; /* Matching rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* Matching rounded corners from FAQ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow style */
     overflow: hidden;
     position: fixed;
     bottom: 20px;
@@ -90,40 +90,44 @@
     transform: translateX(-50%);
     display: none; /* Hidden by default */
     z-index: 1000;
-    margin: 0; /* Ensure no global margin */
+    margin: 0; /* No global margin affecting other sections */
 }
 
+/* Chatbot Body */
 #chatbot-body {
-    padding: 10px;
+    padding: 20px; /* Same padding as FAQ section */
     height: 300px;
     overflow-y: auto;
     border-bottom: 1px solid #ddd;
 }
 
+/* Chatbot Options */
 #chatbot-options {
-    padding: 10px;
+    padding: 20px; /* Consistent padding with FAQ */
     display: flex;
     flex-direction: column;
 }
 
+/* Chatbot Message */
 .chatbot-message {
     margin: 10px 0;
     padding: 10px;
     background-color: #f1f1f1;
-    border-radius: 5px;
+    border-radius: 12px; /* Same rounded corners as FAQ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow for message */
 }
 
 /* Chatbot Button */
 button.collapsible {
     background-color: #00b0ff;
     color: white;
-    padding: 10px;
+    padding: 15px; /* Increased padding for consistency with FAQ */
     border: none;
     cursor: pointer;
     width: 100%;
     text-align: left;
     font-size: 16px;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 12px; /* Matching rounded corners */
     transition: background-color 0.3s ease;
 }
 
@@ -131,15 +135,16 @@ button.collapsible.active, button.collapsible:hover {
     background-color: #0088cc; /* Slightly darker hover state */
 }
 
+/* General Chatbot Button */
 button {
     background-color: #00b0ff;
     color: white;
-    padding: 10px;
+    padding: 15px; /* Matching padding */
     border: none;
     cursor: pointer;
     font-size: 16px;
     margin: 10px 0;
-    border-radius: 8px; /* Matching rounded corners */
+    border-radius: 12px; /* Rounded corners matching FAQ */
     transition: background-color 0.3s ease;
 }
 
@@ -159,26 +164,13 @@ button:hover {
     cursor: pointer;
     font-size: 24px;
     z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow as FAQ section */
 }
 
 /* Adding a slight hover effect on the chatbot icon */
 #chatbot-icon:hover {
     background-color: #2980b9;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Ensure no global margin affects other sections */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    min-height: 100vh;
 }
     </style>
  </head>
