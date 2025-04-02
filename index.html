@@ -3,52 +3,20 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Mapengo Innovations - About Us</title>
+   <title>Mapengo Innovations - Portfolio</title>
 
    <!-- Meta Description -->
-   <meta name="description" content="Mapengo Innovations offers professional web and app development services. Specializing in custom websites, mobile apps, and e-commerce solutions. Contact us for tailored, innovative solutions for your business.">
+   <meta name="description" content="Explore our portfolio of innovative web and app development projects. Discover how we transform ideas into digital reality.">
 
    <!-- Meta Keywords -->
-   <meta name="keywords" content="web development, app development, e-commerce solutions, custom websites, mobile app development, software development, website design, mobile app design, web development company, app development company">
-
-   <!-- Open Graph Tags for Facebook -->
-   <meta property="og:title" content="Mapengo Innovations - Web and App Development Solutions">
-   <meta property="og:description" content="We offer web and app development services, providing custom solutions for websites, mobile apps, and e-commerce platforms.">
-   <meta property="og:image" content="https://www.mapengoinnovations.com/images/logo.png">
-   <meta property="og:url" content="https://www.mapengoinnovations.com">
-
-   <!-- Structured Data (JSON-LD) Schema for Local Business -->
-   <script type="application/ld+json">
-   {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Mapengo Innovations",
-      "image": "https://www.mapengoinnovations.com/images/logo.png",
-      "telephone": "+27665520197",
-      "email": "info@mapengoinnovations.com",
-      "address": {
-         "@type": "PostalAddress",
-         "addressLocality": "Johannesburg",
-         "addressRegion": "Gauteng",
-         "postalCode": "1819",
-         "addressCountry": "ZA"
-      },
-      "url": "https://www.mapengoinnovations.com",
-      "sameAs": [
-         "https://www.facebook.com/yourcompany",
-         "https://www.tiktok.com/@yourcompany",
-         "https://www.instagram.com/yourcompany",
-         "https://www.linkedin.com/in/yourcompany"
-      ]
-   }
-   </script>
+   <meta name="keywords" content="web development portfolio, app development portfolio, custom websites, mobile apps, software development, digital solutions">
 
    <!-- Linking Google Fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
    <!-- Linking Font Awesome for Icons -->
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
    <style>
     /* Global Reset */
     * {
@@ -61,6 +29,8 @@
     /* Body Styles */
     body {
       line-height: 1.6;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      color: #333;
       overflow-x: hidden;
     }
 
@@ -70,18 +40,18 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 50px;
-      background-color: rgba(0, 0, 0, 0.8);
-      position: absolute;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 1000;
-      backdrop-filter: blur(15px);
     }
 
     /* Logo Styles */
     .logo img {
-      height: 60px;
+      height: 40px;
     }
 
     /* Navigation Links */
@@ -92,86 +62,121 @@
     }
 
     .nav-links a {
-      color: #fff;
+      color: #333;
       text-decoration: none;
       font-size: 16px;
       font-weight: 500;
-      transition: color 0.3s ease, transform 0.3s ease;
+      transition: color 0.3s ease;
     }
 
     .nav-links a:hover {
       color: #1a73e8;
-      transform: translateY(-3px);
     }
 
-    /* Hamburger Menu */
-    .toggle-button {
-      font-size: 30px;
-      cursor: pointer;
-      display: none;
-      color: white;
-    }
-
-    /* Sliding Menu */
-    .main-menu {
-      position: fixed;
-      top: 0;
-      left: -300px;
-      width: 300px;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      color: white;
-      transition: left 0.3s ease-in-out;
-      padding-top: 80px;
-      z-index: 2000;
-      box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .main-menu.active {
-      left: 0;
-    }
-
-    .main-menu .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 25px;
-      cursor: pointer;
-      color: white;
-    }
-
-    .main-menu ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .main-menu ul li {
-      padding: 15px;
-      font-size: 20px;
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      height: 100vh;
+      padding: 0 20px;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      margin: 20px;
     }
 
-    .main-menu ul li a {
-      color: white;
-      text-decoration: none;
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #555;
+      max-width: 600px;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 60px 20px;
+    }
+
+    .portfolio h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .portfolio-item {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .portfolio-item .content {
+      padding: 20px;
+    }
+
+    .portfolio-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .portfolio-item p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .portfolio-item .tags {
+      margin-top: 10px;
+    }
+
+    .portfolio-item .tags span {
+      font-size: 0.875rem;
+      color: #1a73e8;
+      margin-right: 10px;
+    }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      color: #666;
+      font-size: 14px;
     }
 
     /* Responsive Typography */
     @media (max-width: 768px) {
-      .toggle-button {
-        display: block;
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
       .nav-links {
         display: none;
-      }
-
-      .main-menu ul {
-        padding-left: 0;
       }
     }
 
@@ -179,311 +184,84 @@
       body {
         font-size: 0.9rem;
       }
-    }
 
-    /* Wrapper with Gradient Background */
-    .gradient-wrapper {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.4));
-      min-height: 100vh;
-      padding-bottom: 20px;
-    }
+      .hero h1 {
+        font-size: 2rem;
+      }
 
-    h1, h2 {
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      color: #ddd;
-    }
-
-    a {
-      text-decoration: none;
-      color: #007bff;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Section Styles */
-    section {
-      padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.1);
-      margin: 2rem 0;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .subheading {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #fff;
-      text-transform: uppercase;
-      border-left: 4px solid #007bff;
-      padding-left: 10px;
-    }
-
-    /* Images */
-    .section-img {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin: 1.5rem 0;
-    }
-
-    .section-img img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-      object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Call-to-Action */
-    .cta-button {
-      display: inline-block;
-      background-color: #FFD700;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 5px;
-      transition: all 0.3s ease-in-out;
-      text-align: center;
-    }
-
-    .cta-button:hover {
-      background-color: #e0c200;
-    }
-
-    /* Footer Styles */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #f8f8f8;
-      color: #666;
-      font-size: 14px;
-    }
-
-    /* Social Media Icons */
-    .wrapper {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px 0;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
-    .wrapper .icon {
-      width: 3em;
-      height: 3em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: white;
-      border-radius: 50%;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .wrapper .icon:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .tooltip {
-      position: absolute;
-      top: -40px;
-      background: #333;
-      color: white;
-      font-size: 0.9em;
-      padding: 5px 10px;
-      border-radius: 5px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .icon:hover .tooltip {
-      opacity: 1;
-    }
-
-    /* Footer Links */
-    .footer-links {
-      margin-top: 15px;
-      font-size: 14px;
-    }
-
-    .footer-links a {
-      color: #666;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    .footer-links a:hover {
-      color: #1e293b;
+      .hero p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="navbar" id="navbar">
+  <header class="navbar">
     <div class="logo">
       <img src="images/logo.png" alt="Mapengo Innovations">
     </div>
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')">Home</a></li>
-        <li><a href="about.html" onclick="closeMenuAndNavigate('about.html')">About</a></li>
-        <li><a href="services.html" onclick="closeMenuAndNavigate('services.html')">Services</a></li>
-        <li><a href="portfolio.html" onclick="closeMenuAndNavigate('portfolio.html')">Portfolio</a></li>
-        <li><a href="pricing.html" onclick="closeMenuAndNavigate('pricing.html')">Pricing</a></li>
-        <li><a href="contact" onclick="closeMenuAndNavigate('contact')">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact">Contact</a></li>
       </ul>
     </nav>
-    <div class="toggle-button" id="toggleButton">&#9776;</div>
   </header>
 
-  <!-- Sliding Menu -->
-  <div id="mainMenu" class="main-menu">
-    <span class="close-btn" id="closeMenuButton">&#215;</span>
-    <ul>
-      <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')">Home</a></li>
-      <li><a href="about.html" onclick="closeMenuAndNavigate('about.html')">About</a></li>
-      <li><a href="services.html" onclick="closeMenuAndNavigate('services.html')">Services</a></li>
-      <li><a href="portfolio.html" onclick="closeMenuAndNavigate('portfolio.html')">Portfolio</a></li>
-      <li><a href="pricing.html" onclick="closeMenuAndNavigate('pricing.html')">Pricing</a></li>
-      <li><a href="contact" onclick="closeMenuAndNavigate('contact')">Contact</a></li>
-    </ul>
-  </div>
+  <section class="hero">
+    <h1>Our Portfolio</h1>
+    <p>Discover our latest projects and see how we bring ideas to life through innovative web and app development.</p>
+  </section>
 
-  <script>
-    const toggleButton = document.querySelector("#toggleButton");
-    const mainMenu = document.querySelector("#mainMenu");
-    const closeMenuButton = document.querySelector("#closeMenuButton");
-
-    toggleButton.addEventListener('click', function () {
-      mainMenu.classList.toggle('active');
-      toggleButton.innerHTML = mainMenu.classList.contains("active") ? "&#215;" : "&#9776;";
-    });
-
-    closeMenuButton.addEventListener('click', function () {
-      mainMenu.classList.remove('active');
-      toggleButton.innerHTML = "&#9776;";
-    });
-
-    document.addEventListener('click', function(event) {
-      if (!mainMenu.contains(event.target) && !toggleButton.contains(event.target)) {
-        mainMenu.classList.remove('active');
-        toggleButton.innerHTML = "&#9776;";
-      }
-    });
-
-    function closeMenuAndNavigate(target) {
-      mainMenu.classList.remove('active');
-      toggleButton.innerHTML = "&#9776;";
-      document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
-
-  <div class="gradient-wrapper">
-    <section>
-      <h1>About Us - Mapengo Innovations</h1>
-      <p>Welcome to Mapengo Innovations. We are a forward-thinking company focused on creating innovative solutions for a better tomorrow.</p>
-      <p>Mapengo Innovations is a cutting-edge, online-based technology company specializing in providing high-quality digital solutions. Founded by Novice Nhlovo Mathebula, a passionate and highly skilled Software Engineer, the company was established with the vision to empower businesses through innovative web development, custom software solutions, and dynamic mobile applications. We focus on delivering scalable, secure, and user-friendly technology that enhances our clients’ ability to succeed in a rapidly changing digital landscape.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">Our Founder and Vision</h2>
-      <div class="section-img">
-        <img src="bg-08d07179-adfb-482c-a1b1-7c972cb3391f.png" alt="Founder Image">
-        <img src="https://via.placeholder.com/600x400" alt="Vision Image">
+  <section class="portfolio">
+    <h2>Featured Projects</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/600x400" alt="Project 1">
+        <div class="content">
+          <h3>Project Title 1</h3>
+          <p>Brief description of the project and the technologies used. Highlight the impact and results achieved.</p>
+          <div class="tags">
+            <span>#WebDevelopment</span>
+            <span>#React</span>
+            <span>#E-commerce</span>
+          </div>
+        </div>
       </div>
-      <p>The company was founded by Novice Nhlovo Mathebula, a qualified Software Engineer who graduated from the prestigious ALX African Leadership Experience program, specializing in the foundations of computer science and software engineering. This education provided Novice with a solid technical foundation and a deep understanding of the ever-evolving tech landscape. With a passion for problem-solving and digital innovation, he set out to create Mapengo Innovations to bridge the gap between businesses and the digital solutions they need to thrive in today’s competitive world.</p>
-      <p>The inspiration behind Mapengo Innovations comes from a deep desire to make technology more accessible and impactful. As a software engineer, Novice witnessed firsthand how businesses struggle to adopt the latest technology due to high costs, inefficiencies, and lack of expertise. Mapengo Innovations was born from this realization – to provide businesses of all sizes with professional-grade digital solutions that are affordable, efficient, and tailored to their specific needs.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">Our Expertise</h2>
-      <div class="section-img">
-        <img src="https://via.placeholder.com/600x400" alt="Expertise Image">
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/600x400" alt="Project 2">
+        <div class="content">
+          <h3>Project Title 2</h3>
+          <p>Brief description of the project and the technologies used. Highlight the impact and results achieved.</p>
+          <div class="tags">
+            <span>#MobileApp</span>
+            <span>#iOS</span>
+            <span>#Android</span>
+          </div>
+        </div>
       </div>
-      <p>At Mapengo Innovations, we specialize in the following core areas:</p>
-      <p><strong>Web Development:</strong> We create responsive, secure, and dynamic websites that help businesses connect with their audience. From landing pages to full-fledged content management systems, we ensure that your online presence is professional and impactful.</p>
-      <p><strong>Mobile App Development:</strong> Our team develops innovative mobile applications for both Android and iOS. Whether you need a simple utility app or a complex enterprise solution, we build apps that are not only functional but also user-friendly and scalable.</p>
-      <p><strong>Custom Software Solutions:</strong> We understand that every business has unique needs. That's why we offer tailor-made software solutions that are designed to solve specific challenges, optimize workflows, and enhance operational efficiency.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">The Development Process</h2>
-      <div class="section-img">
-        <img src="https://via.placeholder.com/600x400" alt="Development Process Image">
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/600x400" alt="Project 3">
+        <div class="content">
+          <h3>Project Title 3</h3>
+          <p>Brief description of the project and the technologies used. Highlight the impact and results achieved.</p>
+          <div class="tags">
+            <span>#CustomSoftware</span>
+            <span>#Python</span>
+            <span>#Automation</span>
+          </div>
+        </div>
       </div>
-      <p>We believe in a collaborative approach to development, where our team works closely with clients to understand their goals and needs. Novice Nhlovo Mathebula, as the lead developer and software engineer, personally oversees the development process to ensure that each project meets the highest standards of quality, security, and performance.</p>
-      <p>With a background in both computer science and software engineering, Novice brings a blend of theoretical knowledge and practical experience to every project. His expertise in modern programming languages, frameworks, and development tools ensures that every website, app, or software solution is not only functional but optimized for performance and user experience.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">Our Team</h2>
-      <div class="section-img">
-        <img src="https://via.placeholder.com/600x400" alt="Team Image">
-      </div>
-      <p>While Novice Nhlovo Mathebula leads the technical development, Mapengo Innovations is backed by a talented team of developers, designers, and project managers who share the same passion for innovation and excellence. We work together to ensure that every project is executed seamlessly, on time, and according to the client’s specifications.</p>
-      <p>As an online-based company, we utilize cutting-edge project management and communication tools to collaborate efficiently across different locations, ensuring that distance does not hinder the quality of our work.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">Our Philosophy and Inspiration</h2>
-      <div class="section-img">
-        <img src="https://via.placeholder.com/600x400" alt="Philosophy Image">
-      </div>
-      <p>Mapengo Innovations was born out of a drive to make a difference in the technology world. Our inspiration comes from seeing how digital transformation can unlock opportunities, streamline operations, and drive growth for businesses. We believe that technology should not be a barrier but an enabler for success. Our mission is to provide businesses with the tools they need to navigate the digital age confidently.</p>
-      <p>Whether it’s helping a startup establish a powerful online presence or assisting an established business in improving their digital infrastructure, our solutions are designed to create lasting impact and measurable results.</p>
-      <p><strong>Why Choose Mapengo Innovations?</strong></p>
-      <p><strong>Customer-Centric Approach:</strong> Our clients are at the heart of everything we do. We take time to understand your vision, goals, and challenges to deliver tailored solutions that make a real difference.</p>
-      <p><strong>Expertise and Experience:</strong> Led by Novice Nhlovo Mathebula, a qualified Software Engineer with a solid foundation in computer science and software engineering, we bring extensive knowledge and hands-on experience to every project.</p>
-      <p><strong>End-to-End Solutions:</strong> From initial consultation to ongoing support, we offer comprehensive services that cover every aspect of web and mobile app development.</p>
-      <p><strong>Quality and Innovation:</strong> We are committed to delivering high-quality, innovative solutions that meet the needs of our clients while adhering to the best industry standards.</p>
-      <p><strong>Scalability:</strong> Our solutions are designed to grow with your business. Whether you are a small startup or a large corporation, we provide scalable solutions that evolve with you.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">Our Commitment to Excellence</h2>
-      <div class="section-img">
-        <img src="https://via.placeholder.com/600x400" alt="Excellence Image">
-      </div>
-      <p>At Mapengo Innovations, we pride ourselves on our unwavering commitment to excellence. Each project we undertake is guided by a passion for quality and a dedication to ensuring that the final product exceeds expectations. Our technical expertise, combined with our client-focused approach, allows us to create digital solutions that truly make a difference.</p>
-    </section>
-
-    <section>
-      <h2 class="subheading">Join Us on Our Journey</h2>
-      <p>As a company, Mapengo Innovations is constantly evolving and expanding our capabilities to keep up with technological advancements. We are excited about the future and look forward to partnering with businesses, entrepreneurs, and visionaries who share our passion for digital transformation.</p>
-      <a href="#" class="cta-button">Join Us Now</a>
-    </section>
-  </div>
+      <!-- Add more portfolio items as needed -->
+    </div>
+  </section>
 
   <footer>
-    <ul class="wrapper">
-      <li class="icon facebook" onclick="redirectTo('https://facebook.com')">
-        <span class="tooltip">Facebook</span>
-        <svg
-          viewBox="0 0 320 512"
-          height="1.2em"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
-        </svg>
-      </li>
-    </ul>
-    <div class="footer-links">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms-of-service.html">Terms of Service</a>
-    </div>
+    <p>&copy; 2023 Mapengo Innovations. All Rights Reserved.</p>
   </footer>
 </body>
-   </html>
-   
+</html>
