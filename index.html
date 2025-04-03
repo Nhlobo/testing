@@ -1,267 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Mapengo Innovations - Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills & Expertise</title>
+    <style>
+        body {
+            background: #000 url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-   <!-- Meta Description -->
-   <meta name="description" content="Explore our portfolio of innovative web and app development projects. Discover how we transform ideas into digital reality.">
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
-   <!-- Meta Keywords -->
-   <meta name="keywords" content="web development portfolio, app development portfolio, custom websites, mobile apps, software development, digital solutions">
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
-   <!-- Linking Google Fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+        .header-icons img {
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+        }
 
-   <!-- Linking Font Awesome for Icons -->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        .time {
+            font-size: 14px;
+            margin-left: auto;
+        }
 
-   <style>
-    /* Global Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+        .skills {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
 
-    /* Body Styles */
-    body {
-      line-height: 1.6;
-      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-      color: #333;
-      overflow-x: hidden;
-    }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    /* Navbar Styles */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background-color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
 
-    /* Logo Styles */
-    .logo img {
-      height: 40px;
-    }
-
-    /* Navigation Links */
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-
-    .nav-links a {
-      color: #333;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #1a73e8;
-    }
-
-    /* Hero Section */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 100vh;
-      padding: 0 20px;
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      margin: 20px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #333;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: #555;
-      max-width: 600px;
-    }
-
-    /* Portfolio Section */
-    .portfolio {
-      padding: 60px 20px;
-    }
-
-    .portfolio h2 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 40px;
-      color: #333;
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    .portfolio-item {
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .portfolio-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .portfolio-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 20px 20px 0 0;
-    }
-
-    .portfolio-item .content {
-      padding: 20px;
-    }
-
-    .portfolio-item h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #333;
-    }
-
-    .portfolio-item p {
-      font-size: 1rem;
-      color: #555;
-    }
-
-    .portfolio-item .tags {
-      margin-top: 10px;
-    }
-
-    .portfolio-item .tags span {
-      font-size: 0.875rem;
-      color: #1a73e8;
-      margin-right: 10px;
-    }
-
-    /* Footer Styles */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      color: #666;
-      font-size: 14px;
-    }
-
-    /* Responsive Typography */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        font-size: 0.9rem;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+        .icons img {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            filter: invert(1);
+        }
+    </style>
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">
-      <img src="images/logo.png" alt="Mapengo Innovations">
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>Our Portfolio</h1>
-    <p>Discover our latest projects and see how we bring ideas to life through innovative web and app development.</p>
-  </section>
-
-  <section class="portfolio">
-    <h2>Featured Projects</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x400" alt="Project 1">
-        <div class="content">
-          <h3>Project Title 1</h3>
-          <p>Brief description of the project and the technologies used. Highlight the impact and results achieved.</p>
-          <div class="tags">
-            <span>#WebDevelopment</span>
-            <span>#React</span>
-            <span>#E-commerce</span>
-          </div>
+    <header>
+        <div class="header-content">
+            <h1>Kutullo</h1>
+            <div class="header-icons">
+                <img src="icons/menu.png" alt="Menu">
+                <img src="icons/notification.png" alt="Notification">
+                <img src="icons/battery.png" alt="Battery">
+            </div>
         </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x400" alt="Project 2">
-        <div class="content">
-          <h3>Project Title 2</h3>
-          <p>Brief description of the project and the technologies used. Highlight the impact and results achieved.</p>
-          <div class="tags">
-            <span>#MobileApp</span>
-            <span>#iOS</span>
-            <span>#Android</span>
-          </div>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x400" alt="Project 3">
-        <div class="content">
-          <h3>Project Title 3</h3>
-          <p>Brief description of the project and the technologies used. Highlight the impact and results achieved.</p>
-          <div class="tags">
-            <span>#CustomSoftware</span>
-            <span>#Python</span>
-            <span>#Automation</span>
-          </div>
-        </div>
-      </div>
-      <!-- Add more portfolio items as needed -->
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2023 Mapengo Innovations. All Rights Reserved.</p>
-  </footer>
+        <div class="time">01:56</div>
+    </header>
+    <main>
+        <section class="skills">
+            <h2>Skills & Expertise</h2>
+            <p>I am a dedicated full-stack developer and experienced in front-end, back-end, UI/UX, and project management. Proficient in using modern technologies to build scalable and efficient web applications.</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>UI/UX Design</h3>
+                    <p>Tools used for designing intuitive interfaces, UI, and prototypes.</p>
+                    <div class="icons">
+                        <img src="icons/figma.png" alt="Figma">
+                        <img src="icons/iconjar.png" alt="IconJar">
+                        <img src="icons/zeplin.png" alt="Zeplin">
+                        <img src="icons/storybook.png" alt="Storybook">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Front-End Development</h3>
+                    <p>Technologies used to build responsive and interactive user interfaces.</p>
+                    <div class="icons">
+                        <img src="icons/html.png" alt="HTML">
+                        <img src="icons/css.png" alt="CSS">
+                        <img src="icons/react.png" alt="React">
+                        <img src="icons/tailwind.png" alt="Tailwind CSS">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Mobile App Development</h3>
+                    <p>Frameworks and libraries for cross-platform mobile applications.</p>
+                    <div class="icons">
+                        <img src="icons/react-native.png" alt="React Native">
+                        <img src="icons/native-script.png" alt="Native Script">
+                        <img src="icons/expo.png" alt="Expo">
+                        <img src="icons/flutter.png" alt="Flutter">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Back-End Development</h3>
+                    <p>Tools used for server logic, authentication, and database management.</p>
+                    <div class="icons">
+                        <img src="icons/nodejs.png" alt="Node.js">
+                        <img src="icons/express.png" alt="Express.js">
+                        <img src="icons/mongodb.png" alt="MongoDB">
+                        <img src="icons/passport.png" alt="Passport.js">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Other Tools and Languages</h3>
+                    <p>Tools for managing projects and version control systems, and other languages I am currently learning.</p>
+                    <div class="icons">
+                        <img src="icons/git.png" alt="Git">
+                        <img src="icons/trello.png" alt="Trello">
+                        <img src="icons/scrum.png" alt="Scrum">
+                        <img src="icons/c++.png" alt="C++">
+                        <img src="icons/java.png" alt="Java">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
