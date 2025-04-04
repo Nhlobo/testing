@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Responsive Home Page</title>
   <style>
     * {
@@ -22,7 +22,7 @@
       top: 0;
       left: 0;
       z-index: 999;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.85);
       color: #fff;
       padding: 1rem 2rem;
       display: flex;
@@ -30,20 +30,20 @@
       align-items: center;
     }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
+    .logo img {
+      height: 40px;
     }
 
     nav ul {
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem;
       list-style: none;
     }
 
     nav ul li a {
       color: white;
       text-decoration: none;
+      font-size: 0.95rem;
       transition: color 0.3s ease;
     }
 
@@ -55,6 +55,7 @@
       display: none;
       cursor: pointer;
       font-size: 1.8rem;
+      color: white;
     }
 
     .sidebar {
@@ -73,7 +74,7 @@
     .sidebar a {
       padding: 10px 20px;
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: white;
       display: block;
       transition: 0.3s;
@@ -83,6 +84,13 @@
       background-color: #575757;
     }
 
+    .search-icon {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: white;
+      margin-left: 1rem;
+    }
+
     .hero {
       background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
       height: 100vh;
@@ -90,7 +98,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding-top: 80px; /* To push below navbar */
+      padding-top: 80px;
     }
 
     .hero h1 {
@@ -112,28 +120,46 @@
 </head>
 <body>
 
+  <!-- Sidebar for Mobile -->
   <div class="sidebar" id="sidebar">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Projects</a>
-    <a href="#">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="home-visits.html">Home Visits</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="blog.html">Blog</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
   </div>
 
+  <!-- Header -->
   <header>
-    <div class="logo">MySite</div>
+    <div class="logo">
+      <a href="index.html">
+        <img src="logo-Photoroom.png" alt="Logo" />
+      </a>
+    </div>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="home-visits.html">Home Visits</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>
     </nav>
-    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+    <div>
+      <span class="search-icon" onclick="alert('Search function will be implemented next 🔍')">🔍</span>
+      <span class="menu-icon" onclick="toggleSidebar()">☰</span>
+    </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Welcome to My Website</h1>
+    <h1>Welcome to Our Website</h1>
   </section>
 
   <script>
