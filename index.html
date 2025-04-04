@@ -235,17 +235,52 @@
             right: 20px;
             background-color: #007BFF;
             color: #fff;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 5px;
+            width: 300px;
+            display: none;
+            flex-direction: column;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+        }
+
+        .chatbot-container .chatbot-header {
+            background-color: #0056b3;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            cursor: move;
+        }
+
+        .chatbot-container .chatbot-body {
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .chatbot-container .chatbot-footer {
+            background-color: #0056b3;
+            padding: 10px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-container .chatbot-footer input {
+            width: calc(100% - 42px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .chatbot-container .chatbot-footer button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
             cursor: pointer;
         }
 
-        .chatbot-container:hover {
+        .chatbot-container .chatbot-footer button:hover {
             background-color: #0056b3;
         }
 
@@ -261,10 +296,43 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: background-color 0.3s;
+            z-index: 1001;
         }
 
         .booking-widget:hover {
             background-color: #0056b3;
+        }
+
+        .booking-options {
+            display: none;
+            position: fixed;
+            bottom: 140px;
+            right: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1002;
+        }
+
+        .booking-options ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .booking-options ul li {
+            margin-bottom: 10px;
+        }
+
+        .booking-options ul li a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .booking-options ul li a:hover {
+            text-decoration: underline;
         }
 
         /* Accessibility Styles */
@@ -279,10 +347,26 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: background-color 0.3s;
+            z-index: 1001;
         }
 
         .contrast-toggle:hover {
             background-color: #0056b3;
+        }
+
+        /* High Contrast Mode */
+        body.high-contrast {
+            background-color: #000;
+            color: #fff;
+        }
+
+        body.high-contrast header,
+        body.high-contrast footer,
+        body.high-contrast .chatbot-container,
+        body.high-contrast .booking-widget,
+        body.high-contrast .contrast-toggle {
+            background-color: #fff;
+            color: #000;
         }
 
         /* Responsive Design */
@@ -395,13 +479,32 @@
     </div>
 
     <!-- Chatbot -->
-    <div class="chatbot-container" onclick="openChatbot()">
-        <span>Chat</span>
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <span>Chat with Us</span>
+            <button onclick="closeChatbot()" style="float: right;">×</button>
+        </div>
+        <div class="chatbot-body">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
     </div>
 
     <!-- Booking Widget -->
-    <div class="booking-widget" onclick="openBooking()">
+    <div class="booking-widget" onclick="toggleBookingOptions()">
         <span>Book Now</span>
+    </div>
+
+    <div class="booking-options" id="bookingOptions">
+        <ul>
+            <li><a href="contact.html">Online Booking</a></li>
+            <li><a href="mailto:matimbadifferance@gmail.com">Email</a></li>
+            <li><a href="tel:0717729736">Phone</a></li>
+            <li><a href="https://wa.me/27717729736">WhatsApp</a></li>
+        </ul>
     </div>
 
     <!-- Accessibility: Contrast Toggle -->
@@ -471,14 +574,34 @@
 
         // Chatbot
         function openChatbot() {
-            alert('Opening chatbot...');
-            // Integrate third-party chatbot embed code here
+            document.getElementById('chatbotContainer').style.display = 'flex';
+        }
+
+        function closeChatbot() {
+            document.getElementById('chatbotContainer').style.display = 'none';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value;
+            if (message.trim() !== '') {
+                const chatBody = document.querySelector('.chatbot-body');
+                const messageElement = document.createElement('p');
+                messageElement.textContent = `You: ${message}`;
+                chatBody.appendChild(messageElement);
+                input.value = '';
+                // Add response logic here
+            }
         }
 
         // Booking Widget
-        function openBooking() {
-            alert('Opening booking widget...');
-            // Integrate third-party booking embed code here
+        function toggleBookingOptions() {
+            const bookingOptions = document.getElementById('bookingOptions');
+            if (bookingOptions.style.display === 'none' || bookingOptions.style.display === '') {
+                bookingOptions.style.display = 'block';
+            } else {
+                bookingOptions.style.display = 'none';
+            }
         }
 
         // Accessibility: Contrast Toggle
@@ -505,5 +628,4 @@
         updateDynamicContent('Welcome to Matimba Physiotherapy!');
     </script>
 </body>
-            </html>
-        
+</html>
