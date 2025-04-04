@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Physiotherapy Clinic</title>
-    <meta name="description" content="Welcome to our Physiotherapy Clinic. We offer a range of services to help you recover and stay healthy.">
+    <title>Home - Matimba Physiotherapy</title>
+    <meta name="description" content="Matimba Physiotherapy offers quality treatment for fast and effective recovery. Specializing in physical rehabilitation through in-patient and home-based physiotherapy.">
     <style>
         /* General Styles */
         body {
@@ -228,6 +228,63 @@
             background-color: #0056b3;
         }
 
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .chatbot-container:hover {
+            background-color: #0056b3;
+        }
+
+        /* Booking Widget Styles */
+        .booking-widget {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .booking-widget:hover {
+            background-color: #0056b3;
+        }
+
+        /* Accessibility Styles */
+        .contrast-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contrast-toggle:hover {
+            background-color: #0056b3;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             header nav ul {
@@ -249,7 +306,7 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="logo.png" alt="Physiotherapy Clinic Logo">
+            <img src="logo.png" alt="Matimba Physiotherapy Logo">
         </div>
         <nav>
             <ul>
@@ -265,15 +322,15 @@
             </ul>
         </nav>
         <div class="contact-info">
-            <p>Phone: (123) 456-7890</p>
-            <p>Email: info@physioclinic.com</p>
+            <p>Phone: 0717729736</p>
+            <p>Email: matimbadifferance@gmail.com</p>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Welcome to Our Physiotherapy Clinic</h1>
-        <p>Your path to recovery starts here. Schedule an appointment today!</p>
+        <h1>Fast & Effective Recovery</h1>
+        <p>At Matimba Physiotherapy, we are passionate about providing quality treatment to restore, maintain, and maximize your mobility and well-being.</p>
         <a href="#" class="cta-button">Schedule an Appointment</a>
     </section>
 
@@ -282,15 +339,11 @@
         <h2>Our Services</h2>
         <div class="service-item">
             <h3>Pain Management</h3>
-            <p>Expert care to manage and alleviate pain.</p>
+            <p>Treatment for back, shoulder, neck, elbow, wrist, and ankle pain.</p>
         </div>
         <div class="service-item">
             <h3>Sports Injuries</h3>
             <p>Specialized treatment for sports-related injuries.</p>
-        </div>
-        <div class="service-item">
-            <h3>Spinal Cord Injuries</h3>
-            <p>Comprehensive care for spinal cord injuries.</p>
         </div>
         <!-- Add more services as needed -->
     </section>
@@ -301,9 +354,6 @@
         <div class="testimonial-item">
             <p>"Amazing service! Highly recommend." - Jane Doe</p>
         </div>
-        <div class="testimonial-item">
-            <p>"Helped me recover quickly. Thank you!" - John Smith</p>
-        </div>
         <!-- Add more testimonials as needed -->
     </section>
 
@@ -313,10 +363,6 @@
         <div class="blog-post">
             <h3>Benefits of Physiotherapy</h3>
             <p>Learn about the benefits of physiotherapy for your health.</p>
-        </div>
-        <div class="blog-post">
-            <h3>Recovering from Sports Injuries</h3>
-            <p>Tips for a speedy recovery from sports injuries.</p>
         </div>
         <!-- Add more blog posts as needed -->
     </section>
@@ -333,11 +379,11 @@
             <a href="#">Instagram</a>
         </div>
         <div class="copyright">
-            <p>&copy; 2023 Physiotherapy Clinic. All rights reserved.</p>
+            <p>&copy; 2023 Matimba Physiotherapy. All rights reserved.</p>
         </div>
         <div class="contact-details">
-            <p>Phone: (123) 456-7890</p>
-            <p>Email: info@physioclinic.com</p>
+            <p>Phone: 0717729736</p>
+            <p>Email: matimbadifferance@gmail.com</p>
         </div>
     </footer>
 
@@ -348,17 +394,116 @@
         <button onclick="declineCookies()">Decline</button>
     </div>
 
+    <!-- Chatbot -->
+    <div class="chatbot-container" onclick="openChatbot()">
+        <span>Chat</span>
+    </div>
+
+    <!-- Booking Widget -->
+    <div class="booking-widget" onclick="openBooking()">
+        <span>Book Now</span>
+    </div>
+
+    <!-- Accessibility: Contrast Toggle -->
+    <div class="contrast-toggle" onclick="toggleContrast()">
+        <span>Toggle Contrast</span>
+    </div>
+
+    <!-- Newsletter Sign-up -->
+    <div class="newsletter-signup">
+        <h3>Sign up for our newsletter</h3>
+        <!-- Embed third-party newsletter sign-up form here -->
+    </div>
+
+    <!-- Interactive FAQ Section -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3 onclick="toggleFAQ(this)">What services do you offer?</h3>
+            <p class="faq-content">We offer a range of services including pain management, sports injuries treatment, and more.</p>
+        </div>
+        <!-- Add more FAQ items as needed -->
+    </section>
+
+    <!-- Resource Library -->
+    <section class="resource-library">
+        <h2>Resource Library</h2>
+        <p>Download our resources for more information:</p>
+        <ul>
+            <li><a href="resource1.pdf" download>Resource 1</a></li>
+            <li><a href="resource2.pdf" download>Resource 2</a></li>
+            <!-- Add more resources as needed -->
+        </ul>
+    </section>
+
+    <!-- Event Calendar -->
+    <section class="event-calendar">
+        <h2>Upcoming Events</h2>
+        <!-- Embed event calendar using a JavaScript library -->
+    </section>
+
+    <!-- Feedback Forms -->
+    <section class="feedback-forms">
+        <h2>Leave Your Feedback</h2>
+        <!-- Embed third-party feedback form here -->
+    </section>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <a href="index.html">Home</a> > <span>Current Page</span>
+    </nav>
+
+    <!-- Dynamic Content -->
+    <section class="dynamic-content">
+        <h2>Personalized Content</h2>
+        <p id="dynamicText">This content will change based on user interactions.</p>
+    </section>
+
     <script>
+        // Cookies Pop-up
         function acceptCookies() {
             document.getElementById('cookiesPopup').style.display = 'none';
-            // Add code to set a cookie consent flag
         }
 
         function declineCookies() {
             document.getElementById('cookiesPopup').style.display = 'none';
-            // Add code to handle cookie decline
         }
+
+        // Chatbot
+        function openChatbot() {
+            alert('Opening chatbot...');
+            // Integrate third-party chatbot embed code here
+        }
+
+        // Booking Widget
+        function openBooking() {
+            alert('Opening booking widget...');
+            // Integrate third-party booking embed code here
+        }
+
+        // Accessibility: Contrast Toggle
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+        }
+
+        // Interactive FAQ Section
+        function toggleFAQ(element) {
+            const content = element.nextElementSibling;
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+            } else {
+                content.style.display = 'block';
+            }
+        }
+
+        // Dynamic Content
+        function updateDynamicContent(newText) {
+            document.getElementById('dynamicText').innerText = newText;
+        }
+
+        // Example of dynamic content update
+        updateDynamicContent('Welcome to Matimba Physiotherapy!');
     </script>
 </body>
-    </html>
-    
+            </html>
+        
