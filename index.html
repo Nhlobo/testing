@@ -2,392 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home - Matimba Physiotherapy</title>
-  <meta name="description" content="Matimba Physiotherapy offers quality treatment for fast and effective recovery."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Home Page</title>
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #fff;
-      color: #333;
+    body, html {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
     }
 
     header {
-      background: #008080;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      background-color: rgba(0, 0, 0, 0.7);
       color: #fff;
-      padding: 1rem;
+      padding: 1rem 2rem;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
     }
 
-    .logo img {
-      height: 60px;
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
     }
 
     nav ul {
-      list-style: none;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      gap: 2rem;
+      list-style: none;
     }
 
-    nav a {
-      color: #fff;
+    nav ul li a {
+      color: white;
       text-decoration: none;
-      font-weight: bold;
+      transition: color 0.3s ease;
     }
 
-    .contact-info {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
+    nav ul li a:hover {
+      color: #00e0ff;
+    }
+
+    .menu-icon {
+      display: none;
+      cursor: pointer;
+      font-size: 1.8rem;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 60px;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: white;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
     }
 
     .hero {
-      background: linear-gradient(to right, #00b3b3, #66cccc);
-      color: #fff;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 3rem 1rem;
+      padding-top: 80px; /* To push below navbar */
     }
 
     .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-button {
-      background-color: #fff;
-      color: #008080;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .cta-button:hover {
-      background-color: #f0f0f0;
-    }
-
-    section {
-      padding: 2rem 1rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #008080;
-    }
-
-    .service-item,
-    .testimonial-item,
-    .blog-post {
-      background: #f9f9f9;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    .footer-links,
-    .social-media,
-    .contact-details {
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-
-    footer {
-      background: #008080;
-      color: #fff;
-      padding: 1rem;
-    }
-
-    footer a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .contrast-toggle {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      padding: 8px;
-      background-color: #000;
-      color: #fff;
-      border: none;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .high-contrast {
-      background-color: #000;
-      color: #fff;
-    }
-
-    .cookies-popup {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #eee;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-
-    .booking-widget {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #008080;
       color: white;
-      padding: 0.8rem 1.2rem;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 999;
-    }
-
-    .booking-options {
-      display: none;
-      position: fixed;
-      bottom: 70px;
-      left: 20px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .booking-options ul {
-      list-style: none;
-    }
-
-    .booking-options ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .booking-options a {
-      color: #008080;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .chatbot-container {
-      display: none;
-      flex-direction: column;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 250px;
-      height: 300px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      overflow: hidden;
-      z-index: 1000;
-    }
-
-    .chatbot-header {
-      background: #008080;
-      color: white;
-      padding: 10px;
-      font-weight: bold;
-    }
-
-    .chatbot-body {
-      flex: 1;
-      padding: 10px;
-      overflow-y: auto;
-    }
-
-    .chatbot-footer {
-      display: flex;
-      padding: 10px;
-      border-top: 1px solid #ccc;
-    }
-
-    .chatbot-footer input {
-      flex: 1;
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .chatbot-footer button {
-      background: #008080;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      margin-left: 5px;
-      border-radius: 5px;
-      cursor: pointer;
+      font-size: 3rem;
+      text-shadow: 2px 2px 10px #000;
     }
 
     @media (max-width: 768px) {
       nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
+        display: none;
       }
 
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
+      .menu-icon {
+        display: block;
       }
     }
   </style>
 </head>
 <body>
 
-  <button class="contrast-toggle" onclick="toggleContrast()">Toggle Contrast</button>
+  <div class="sidebar" id="sidebar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </div>
 
   <header>
-    <div class="logo">
-      <img src="logo.png" alt="Matimba Physiotherapy Logo" />
-    </div>
+    <div class="logo">MySite</div>
     <nav>
       <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="home-visits.html">Home Visits</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </nav>
-    <div class="contact-info">
-      <p>Phone: <a href="tel:0717729736">071 772 9736</a></p>
-      <p>Email: <a href="mailto:matimbadifferance@gmail.com">matimbadifferance@gmail.com</a></p>
-    </div>
+    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
   </header>
 
   <section class="hero">
-    <h1>Fast & Effective Recovery</h1>
-    <p>At Matimba Physiotherapy, we’re passionate about providing quality treatment to restore, maintain, and maximize your mobility.</p>
-    <a href="contact.html" class="cta-button">Book Appointment</a>
+    <h1>Welcome to My Website</h1>
   </section>
-
-  <section class="services-overview">
-    <h2>Our Services</h2>
-    <div class="service-item">
-      <h3>In-Clinic Physiotherapy</h3>
-      <p>Experience professional treatment at our fully-equipped clinic.</p>
-    </div>
-    <div class="service-item">
-      <h3>Home Visits</h3>
-      <p>We bring expert care to the comfort of your home.</p>
-    </div>
-    <div class="service-item">
-      <h3>Rehabilitation Programs</h3>
-      <p>Tailored recovery plans to get you back on your feet.</p>
-    </div>
-  </section>
-
-  <section class="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonial-item">
-      “Thanks to Matimba Physiotherapy, I’m walking again without pain!”
-    </div>
-    <div class="testimonial-item">
-      “They were very professional and helped me recover fast. Highly recommend.”
-    </div>
-  </section>
-
-  <section class="latest-blog">
-    <h2>Latest Blog</h2>
-    <div class="blog-post">
-      <h3>5 Tips for Healthy Recovery</h3>
-      <p>Learn how to recover effectively from physical injuries with our top tips.</p>
-    </div>
-    <div class="blog-post">
-      <h3>Why Home Physio Works</h3>
-      <p>Discover the benefits of home-based physiotherapy treatments.</p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-links">
-      <a href="privacy-policy.html">Privacy Policy</a> |
-      <a href="terms-of-service.html">Terms of Service</a>
-    </div>
-    <div class="social-media">
-      <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
-    </div>
-    <div class="contact-details">
-      <p>Call us: <a href="tel:0717729736">071 772 9736</a></p>
-      <p>Email: <a href="mailto:matimbadifferance@gmail.com">matimbadifferance@gmail.com</a></p>
-    </div>
-    <div class="copyright">
-      &copy; 2025 Matimba Physiotherapy. All rights reserved.
-    </div>
-  </footer>
-
-  <div class="cookies-popup" id="cookiesPopup">
-    <p>This website uses cookies to enhance your experience.</p>
-    <button onclick="acceptCookies()">Accept</button>
-  </div>
-
-  <div class="booking-widget" onclick="toggleBooking()">Book Now</div>
-  <div class="booking-options" id="bookingOptions">
-    <ul>
-      <li><a href="contact.html">In-Clinic Appointment</a></li>
-      <li><a href="home-visits.html">Home Visit Booking</a></li>
-    </ul>
-  </div>
-
-  <div class="chatbot-container" id="chatbot">
-    <div class="chatbot-header">Chat with us</div>
-    <div class="chatbot-body">
-      <p>Hello! How can we help you today?</p>
-    </div>
-    <div class="chatbot-footer">
-      <input type="text" placeholder="Type a message..." />
-      <button>Send</button>
-    </div>
-  </div>
 
   <script>
-    function toggleContrast() {
-      document.body.classList.toggle("high-contrast");
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
     }
-
-    function acceptCookies() {
-      document.getElementById("cookiesPopup").style.display = "none";
-    }
-
-    function toggleBooking() {
-      const bookingOptions = document.getElementById("bookingOptions");
-      bookingOptions.style.display = bookingOptions.style.display === "block" ? "none" : "block";
-    }
-
-    window.onload = () => {
-      setTimeout(() => {
-        document.getElementById("chatbot").style.display = "flex";
-      }, 3000);
-    };
   </script>
 
 </body>
