@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Navigation Example</title>
+  <title>Smart Navigation with Yellow Icons</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     * {
@@ -18,8 +18,8 @@
     }
 
     nav {
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
+      background-color: #1e1e1e;
+      border-bottom: 1px solid #444;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -46,21 +46,32 @@
 
     .nav-list a {
       text-decoration: none;
-      color: #333;
+      color: white;
       font-size: 16px;
       display: flex;
       align-items: center;
+      transition: 0.3s;
     }
 
+    /* 🎯 ICON COLORS */
     .nav-list a i {
       margin-right: 8px;
-      color: #007BFF;
+      color: #FFD700; /* Yellow dominates */
+      transition: 0.3s ease;
+    }
+
+    .nav-list a:hover i {
+      color: #00BFFF; /* Blue on hover */
+    }
+
+    .nav-list a.active i {
+      color: #FFFFFF; /* White when active (scroll spy) */
     }
 
     .nav-list a.active {
-      color: #007BFF;
+      color: #FFD700;
       font-weight: bold;
-      border-bottom: 2px solid #007BFF;
+      border-bottom: 2px solid #FFD700;
     }
 
     .hamburger {
@@ -73,7 +84,7 @@
     .hamburger span {
       width: 25px;
       height: 3px;
-      background: #333;
+      background: white;
       transition: all 0.3s ease;
     }
 
@@ -96,7 +107,7 @@
         top: 70px;
         left: 0;
         width: 100%;
-        background-color: #fff;
+        background-color: #1e1e1e;
         flex-direction: column;
         align-items: flex-start;
         padding: 1rem 2rem;
@@ -115,25 +126,26 @@
       }
     }
 
-    /* Simple sections for demo */
     section {
       padding: 100px 20px;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #333;
       height: 100vh;
+      background: #f9f9f9;
+      color: #111;
     }
 
     footer {
       padding: 1rem;
       text-align: center;
+      background: #1e1e1e;
+      color: white;
     }
   </style>
 </head>
 <body>
 
   <nav class="smart-nav">
-    <div class="logo">
-      <strong>MySite</strong>
-    </div>
+    <div class="logo" style="color: #FFD700;"><strong>MySite</strong></div>
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
