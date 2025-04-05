@@ -17,15 +17,15 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif; /* Smooth and modern font */
+      font-family: 'Roboto', sans-serif;
       scroll-behavior: smooth;
       background-color: #121212;
       color: white;
-      overflow-x: hidden; /* Prevent horizontal scrolling */
+      overflow-x: hidden;
     }
 
     nav {
-      background-color: #ffffff; /* Pure white background */
+      background-color: #ffffff;
       border-bottom: 1px solid #ddd;
       position: sticky;
       top: 0;
@@ -42,10 +42,10 @@
     }
 
     .logo img {
-      width: 150px; /* Adjust the size to fit your logo */
+      width: 150px;
       height: auto;
       display: block;
-      cursor: pointer; /* Make the logo clickable */
+      cursor: pointer;
     }
 
     .nav-list {
@@ -60,33 +60,31 @@
 
     .nav-list a {
       text-decoration: none;
-      color: #111; /* Dark text color */
+      color: #111; /* Default color (black) */
       font-size: 16px;
       display: flex;
       align-items: center;
       transition: 0.3s;
     }
 
-    /* 🎯 ICON COLORS & BORDERS */
     .nav-list a i {
       margin-right: 8px;
       padding: 5px;
       border: 2px solid transparent; /* Default border */
-      border-radius: 50%; /* Rounded icon border */
+      border-radius: 50%;
       transition: 0.3s ease;
     }
 
-    /* Yellow border around icons */
+    /* Icon border and color change when touched or clicked */
     .nav-list a:hover i,
-    .nav-list a.active i {
-      border-color: #FFD700; /* Yellow border */
-      color: #FFD700; /* Icon color changes to yellow */
+    .nav-list a:active i {
+      border-color: #FFD700; /* Yellow border on hover or tap */
+      color: #FFD700; /* Yellow icon color on hover or tap */
     }
 
-    .nav-list a.active {
-      color: #FFD700; /* Active link text color */
-      font-weight: bold;
-      border-bottom: 2px solid #FFD700; /* Active underline effect */
+    .nav-list a:hover,
+    .nav-list a:active {
+      color: #FFD700; /* Yellow text color when hovered or tapped */
     }
 
     .hamburger {
@@ -115,14 +113,13 @@
       transform: rotate(-45deg) translate(6px, -6px);
     }
 
-    /* Mobile styles */
     @media (max-width: 768px) {
       .nav-list {
         position: fixed;
         top: 70px;
         left: 0;
         width: 100%;
-        background-color: #ffffff; /* White background for mobile */
+        background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         padding: 1rem 2rem;
@@ -162,7 +159,7 @@
 
   <nav class="smart-nav">
     <div class="logo">
-      <img src="logo.png" alt="Site Logo" id="logo" /> <!-- Logo with id for interaction -->
+      <img src="logo.png" alt="Site Logo" id="logo" />
     </div>
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -208,7 +205,7 @@
     const navLinks = document.querySelectorAll('.nav-list a');
     const sections = document.querySelectorAll('section');
     const body = document.body;
-    const logo = document.getElementById('logo');  // Logo element
+    const logo = document.getElementById('logo');
 
     // Toggle hamburger menu and prevent scrolling
     hamburger.addEventListener('click', () => {
@@ -222,7 +219,7 @@
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navList.classList.remove('active');
-        body.classList.remove('no-scroll'); // Allow scrolling again
+        body.classList.remove('no-scroll');
       });
     });
 
