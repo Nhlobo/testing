@@ -1,203 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matimba Physiotherapy</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Navigation Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Header and Navigation Styles */
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
 
-        header .logo img {
-            height: 40px;
-        }
+    nav {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
+    .smart-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: relative;
+    }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
 
-        nav ul li {
-            margin-right: 20px;
-        }
+    .nav-list li {
+      position: relative;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+    .nav-list a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+    }
 
-        nav ul li a:hover {
-            color: #007BFF;
-        }
+    .nav-list a i {
+      margin-right: 8px;
+      color: #007BFF;
+    }
 
-        .contact-info {
-            display: flex;
-            align-items: center;
-        }
+    .nav-list a.active {
+      color: #007BFF;
+      font-weight: bold;
+      border-bottom: 2px solid #007BFF;
+    }
 
-        .contact-info p {
-            margin: 0;
-            font-size: 0.9em;
-            color: #777;
-        }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 6px;
+    }
 
-        .contact-info i {
-            margin-right: 5px;
-            color: #007BFF;
-        }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #333;
+      transition: all 0.3s ease;
+    }
 
-        /* Mobile Navigation */
-        .mobile-nav-icon {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
 
-        .mobile-nav-icon div {
-            width: 25px;
-            height: 3px;
-            background-color: #333;
-            margin: 4px;
-            transition: all 0.3s ease;
-        }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
 
-        .mobile-nav {
-            display: none;
-            flex-direction: column;
-            width: 100%;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
 
-        .mobile-nav ul {
-            flex-direction: column;
-            width: 100%;
-        }
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .nav-list {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 2rem;
+        transform: translateY(-200%);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.3s ease;
+      }
 
-        .mobile-nav ul li {
-            text-align: center;
-            margin: 10px 0;
-        }
+      .nav-list.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mobile-nav-icon {
-                display: flex;
-            }
+      .hamburger {
+        display: flex;
+      }
+    }
 
-            nav ul {
-                display: none;
-            }
+    /* Simple sections for demo */
+    section {
+      padding: 100px 20px;
+      border-bottom: 1px solid #eee;
+      height: 100vh;
+    }
 
-            .nav-container {
-                justify-content: space-between;
-            }
-
-            .contact-info {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-container.active .mobile-nav {
-                display: flex;
-            }
-        }
-
-        .nav-container.active .mobile-nav-icon div:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        .nav-container.active .mobile-nav-icon div:nth-child(2) {
-            opacity: 0;
-        }
-
-        .nav-container.active .mobile-nav-icon div:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-    </style>
+    footer {
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="logo.png" alt="Matimba Physiotherapy Logo">
-            </div>
-            <div class="mobile-nav-icon" id="mobileNavIcon">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <nav class="mobile-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="home-visits.html">Home Visits</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms-of-service.html">Terms of Service</a></li>
-                </ul>
-            </nav>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="home-visits.html">Home Visits</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms-of-service.html">Terms of Service</a></li>
-                </ul>
-            </nav>
-            <div class="contact-info">
-                <p><i class="fas fa-phone-alt"></i> 0717729736</p>
-                <p><i class="fas fa-envelope"></i> matimbadifferance@gmail.com</p>
-            </div>
-        </div>
-    </header>
 
-    <script>
-        // Mobile Navigation Toggle
-        const mobileNavIcon = document.getElementById('mobileNavIcon');
-        const navContainer = document.querySelector('.nav-container');
+  <nav class="smart-nav">
+    <div class="logo">
+      <strong>MySite</strong>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-list" id="nav-list">
+      <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="#services"><i class="fas fa-briefcase"></i> Services</a></li>
+      <li><a href="#visits"><i class="fas fa-house-user"></i> Home Visits</a></li>
+      <li><a href="#testimonials"><i class="fas fa-comment-dots"></i> Testimonials</a></li>
+      <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
+      <li><a href="#privacy"><i class="fas fa-user-secret"></i> Privacy</a></li>
+      <li><a href="#terms"><i class="fas fa-file-contract"></i> Terms</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
 
-        mobileNavIcon.addEventListener('click', () => {
-            navContainer.classList.toggle('active');
-        });
-    </script>
+  <!-- Demo Sections -->
+  <section id="home"><h2>Home</h2></section>
+  <section id="about"><h2>About</h2></section>
+  <section id="services"><h2>Services</h2></section>
+  <section id="visits"><h2>Home Visits</h2></section>
+  <section id="testimonials"><h2>Testimonials</h2></section>
+  <section id="blog"><h2>Blog</h2></section>
+  <section id="privacy"><h2>Privacy Policy</h2></section>
+  <section id="terms"><h2>Terms of Service</h2></section>
+  <section id="contact"><h2>Contact</h2></section>
+
+  <footer>
+    <p>&copy; 2025 Novice Mathebula</p>
+  </footer>
+
+  <!-- Scroll Spy + Hamburger Script -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navList = document.getElementById('nav-list');
+    const navLinks = document.querySelectorAll('.nav-list a');
+    const sections = document.querySelectorAll('section');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navList.classList.toggle('active');
+    });
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 110;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
 </body>
-                          </html>
-                          
+</html>
