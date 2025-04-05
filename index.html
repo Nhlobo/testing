@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Navigation with Hamburger</title>
+  <title>MaMba Physiotherapy</title>
   
   <!-- Google Fonts for Smooth Font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -171,30 +171,34 @@
     </div>
     <ul class="nav-list" id="nav-list">
       <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="#conditions"><i class="fas fa-heartbeat"></i> Conditions</a></li>
       <li><a href="#services"><i class="fas fa-briefcase"></i> Services</a></li>
       <li><a href="#visits"><i class="fas fa-house-user"></i> Home Visits</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
       <li><a href="#testimonials"><i class="fas fa-comment-dots"></i> Testimonials</a></li>
       <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
-      <li><a href="#privacy"><i class="fas fa-user-secret"></i> Privacy</a></li>
-      <li><a href="#terms"><i class="fas fa-file-contract"></i> Terms</a></li>
-      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="#privacy"><i class="fas fa-user-secret"></i> Privacy Policy</a></li>
+      <li><a href="#terms"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
     </ul>
   </nav>
 
   <!-- Demo Sections -->
   <section id="home"><h2>Home</h2></section>
-  <section id="about"><h2>About</h2></section>
+  <section id="about"><h2>About Us</h2></section>
+  <section id="conditions"><h2>Conditions Treated</h2></section>
   <section id="services"><h2>Services</h2></section>
   <section id="visits"><h2>Home Visits</h2></section>
+  <section id="contact"><h2>Contact Us</h2></section>
   <section id="testimonials"><h2>Testimonials</h2></section>
   <section id="blog"><h2>Blog</h2></section>
   <section id="privacy"><h2>Privacy Policy</h2></section>
   <section id="terms"><h2>Terms of Service</h2></section>
-  <section id="contact"><h2>Contact</h2></section>
 
   <footer>
-    <p>&copy; 2025 Novice Mathebula</p>
+    <p>&copy; 2025 MaMba Physiotherapy | Contact: 0717729736, 0797752096, 0169875335</p>
+    <p>Email: <a href="mailto:ma mbadifferance@gmail.com">mambadifferance@gmail.com</a></p>
+    <p>Address: 128 Hans Strijdom Street, Vanderbijlpark, Gauteng 1900</p>
   </footer>
 
   <!-- Scroll Spy + Hamburger Script -->
@@ -243,19 +247,11 @@
 
       navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
+        if (link.getAttribute('href').includes(current)) {
           link.classList.add('active');
         }
       });
     });
-
-    // Logo Click - Refresh and go to Home section
-    logo.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.location.reload(); // Reloads the page
-      window.location.href = '#home'; // Scrolls to the home section
-    });
   </script>
-
 </body>
 </html>
