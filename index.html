@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Navigation with Yellow Icons</title>
+  <title>Smart Navigation with Yellow Borders</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     * {
@@ -15,10 +15,12 @@
     body {
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
+      background-color: #121212;
+      color: white;
     }
 
     nav {
-      background-color: #1e1e1e;
+      background-color: #121212; /* Clean black background */
       border-bottom: 1px solid #444;
       position: sticky;
       top: 0;
@@ -53,25 +55,26 @@
       transition: 0.3s;
     }
 
-    /* 🎯 ICON COLORS */
+    /* 🎯 ICON COLORS & BORDERS */
     .nav-list a i {
       margin-right: 8px;
-      color: #FFD700; /* Yellow dominates */
+      padding: 5px;
+      border: 2px solid transparent; /* Default border */
+      border-radius: 50%; /* Rounded icon border */
       transition: 0.3s ease;
     }
 
-    .nav-list a:hover i {
-      color: #00BFFF; /* Blue on hover */
-    }
-
+    /* Yellow border around icons */
+    .nav-list a:hover i,
     .nav-list a.active i {
-      color: #FFFFFF; /* White when active (scroll spy) */
+      border-color: #FFD700; /* Yellow border */
+      color: #FFD700; /* Icon color changes to yellow */
     }
 
     .nav-list a.active {
-      color: #FFD700;
+      color: #FFD700; /* Active link text color */
       font-weight: bold;
-      border-bottom: 2px solid #FFD700;
+      border-bottom: 2px solid #FFD700; /* Active underline effect */
     }
 
     .hamburger {
@@ -107,7 +110,7 @@
         top: 70px;
         left: 0;
         width: 100%;
-        background-color: #1e1e1e;
+        background-color: #121212;
         flex-direction: column;
         align-items: flex-start;
         padding: 1rem 2rem;
@@ -137,7 +140,7 @@
     footer {
       padding: 1rem;
       text-align: center;
-      background: #1e1e1e;
+      background: #121212;
       color: white;
     }
   </style>
@@ -145,7 +148,7 @@
 <body>
 
   <nav class="smart-nav">
-    <div class="logo" style="color: #FFD700;"><strong>MySite</strong></div>
+    <div class="logo"><strong style="color: white;">MySite</strong></div>
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
