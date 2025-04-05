@@ -1,173 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive Home Page</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matimba Physiotherapy</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
 
-    body, html {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      height: 100%;
-    }
+        /* Header and Navigation Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    header {
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 999;
-      background-color: rgba(0, 0, 0, 0.85);
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        header .logo img {
+            height: 40px;
+        }
 
-    .logo img {
-      height: 40px;
-    }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
-    nav ul {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.3s ease;
-    }
+        nav ul li {
+            margin-right: 20px;
+        }
 
-    nav ul li a:hover {
-      color: #00e0ff;
-    }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
 
-    .menu-icon {
-      display: none;
-      cursor: pointer;
-      font-size: 1.8rem;
-      color: white;
-    }
+        nav ul li a:hover {
+            color: #007BFF;
+        }
 
-    .sidebar {
-      height: 100%;
-      width: 250px;
-      position: fixed;
-      top: 0;
-      left: -250px;
-      background-color: #111;
-      overflow-x: hidden;
-      padding-top: 60px;
-      transition: 0.3s;
-      z-index: 1000;
-    }
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
 
-    .sidebar a {
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      color: white;
-      display: block;
-      transition: 0.3s;
-    }
+        .contact-info p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #777;
+        }
 
-    .sidebar a:hover {
-      background-color: #575757;
-    }
+        .contact-info i {
+            margin-right: 5px;
+            color: #007BFF;
+        }
 
-    .search-icon {
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: white;
-      margin-left: 1rem;
-    }
+        /* Mobile Navigation */
+        .mobile-nav-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
 
-    .hero {
-      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding-top: 80px;
-    }
+        .mobile-nav-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
 
-    .hero h1 {
-      color: white;
-      font-size: 3rem;
-      text-shadow: 2px 2px 10px #000;
-    }
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
+        .mobile-nav ul {
+            flex-direction: column;
+            width: 100%;
+        }
 
-      .menu-icon {
-        display: block;
-      }
-    }
-  </style>
+        .mobile-nav ul li {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-nav-icon {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .nav-container {
+                justify-content: space-between;
+            }
+
+            .contact-info {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container.active .mobile-nav {
+                display: flex;
+            }
+        }
+
+        .nav-container.active .mobile-nav-icon div:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-container.active .mobile-nav-icon div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-container.active .mobile-nav-icon div:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Matimba Physiotherapy Logo">
+            </div>
+            <div class="mobile-nav-icon" id="mobileNavIcon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="home-visits.html">Home Visits</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="home-visits.html">Home Visits</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <p><i class="fas fa-phone-alt"></i> 0717729736</p>
+                <p><i class="fas fa-envelope"></i> matimbadifferance@gmail.com</p>
+            </div>
+        </div>
+    </header>
 
-  <!-- Sidebar for Mobile -->
-  <div class="sidebar" id="sidebar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="services.html">Services</a>
-    <a href="home-visits.html">Home Visits</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="blog.html">Blog</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-  </div>
+    <script>
+        // Mobile Navigation Toggle
+        const mobileNavIcon = document.getElementById('mobileNavIcon');
+        const navContainer = document.querySelector('.nav-container');
 
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <a href="index.html">
-        <img src="logo-Photoroom.png" alt="Logo" />
-      </a>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="home-visits.html">Home Visits</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-      </ul>
-    </nav>
-    <div>
-      <span class="search-icon" onclick="alert('Search function will be implemented next 🔍')">🔍</span>
-      <span class="menu-icon" onclick="toggleSidebar()">☰</span>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Welcome to Our Website</h1>
-  </section>
-
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
-    }
-  </script>
-
+        mobileNavIcon.addEventListener('click', () => {
+            navContainer.classList.toggle('active');
+        });
+    </script>
 </body>
-</html>
+                          </html>
+                          
