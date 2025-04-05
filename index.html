@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Navigation with Yellow Borders</title>
+  <title>Smart Navigation with Hamburger</title>
   
   <!-- Google Fonts for Smooth Font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
       scroll-behavior: smooth;
       background-color: #121212;
       color: white;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
     nav {
@@ -116,7 +117,7 @@
     /* Mobile styles */
     @media (max-width: 768px) {
       .nav-list {
-        position: absolute;
+        position: fixed;
         top: 70px;
         left: 0;
         width: 100%;
@@ -124,9 +125,10 @@
         flex-direction: column;
         align-items: flex-start;
         padding: 1rem 2rem;
-        transform: translateY(-200%);
+        transform: translateY(-100%);
         opacity: 0;
         transition: transform 0.4s ease, opacity 0.3s ease;
+        z-index: 999;
       }
 
       .nav-list.active {
@@ -200,12 +202,34 @@
     const navList = document.getElementById('nav-list');
     const navLinks = document.querySelectorAll('.nav-list a');
     const sections = document.querySelectorAll('section');
+    const body = document.body;
 
+    // Toggle hamburger menu and prevent scrolling
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navList.classList.toggle('active');
+      body.classList.toggle('no-scroll'); // Prevent scrolling when menu is open
     });
 
+    // Close menu when a link is clicked and scroll to section
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navList.classList.remove('active');
+        body.classList.remove('no-scroll'); // Allow scrolling again
+      });
+    });
+
+    // Close menu if clicked outside
+    window.addEventListener('click', (e) => {
+      if (!navList.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navList.classList.remove('active');
+        body.classList.remove('no-scroll');
+      }
+    });
+
+    // Scroll spy effect to highlight active link
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(section => {
