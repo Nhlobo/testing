@@ -60,7 +60,7 @@
 
     .nav-list a {
       text-decoration: none;
-      color: #111; /* Default color (black) */
+      color: #111;
       font-size: 16px;
       display: flex;
       align-items: center;
@@ -70,21 +70,20 @@
     .nav-list a i {
       margin-right: 8px;
       padding: 5px;
-      border: 2px solid transparent; /* Default border */
+      border: 2px solid transparent;
       border-radius: 50%;
       transition: 0.3s ease;
     }
 
-    /* Icon border and color change when touched or clicked */
     .nav-list a:hover i,
     .nav-list a:active i {
-      border-color: #FFD700; /* Yellow border on hover or tap */
-      color: #FFD700; /* Yellow icon color on hover or tap */
+      border-color: #FFD700;
+      color: #FFD700;
     }
 
     .nav-list a:hover,
     .nav-list a:active {
-      color: #FFD700; /* Yellow text color when hovered or tapped */
+      color: #FFD700;
     }
 
     .hamburger {
@@ -153,6 +152,40 @@
       background: #121212;
       color: white;
     }
+
+    /* Contact Form Style */
+    .contact-form {
+      padding: 2rem;
+      background: #fff;
+      color: #111;
+      margin: 20px auto;
+      width: 50%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .contact-form button {
+      background-color: #FFD700;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .contact-form button:hover {
+      background-color: #ffcc00;
+    }
   </style>
 </head>
 <body>
@@ -186,7 +219,15 @@
   <section id="conditions"><h2>Conditions Treated</h2></section>
   <section id="services"><h2>Services</h2></section>
   <section id="visits"><h2>Home Visits</h2></section>
-  <section id="contact"><h2>Contact Us</h2></section>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-form">
+      <input type="text" id="name" placeholder="Your Name" />
+      <input type="email" id="email" placeholder="Your Email" />
+      <textarea id="message" placeholder="Your Message"></textarea>
+      <button>Submit</button>
+    </div>
+  </section>
   <section id="testimonials"><h2>Testimonials</h2></section>
   <section id="blog"><h2>Blog</h2></section>
   <section id="privacy"><h2>Privacy Policy</h2></section>
@@ -194,7 +235,7 @@
 
   <footer>
     <p>&copy; 2025 MaMba Physiotherapy | Contact: 0717729736, 0797752096, 0169875335</p>
-    <p>Email: <a href="mailto:ma mbadifferance@gmail.com">mambadifferance@gmail.com</a></p>
+    <p>Email: <a href="mailto:mambadifferance@gmail.com">mambadifferance@gmail.com</a></p>
     <p>Address: 128 Hans Strijdom Street, Vanderbijlpark, Gauteng 1900</p>
   </footer>
 
@@ -206,48 +247,51 @@
     const sections = document.querySelectorAll('section');
     const body = document.body;
     const logo = document.getElementById('logo');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
 
-    // Toggle hamburger menu and prevent scrolling
+    // Detect if form is filled
+    function isFormFilled() {
+      return nameInput.value || emailInput.value || messageInput.value;
+    }
+
+    // Hamburger toggle
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navList.classList.toggle('active');
-      body.classList.toggle('no-scroll'); // Prevent scrolling when menu is open
+      body.style.overflow = navList.classList.contains('active') ? 'hidden' : 'auto';
     });
 
-    // Close menu when a link is clicked and scroll to section
+    // Navigate to the respective section or page
     navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navList.classList.remove('active');
-        body.classList.remove('no-scroll');
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetSection = document.querySelector(link.getAttribute('href'));
+        window.scrollTo({
+          top: targetSection.offsetTop - 50,
+          behavior: 'smooth'
+        });
+        if (navList.classList.contains('active')) {
+          navList.classList.remove('active');
+          hamburger.classList.remove('active');
+          body.style.overflow = 'auto';
+        }
       });
     });
 
-    // Close menu if clicked outside
-    window.addEventListener('click', (e) => {
-      if (!navList.contains(e.target) && !hamburger.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navList.classList.remove('active');
-        body.classList.remove('no-scroll');
+    // Logo refresh behavior
+    logo.addEventListener('click', () => {
+      if (isFormFilled()) {
+        const userConfirmed = confirm("You have unsaved changes in the contact form. Do you want to continue and fill the form, or refresh the page?");
+        if (userConfirmed) {
+          document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+        } else {
+          location.reload();
+        }
+      } else {
+        location.reload();
       }
-    });
-
-    // Scroll spy effect to highlight active link
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 110;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-          link.classList.add('active');
-        }
-      });
     });
   </script>
 </body>
