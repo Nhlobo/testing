@@ -45,6 +45,7 @@
       width: 150px; /* Adjust the size to fit your logo */
       height: auto;
       display: block;
+      cursor: pointer; /* Make the logo clickable */
     }
 
     .nav-list {
@@ -161,7 +162,7 @@
 
   <nav class="smart-nav">
     <div class="logo">
-      <img src="logo.png" alt="Site Logo" /> <!-- Updated to use image logo -->
+      <img src="logo.png" alt="Site Logo" id="logo" /> <!-- Logo with id for interaction -->
     </div>
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -203,6 +204,7 @@
     const navLinks = document.querySelectorAll('.nav-list a');
     const sections = document.querySelectorAll('section');
     const body = document.body;
+    const logo = document.getElementById('logo');  // Logo element
 
     // Toggle hamburger menu and prevent scrolling
     hamburger.addEventListener('click', () => {
@@ -245,6 +247,13 @@
           link.classList.add('active');
         }
       });
+    });
+
+    // Logo Click - Refresh and go to Home section
+    logo.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.reload(); // Reloads the page
+      window.location.href = '#home'; // Scrolls to the home section
     });
   </script>
 
