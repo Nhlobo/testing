@@ -28,7 +28,7 @@
 
     nav {
       background-color: #ffffff;
-      border-bottom: 1px solid #ddd;
+      border-bottom: none;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -223,8 +223,11 @@
   justify-content: center;
   align-items: center;
   gap: 10px; /* Reduced gap */
-  position: relative;
-  z-index: 999;
+  with: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
 }
 
 .banner .book-btn {
