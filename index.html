@@ -314,6 +314,111 @@
     .contact-form button:hover {
       background-color: #ffcc00;
     }
+
+    /* Cookie Popup Styles */
+.cookie-popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(15px);
+  animation: gradientAnimation 8s ease infinite;
+  z-index: 2000;
+  padding: 20px;
+  text-align: center;
+  display: none; /* Hidden by default */
+}
+
+.cookie-popup .cookie-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.cookie-popup .cookie-text {
+  color: white; /* White text */
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.cookie-popup .cookie-text a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.cookie-popup .cookie-btn {
+  background-color: #1a73e8;
+  color: white;
+  padding: 10px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.cookie-popup .cookie-btn:hover {
+  background-color: #0f58c7;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 100% 100%; }
+  50% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+ .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      background: url('download.jpeg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .gradient-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%);
+    }
+
+    .welcome-text {
+      position: absolute;
+      bottom: 5rem;
+      left: 2rem;
+      color: white;
+      max-width: 90%;
+    }
+
+    .welcome-text h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .welcome-text p {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .welcome-text h1 { font-size: 2rem; }
+      .welcome-text p { font-size: 1rem; }
+      .welcome-text { bottom: 3rem; left: 1.2rem; }
+      .cookie-popup { font-size: 0.9rem; padding: 0.8rem; }
+    }
+
+    @media (max-width: 480px) {
+      .welcome-text h1 { font-size: 1.6rem; }
+      .welcome-text p { font-size: 0.95rem; }
+      .cookie-popup {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -358,14 +463,43 @@
     </div>
   </div>
 
-  <!-- Cookie Banner -->
-  <div class="cookie-banner">
-    <p>We use cookies to improve your experience. By using our website, you agree to our use of cookies.</p>
-    <button onclick="dismissCookieBanner()">Got it</button>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="gradient-overlay"></div>
+    <div class="welcome-text">
+      <h1>Helping You Move Better</h1>
+      <p>Professional physiotherapy care tailored to your needs.</p>
+    </div>
   </div>
+
+
+   <!-- ================= COOKIE-POPUP ================= -->
   
-  <!-- Demo Sections -->
-  <section id="home"><h2>Home</h2></section>
+  <div class="cookie-popup" id="cookiePopup">
+  <div class="cookie-content">
+    <p class="cookie-text">We use cookies to improve your experience. By using our site, you consent to our use of cookies. <a href="cookie.html">Learn more</a></p>
+    <button class="cookie-btn" id="acceptCookies">Got it!</button>
+  </div>
+</div>
+    
+     <script>
+    // Get elements
+const cookiePopup = document.getElementById('cookiePopup');
+const acceptCookiesButton = document.getElementById('acceptCookies');
+
+// Check if cookie consent is already given (via localStorage)
+if (!localStorage.getItem('cookieConsent')) {
+  // Show the popup if no consent has been given
+  cookiePopup.style.display = 'block';
+}
+
+// Set cookie consent and hide the popup when the button is clicked
+acceptCookiesButton.addEventListener('click', () => {
+  localStorage.setItem('cookieConsent', 'true');
+  cookiePopup.style.display = 'none';
+});
+
+</script>
   <section id="conditions"><h2>Conditions Treated</h2></section>
   <section id="visits"><h2>Home Visits</h2></section>
 
