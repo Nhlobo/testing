@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MaMba Physiotherapy</title>
-  
-  <!-- Google Fonts for Smooth Font -->
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -115,17 +117,22 @@
     @media (max-width: 768px) {
       .nav-list {
         position: fixed;
-        top: 70px;
+        top: 0;
         left: 0;
         width: 100%;
+        height: 75vh;
         background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
-        padding: 1rem 2rem;
+        padding: 2rem;
         transform: translateY(-100%);
         opacity: 0;
         transition: transform 0.4s ease, opacity 0.3s ease;
         z-index: 999;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
       }
 
       .nav-list.active {
@@ -215,47 +222,46 @@
   <section id="conditions"><h2>Conditions Treated</h2></section>
   <section id="visits"><h2>Home Visits</h2></section>
   <section id="testimonials"><h2>Testimonials</h2></section>
- 
+
   <footer>
     <p>&copy; 2025 MaMba Physiotherapy | Contact: 0717729736, 0797752096, 0169875335</p>
     <p>Email: <a href="mailto:mambadifferance@gmail.com">mambadifferance@gmail.com</a></p>
     <p>Address: 128 Hans Strijdom Street, Vanderbijlpark, Gauteng 1900</p>
   </footer>
 
- <!-- Scroll Spy + Hamburger Script -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const navList = document.getElementById('nav-list');
     const navLinks = document.querySelectorAll('.nav-list a');
-    const sections = document.querySelectorAll('section');
     const body = document.body;
     const logo = document.getElementById('logo');
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const messageInput = document.getElementById('message');
 
-    // Detect if form is filled
     function isFormFilled() {
-      return nameInput.value || emailInput.value || messageInput.value;
+      return nameInput?.value || emailInput?.value || messageInput?.value;
     }
 
-    // Hamburger toggle
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navList.classList.toggle('active');
       body.style.overflow = navList.classList.contains('active') ? 'hidden' : 'auto';
     });
 
-    // Navigate to the respective section or page
     navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetSection = document.querySelector(link.getAttribute('href'));
-        window.scrollTo({
-          top: targetSection.offsetTop - 50,
-          behavior: 'smooth'
-        });
-        if (navList.classList.contains('active')) {
+        const href = link.getAttribute('href');
+
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const targetSection = document.querySelector(href);
+          if (targetSection) {
+            window.scrollTo({
+              top: targetSection.offsetTop - 50,
+              behavior: 'smooth'
+            });
+          }
           navList.classList.remove('active');
           hamburger.classList.remove('active');
           body.style.overflow = 'auto';
@@ -263,7 +269,6 @@
       });
     });
 
-    // Logo refresh behavior
     logo.addEventListener('click', () => {
       if (isFormFilled()) {
         const userConfirmed = confirm("You have unsaved changes in the contact form. Do you want to continue and fill the form, or refresh the page?");
@@ -276,6 +281,14 @@
         location.reload();
       }
     });
-  </script> 
+
+    // Placeholder function if needed
+    function closeMenuAndNavigate(url) {
+      navList.classList.remove('active');
+      hamburger.classList.remove('active');
+      body.style.overflow = 'auto';
+      window.location.href = url;
+    }
+  </script>
 </body>
 </html>
