@@ -214,46 +214,33 @@
     }
 
     /* New Banner Section below navigation */
-.banner {
-  background-color: #FFD700;
-  color: #111;
-  padding: 8px 0; /* Reduced padding */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px; /* Reduced the gap */
-  position: relative;
-  z-index: 999;
-}
+    .banner {
+      background-color: #FFD700;
+      color: #111;
+      padding: 8px 0; /* Reduced padding */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px; /* Reduced the gap */
+      position: relative;
+      z-index: 999;
+    }
 
-.banner .book-btn {
-  background-color: white;
-  color: #111;
-  padding: 6px 16px; /* Reduced padding */
-  border: 2px solid #111;
-  border-radius: 6px;
-  font-size: 14px; /* Reduced font size */
-  text-transform: uppercase;
-  cursor: pointer;
-  width: 130px; /* Reduced width */
-  text-align: center;
-}
-
-.banner .nav-icons a {
-  font-size: 20px; /* Reduced font size */
-  color: #111;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.banner .nav-icons a:hover {
-  color: #fff;
-  transform: scale(1.1);
-}
+    .banner .book-btn {
+      background-color: white;
+      color: #111;
+      padding: 6px 16px; /* Reduced padding */
+      border: 2px solid #111;
+      border-radius: 6px;
+      font-size: 14px; /* Reduced font size */
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 130px; /* Reduced width */
+      text-align: center;
+    }
 
     .banner .nav-icons a {
-      font-size: 24px;
+      font-size: 20px; /* Reduced font size */
       color: #111;
       margin: 0 10px;
       display: inline-block;
@@ -265,54 +252,43 @@
       transform: scale(1.1);
     }
 
-    /* Additional Styling for the content sections */
-    section {
-      padding: 100px 20px;
-      border-bottom: 1px solid #ddd;
-      height: 100vh;
-      background: #f9f9f9;
-      color: #111;
-    }
-
-    footer {
-      padding: 1rem;
-      text-align: center;
-      background: #121212;
-      color: white;
-    }
-
-    .contact-form {
-      padding: 2rem;
-      background: #fff;
-      color: #111;
-      margin: 20px auto;
-      width: 50%;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 1rem;
-      margin: 10px 0;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-
-    .contact-form button {
+    /* Cookie Popup Styling */
+    .cookie-popup {
       background-color: #FFD700;
-      padding: 0.7rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      cursor: pointer;
-      font-size: 16px;
+      color: #111;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
     }
 
-    .contact-form button:hover {
-      background-color: #ffcc00;
+    .cookie-popup .message {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .cookie-popup button {
+      background-color: #111;
+      color: #FFD700;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .cookie-popup button:hover {
+      background-color: #FFD700;
+      color: #111;
     }
   </style>
 </head>
@@ -358,6 +334,14 @@
     </div>
   </div>
 
+  <!-- Cookie Popup -->
+  <div class="cookie-popup">
+    <div class="message">
+      This website uses cookies to ensure you get the best experience on our website.
+    </div>
+    <button onclick="closeCookiePopup()">Got it!</button>
+  </div>
+
   <!-- Demo Sections -->
   <section id="home"><h2>Home</h2></section>
   <section id="conditions"><h2>Conditions Treated</h2></section>
@@ -383,10 +367,15 @@
       hamburger.classList.remove('active');
     });
 
-    function closeMenuAndNavigate(url) {
+    function closeMenuAndNavigate(page) {
       navList.classList.remove('active');
       hamburger.classList.remove('active');
-      window.location.href = url;
+      window.location.href = page;
+    }
+
+    // Cookie Popup close function
+    function closeCookiePopup() {
+      document.querySelector('.cookie-popup').style.display = 'none';
     }
   </script>
 </body>
