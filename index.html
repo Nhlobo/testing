@@ -88,172 +88,69 @@
       color: #FFD700;
     }
 
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
+    /* Cookie Banner */
+    .cookie-banner {
+      background-color: #000;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .cookie-banner button {
+      background-color: #FFD700;
+      color: #111;
+      border: none;
+      padding: 5px 15px;
       cursor: pointer;
-      gap: 6px;
-      position: absolute;
-      right: 2rem;
-      top: 1.5rem;
+      font-size: 14px;
+      margin-left: 15px;
     }
 
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: #111;
-      transition: all 0.3s ease;
+    .cookie-banner button:hover {
+      background-color: #ffcc00;
     }
 
-    /* Hamburger icon to X transformation */
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-    }
-
-    .nav-cta {
-      display: none;
-    }
-
-    @media (max-width: 1024px) {
-      .nav-list {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #ffffff;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2rem;
-        transform: translateX(-100%);
-        opacity: 0;
-        transition: transform 0.4s ease, opacity 0.3s ease;
-        z-index: 999;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        overflow-y: auto;
-      }
-
-      .nav-list.active {
-        transform: translateX(0);
-        opacity: 1;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-cta {
-        display: block;
-        width: 100%;
-        text-align: center;
-        margin-top: auto;
-        margin-bottom: 30px;
-      }
-
-      .book-btn {
-        background-color: white;
-        color: #111;
-        padding: 12px 24px;
-        border: 2px solid #FFD700;
-        border-radius: 8px;
-        font-size: 18px;
-        cursor: pointer;
-        margin: 20px auto;
-      }
-
-      .nav-icons {
-        text-align: center;
-        margin-top: 10px;
-      }
-
-      .nav-icons a {
-        font-size: 28px;
-        color: #111;
-        margin: 0 15px;
-        display: inline-block;
-        transition: 0.3s;
-      }
-
-      .nav-icons a:hover {
-        color: #FFD700;
-        transform: scale(1.1);
-      }
-
-      /* Close button (X) in the slide navigation (ONLY for smaller screens) */
-      .close-btn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 24px;
-        color: #111;
-        background: none;
-        border: none;
-        cursor: pointer;
-        transition: color 0.3s;
-      }
-
-      .close-btn:hover {
-        color: #FFD700;
-      }
-    }
-
-    /* Hiding close button on larger screens (Tablets and Desktops) */
-    @media (min-width: 1025px) {
-      .close-btn {
-        display: none;
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .cookie-banner {
+        font-size: 12px;
+        padding: 8px;
       }
     }
 
     /* New Banner Section below navigation */
-.banner {
-  background-color: #FFD700;
-  color: #111;
-  padding: 8px 0; /* Reduced padding */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px; /* Reduced the gap */
-  position: relative;
-  z-index: 999;
-}
+    .banner {
+      background-color: #FFD700;
+      color: #111;
+      padding: 8px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      position: relative;
+      z-index: 999;
+    }
 
-.banner .book-btn {
-  background-color: white;
-  color: #111;
-  padding: 6px 16px; /* Reduced padding */
-  border: 2px solid #111;
-  border-radius: 6px;
-  font-size: 14px; /* Reduced font size */
-  text-transform: uppercase;
-  cursor: pointer;
-  width: 130px; /* Reduced width */
-  text-align: center;
-}
-
-.banner .nav-icons a {
-  font-size: 20px; /* Reduced font size */
-  color: #111;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.banner .nav-icons a:hover {
-  color: #fff;
-  transform: scale(1.1);
-}
+    .banner .book-btn {
+      background-color: white;
+      color: #111;
+      padding: 6px 16px;
+      border: 2px solid #111;
+      border-radius: 6px;
+      font-size: 14px;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 130px;
+      text-align: center;
+    }
 
     .banner .nav-icons a {
-      font-size: 24px;
+      font-size: 20px;
       color: #111;
       margin: 0 10px;
       display: inline-block;
@@ -263,56 +160,6 @@
     .banner .nav-icons a:hover {
       color: #fff;
       transform: scale(1.1);
-    }
-
-    /* Additional Styling for the content sections */
-    section {
-      padding: 100px 20px;
-      border-bottom: 1px solid #ddd;
-      height: 100vh;
-      background: #f9f9f9;
-      color: #111;
-    }
-
-    footer {
-      padding: 1rem;
-      text-align: center;
-      background: #121212;
-      color: white;
-    }
-
-    .contact-form {
-      padding: 2rem;
-      background: #fff;
-      color: #111;
-      margin: 20px auto;
-      width: 50%;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 1rem;
-      margin: 10px 0;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-
-    .contact-form button {
-      background-color: #FFD700;
-      padding: 0.7rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .contact-form button:hover {
-      background-color: #ffcc00;
     }
   </style>
 </head>
@@ -348,6 +195,12 @@
     </ul>
   </nav>
 
+  <!-- Cookie Banner -->
+  <div class="cookie-banner">
+    <p>We use cookies to improve your experience. By using our website, you agree to our use of cookies.</p>
+    <button onclick="dismissCookieBanner()">Got it</button>
+  </div>
+
   <!-- New Banner Section below navigation -->
   <div class="banner">
     <button class="book-btn">Book Appointment</button>
@@ -368,6 +221,11 @@
   </footer>
 
   <script>
+    // Function to dismiss the cookie banner
+    function dismissCookieBanner() {
+      document.querySelector('.cookie-banner').style.display = 'none';
+    }
+
     // Navigation toggle and close menu function
     const hamburger = document.getElementById('hamburger');
     const navList = document.getElementById('nav-list');
