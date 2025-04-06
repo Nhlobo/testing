@@ -114,6 +114,17 @@
       transform: rotate(-45deg) translate(6px, -6px);
     }
 
+    .hamburger .close {
+      display: none;
+      font-size: 24px;
+      color: #111;
+      cursor: pointer;
+    }
+
+    .hamburger.active .close {
+      display: block;
+    }
+
     .nav-cta {
       display: none;
     }
@@ -246,6 +257,7 @@
       <span></span>
       <span></span>
       <span></span>
+      <span class="close">&#10006;</span>
     </div>
     <ul class="nav-list" id="nav-list">
       <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')"><i class="fas fa-home"></i> Home</a></li>
