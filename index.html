@@ -123,7 +123,6 @@
       cursor: pointer;
     }
 
-    /* Hide nav-cta by default on large screens */
     .nav-cta {
       display: none;
     }
@@ -167,14 +166,20 @@
       }
 
       .book-btn {
-        background-color: #FFD700;
+        background-color: white;
         color: #111;
         padding: 12px 24px;
-        border: none;
+        border: 2px solid transparent;
         border-radius: 8px;
         font-size: 18px;
         cursor: pointer;
         margin: 20px auto;
+        position: relative;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-style: solid;
+        border-width: 2px;
+        border-color: yellow white white blue;
       }
 
       .nav-icons {
@@ -194,13 +199,6 @@
         color: #FFD700;
         transform: scale(1.1);
       }
-
-      .nav-arrow {
-        text-align: center;
-        margin-top: 15px;
-        font-size: 22px;
-        color: #555;
-      }
     }
 
     section {
@@ -218,7 +216,6 @@
       color: white;
     }
 
-    /* Contact Form Style */
     .contact-form {
       padding: 2rem;
       background: #fff;
@@ -229,7 +226,8 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .contact-form input, .contact-form textarea {
+    .contact-form input,
+    .contact-form textarea {
       width: 100%;
       padding: 1rem;
       margin: 10px 0;
@@ -275,14 +273,11 @@
       <li><a href="terms.html" onclick="closeMenuAndNavigate('terms.html')"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
 
       <div class="nav-cta">
-        <button class="book-btn">Book Appointment</button>
+        <a href="contact.html"><button class="book-btn">Book Appointment</button></a>
         <div class="nav-icons">
           <a href="https://wa.me/27717729736"><i class="fab fa-whatsapp"></i></a>
           <a href="mailto:mambadifferance@gmail.com"><i class="fas fa-envelope"></i></a>
           <a href="tel:+27717729736"><i class="fas fa-phone"></i></a>
-        </div>
-        <div class="nav-arrow">
-          <i class="fas fa-angle-down"></i>
         </div>
       </div>
     </ul>
