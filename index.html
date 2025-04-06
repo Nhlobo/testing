@@ -314,6 +314,107 @@
     .contact-form button:hover {
       background-color: #ffcc00;
     }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      background: url('download.jpeg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%);
+    }
+
+    .welcome-text {
+      position: absolute;
+      bottom: 5rem;
+      left: 2rem;
+      color: white;
+      max-width: 90%;
+    }
+
+    .welcome-text h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .welcome-text p {
+      font-size: 1.2rem;
+    }
+
+    .cookie-popup {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 1rem;
+      z-index: 1000;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .cookie-popup .info-icon {
+      border: 1px solid #000;
+      border-radius: 50%;
+      padding: 0.3rem 0.6rem;
+      font-weight: bold;
+    }
+
+    .cookie-popup .btn {
+      color: #e4572e;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .welcome-text h1 {
+        font-size: 2rem;
+      }
+
+      .welcome-text p {
+        font-size: 1rem;
+      }
+
+      .welcome-text {
+        bottom: 3rem;
+        left: 1.2rem;
+      }
+
+      .cookie-popup {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .welcome-text h1 {
+        font-size: 1.6rem;
+      }
+
+      .welcome-text p {
+        font-size: 0.95rem;
+      }
+
+      .cookie-popup {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -358,6 +459,29 @@
     </div>
   </div>
 
+   <!-- Cookie Notification -->
+  <div class="cookie-popup" id="cookiePopup">
+    <span class="info-icon">i</span>
+    <p>We use cookies to optimise the user experience.</p>
+    <a href="#" class="btn" id="tellMeMore">Tell me more</a>
+    <a href="#" class="btn" id="dismiss">Dismiss</a>
+  </div>
+
+  <!-- Fullscreen Hero Section with Gradient and Text -->
+  <div class="hero">
+    <div class="gradient-overlay"></div>
+    <div class="welcome-text">
+      <h1>Helping You Move Better</h1>
+      <p>Professional physiotherapy care tailored to your needs.</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("dismiss").onclick = function () {
+      document.getElementById("cookiePopup").style.display = "none";
+    };
+  </script>
+  
   <!-- Demo Sections -->
   <section id="home"><h2>Home</h2></section>
   <section id="conditions"><h2>Conditions Treated</h2></section>
