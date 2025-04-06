@@ -114,21 +114,6 @@
       transform: rotate(-45deg) translate(6px, -6px);
     }
 
-    .hamburger.active {
-      display: flex;
-    }
-
-    .hamburger span.close {
-      display: none;
-      font-size: 30px;
-      color: #111;
-      cursor: pointer;
-    }
-
-    .hamburger.active span.close {
-      display: block;
-    }
-
     .nav-cta {
       display: none;
     }
@@ -261,7 +246,6 @@
       <span></span>
       <span></span>
       <span></span>
-      <span class="close" id="close-icon">&times;</span>
     </div>
     <ul class="nav-list" id="nav-list">
       <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')"><i class="fas fa-home"></i> Home</a></li>
@@ -297,7 +281,6 @@
 
   <script>
     const hamburger = document.getElementById('hamburger');
-    const closeIcon = document.getElementById('close-icon');
     const navList = document.getElementById('nav-list');
     const body = document.body;
 
@@ -308,7 +291,6 @@
     }
 
     hamburger.addEventListener('click', toggleMenu);
-    closeIcon.addEventListener('click', toggleMenu);
 
     const navLinks = document.querySelectorAll('.nav-list a');
     navLinks.forEach(link => {
@@ -325,7 +307,6 @@
           }
           navList.classList.remove('active');
           hamburger.classList.remove('active');
-          closeIcon.classList.remove('active');
           body.style.overflow = 'auto';
         }
       });
@@ -334,7 +315,6 @@
     function closeMenuAndNavigate(url) {
       navList.classList.remove('active');
       hamburger.classList.remove('active');
-      closeIcon.classList.remove('active');
       body.style.overflow = 'auto';
       window.location.href = url;
     }
