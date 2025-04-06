@@ -106,7 +106,7 @@
       transition: all 0.3s ease;
     }
 
-    /* "X" transformation when active */
+    /* Hamburger icon to X transformation */
     .hamburger.active span:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
@@ -129,23 +129,21 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 90vh;
+        height: 100%;
         background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         padding: 2rem;
-        transform: translateY(-100%);
+        transform: translateX(-100%);
         opacity: 0;
         transition: transform 0.4s ease, opacity 0.3s ease;
         z-index: 999;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         overflow-y: auto;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
       }
 
       .nav-list.active {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
       }
 
@@ -188,6 +186,23 @@
       .nav-icons a:hover {
         color: #FFD700;
         transform: scale(1.1);
+      }
+
+      /* Close button (X) in the slide navigation */
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        color: #111;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .close-btn:hover {
+        color: #FFD700;
       }
     }
 
@@ -253,6 +268,7 @@
       <span></span>
     </div>
     <ul class="nav-list" id="nav-list">
+      <button class="close-btn" id="close-btn">&times;</button>
       <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')"><i class="fas fa-home"></i> Home</a></li>
       <li><a href="about.html" onclick="closeMenuAndNavigate('about.html')"><i class="fas fa-info-circle"></i> About</a></li>
       <li><a href="#conditions"><i class="fas fa-heartbeat"></i> Conditions Treated</a></li>
@@ -287,6 +303,7 @@
   <script>
     const hamburger = document.getElementById('hamburger');
     const navList = document.getElementById('nav-list');
+    const closeBtn = document.getElementById('close-btn');
     const body = document.body;
 
     function toggleMenu() {
@@ -296,6 +313,7 @@
     }
 
     hamburger.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
 
     const navLinks = document.querySelectorAll('.nav-list a');
     navLinks.forEach(link => {
