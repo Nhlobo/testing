@@ -213,6 +213,46 @@
       }
     }
 
+    /* New Banner Section below navigation */
+    .banner {
+      background-color: #FFD700;
+      color: #111;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      z-index: 999;
+    }
+
+    .banner .book-btn {
+      background-color: white;
+      color: #111;
+      padding: 8px 20px;
+      border: 2px solid #111;
+      border-radius: 6px;
+      font-size: 14px;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 150px;
+      text-align: center;
+    }
+
+    .banner .nav-icons a {
+      font-size: 24px;
+      color: #111;
+      margin: 0 10px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .banner .nav-icons a:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Additional Styling for the content sections */
     section {
       padding: 100px 20px;
       border-bottom: 1px solid #ddd;
@@ -295,43 +335,39 @@
     </ul>
   </nav>
 
+  <!-- New Banner Section below navigation -->
+  <div class="banner">
+    <button class="book-btn">Book Appointment</button>
+    <div class="nav-icons">
+      <a href="https://wa.me/27717729736"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:mambadifferance@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+27717729736"><i class="fas fa-phone"></i></a>
+    </div>
+  </div>
+
   <!-- Demo Sections -->
   <section id="home"><h2>Home</h2></section>
   <section id="conditions"><h2>Conditions Treated</h2></section>
   <section id="visits"><h2>Home Visits</h2></section>
-  <section id="testimonials"><h2>Testimonials</h2></section>
 
   <footer>
-    <p>&copy; 2025 MaMba Physiotherapy | Contact: 0717729736, 0797752096, 0169875335</p>
-    <p>Email: <a href="mailto:mambadifferance@gmail.com">mambadifferance@gmail.com</a></p>
-    <p>Address: 128 Hans Strijdom Street, Vanderbijlpark, Gauteng 1900</p>
+    <p>&copy; 2025 MaMba Physiotherapy. All rights reserved.</p>
   </footer>
 
   <script>
+    // Navigation toggle and close menu function
     const hamburger = document.getElementById('hamburger');
     const navList = document.getElementById('nav-list');
     const closeBtn = document.getElementById('close-btn');
-    const body = document.body;
 
-    function toggleMenu() {
-      hamburger.classList.toggle('active');
+    hamburger.addEventListener('click', () => {
       navList.classList.toggle('active');
-      body.style.overflow = navList.classList.contains('active') ? 'hidden' : 'auto';
-    }
+      hamburger.classList.toggle('active');
+    });
 
-    hamburger.addEventListener('click', toggleMenu);
-    closeBtn.addEventListener('click', toggleMenu);
-
-    const navLinks = document.querySelectorAll('.nav-list a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        if (href.startsWith('#')) {
-          e.preventDefault();
-          const targetSection = document.querySelector(href);
-          window.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' });
-        }
-      });
+    closeBtn.addEventListener('click', () => {
+      navList.classList.remove('active');
+      hamburger.classList.remove('active');
     });
 
     function closeMenuAndNavigate(url) {
