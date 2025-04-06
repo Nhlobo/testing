@@ -123,7 +123,7 @@
       display: none;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .nav-list {
         position: fixed;
         top: 0;
@@ -188,7 +188,7 @@
         transform: scale(1.1);
       }
 
-      /* Close button (X) in the slide navigation */
+      /* Close button (X) in the slide navigation (ONLY for smaller screens) */
       .close-btn {
         position: absolute;
         top: 20px;
@@ -203,6 +203,13 @@
 
       .close-btn:hover {
         color: #FFD700;
+      }
+    }
+
+    /* Hiding close button on larger screens (Tablets and Desktops) */
+    @media (min-width: 1025px) {
+      .close-btn {
+        display: none;
       }
     }
 
@@ -322,15 +329,7 @@
         if (href.startsWith('#')) {
           e.preventDefault();
           const targetSection = document.querySelector(href);
-          if (targetSection) {
-            window.scrollTo({
-              top: targetSection.offsetTop - 50,
-              behavior: 'smooth'
-            });
-          }
-          navList.classList.remove('active');
-          hamburger.classList.remove('active');
-          body.style.overflow = 'auto';
+          window.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' });
         }
       });
     });
@@ -338,7 +337,6 @@
     function closeMenuAndNavigate(url) {
       navList.classList.remove('active');
       hamburger.classList.remove('active');
-      body.style.overflow = 'auto';
       window.location.href = url;
     }
   </script>
