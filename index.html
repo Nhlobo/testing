@@ -123,6 +123,11 @@
       cursor: pointer;
     }
 
+    /* Hide nav-cta by default on large screens */
+    .nav-cta {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       .nav-list {
         position: fixed;
@@ -142,7 +147,6 @@
         overflow-y: auto;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
-        position: fixed;
       }
 
       .nav-list.active {
@@ -155,6 +159,7 @@
       }
 
       .nav-cta {
+        display: block;
         width: 100%;
         text-align: center;
         margin-top: auto;
