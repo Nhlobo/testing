@@ -214,30 +214,43 @@
     }
 
     /* New Banner Section below navigation */
-    .banner {
-      background-color: #FFD700;
-      color: #111;
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      position: relative;
-      z-index: 999;
-    }
+.banner {
+  background-color: #FFD700;
+  color: #111;
+  padding: 8px 0; /* Reduced padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Reduced the gap */
+  position: relative;
+  z-index: 999;
+}
 
-    .banner .book-btn {
-      background-color: white;
-      color: #111;
-      padding: 8px 20px;
-      border: 2px solid #111;
-      border-radius: 6px;
-      font-size: 14px;
-      text-transform: uppercase;
-      cursor: pointer;
-      width: 150px;
-      text-align: center;
-    }
+.banner .book-btn {
+  background-color: white;
+  color: #111;
+  padding: 6px 16px; /* Reduced padding */
+  border: 2px solid #111;
+  border-radius: 6px;
+  font-size: 14px; /* Reduced font size */
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 130px; /* Reduced width */
+  text-align: center;
+}
+
+.banner .nav-icons a {
+  font-size: 20px; /* Reduced font size */
+  color: #111;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.banner .nav-icons a:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
 
     .banner .nav-icons a {
       font-size: 24px;
