@@ -26,25 +26,31 @@
       overflow-x: hidden;
     }
 
-    /* Navigation Bar Adjustment for Larger Screens */
-@media (min-width: 1025px) {
-  nav {
-    padding: 0.5rem 1.5rem; /* Reduced padding */
-  }
+    nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
 
-  .smart-nav {
-    padding: 0.5rem 1.5rem; /* Reduced padding */
-  }
+    .smart-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: relative;
+    }
 
-  .nav-list a {
-    font-size: 14px; /* Reduced font size */
-  }
+    .logo img {
+      width: 150px;
+      height: auto;
+      display: block;
+      cursor: pointer;
+    }
 
-  .logo img {
-    width: 120px; /* Reduced logo size */
-  }
-}
-      .nav-list {
+    .nav-list {
       list-style: none;
       display: flex;
       gap: 1.5rem;
@@ -207,15 +213,15 @@
       }
     }
 
-
-    .banner {
+    /* New Banner Section below navigation */
+.banner {
   background-color: #FFD700;
   color: #111;
-  padding: 4px 0; /* Further reduced padding */
+  padding: 8px 0; /* Reduced padding */
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; /* Reduced gap */
+  gap: 15px; /* Reduced the gap */
   position: relative;
   z-index: 999;
 }
@@ -223,20 +229,20 @@
 .banner .book-btn {
   background-color: white;
   color: #111;
-  padding: 4px 12px; /* Reduced padding */
+  padding: 6px 16px; /* Reduced padding */
   border: 2px solid #111;
   border-radius: 6px;
-  font-size: 12px; /* Reduced font size */
+  font-size: 10px; /* Reduced font size */
   text-transform: uppercase;
   cursor: pointer;
-  width: 120px; /* Reduced width */
+  width: 130px; /* Reduced width */
   text-align: center;
 }
 
 .banner .nav-icons a {
-  font-size: 18px; /* Reduced font size */
+  font-size: 16px; /* Reduced font size */
   color: #111;
-  margin: 0 8px;
+  margin: 0 10px;
   display: inline-block;
   transition: 0.3s;
 }
@@ -245,7 +251,20 @@
   color: #fff;
   transform: scale(1.1);
 }
- 
+
+    .banner .nav-icons a {
+      font-size: 24px;
+      color: #111;
+      margin: 0 10px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .banner .nav-icons a:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
     /* Additional Styling for the content sections */
     section {
       padding: 100px 20px;
