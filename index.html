@@ -94,9 +94,155 @@ acceptCookiesButton.addEventListener('click', () => {
   <section id="conditions"><h2>Conditions Treated</h2></section>
   <section id="visits"><h2>Home Visits</h2></section>
 
-  <footer>
-    <p>&copy; 2025 MaMba Physiotherapy. All rights reserved.</p>
+  <!-- Footer -->
+  <div class="bg-gray-900 text-white">
+  <footer class="relative bg-cover bg-center bg-no-repeat" style="background-image: url('IMG-20241015-WA0002.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-80"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-16 text-gray-300 grid grid-cols-1 md:grid-cols-3 gap-10">
+      
+      <!-- About -->
+      <div>
+        <h2 class="text-xl font-semibold text-yellow-400 mb-4">About</h2>
+        <p class="text-sm leading-relaxed">
+          We are a Gauteng-based construction company delivering high-quality services with integrity and precision.
+        </p>
+        <img src="logo-Photoroom.png" alt="Company Logo" class="mt-4 w-20" />
+      </div>
+
+      <!-- Navigation + Newsletter -->
+      <div>
+        <h2 class="text-xl font-semibold text-yellow-400 mb-4">Navigation</h2>
+        <ul class="text-sm space-y-2 mb-6">
+          <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+          <li><a href="services.html" class="hover:text-yellow-400">Our Services</a></li>
+          <li><a href="projects.html" class="hover:text-yellow-400">Projects</a></li>
+          <li><a href="paints.html" class="hover:text-yellow-400">Paint Orders (Gauteng)</a></li>
+          <li><a href="privacy.html" class="hover:text-yellow-400">Privacy Policy</a></li>
+          <li><a href="terms.html" class="hover:text-yellow-400">Terms & Conditions</a></li>
+          <li><a href="blog.html" class="hover:text-yellow-400">Blog</a></li>
+        </ul>
+        <h3 class="text-yellow-400 text-sm mb-2 font-semibold">Subscribe to Newsletter</h3>
+        <form class="flex flex-col gap-3">
+          <input type="email" placeholder="Enter your email" class="p-2 rounded text-black" />
+          <button class="bg-yellow-400 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-500">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Contact Form -->
+      <div>
+        <h2 class="text-xl font-semibold text-yellow-400 mb-4">Contact Us</h2>
+        <p class="text-sm">Email: info@constructionco.co.za</p>
+        <p class="text-sm mb-4">Phone: +27 66 552 0197</p>
+        <form id="contactForm" action="https://formspree.io/f/yourformid" method="POST" class="flex flex-col gap-3">
+          <input type="text" name="name" id="name" placeholder="Your name" class="p-2 rounded text-black" required />
+          <input type="email" name="email" id="email" placeholder="Your email" class="p-2 rounded text-black" required />
+          <textarea name="message" id="message" rows="3" placeholder="Your message" class="p-2 rounded text-black" required></textarea>
+          <label class="flex items-center gap-2 text-sm">
+            <input type="checkbox" id="privacyPolicy" class="accent-yellow-400" />
+            I agree to the <a href="privacy.html" class="text-yellow-400 underline">Privacy Policy</a>
+          </label>
+          <button type="submit" class="bg-yellow-400 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-500">Send Message</button>
+          <div id="loader" style="display:none;" class="text-sm text-gray-400">Sending...</div>
+          <div id="response" class="text-sm mt-2 hidden"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="relative z-10 border-t border-gray-700 text-center py-4 text-sm text-gray-400">
+      <p>&copy; 2025 ConstructionCo (Pty) Ltd. All rights reserved.</p>
+      
+      <!-- Socials -->
+      <div class="flex justify-center gap-5 mt-2 text-lg">
+        <a href="#" class="hover:text-yellow-400" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="hover:text-yellow-400" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+
+      <!-- Developer Credit -->
+      <div class="mt-3 flex justify-center items-center gap-2 text-xs">
+        <a href="https://www.mapengoinnovations.com" target="_blank" class="flex items-center gap-2 hover:text-yellow-400">
+          <img src="mapengo-logo.png" alt="Mapengo Logo" class="w-6 h-6" />
+          <span>Developed & Maintained by Mapengo Innovations</span>
+        </a>
+      </div>
+    </div>
   </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('loader').style.display = 'block';
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const privacyPolicy = document.getElementById('privacyPolicy').checked;
+      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+
+      if (!emailPattern.test(email)) {
+        showResponse('Please enter a valid email address.', 'error');
+        return;
+      }
+
+      if (!privacyPolicy) {
+        showResponse('You must agree to the Privacy Policy before submitting.', 'error');
+        return;
+      }
+
+      if (!name || !email || !message) {
+        showResponse('Please fill in all required fields.', 'error');
+        return;
+      }
+
+      if (!navigator.onLine) {
+        showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
+        return;
+      }
+
+      const formData = new FormData(this);
+
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json'
+        }
+      })
+      .then(response => {
+        document.getElementById('loader').style.display = 'none';
+        if (response.ok) {
+          showResponse('Thank you! Your message has been successfully sent.', 'success');
+          this.reset();
+        } else {
+          showResponse('Oops! There was an issue with your submission. Please try again later.', 'error');
+        }
+      })
+      .catch(error => {
+        document.getElementById('loader').style.display = 'none';
+        if (!navigator.onLine) {
+          showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
+        } else {
+          showResponse('There was a problem with your submission. Please try again later.', 'error');
+        }
+      });
+    });
+
+    function showResponse(message, type) {
+      const responseDiv = document.getElementById('response');
+      responseDiv.style.display = 'block';
+      responseDiv.textContent = message;
+      responseDiv.className = type === 'success' ? 'success-message' : 'error-message';
+      setTimeout(() => {
+        responseDiv.style.display = 'none';
+      }, 5000);
+    }
+  </script>
 
   <script>
     // Navigation toggle and close menu function
