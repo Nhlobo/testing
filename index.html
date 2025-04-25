@@ -1,554 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Construction Company</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Layout</title>
+    <style>
+        /* Container for all images */
+        .picture-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f8f8;
-      color: #333;
-      scroll-behavior: smooth;
-      line-height: 1.6;
-    }
+        /* Styling for left large picture */
+        .left-picture img,
+        .small-picture img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+        }
 
-    section {
-      padding: 60px 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+        /* Left picture takes up more space */
+        .left-picture {
+            flex: 2;
+        }
 
-    section.visible {
-      opacity: 1;
-      transform: none;
-    }
+        /* Right pictures stack vertically */
+        .right-pictures {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
 
-    h1 {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      color: #222;
-    }
+        /* Small pictures inside the right section */
+        .small-picture {
+            flex: 1;
+        }
 
-    p {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.6;
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto;
-    }
+        /* Make sure pictures don't overflow */
+        .picture-container {
+            max-width: 1200px;
+            margin: auto;
+        }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      justify-content: center;
-    }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .picture-container {
+                padding: 10px;
+                gap: 5px;
+            }
+        }
 
-    .left-section, .right-section {
-      flex: 1 1 45%;
-      min-width: 300px;
-      position: relative;
-    }
-
-    .icons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 20px;
-    }
-
-    .icon-item {
-      text-align: center;
-      flex: 1 1 160px;
-    }
-
-    .icon-circle {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #fff;
-      border: 4px solid gold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 8px;
-    }
-
-    .icon-circle img {
-      width: 26px;
-      height: 26px;
-    }
-
-    .icon-item h4 {
-      font-size: 0.9rem;
-    }
-
-    .values h3 {
-      font-size: 1rem;
-      margin-top: 15px;
-      position: relative;
-      padding-left: 18px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .values h3::before {
-      content: "➤";
-      position: absolute;
-      left: 0;
-      color: #ffc107;
-    }
-
-    .values p {
-      margin-left: 18px;
-      display: none;
-      margin-top: 5px;
-      font-size: 0.9rem;
-      text-align: left;
-    }
-
-    .values h3.active + p {
-      display: block;
-    }
-
-    .content-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 40px;
-      margin-top: 40px;
-    }
-
-    .image-container {
-      flex: 1 1 400px;
-    }
-
-    .image-container img {
-      width: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      flex: 1 1 400px;
-      opacity: 1;
-      transform: none;
-      animation: none;
-    }
-
-    .service-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 16px;
-      font-size: 0.95rem;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.04);
-      transition: transform 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      border-color: #ffc107;
-    }
-
-    .view-btn {
-      background: #ffc107;
-      border: none;
-      padding: 10px 24px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      color: #000;
-      font-weight: 600;
-      border-radius: 4px;
-      transition: background 0.3s ease;
-    }
-
-    .view-btn:hover {
-      background: #e6b800;
-    }
-
-    .view-btn-container {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .glass-card-container {
-      position: relative;
-      width: 100%;
-      max-width: 350px;
-      margin-top: 30px;
-    }
-
-    .glass-card-background {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .glass-card-background img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .glass-card {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      background: #ffc107;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border: 0;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    .glass-card h3 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      color: #000;
-    }
-
-    .glass-card p {
-      font-size: 0.9rem;
-      color: #333;
-      text-align: center;
-      max-width: 80%;
-    }
-
-    .section {
-      width: 100%;
-      height: 50vh;
-      background: url('images/IMG-20250423-WA0053 (1).jpg') no-repeat center center/cover;
-      color: #FFFFFF;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: -1;
-    }
-
-    .card {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 20px;
-      text-align: center;
-    }
-
-    .column {
-      flex: 1;
-      margin: 0 10px;
-      text-align: center;
-    }
-
-    .column .number {
-      font-size: 48px;
-      color: #FFA500;
-      margin-bottom: 10px;
-    }
-
-    .column p {
-      font-size: 18px;
-    }
-
-    @media (max-width: 768px) {
-      .content-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      .services-grid {
-        margin-top: 20px;
-      }
-
-      .glass-card-container {
-        max-width: 100%;
-      }
-
-      .card {
-        flex-direction: column;
-      }
-
-      .column {
-        margin-bottom: 20px;
-      }
-
-      .left-section, .right-section {
-        flex: 1 1 100%;
-        min-width: 100%;
-      }
-
-      .icons {
-        justify-content: center;
-      }
-
-      .icon-item {
-        flex: 1 1 100px;
-      }
-
-      .icon-circle {
-        width: 50px;
-        height: 50px;
-      }
-
-      .icon-circle img {
-        width: 22px;
-        height: 22px;
-      }
-
-      .icon-item h4 {
-        font-size: 0.8rem;
-      }
-
-      .values h3 {
-        font-size: 0.9rem;
-      }
-
-      .values p {
-        font-size: 0.8rem;
-      }
-
-      .glass-card h3 {
-        font-size: 0.9rem;
-      }
-
-      .glass-card p {
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .section {
-        height: 40vh;
-      }
-
-      .card {
-        padding: 10px;
-      }
-
-      .column .number {
-        font-size: 36px;
-      }
-
-      .column p {
-        font-size: 16px;
-      }
-    }
-  </style>
+        /* Hover effect: Zoom effect */
+        .picture-container img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
 </head>
 <body>
-  <!-- ABOUT US -->
-  <section class="about-us">
-    <h1>ABOUT US</h1>
-    <div class="container">
-      <div class="left-section">
-        <p>We are known for our excellence and commitment to delivering high-quality projects. Our team of professionals builds strong partnerships and ensures that every project meets the highest standards.</p>
-        <div class="icons">
-          <div class="icon-item">
-            <div class="icon-circle">
-              <img src="images/professionals.png" alt="Excellence">
+    <div class="picture-container">
+        <!-- Left Big Picture -->
+        <div class="left-picture">
+            <img src="IMG-20241015-WA0002.jpg" alt="Picture 1">
+        </div>
+        
+        <!-- Right Stacked Pictures -->
+        <div class="right-pictures">
+            <div class="small-picture">
+                <img src="IMG-20241015-WA0003.jpg" alt="Picture 2">
             </div>
-            <h4>REPUTATION FOR EXCELLENCE</h4>
-          </div>
-          <div class="icon-item">
-            <div class="icon-circle">
-              <img src="images/collaboration_16743854.png" alt="Partnerships">
+            <div class="small-picture">
+                <img src="IMG-20241015-WA0004.jpg" alt="Picture 3">
             </div>
-            <h4>BUILD PARTNERSHIPS</h4>
-          </div>
-          <div class="icon-item">
-            <div class="icon-circle">
-              <img src="images/con committment.png" alt="Commitment">
-            </div>
-            <h4>GUIDED BY COMMITMENT</h4>
-          </div>
-          <div class="icon-item">
-            <div class="icon-circle">
-              <img src="images/con proffessonals.png" alt="Professionals">
-            </div>
-            <h4>TEAM OF PROFESSIONALS</h4>
-          </div>
-        </div>
-      </div>
-      <div class="right-section">
-        <h2>Our Values</h2>
-        <div class="values">
-          <h3 class="value-header active">SAFETY</h3>
-          <p>We prioritize safety in all our projects to ensure the well-being of our team and clients.</p>
-          <h3 class="value-header">CUSTOMER SERVICE</h3>
-          <p>Our dedicated customer service ensures that all client needs are met promptly and efficiently.</p>
-          <h3 class="value-header">INTEGRITY</h3>
-          <p>We uphold the highest standards of integrity in all our actions and decisions.</p>
-        </div>
-        <div class="glass-card-container">
-          <div class="glass-card-background">
-            <img src="images/background gellary.jpg" alt="Why Choose Us Background">
-          </div>
-          <div class="glass-card">
-            <h3>Why Choose Us?</h3>
-            <p>Driven by experience, dedication, and excellence in every project we deliver.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section">
-      <div class="card">
-        <div class="column">
-          <div class="number" data-target="250">0</div>
-          <p>Projects Completed</p>
-        </div>
-        <div class="column">
-          <div class="number" data-target="302">0</div>
-          <p>Staff Members</p>
-        </div>
         </div>
     </div>
-  </section>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const numbers = document.querySelectorAll('.number');
-      const section = document.querySelector('.section');
-
-      // Function to start the counting animation
-      function startCounting(number) {
-        const target = parseInt(number.getAttribute('data-target'));
-        let current = 0;
-        const increment = target / 50; // Adjust for faster/slower animation
-
-        function updateNumber() {
-          if (current < target) {
-            current += increment;
-            number.textContent = Math.floor(current);
-            requestAnimationFrame(updateNumber);
-          } else {
-            number.textContent = target;
-          }
-        }
-
-        updateNumber();
-      }
-
-      // Intersection Observer to detect when the section is in view
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            numbers.forEach(number => startCounting(number));
-          }
-        });
-      }, {
-        threshold: 0.1 // Trigger when 10% of the section is visible
-      });
-
-      observer.observe(section);
-    });
-  </script>
-
-  <!-- SERVICES -->
-  <section class="services-section" id="services">
-    <h1>OUR SERVICES</h1>
-    <p>We offer quality and affordable services for both residential and commercial needs.</p>
-
-    <div class="content-container">
-      <div class="image-container">
-        <img src="images/Paving.jpg" alt="Construction Image" />
-      </div>
-
-      <div class="services-grid" id="servicesGrid">
-        <div class="service-card">PAVING</div>
-        <div class="service-card">TILING</div>
-        <div class="service-card">PAINTING</div>
-        <div class="service-card">BUILDING & RENOVATIONS</div>
-        <div class="service-card">CEILING & CORNICE FITTING & DECO</div>
-        <div class="service-card">WATERPROOFING & DAMP-PROOFING</div>
-        <div class="service-card">INTERIOR DECO</div>
-      </div>
-
-      <div class="view-btn-container">
-        <button class="view-btn">View All Services</button>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    // Reveal on scroll
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          sectionObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('section').forEach(section => sectionObserver.observe(section));
-
-    // Toggle value descriptions
-    document.querySelectorAll(".value-header").forEach(header => {
-      header.addEventListener("click", () => {
-        // Close others
-        document.querySelectorAll(".value-header").forEach(h => {
-          if (h !== header) {
-            h.classList.remove("active");
-          }
-        });
-
-        // Toggle the clicked header
-        header.classList.toggle("active");
-      });
-    });
-
-    // Ensure the "SAFETY" value is always open
-    document.addEventListener("DOMContentLoaded", () => {
-      const safetyHeader = document.querySelector(".value-header");
-      if (safetyHeader) {
-        safetyHeader.classList.add("active");
-      }
-    });
-  </script>
 </body>
 </html>
