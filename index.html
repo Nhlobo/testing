@@ -9,36 +9,43 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Full viewport height */
+            background-color: #121212; /* Dark background for contrast */
         }
-        .section {
+        .card-container {
+            width: 80%; /* Same size as the card */
+            max-width: 1200px; /* Maximum width for larger screens */
             background: url('logo-Photoroom.png') no-repeat center center/cover;
-            color: #FFFFFF;
-            padding: 50px 20px;
-            text-align: center;
             position: relative;
+            padding: 0; /* No padding around the card */
+            border-radius: 0; /* No rounded corners */
         }
-        .section::before {
+        .card-container::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
             z-index: -1;
         }
         .card {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding: 50px 20px; /* Increased padding for a larger card */
-            background: rgba(0, 0, 0, 0.7);
-            width: 100%; /* Full width */
-            border: none; /* No rounded corners */
+            width: 100%; /* Match the size of the container */
+            height: 100%; /* Match the size of the container */
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 20px; /* Padding inside the card */
+            text-align: center;
         }
         .column {
             flex: 1;
-            margin: 10px;
+            margin: 0 10px; /* Horizontal spacing between columns */
             text-align: center;
         }
         .column .number {
@@ -52,7 +59,7 @@
     </style>
 </head>
 <body>
-    <div class="section">
+    <div class="card-container">
         <div class="card">
             <div class="column">
                 <div class="number" data-target="250">0</div>
@@ -72,7 +79,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const numbers = document.querySelectorAll('.number');
-            const section = document.querySelector('.section');
+            const cardContainer = document.querySelector('.card-container');
 
             // Function to start the counting animation
             function startCounting(number) {
@@ -93,7 +100,7 @@
                 updateNumber();
             }
 
-            // Intersection Observer to detect when the section is in view
+            // Intersection Observer to detect when the card is in view
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -101,10 +108,10 @@
                     }
                 });
             }, {
-                threshold: 0.1 // Trigger when 10% of the section is visible
+                threshold: 0.1 // Trigger when 10% of the card is visible
             });
 
-            observer.observe(section);
+            observer.observe(cardContainer);
         });
     </script>
 </body>
