@@ -11,7 +11,6 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Section styling */
     section.projects {
       padding: 40px 20px;
       text-align: center;
@@ -24,20 +23,19 @@
       letter-spacing: 2px;
     }
 
-    /* Picture layout */
     .picture-container {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      flex-wrap: wrap;
       max-width: 1200px;
       margin: 0 auto 30px auto;
+      flex-wrap: nowrap; /* VERY IMPORTANT: prevent wrapping */
     }
 
     .left-picture {
       flex: 2;
-      min-width: 300px;
+      min-width: 0;
     }
 
     .right-pictures {
@@ -45,7 +43,7 @@
       flex-direction: column;
       gap: 10px;
       flex: 1;
-      min-width: 200px;
+      min-width: 0;
     }
 
     .left-picture img,
@@ -78,14 +76,22 @@
       background-color: #555;
     }
 
-    /* Responsive adjustments */
+    /* Make images responsive but keep structure */
     @media (max-width: 768px) {
       .picture-container {
-        flex-direction: column;
+        flex-wrap: nowrap; /* Stay side-by-side */
       }
-      .left-picture,
-      .right-pictures {
-        width: 100%;
+      .left-picture, .right-pictures {
+        flex: 1 1 50%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .picture-container {
+        flex-wrap: nowrap; /* Still no wrap */
+      }
+      .left-picture, .right-pictures {
+        flex: 1 1 50%;
       }
     }
   </style>
@@ -98,16 +104,16 @@
   <div class="picture-container">
     <!-- Left Big Picture -->
     <div class="left-picture">
-      <img src="download.jpeg" alt="Picture 1">
+      <img src="Clyde-2.jpg" alt="Picture 1">
     </div>
 
     <!-- Right Stacked Pictures -->
     <div class="right-pictures">
       <div class="small-picture">
-        <img src="download.jpeg" alt="Picture 2">
+        <img src="Clyde-2.jpg" alt="Picture 2">
       </div>
       <div class="small-picture">
-        <img src="logo-Photoroom.png" alt="Picture 3">
+        <img src="IMG-20241015-WA0003.jpg" alt="Picture 3">
       </div>
     </div>
   </div>
