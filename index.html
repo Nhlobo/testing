@@ -1,84 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Image Layout</title>
-    <style>
-        /* Container for all images */
-        .picture-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Section</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        /* Styling for left large picture */
-        .left-picture img,
-        .small-picture img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            display: block;
-            border-radius: 8px;
-        }
+    /* Section styling */
+    section.projects {
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-        /* Left picture takes up more space */
-        .left-picture {
-            flex: 2;
-        }
+    section.projects h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
 
-        /* Right pictures stack vertically */
-        .right-pictures {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            flex: 1;
-        }
+    /* Picture layout */
+    .picture-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto 30px auto;
+    }
 
-        /* Small pictures inside the right section */
-        .small-picture {
-            flex: 1;
-        }
+    .left-picture {
+      flex: 2;
+      min-width: 300px;
+    }
 
-        /* Make sure pictures don't overflow */
-        .picture-container {
-            max-width: 1200px;
-            margin: auto;
-        }
+    .right-pictures {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      min-width: 200px;
+    }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .picture-container {
-                padding: 10px;
-                gap: 5px;
-            }
-        }
+    .left-picture img,
+    .small-picture img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
 
-        /* Hover effect: Zoom effect */
-        .picture-container img:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease-in-out;
-        }
-    </style>
+    .small-picture {
+      flex: 1;
+    }
+
+    /* Button styling */
+    .view-all-btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .view-all-btn:hover {
+      background-color: #555;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .picture-container {
+        flex-direction: column;
+      }
+      .left-picture,
+      .right-pictures {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="picture-container">
-        <!-- Left Big Picture -->
-        <div class="left-picture">
-            <img src="IMG-20241015-WA0002.jpg" alt="Picture 1">
-        </div>
-        
-        <!-- Right Stacked Pictures -->
-        <div class="right-pictures">
-            <div class="small-picture">
-                <img src="IMG-20241015-WA0003.jpg" alt="Picture 2">
-            </div>
-            <div class="small-picture">
-                <img src="IMG-20241015-WA0004.jpg" alt="Picture 3">
-            </div>
-        </div>
+
+<section class="projects">
+  <h2>PROJECTS</h2>
+
+  <div class="picture-container">
+    <!-- Left Big Picture -->
+    <div class="left-picture">
+      <img src="download.jpeg" alt="Picture 1">
     </div>
+
+    <!-- Right Stacked Pictures -->
+    <div class="right-pictures">
+      <div class="small-picture">
+        <img src="download.jpeg" alt="Picture 2">
+      </div>
+      <div class="small-picture">
+        <img src="logo-Photoroom.png" alt="Picture 3">
+      </div>
+    </div>
+  </div>
+
+  <!-- View All Projects Button -->
+  <a href="projects.html" class="view-all-btn">View All Projects</a>
+</section>
+
 </body>
 </html>
