@@ -3,20 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MaMba Physiotherapy</title>
+  <title>Juta Daco Construction</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .smart-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-list li {
+      margin: 0 10px;
+    }
+
+    .nav-list a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .nav-list .close-btn {
+      display: none;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-cta .book-btn {
+      background-color: #ffc107;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-left: 20px;
+    }
+
+    .nav-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 18px;
+    }
+
+    .banner {
+      background-color: #ffc107;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .banner .book-btn {
+      background-color: #333;
+      color: #ffc107;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .hero {
+      position: relative;
+      height: 400px;
+      background: url('images/Building & Renovations (1).jpg') no-repeat center center/cover;
+    }
+
+    .gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .welcome-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+    }
+
+    .welcome-text h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    .welcome-text p {
+      font-size: 18px;
+    }
+
+    .cookie-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      display: none;
+      z-index: 9999;
+    }
+
+    .cookie-popup .cookie-text {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .cookie-popup .cookie-btn {
+      background-color: #ffc107;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+  </style>
+
 </head>
 <body>
 
   <nav class="smart-nav">
     <div class="logo">
-      <img src="logo.png" alt="Site Logo" id="logo" />
+      <img src="logo.png" alt="Juta Daco Construction Logo" id="logo" />
     </div>
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -26,30 +185,30 @@
     <ul class="nav-list" id="nav-list">
       <button class="close-btn" id="close-btn">&times;</button>
       <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="about.html" onclick="closeMenuAndNavigate('about.html')"><i class="fas fa-info-circle"></i> About</a></li>
-      <li><a href="#conditions"><i class="fas fa-heartbeat"></i> Conditions Treated</a></li>
-      <li><a href="#visits"><i class="fas fa-house-user"></i> Home Visits</a></li>
-      <li><a href="pricing.html" onclick="closeMenuAndNavigate('pricing.html')"><i class="fas fa-coins"></i> Pricing</a></li>
+      <li><a href="services.html" onclick="closeMenuAndNavigate('services.html')"><i class="fas fa-tools"></i> Our Services</a></li>
+      <li><a href="projects.html" onclick="closeMenuAndNavigate('projects.html')"><i class="fas fa-building"></i> Projects</a></li>
+      <li><a href="order-paint.html" onclick="closeMenuAndNavigate('order-paint.html')"><i class="fas fa-paint-roller"></i> Order Paint</a></li>
       <li><a href="privacy.html" onclick="closeMenuAndNavigate('privacy.html')"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-      <li><a href="terms.html" onclick="closeMenuAndNavigate('terms.html')"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+      <li><a href="terms.html" onclick="closeMenuAndNavigate('terms.html')"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
+      <li><a href="blog.html" onclick="closeMenuAndNavigate('blog.html')"><i class="fas fa-blog"></i> Blog</a></li>
 
       <div class="nav-cta">
-        <a href="contact.html"><button class="book-btn">Book Appointment</button></a>
+        <a href="contact.html"><button class="book-btn">Get a Quote</button></a>
         <div class="nav-icons">
           <a href="https://wa.me/27717729736"><i class="fab fa-whatsapp"></i></a>
-          <a href="mailto:mambadifferance@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="mailto:juta.daco@gmail.com"><i class="fas fa-envelope"></i></a>
           <a href="tel:+27717729736"><i class="fas fa-phone"></i></a>
         </div>
       </div>
     </ul>
   </nav>
 
-  <!-- New Banner Section below navigation -->
+  <!-- Banner -->
   <div class="banner">
-    <button class="book-btn">Book Appointment</button>
+    <button class="book-btn">Get a Quote</button>
     <div class="nav-icons">
       <a href="https://wa.me/27717729736"><i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:mambadifferance@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:juta.daco@gmail.com"><i class="fas fa-envelope"></i></a>
       <a href="tel:+27717729736"><i class="fas fa-phone"></i></a>
     </div>
   </div>
@@ -58,48 +217,25 @@
   <div class="hero">
     <div class="gradient-overlay"></div>
     <div class="welcome-text">
-      <h1>Helping You Move Better</h1>
-      <p>Professional physiotherapy care tailored to your needs.</p>
+      <h1>Building Dreams, Creating Futures</h1>
+      <p>Professional construction and renovation services you can trust.</p>
     </div>
   </div>
 
-
-   <!-- ================= COOKIE-POPUP ================= -->
-  
+  <!-- Cookie Popup -->
   <div class="cookie-popup" id="cookiePopup">
-  <div class="cookie-content">
-    <p class="cookie-text">We use cookies to improve your experience. By using our site, you consent to our use of cookies. <a href="cookie.html">Learn more</a></p>
-    <button class="cookie-btn" id="acceptCookies">Got it!</button>
+    <div class="cookie-content">
+      <p class="cookie-text">We use cookies to improve your experience. By using our site, you consent to our use of cookies. <a href="cookie.html">Learn more</a></p>
+      <button class="cookie-btn" id="acceptCookies">Got it!</button>
+    </div>
   </div>
-</div>
-    
-     <script>
-    // Get elements
-const cookiePopup = document.getElementById('cookiePopup');
-const acceptCookiesButton = document.getElementById('acceptCookies');
-
-// Check if cookie consent is already given (via localStorage)
-if (!localStorage.getItem('cookieConsent')) {
-  // Show the popup if no consent has been given
-  cookiePopup.style.display = 'block';
-}
-
-// Set cookie consent and hide the popup when the button is clicked
-acceptCookiesButton.addEventListener('click', () => {
-  localStorage.setItem('cookieConsent', 'true');
-  cookiePopup.style.display = 'none';
-});
-
-</script>
-  <section id="conditions"><h2>Conditions Treated</h2></section>
-  <section id="visits"><h2>Home Visits</h2></section>
 
   <footer>
-    <p>&copy; 2025 MaMba Physiotherapy. All rights reserved.</p>
+    <p>&copy; 2025 Juta Daco Construction. All rights reserved.</p>
   </footer>
 
   <script>
-    // Navigation toggle and close menu function
+    // Navigation toggle and close menu
     const hamburger = document.getElementById('hamburger');
     const navList = document.getElementById('nav-list');
     const closeBtn = document.getElementById('close-btn');
@@ -119,6 +255,20 @@ acceptCookiesButton.addEventListener('click', () => {
       hamburger.classList.remove('active');
       window.location.href = url;
     }
+
+    // Cookie Popup
+    const cookiePopup = document.getElementById('cookiePopup');
+    const acceptCookiesButton = document.getElementById('acceptCookies');
+
+    if (!localStorage.getItem('cookieConsent')) {
+      cookiePopup.style.display = 'block';
+    }
+
+    acceptCookiesButton.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'true');
+      cookiePopup.style.display = 'none';
+    });
   </script>
+
 </body>
 </html>
