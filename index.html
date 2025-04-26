@@ -3,28 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juta Daco Construction</title>
+  <meta name="description" content="Juta Daco Construction offers expert Paving, Tiling, Painting, Building & Renovations, Ceiling & Cornice Fitting, Waterproofing, Damp-proofing, and Interior Decoration services across South Africa." />
+  <meta name="keywords" content="Paving South Africa, Tiling Experts, Painting Contractors, Building Renovations, Ceiling Fitting, Cornice Installation, Waterproofing Services, Damp-proofing, Interior Decoration Johannesburg, Best Construction Company South Africa" />
+  <meta name="author" content="Juta Daco Construction" />
+
+  <!-- Open Graph Meta for Social Sharing -->
+  <meta property="og:title" content="Juta Daco Construction | Building Dreams, Creating Futures" />
+  <meta property="og:description" content="Reliable and professional construction services: Paving, Tiling, Painting, Renovations, Waterproofing, and more. Contact us today!" />
+  <meta property="og:image" content="https://yourwebsite.com/path-to-your-logo-or-main-image.jpg" />
+  <meta property="og:url" content="https://yourwebsite.com" />
+  <meta property="og:type" content="website" />
+
+  <title>Juta Daco Construction | Best Paving, Tiling, Building, and Renovations in South Africa</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" defer>
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" defer/>
 
+  <!-- Styles -->
   <style>
-    body {
-      font-family: 'Roboto', sans-serif;
+       {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
-    .smart-nav {
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    nav.smart-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: white;
-      color: black;
       padding: 10px 20px;
       position: relative;
       z-index: 1000;
@@ -32,122 +46,93 @@
 
     .logo img {
       height: 50px;
-      background: none;
     }
 
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background-color: black;
-      margin: 4px 0;
-      transition: 0.3s;
-    }
-
-    .nav-list {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      height: 100%;
-      width: 250px;
-      background-color: white;
-      color: black;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      transition: right 0.4s ease;
-      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    }
-
-    .nav-list.active {
-      right: 0;
-    }
-
-    .nav-list li {
-      margin: 20px 0;
-    }
-
-    .nav-list a {
-      color: black;
-      text-decoration: none;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: color 0.3s ease;
-    }
-
-    .nav-list a:hover {
-      color: #ffc107; /* Yellow hover effect */
-    }
-
-    .close-menu {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+    /* Hamburger */
+    #toggleButton {
+      display: none;
       font-size: 30px;
-      color: red;
       cursor: pointer;
+      background: none;
+      border: none;
+      color: black;
     }
 
-    .hero {
-      position: relative;
-      height: 400px;
-      background: url('download.jpeg') no-repeat center center/cover;
+    /* Menu */
+    #mainMenu {
+      display: flex;
+      gap: 20px;
+      list-style: none;
     }
 
-    .gradient-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    .welcome-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: #fff;
-    }
-
-    .welcome-text h1 {
-      font-size: 48px;
-      margin: 0;
-    }
-
-    .welcome-text p {
+    #mainMenu li a {
+      text-decoration: none;
+      color: black;
       font-size: 18px;
+      font-weight: 500;
     }
 
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      #toggleButton {
+        display: block;
+      }
+
+      #mainMenu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100%;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s ease;
+      }
+
+      #mainMenu.active {
+        right: 0;
+      }
+
+      #mainMenu li {
+        margin: 20px 0;
+      }
+
+      #closeMenuButton {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        color: red;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+    }
+
+    /* Close button hidden on desktop */
+    #closeMenuButton {
+      display: none;
+    }
+
+    /* Banner */
     .banner {
       background-color: #ffc107;
       padding: 10px 20px;
       text-align: center;
-      font-size: 16px;
       font-weight: bold;
-      color: #333;
     }
 
     .banner a {
       color: #333;
       text-decoration: none;
       margin: 0 10px;
-      font-size: 16px;
     }
 
+    /* Cookie Popup */
     .cookie-popup {
       position: fixed;
       bottom: 20px;
@@ -155,17 +140,17 @@
       background-color: #fff;
       padding: 20px;
       border: 1px solid #ccc;
-      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       display: none;
       z-index: 9999;
     }
 
-    .cookie-popup .cookie-text {
+    .cookie-text {
       font-size: 16px;
       margin-bottom: 10px;
     }
 
-    .cookie-popup .cookie-btn {
+    .cookie-btn {
       background-color: #ffc107;
       color: #333;
       border: none;
@@ -174,6 +159,7 @@
       font-size: 16px;
     }
 
+    /* Footer */
     footer {
       background-color: #333;
       color: #fff;
@@ -181,86 +167,638 @@
       padding: 20px 0;
       margin-top: 30px;
     }
-  </style>
 
-</head>
-<body>
-
-  <nav class="smart-nav">
-    <div class="logo">
-      <img src="logo.png" alt="Juta Daco Construction Logo" />
-    </div>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul class="nav-list" id="nav-list">
-      <span class="close-menu" id="close-menu">&times;</span>
-      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="services.html"><i class="fas fa-tools"></i> Our Services</a></li>
-      <li><a href="projects.html"><i class="fas fa-building"></i> Projects</a></li>
-      <li><a href="order-paint.html"><i class="fas fa-paint-roller"></i> Order Paint</a></li>
-      <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-      <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
-      <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
-      <li><a href="contact.html"><i class="fas fa-phone"></i> Contact Us</a></li>
-    </ul>
-  </nav>
-
-  <!-- Banner -->
-  <div class="banner">
-    📧 <a href="mailto:mabasojuta@gmail.com">mabasojuta@gmail.com</a> | 
-    📞 <a href="tel:+27717426995">+27 71 742 6995</a> / <a href="tel:+27670260642">+27 67 026 0642</a>
-  </div>
-
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="gradient-overlay"></div>
-    <div class="welcome-text">
-      <h1>Building Dreams, Creating Futures</h1>
-      <p>Professional construction and renovation services you can trust.</p>
-    </div>
-  </div>
-
-  <!-- Cookie Popup -->
-  <div class="cookie-popup" id="cookiePopup">
-    <div class="cookie-content">
-      <p class="cookie-text">We use cookies to improve your experience. By using our site, you consent to our use of cookies. <a href="cookie.html">Learn more</a></p>
-      <button class="cookie-btn" id="acceptCookies">Got it!</button>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Juta Daco Construction. All rights reserved.</p>
-  </footer>
-
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navList = document.getElementById('nav-list');
-    const closeMenu = document.getElementById('close-menu');
-
-    hamburger.addEventListener('click', () => {
-      navList.classList.add('active');
-    });
-
-    closeMenu.addEventListener('click', () => {
-      navList.classList.remove('active');
-    });
-
-    // Cookie Popup
-    const cookiePopup = document.getElementById('cookiePopup');
-    const acceptCookiesButton = document.getElementById('acceptCookies');
-
-    if (!localStorage.getItem('cookieConsent')) {
-      cookiePopup.style.display = 'block';
+    {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #333;
     }
 
-    acceptCookiesButton.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'true');
-      cookiePopup.style.display = 'none';
-    });
-  </script>
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #222;
+    }
+    
+    h2 {
+        color: #222;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    .our-services {
+      background: #fff;
+      text-align: center;
+    }
+
+    .service-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 300px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card button {
+      background: #ffc107;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      margin: 15px;
+      cursor: pointer;
+    }
+
+    
+      footer {
+      background-image: url('logo-Photoroom.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+        color: white;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .footer-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    h2 {
+      color: #facc15;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      color: #facc15;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      margin-top: 0.25rem;
+      margin-bottom: 1rem;
+      background-color: #1f1f1f;
+      color: #e0e0e0;
+    }
+
+    .contact-form label {
+      font-size: 0.875rem;
+    }
+
+    .contact-form button {
+      background: #facc15;
+      color: #000;
+      padding: 0.75rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+    }
+
+    .contact-form button:hover {
+      background: #fbbf24;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-info i {
+      color: #facc15;
+      width: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .success-message {
+      color: #22c55e;
+      padding-top: 1rem;
+    }
+
+    .error-message {
+      color: #ef4444;
+      padding-top: 1rem;
+    }
+
+    .footer-bottom {
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid #333;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.875rem;
+      color: #aaa;
+    }
+
+    .footer-bottom .social {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-bottom .credit {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .footer-bottom .credit img {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .content-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      footer {
+      background-image: url('logo-Photoroom.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+        color: white;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .footer-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    h2 {
+      color: #facc15;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      color: #facc15;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      margin-top: 0.25rem;
+      margin-bottom: 1rem;
+      background-color: #1f1f1f;
+      color: #e0e0e0;
+    }
+
+    .contact-form label {
+      font-size: 0.875rem;
+    }
+
+    .contact-form button {
+      background: #facc15;
+      color: #000;
+      padding: 0.75rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+    }
+
+    .contact-form button:hover {
+      background: #fbbf24;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-info i {
+      color: #facc15;
+      width: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .success-message {
+      color: #22c55e;
+      padding-top: 1rem;
+    }
+
+    .error-message {
+      color: #ef4444;
+      padding-top: 1rem;
+    }
+
+    .footer-bottom {
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid #333;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.875rem;
+      color: #aaa;
+    }
+
+    .footer-bottom .social {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-bottom .credit {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .footer-bottom .credit img {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .content-container {
+        flex-direction: column;
+        align-items: center;
+      }
+  </style>
+</head>
+
+<body>
+
+<nav class="smart-nav">
+  <div class="logo">
+    <img src="logo.png" alt="Juta Daco Construction Logo - South Africa" />
+  </div>
+
+  <button id="toggleButton">&#9776;</button>
+
+  <ul id="mainMenu">
+    <button id="closeMenuButton">&times;</button>
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="services.html"><i class="fas fa-tools"></i> Our Services</a></li>
+    <li><a href="projects.html"><i class="fas fa-building"></i> Projects</a></li>
+    <li><a href="order-paint.html"><i class="fas fa-paint-roller"></i> Order Paint</a></li>
+    <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+    <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
+    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+    <li><a href="contact.html"><i class="fas fa-phone"></i> Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- Banner -->
+<div class="banner">
+  📧 <a href="mailto:mabasojuta@gmail.com">mabasojuta@gmail.com</a> | 
+  📞 <a href="tel:+27717426995">+27 71 742 6995</a> / <a href="tel:+27670260642">+27 67 026 0642</a>
+</div>
+
+<!-- Main Services Section -->
+<main>
+    <!-- OUR SERVICES -->
+  <section class="our-services">
+    <h1>OUR SERVICES</h1>
+    <div class="service-cards">
+      <div class="card">
+        <img src="logo-Photoroom.png" alt="Painting">
+        <h3>PAINTING</h3>
+        <p>We offer professional painting services for both interior and exterior spaces.</p>
+      </div>
+      <div class="card">
+        <img src="logo-Photoroom.png" alt="Tiling">
+        <h3>TILING</h3>
+        <p>Our tiling services ensure a perfect finish for your floors and walls.</p>
+      </div>
+      <div class="card">
+        <img src="logo-Photoroom.png" alt="Paving.jpg">
+        <h3>PAVING</h3>
+        <p>We specialize in paving solutions for driveways, patios, and walkways.</p>
+      </div>
+      <div class="card">
+        <img src="images/IMG-20250423-WA0043 (1) (1).jpg" alt="Building & Renovations">
+        <h3>BUILDING & RENOVATIONS</h3>
+        <p>Our building and renovation services transform your spaces to meet your needs.</p>
+      </div>
+      <div class="card">
+        <img src="images/Ceiling & Cornice Fitting & Deco.jpg" alt="Ceiling & Cornice Fitting & Deco">
+        <h3>CEILING & CORNICE FITTING & DECO</h3>
+        <p>We provide expert ceiling and cornice fitting and decoration services.</p>
+      </div>
+      <div class="card">
+        <img src="images/Waterproofing & Damp-proofing.jpg" alt="Waterproofing & Damp-proofing">
+        <h3>WATERPROOFING & DAMP-PROOFING</h3>
+        <p>Our waterproofing and damp-proofing services protect your property from moisture damage.</p>
+      </div>
+      <div class="card">
+        <img src="images/Interior Deco.jpg" alt="Interior Deco">
+        <h3>INTERIOR DECO</h3>
+        <p>We offer interior decoration services to enhance the aesthetics of your spaces.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Cookie Popup -->
+<div class="cookie-popup" id="cookiePopup">
+  <div class="cookie-content">
+    <p class="cookie-text">We use cookies to improve your experience. By using our site, you consent to our use of cookies. <a href="cookie.html">Learn more</a></p>
+    <button class="cookie-btn" id="acceptCookies">Got it!</button>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    
+    <!-- About Section -->
+    <div>
+      <h2>About</h2>
+      <p>We are a Gauteng-based construction company delivering high-quality services with integrity and precision.</p>
+      <img src="images/IMG-20250421-WA0063_1_-removebg-preview (1).png" alt="Company Logo" style="width: 80px; margin-top: 1rem;" />
+    </div>
+
+    <!-- Contact Section -->
+    <div>
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+  <p>
+    <a href="mailto:mabasojuta@gmail.com">
+      <i class="fas fa-envelope"></i> mabasojuta@gmail.com
+    </a>
+  </p>
+  <p>
+    <a href="tel:+27717426995">
+      <i class="fas fa-phone"></i> +27 71 742 6995 / +27 67 026 0642
+    </a>
+  </p>
+  <p>
+    <a href="https://wa.me/27717426995" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+    </a>
+  </p>
+</div>
+
+
+      <form action="https://formspree.io/f/xwpkkvnk" class="contact-form" id="contactForm">
+        <div>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required pattern="[a-zA-Z ]+" title="Enter a valid name.">
+        </div>
+        <div>
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500"></textarea>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+          <label for="privacyPolicy">I agree to the <a href="privacy.html">Privacy Policy</a>.</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="communicationOptIn" name="communicationOptIn">
+          <label for="communicationOptIn">I would like to receive updates and promotional communications.</label>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="loader" style="display:none;"><img src="loader.gif" alt="Loading..."></div>
+      <div id="response" style="display:none;"></div>
+    </div>
+
+    <!-- Navigation Section -->
+    <div>
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="paints.html">Paint Orders</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 Juta Daco Construction (Pty) Ltd. Reg No: 2018/242354/07. All rights reserved.</p>
+    <div class="social">
+      <a href="#" class="hover:text-yellow-400" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-yellow-400" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/27717426995" target="_blank" class="hover:text-yellow-400" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <div class="credit">
+      <a href="https://nhlobo.github.io/Mapengo_Innovations/" target="_blank" class="hover:text-yellow-400">
+        <img src="images/logo.png" alt="Mapengo Logo" />
+        Developed & Maintained by Mapengo Innovations
+      </a>
+    </div>
+  </div>
+</footer>
+<!-- JavaScript -->
+<script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('loader').style.display = 'block';
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const privacyPolicy = document.getElementById('privacyPolicy').checked;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+                showResponse('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            if (!privacyPolicy) {
+                showResponse('You must agree to the Privacy Policy before submitting.', 'error');
+                return;
+            }
+
+            if (!name || !email || !message) {
+                showResponse('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            if (!navigator.onLine) {
+                showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
+                return;
+            }
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    Accept: 'application/json'
+                }
+            })
+            .then(response => {
+                document.getElementById('loader').style.display = 'none';
+                if (response.ok) {
+                    showResponse('Thank you! Your message has been successfully sent.', 'success');
+                    this.reset();
+                } else {
+                    showResponse('Oops! There was an issue with your submission. Please try again later.', 'error');
+                }
+            })
+            .catch(error => {
+                document.getElementById('loader').style.display = 'none';
+                if (!navigator.onLine) {
+                    showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
+                } else {
+                    showResponse('There was a problem with your submission. Please try again later.', 'error');
+                }
+            });
+        });
+
+        function showResponse(message, type) {
+            const responseDiv = document.getElementById('response');
+            responseDiv.style.display = 'block';
+            responseDiv.textContent = message;
+            responseDiv.className = type === 'success' ? 'success-message' : 'error-message';
+            setTimeout(() => {
+                responseDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+<!-- JSON-LD Structured Data (Schema.org Markup) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Juta Daco Construction",
+  "description": "Expert Paving, Tiling, Painting, Renovations, Waterproofing, and Interior Decoration services across South Africa.",
+  "image": "https://yourwebsite.com/path-to-logo-or-main-image.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "ZA"
+  },
+  "email": "mabasojuta@gmail.com",
+  "telephone": "+27717426995",
+  "url": "https://yourwebsite.com",
+  "openingHours": "Mo,Tu,We,Th,Fr,Sa 08:00-17:00"
+}
+</script>
 
 </body>
 </html>
+
+
