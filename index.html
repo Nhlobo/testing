@@ -12,21 +12,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
       font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    nav.smart-nav {
+    .smart-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: white;
+      color: black;
       padding: 10px 20px;
       position: relative;
       z-index: 1000;
@@ -34,79 +32,73 @@
 
     .logo img {
       height: 50px;
-    }
-
-    /* Hamburger */
-    #toggleButton {
-      display: none;
-      font-size: 30px;
-      cursor: pointer;
       background: none;
-      border: none;
-      color: black;
     }
 
-    /* Menu */
-    #mainMenu {
+    .hamburger {
       display: flex;
-      gap: 20px;
-      list-style: none;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 1001;
     }
 
-    #mainMenu li a {
-      text-decoration: none;
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: black;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    .nav-list {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100%;
+      width: 250px;
+      background-color: white;
       color: black;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      transition: right 0.4s ease;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-list.active {
+      right: 0;
+    }
+
+    .nav-list li {
+      margin: 20px 0;
+    }
+
+    .nav-list a {
+      color: black;
+      text-decoration: none;
       font-size: 18px;
-      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
     }
 
-    /* Mobile Menu */
-    @media (max-width: 768px) {
-      #toggleButton {
-        display: block;
-      }
-
-      #mainMenu {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: white;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100%;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-        transition: right 0.4s ease;
-      }
-
-      #mainMenu.active {
-        right: 0;
-      }
-
-      #mainMenu li {
-        margin: 20px 0;
-      }
-
-      #closeMenuButton {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 30px;
-        color: red;
-        cursor: pointer;
-        background: none;
-        border: none;
-      }
+    .nav-list a:hover {
+      color: #ffc107; /* Yellow hover effect */
     }
 
-    /* Close button hidden on desktop */
-    #closeMenuButton {
-      display: none;
+    .close-menu {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      color: red;
+      cursor: pointer;
     }
 
-    /* Hero */
     .hero {
       position: relative;
       height: 400px;
@@ -128,32 +120,34 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      color: white;
+      color: #fff;
     }
 
     .welcome-text h1 {
       font-size: 48px;
+      margin: 0;
     }
 
     .welcome-text p {
       font-size: 18px;
     }
 
-    /* Banner */
     .banner {
       background-color: #ffc107;
       padding: 10px 20px;
       text-align: center;
+      font-size: 16px;
       font-weight: bold;
+      color: #333;
     }
 
     .banner a {
       color: #333;
       text-decoration: none;
       margin: 0 10px;
+      font-size: 16px;
     }
 
-    /* Cookie Popup */
     .cookie-popup {
       position: fixed;
       bottom: 20px;
@@ -161,17 +155,17 @@
       background-color: #fff;
       padding: 20px;
       border: 1px solid #ccc;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
       display: none;
       z-index: 9999;
     }
 
-    .cookie-text {
+    .cookie-popup .cookie-text {
       font-size: 16px;
       margin-bottom: 10px;
     }
 
-    .cookie-btn {
+    .cookie-popup .cookie-btn {
       background-color: #ffc107;
       color: #333;
       border: none;
@@ -180,7 +174,6 @@
       font-size: 16px;
     }
 
-    /* Footer */
     footer {
       background-color: #333;
       color: #fff;
@@ -193,89 +186,81 @@
 </head>
 <body>
 
-<nav class="smart-nav">
-  <div class="logo">
-    <img src="logo.png" alt="Juta Daco Construction Logo" />
+  <nav class="smart-nav">
+    <div class="logo">
+      <img src="logo.png" alt="Juta Daco Construction Logo" />
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-list" id="nav-list">
+      <span class="close-menu" id="close-menu">&times;</span>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="services.html"><i class="fas fa-tools"></i> Our Services</a></li>
+      <li><a href="projects.html"><i class="fas fa-building"></i> Projects</a></li>
+      <li><a href="order-paint.html"><i class="fas fa-paint-roller"></i> Order Paint</a></li>
+      <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+      <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
+      <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+      <li><a href="contact.html"><i class="fas fa-phone"></i> Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Banner -->
+  <div class="banner">
+    📧 <a href="mailto:mabasojuta@gmail.com">mabasojuta@gmail.com</a> | 
+    📞 <a href="tel:+27717426995">+27 71 742 6995</a> / <a href="tel:+27670260642">+27 67 026 0642</a>
   </div>
 
-  <button id="toggleButton">&#9776;</button>
-
-  <ul id="mainMenu">
-    <button id="closeMenuButton">&times;</button>
-    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-    <li><a href="services.html"><i class="fas fa-tools"></i> Our Services</a></li>
-    <li><a href="projects.html"><i class="fas fa-building"></i> Projects</a></li>
-    <li><a href="order-paint.html"><i class="fas fa-paint-roller"></i> Order Paint</a></li>
-    <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-    <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
-    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
-    <li><a href="contact.html"><i class="fas fa-phone"></i> Contact Us</a></li>
-  </ul>
-</nav>
-
-<!-- Banner -->
-<div class="banner">
-  📧 <a href="mailto:mabasojuta@gmail.com">mabasojuta@gmail.com</a> | 
-  📞 <a href="tel:+27717426995">+27 71 742 6995</a> / <a href="tel:+27670260642">+27 67 026 0642</a>
-</div>
-
-<!-- Hero Section -->
-<div class="hero">
-  <div class="gradient-overlay"></div>
-  <div class="welcome-text">
-    <h1>Building Dreams, Creating Futures</h1>
-    <p>Professional construction and renovation services you can trust.</p>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="gradient-overlay"></div>
+    <div class="welcome-text">
+      <h1>Building Dreams, Creating Futures</h1>
+      <p>Professional construction and renovation services you can trust.</p>
+    </div>
   </div>
-</div>
 
-<!-- Cookie Popup -->
-<div class="cookie-popup" id="cookiePopup">
-  <div class="cookie-content">
-    <p class="cookie-text">We use cookies to improve your experience. By using our site, you consent to our use of cookies. <a href="cookie.html">Learn more</a></p>
-    <button class="cookie-btn" id="acceptCookies">Got it!</button>
+  <!-- Cookie Popup -->
+  <div class="cookie-popup" id="cookiePopup">
+    <div class="cookie-content">
+      <p class="cookie-text">We use cookies to improve your experience. By using our site, you consent to our use of cookies. <a href="cookie.html">Learn more</a></p>
+      <button class="cookie-btn" id="acceptCookies">Got it!</button>
+    </div>
   </div>
-</div>
 
-<footer>
-  <p>&copy; 2025 Juta Daco Construction. All rights reserved.</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 Juta Daco Construction. All rights reserved.</p>
+  </footer>
 
-<!-- JS -->
-<script>
-  const toggleButton = document.querySelector("#toggleButton");
-  const mainMenu = document.querySelector("#mainMenu");
-  const closeMenuButton = document.querySelector("#closeMenuButton");
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navList = document.getElementById('nav-list');
+    const closeMenu = document.getElementById('close-menu');
 
-  toggleButton.addEventListener('click', function () {
-      mainMenu.classList.toggle('active');
-      toggleButton.innerHTML = mainMenu.classList.contains("active") ? "&#215;" : "&#9776;";
-  });
+    hamburger.addEventListener('click', () => {
+      navList.classList.add('active');
+    });
 
-  closeMenuButton.addEventListener('click', function () {
-      mainMenu.classList.remove('active');
-      toggleButton.innerHTML = "&#9776;";
-  });
+    closeMenu.addEventListener('click', () => {
+      navList.classList.remove('active');
+    });
 
-  document.addEventListener('click', function(event) {
-      if (!mainMenu.contains(event.target) && !toggleButton.contains(event.target)) {
-          mainMenu.classList.remove('active');
-          toggleButton.innerHTML = "&#9776;";
-      }
-  });
+    // Cookie Popup
+    const cookiePopup = document.getElementById('cookiePopup');
+    const acceptCookiesButton = document.getElementById('acceptCookies');
 
-  // Cookie Popup
-  const cookiePopup = document.getElementById('cookiePopup');
-  const acceptCookiesButton = document.getElementById('acceptCookies');
-
-  if (!localStorage.getItem('cookieConsent')) {
+    if (!localStorage.getItem('cookieConsent')) {
       cookiePopup.style.display = 'block';
-  }
+    }
 
-  acceptCookiesButton.addEventListener('click', () => {
+    acceptCookiesButton.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'true');
       cookiePopup.style.display = 'none';
-  });
-</script>
+    });
+  </script>
 
 </body>
 </html>
