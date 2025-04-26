@@ -814,36 +814,36 @@ section.projects h2 {
 </div>
     </div>
   </section>
-
   <script>
-    // Make all sections immediately visible without scroll effect
-document.querySelectorAll('section').forEach(section => {
-  section.classList.add('visible');
-});
-
-// Toggle value descriptions
-document.querySelectorAll(".value-header").forEach(header => {
-  header.addEventListener("click", () => {
-    // Close others
-    document.querySelectorAll(".value-header").forEach(h => {
-      if (h !== header) {
-        h.classList.remove("active");
-      }
-    });
-
-    // Toggle the clicked header
-    header.classList.toggle("active");
+document.addEventListener('DOMContentLoaded', function() {
+  // Make all sections immediately visible without scroll effect
+  document.querySelectorAll('section').forEach(section => {
+    section.classList.add('visible');
   });
-});
 
-// Ensure the "SAFETY" value is always open
-document.addEventListener("DOMContentLoaded", () => {
+  // Toggle value descriptions
+  document.querySelectorAll(".value-header").forEach(header => {
+    header.addEventListener("click", () => {
+      // Close others
+      document.querySelectorAll(".value-header").forEach(h => {
+        if (h !== header) {
+          h.classList.remove("active");
+        }
+      });
+
+      // Toggle the clicked header
+      header.classList.toggle("active");
+    });
+  });
+
+  // Ensure the "SAFETY" value is always open
   const safetyHeader = document.querySelector(".value-header");
   if (safetyHeader) {
     safetyHeader.classList.add("active");
   }
 });
   </script>
+ 
 
   <section class="projects">
   <h2>PROJECTS</h2>
