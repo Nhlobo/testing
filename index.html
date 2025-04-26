@@ -2,447 +2,122 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Construction Company</title>
-  <style>
-    /* Your existing CSS styles */
-    section {
-      padding: 60px 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MaMba Physiotherapy</title>
 
-    section.visible {
-      opacity: 1;
-      transform: none;
-    }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    .gallery-section {
-      position: relative;
-      background: url('images/IMG-20250423-WA0053 ') no-repeat center center/cover;
-      text-align: center;
-      color: black;
-      padding: 60px 20px;
-    }
-
-    .gallery-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      z-index: 1;
-    }
-
-    .gallery-section > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .filter-buttons {
-      margin: 20px 0;
-    }
-
-    .filter-buttons button {
-      margin: 5px;
-      padding: 10px 15px;
-      border: none;
-      background: #222;
-      color: white;
-      cursor: pointer;
-    }
-
-    .filter-buttons .active {
-      background: #ffc107;
-      color: black;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 10px;
-      padding: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-  </style>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- ABOUT US -->
-  <section class="about-us">
-    <h1>ABOUT US</h1>
-    <div class="container">
-      <div class="left-section">
-        <p>We are known for our excellence and commitment to delivering high-quality projects. Our team of professionals builds strong partnerships and ensures that every project meets the highest standards.</p>
-        <div class="icons">
-          <div class="icon-item">
-            <div class="icon-circle">
-              <img src="images/professionals.png" alt="Excellence">
-            </div>
-            <h4>REPUTATION FOR EXCELLENCE</h4>
-          </div>
-          <div class="icon-item">
-            <div class="icon-circle">
-              <img src="images/collaboration_16743854.png" alt="Partnerships">
-            </div>
-            <h4>BUILD PARTNERSHIPS</h4>
-          </div>
-          <div class="icon-item">
-            <div class="icon-circle">
-              <img src="images/con committment.png" alt="Commitment">
-            </div>
-            <h4>GUIDED BY COMMITMENT</h4>
-          </div>
-          <div class="icon-item">
-            <div class="icon-circle">
-              <img src="images/con proffessonals.png" alt="Professionals">
-            </div>
-            <h4>TEAM OF PROFESSIONALS</h4>
-          </div>
+
+  <nav class="smart-nav">
+    <div class="logo">
+      <img src="logo.png" alt="Site Logo" id="logo" />
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-list" id="nav-list">
+      <button class="close-btn" id="close-btn">&times;</button>
+      <li><a href="index.html" onclick="closeMenuAndNavigate('index.html')"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="about.html" onclick="closeMenuAndNavigate('about.html')"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="#conditions"><i class="fas fa-heartbeat"></i> Conditions Treated</a></li>
+      <li><a href="#visits"><i class="fas fa-house-user"></i> Home Visits</a></li>
+      <li><a href="pricing.html" onclick="closeMenuAndNavigate('pricing.html')"><i class="fas fa-coins"></i> Pricing</a></li>
+      <li><a href="privacy.html" onclick="closeMenuAndNavigate('privacy.html')"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+      <li><a href="terms.html" onclick="closeMenuAndNavigate('terms.html')"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+
+      <div class="nav-cta">
+        <a href="contact.html"><button class="book-btn">Book Appointment</button></a>
+        <div class="nav-icons">
+          <a href="https://wa.me/27717729736"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:mambadifferance@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+27717729736"><i class="fas fa-phone"></i></a>
         </div>
       </div>
-      <div class="right-section">
-        <h2>Our Values</h2>
-        <div class="values">
-          <h3 class="value-header active">SAFETY</h3>
-          <p>We prioritize safety in all our projects to ensure the well-being of our team and clients.</p>
-          <h3 class="value-header">CUSTOMER SERVICE</h3>
-          <p>Our dedicated customer service ensures that all client needs are met promptly and efficiently.</p>
-          <h3 class="value-header">INTEGRITY</h3>
-          <p>We uphold the highest standards of integrity in all our actions and decisions.</p>
-        </div>
-        <div class="glass-card-container">
-          <div class="glass-card-background">
-            <img src="images/background gellary.jpg" alt="Why Choose Us Background">
-          </div>
-          <div class="glass-card">
-            <h3>Why Choose Us?</h3>
-            <p>Driven by experience, dedication, and excellence in every project we deliver.</p>
-          </div>
-        </div>
-      </div>
+    </ul>
+  </nav>
+
+  <!-- New Banner Section below navigation -->
+  <div class="banner">
+    <button class="book-btn">Book Appointment</button>
+    <div class="nav-icons">
+      <a href="https://wa.me/27717729736"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:mambadifferance@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+27717729736"><i class="fas fa-phone"></i></a>
     </div>
-  </section>
+  </div>
 
-  <section>
-    <div class="section">
-      <div class="card">
-        <div class="column">
-          <div class="number" data-target="86">0</div>
-          <p>Projects Completed</p>
-        </div>
-        <div class="column">
-          <div class="number" data-target="13">0</div>
-          <p>Years of Exprience</p>
-        </div>
-        </div>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="gradient-overlay"></div>
+    <div class="welcome-text">
+      <h1>Helping You Move Better</h1>
+      <p>Professional physiotherapy care tailored to your needs.</p>
     </div>
-  </section>
+  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const numbers = document.querySelectorAll('.number');
-      const section = document.querySelector('.section');
 
-      function startCounting(number) {
-        const target = parseInt(number.getAttribute('data-target'));
-        let current = 0;
-        const increment = target / 100;
+   <!-- ================= COOKIE-POPUP ================= -->
+  
+  <div class="cookie-popup" id="cookiePopup">
+  <div class="cookie-content">
+    <p class="cookie-text">We use cookies to improve your experience. By using our site, you consent to our use of cookies. <a href="cookie.html">Learn more</a></p>
+    <button class="cookie-btn" id="acceptCookies">Got it!</button>
+  </div>
+</div>
+    
+     <script>
+    // Get elements
+const cookiePopup = document.getElementById('cookiePopup');
+const acceptCookiesButton = document.getElementById('acceptCookies');
 
-        function updateNumber() {
-          if (current < target) {
-            current += increment;
-            number.textContent = Math.floor(current);
-            requestAnimationFrame(updateNumber);
-          } else {
-            number.textContent = target;
-          }
-        }
+// Check if cookie consent is already given (via localStorage)
+if (!localStorage.getItem('cookieConsent')) {
+  // Show the popup if no consent has been given
+  cookiePopup.style.display = 'block';
+}
 
-        updateNumber();
-      }
+// Set cookie consent and hide the popup when the button is clicked
+acceptCookiesButton.addEventListener('click', () => {
+  localStorage.setItem('cookieConsent', 'true');
+  cookiePopup.style.display = 'none';
+});
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            numbers.forEach(number => startCounting(number));
-          }
-        });
-      }, {
-        threshold: 0.1
-      });
-
-      observer.observe(section);
-    });
-  </script>
-
-  <!-- SERVICES -->
-  <section class="services-section" id="services">
-    <h1>OUR SERVICES</h1>
-    <p>We offer quality and affordable services for both residential and commercial needs.</p>
-    <div class="content-container">
-      <div class="image-container">
-        <img src="images/Paving.jpg" alt="Construction Image" />
-      </div>
-      <div class="services-grid" id="servicesGrid">
-        <div class="service-card" onclick="location.href='services.html#paving'">PAVING</div>
-        <div class="service-card" onclick="location.href='services.html#tiling'">TILING</div>
-        <div class="service-card" onclick="location.href='services.html#painting'">PAINTING</div>
-        <div class="service-card" onclick="location.href='services.html#building'">BUILDING & RENOVATIONS</div>
-        <div class="service-card" onclick="location.href='services.html#ceiling'">CEILING & CORNICE FITTING & DECO</div>
-        <div class="service-card" onclick="location.href='services.html#waterproofing'">WATERPROOFING & DAMP-PROOFING</div>
-        <div class="service-card" onclick="location.href='services.html#interior'">INTERIOR DECO</div>
-      </div>
-      <div class="view-btn-container">
-        <button class="view-btn" onclick="window.location.href='services.html'">View All Services</button>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    document.querySelectorAll('section').forEach(section => {
-      section.classList.add('visible');
-    });
-
-    document.querySelectorAll(".value-header").forEach(header => {
-      header.addEventListener("click", () => {
-        document.querySelectorAll(".value-header").forEach(h => {
-          if (h !== header) {
-            h.classList.remove("active");
-          }
-        });
-        header.classList.toggle("active");
-      });
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const safetyHeader = document.querySelector(".value-header");
-      if (safetyHeader) {
-        safetyHeader.classList.add("active");
-      }
-    });
-  </script>
-
-  <!-- MADE WITH LOVE -->
-  <section class="gallery-section">
-    <h2>PROJECTS</h2>
-    <p>Our projects are crafted with care and attention to detail.</p>
-    <div class="filter-buttons">
-      <button onclick="filterGallery('building')" class="active">BUILDING & RENOVATIONS</button>
-      <button onclick="filterGallery('painting')">PAINTING</button>
-      <button onclick="filterGallery('tiling')">TILING</button>
-      <button onclick="filterGallery('paving')">PAVING</button>
-      <button onclick="filterGallery('ceiling')">CEILING & CORNICE</button>
-      <button onclick="filterGallery('waterproofing')">WATERPROOFING</button>
-      <button onclick="filterGallery('interior')">INTERIOR DECO</button>
-      <button onclick="filterGallery('all')">SHOW ALL</button>
-    </div>
-    <div class="gallery">
-      <img src="images/building1.jpg" class="gallery-item building" />
-      <img src="images/building2.jpg" class="gallery-item building" />
-      <img src="images/IMG-20250421-WA0064 (1).jpg" class="gallery-item building" />
-      <img src="images/painting1.jpg" class="gallery-item painting" style="display: none;" />
-      <img src="images/painting2.jpg" class="gallery-item painting" style="display: none;" />
-      <img src="images/painting3.jpg" class="gallery-item painting" style="display: none;" />
-      <img src="images/tiling1.jpg" class="gallery-item tiling" style="display: none;" />
-      <img src="images/tiling2.jpg" class="gallery-item tiling" style="display: none;" />
-      <img src="images/tiling3.jpg" class="gallery-item tiling" style="display: none;" />
-      <img src="images/paving1.jpg" class="gallery-item paving" style="display: none;" />
-      <img src="images/paving2.jpg" class="gallery-item paving" style="display: none;" />
-      <img src="images/paving3.jpg" class="gallery-item paving" style="display: none;" />
-      <img src="images/ceiling1.jpg" class="gallery-item ceiling" style="display: none;" />
-      <img src="images/ceiling2.jpg" class="gallery-item ceiling" style="display: none;" />
-      <img src="images/ceiling3.jpg" class="gallery-item ceiling" style="display: none;" />
-      <img src="images/waterproofing1.jpg" class="gallery-item waterproofing" style="display: none;" />
-      <img src="images/waterproofing2.jpg" class="gallery-item waterproofing" style="display: none;" />
-      <img src="images/waterproofing3.jpg" class="gallery-item waterproofing" style="display: none;" />
-      <img src="images/interior1.jpg" class="gallery-item interior" style="display: none;" />
-      <img src="images/interior2.jpg" class="gallery-item interior" style="display: none;" />
-      <img src="images/interior3.jpg" class="gallery-item interior" style="display: none;" />
-    </div>
-  </section>
-
-  <script>
-    function filterGallery(category) {
-      const items = document.querySelectorAll('.gallery-item');
-      const buttons = document.querySelectorAll('.filter-buttons button');
-
-      buttons.forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`.filter-buttons button[onclick="filterGallery('${category}')"]`).classList.add('active');
-
-      items.forEach(item => {
-        if (category === 'all') {
-          item.style.display = 'block';
-        } else {
-          item.style.display = item.classList.contains(category) ? 'block' : 'none';
-        }
-      });
-    }
-
-    window.onload = function() {
-      filterGallery('building');
-    };
-  </script>
+</script>
+  <section id="conditions"><h2>Conditions Treated</h2></section>
+  <section id="visits"><h2>Home Visits</h2></section>
 
   <footer>
-    <div class="footer-container">
-      <div>
-        <h2>About</h2>
-        <p>We are a Gauteng-based construction company delivering high-quality services with integrity and precision.</p>
-        <img src="images/IMG-20250421-WA0063_1_-removebg-preview (1).png" alt="Company Logo" style="width: 80px; margin-top: 1rem;" />
-      </div>
-      <div>
-        <h2>Contact Us</h2>
-        <div class="contact-info">
-          <p>
-            <a href="mailto:mabasojuta@gmail.com">
-              <i class="fas fa-envelope"></i> mabasojuta@gmail.com
-            </a>
-          </p>
-          <p>
-            <a href="tel:+27717426995">
-              <i class="fas fa-phone"></i> +27 71 742 6995 / +27 67 026 0642
-            </a>
-          </p>
-          <p>
-            <a href="https://wa.me/27717426995" target="_blank">
-              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-            </a>
-          </p>
-        </div>
-        <form action="https://formspree.io/f/xwpkkvnk" class="contact-form" id="contactForm">
-          <div>
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required pattern="[a-zA-Z ]+" title="Enter a valid name.">
-          </div>
-          <div>
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div>
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500"></textarea>
-          </div>
-          <div class="checkbox-group">
-            <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
-            <label for="privacyPolicy">I agree to the <a href="privacy.html">Privacy Policy</a>.</label>
-          </div>
-          <div class="checkbox-group">
-            <input type="checkbox" id="communicationOptIn" name="communicationOptIn">
-            <label for="communicationOptIn">I would like to receive updates and promotional communications.</label>
-          </div>
-          <button type="submit">Send Message</button>
-        </form>
-        <div id="loader" style="display:none;"><img src="loader.gif" alt="Loading..."></div>
-        <div id="response" style="display:none;"></div>
-      </div>
-      <div>
-        <h2>Navigation</h2>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Our Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="paints.html">Paint Orders (Gauteng)</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms & Conditions</a></li>
-          <li><a href="blog.html">Blog</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Juta Daco Construction (Pty) Ltd. Reg No: 2018/242354/07. All rights reserved.</p>
-      <div class="social">
-        <a href="#" class="hover:text-yellow-400" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="hover:text-yellow-400" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/27717426995" target="_blank" class="hover:text-yellow-400" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      </div>
-      <div class="credit">
-        <a href="https://nhlobo.github.io/Mapengo_Innovations/" target="_blank" class="hover:text-yellow-400">
-          <img src="images/logo.png" alt="Mapengo Logo" />
-          Developed & Maintained by Mapengo Innovations
-        </a>
-      </div>
-    </div>
+    <p>&copy; 2025 MaMba Physiotherapy. All rights reserved.</p>
   </footer>
 
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      document.getElementById('loader').style.display = 'block';
+    // Navigation toggle and close menu function
+    const hamburger = document.getElementById('hamburger');
+    const navList = document.getElementById('nav-list');
+    const closeBtn = document.getElementById('close-btn');
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      const privacyPolicy = document.getElementById('privacyPolicy').checked;
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailPattern.test(email)) {
-        showResponse('Please enter a valid email address.', 'error');
-        return;
-      }
-
-      if (!privacyPolicy) {
-        showResponse('You must agree to the Privacy Policy before submitting.', 'error');
-        return;
-      }
-
-      if (!name || !email || !message) {
-        showResponse('Please fill in all required fields.', 'error');
-        return;
-      }
-
-      if (!navigator.onLine) {
-        showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
-        return;
-      }
-
-      const formData = new FormData(this);
-
-      fetch(this.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          Accept: 'application/json'
-        }
-      })
-      .then(response => {
-        document.getElementById('loader').style.display = 'none';
-        if (response.ok) {
-          showResponse('Thank you! Your message has been successfully sent.', 'success');
-          this.reset();
-        } else {
-          showResponse('Oops! There was an issue with your submission. Please try again later.', 'error');
-        }
-      })
-      .catch(error => {
-        document.getElementById('loader').style.display = 'none';
-        if (!navigator.onLine) {
-          showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
-        } else {
-          showResponse('There was a problem with your submission. Please try again later.', 'error');
-        }
-      });
+    hamburger.addEventListener('click', () => {
+      navList.classList.toggle('active');
+      hamburger.classList.toggle('active');
     });
 
-    function showResponse(message, type) {
-      const responseDiv = document.getElementById('response');
-      responseDiv.style.display = 'block';
-      responseDiv.textContent = message;
-      responseDiv.className = type === 'success' ? 'success-message' : 'error-message';
-      setTimeout(() => {
-        responseDiv.style.display = 'none';
-      }, 5000);
+    closeBtn.addEventListener('click', () => {
+      navList.classList.remove('active');
+      hamburger.classList.remove('active');
+    });
+
+    function closeMenuAndNavigate(url) {
+      navList.classList.remove('active');
+      hamburger.classList.remove('active');
+      window.location.href = url;
     }
   </script>
 </body>
