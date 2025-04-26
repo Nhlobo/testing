@@ -1,66 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects Section</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Construction Company</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      box-sizing: border-box;
     }
 
-    section.projects {
-      padding: 40px 20px;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 60px 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    h1 {
       text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #222;
     }
 
-    section.projects h2 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+    p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
-    .picture-container {
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .left-section, .right-section {
+      flex: 1 1 45%;
+      min-width: 300px;
+      position: relative;
+    }
+
+    .icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .icon-item {
+      text-align: center;
+      flex: 1 1 160px;
+    }
+
+    .icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid gold;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      max-width: 1200px;
-      margin: 0 auto 30px auto;
-      flex-wrap: nowrap; /* VERY IMPORTANT: prevent wrapping */
+      margin: 0 auto 8px;
     }
 
-    .left-picture {
-      flex: 2;
-      min-width: 0;
+    .icon-circle img {
+      width: 26px;
+      height: 26px;
     }
 
-    .right-pictures {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex: 1;
-      min-width: 0;
+    .icon-item h4 {
+      font-size: 0.9rem;
     }
 
-    .left-picture img,
-    .small-picture img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 8px;
+    .values h3 {
+      font-size: 1rem;
+      margin-top: 15px;
+      position: relative;
+      padding-left: 18px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .values h3::before {
+      content: "➤";
+      position: absolute;
+      left: 0;
+      color: #ffc107;
+    }
+
+    .values p {
+      margin-left: 18px;
+      display: none;
+      margin-top: 5px;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .values h3.active + p {
       display: block;
     }
 
-    .small-picture {
-      flex: 1;
+    .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 40px;
     }
 
-    /* Button styling */
-    .view-all-btn {
+    .image-container {
+      flex: 1 1 400px;
+    }
+
+    .image-container img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      flex: 1 1 400px;
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 16px;
+      font-size: 0.95rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: #ffc107;
+    }
+
+    .view-btn {
       background: #ffc107;
       border: none;
       padding: 10px 24px;
@@ -81,32 +189,664 @@
       margin-top: 30px;
     }
 
-    /* Make images responsive but keep structure */
+    .glass-card-container {
+      position: relative;
+      width: 100%;
+      max-width: 350px;
+      margin-top: 30px;
+    }
+
+    .glass-card-background {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .glass-card-background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .glass-card {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #ffc107;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .glass-card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #000;
+    }
+
+    .glass-card p {
+      font-size: 0.9rem;
+      color: #333;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    .section {
+      width: 100%;
+      height: 50vh;
+      background: url('images/IMG-20250423-WA0053 (1).jpg') no-repeat center center/cover;
+      color: #FFFFFF;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .card {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .column {
+      flex: 1;
+      margin: 0 10px;
+      text-align: center;
+    }
+
+    .column .number {
+      font-size: 48px;
+      color: #FFA500;
+      margin-bottom: 10px;
+    }
+
+    .column p {
+      font-size: 18px;
+    }
+
     @media (max-width: 768px) {
-      .picture-container {
-        flex-wrap: nowrap; /* Stay side-by-side */
+      .content-container {
+        flex-direction: column;
+        align-items: center;
       }
-      .left-picture, .right-pictures {
-        flex: 1 1 50%;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .services-grid {
+        margin-top: 20px;
+      }
+
+      .glass-card-container {
+        max-width: 100%;
+      }
+
+      .card {
+        flex-direction: column;
+      }
+
+      .column {
+        margin-bottom: 20px;
+      }
+
+      .left-section, .right-section {
+        flex: 1 1 100%;
+        min-width: 100%;
+      }
+
+      .icons {
+        justify-content: center;
+      }
+
+      .icon-item {
+        flex: 1 1 100px;
+      }
+
+      .icon-circle {
+        width: 50px;
+        height: 50px;
+      }
+
+      .icon-circle img {
+        width: 22px;
+        height: 22px;
+      }
+
+      .icon-item h4 {
+        font-size: 0.8rem;
+      }
+
+      .values h3 {
+        font-size: 0.9rem;
+      }
+
+      .values p {
+        font-size: 0.8rem;
+      }
+
+      .glass-card h3 {
+        font-size: 0.9rem;
+      }
+
+      .glass-card p {
+        font-size: 0.8rem;
       }
     }
-    
+
     @media (max-width: 480px) {
-      .picture-container {
-        flex-wrap: nowrap; /* Still no wrap */
+      .section {
+        height: 40vh;
       }
-      .left-picture, .right-pictures {
-        flex: 1 1 50%;
+
+      .card {
+        padding: 10px;
       }
+
+      .column .number {
+        font-size: 36px;
+      }
+
+      .column p {
+        font-size: 16px;
+      }
+    }
+     
+      footer {
+      background-image: url('images/Waterproofing & Damp-proofing.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .footer-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    h2 {
+      color: #facc15;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      color: #facc15;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      margin-top: 0.25rem;
+      margin-bottom: 1rem;
+      background-color: #1f1f1f;
+      color: #e0e0e0;
+    }
+
+    .contact-form label {
+      font-size: 0.875rem;
+    }
+
+    .contact-form button {
+      background: #facc15;
+      color: #000;
+      padding: 0.75rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+    }
+
+    .contact-form button:hover {
+      background: #fbbf24;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-info i {
+      color: #facc15;
+      width: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .success-message {
+      color: #22c55e;
+      padding-top: 1rem;
+    }
+
+    .error-message {
+      color: #ef4444;
+      padding-top: 1rem;
+    }
+
+    .footer-bottom {
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid #333;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.875rem;
+      color: #aaa;
+    }
+
+    .footer-bottom .social {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-bottom .credit {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .footer-bottom .credit img {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .content-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .services-grid {
+        margin-top: 20px;
+      }
+
+      .section {
+            width: 100%; /* Full width */
+            height: 50vh; /* Adjust the height as needed (50% of viewport height) */
+            background: url('images/IMG-20250423-WA0058.jpg') no-repeat center center/cover;
+            color: #FFFFFF;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        .card {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%; /* Match the width of the section */
+            height: 100%; /* Match the height of the section */
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px; /* Padding inside the card */
+            text-align: center;
+        }
+        .column {
+            flex: 1;
+            margin: 0 10px; /* Horizontal spacing between columns */
+            text-align: center;
+        }
+        .column .number {
+            font-size: 48px;
+            color: #FFA500;
+            margin-bottom: 10px;
+        }
+        .column p {
+            font-size: 18px;
+        }
+
+      body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+section.projects {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+section.projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.picture-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+  flex-wrap: nowrap; /* VERY IMPORTANT: prevent wrapping */
+}
+
+.left-picture {
+  flex: 2;
+  min-width: 0;
+}
+
+.right-pictures {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.left-picture img,
+.small-picture img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.small-picture {
+  flex: 1;
+}
+
+/* Button styling */
+.view-all-btn {
+  background: #ffc107;
+  border: none;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #000;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background: #e6b800;
+}
+
+.view-btn-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Make images responsive but keep structure */
+@media (max-width: 768px) {
+  .picture-container {
+    flex-wrap: nowrap; /* Stay side-by-side */
+  }
+  .left-picture, .right-pictures {
+    flex: 1 1 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .picture-container {
+    flex-wrap: nowrap; /* Still no wrap */
+  }
+  .left-picture, .right-pictures {
+    flex: 1 1 50%;
+  }
+}
+
     }
   </style>
 </head>
 <body>
+<!-- ABOUT US -->
+  <section class="about-us">
+    <h1>ABOUT US</h1>
+    <div class="container">
+      <div class="left-section">
+        <p>We are known for our excellence and commitment to delivering high-quality projects. Our team of professionals builds strong partnerships and ensures that every project meets the highest standards.</p>
+        <div class="icons">
+          <div class="icon-item">
+            <div class="icon-circle">
+              <img src="images/professionals.png" alt="Excellence">
+            </div>
+            <h4>REPUTATION FOR EXCELLENCE</h4>
+          </div>
+          <div class="icon-item">
+            <div class="icon-circle">
+              <img src="images/collaboration_16743854.png" alt="Partnerships">
+            </div>
+            <h4>BUILD PARTNERSHIPS</h4>
+          </div>
+          <div class="icon-item">
+            <div class="icon-circle">
+              <img src="images/con committment.png" alt="Commitment">
+            </div>
+            <h4>GUIDED BY COMMITMENT</h4>
+          </div>
+          <div class="icon-item">
+            <div class="icon-circle">
+              <img src="images/con proffessonals.png" alt="Professionals">
+            </div>
+            <h4>TEAM OF PROFESSIONALS</h4>
+          </div>
+        </div>
+      </div>
+      <div class="right-section">
+        <h2>Our Values</h2>
+        <div class="values">
+          <h3 class="value-header active">SAFETY</h3>
+          <p>We prioritize safety in all our projects to ensure the well-being of our team and clients.</p>
+          <h3 class="value-header">CUSTOMER SERVICE</h3>
+          <p>Our dedicated customer service ensures that all client needs are met promptly and efficiently.</p>
+          <h3 class="value-header">INTEGRITY</h3>
+          <p>We uphold the highest standards of integrity in all our actions and decisions.</p>
+        </div>
+        <div class="glass-card-container">
+          <div class="glass-card-background">
+            <img src="images/background gellary.jpg" alt="Why Choose Us Background">
+          </div>
+          <div class="glass-card">
+            <h3>Why Choose Us?</h3>
+            <p>Driven by experience, dedication, and excellence in every project we deliver.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="projects">
+  <section>
+    <div class="section">
+      <div class="card">
+        <div class="column">
+          <div class="number" data-target="86">0</div>
+          <p>Projects Completed</p>
+        </div>
+        <div class="column">
+          <div class="number" data-target="13">0</div>
+          <p>Years of Exprience</p>
+        </div>
+        </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const numbers = document.querySelectorAll('.number');
+      const section = document.querySelector('.section');
+
+      // Function to start the counting animation
+      function startCounting(number) {
+        const target = parseInt(number.getAttribute('data-target'));
+        let current = 0;
+        const increment = target / 100; // Adjust for faster/slower animation
+
+        function updateNumber() {
+          if (current < target) {
+            current += increment;
+            number.textContent = Math.floor(current);
+            requestAnimationFrame(updateNumber);
+          } else {
+            number.textContent = target;
+          }
+        }
+
+        updateNumber();
+      }
+
+      // Intersection Observer to detect when the section is in view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            numbers.forEach(number => startCounting(number));
+          }
+        });
+      }, {
+        threshold: 0.1 // Trigger when 10% of the section is visible
+      });
+
+      observer.observe(section);
+    });
+  </script>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <h1>OUR SERVICES</h1>
+    <p>We offer quality and affordable services for both residential and commercial needs.</p>
+
+    <div class="content-container">
+      <div class="image-container">
+        <img src="images/Paving.jpg" alt="Construction Image" />
+      </div>
+
+     <div class="services-grid" id="servicesGrid">
+  <div class="service-card" onclick="location.href='services.html#paving'">PAVING</div>
+  <div class="service-card" onclick="location.href='services.html#tiling'">TILING</div>
+  <div class="service-card" onclick="location.href='services.html#painting'">PAINTING</div>
+  <div class="service-card" onclick="location.href='services.html#building'">BUILDING & RENOVATIONS</div>
+  <div class="service-card" onclick="location.href='services.html#ceiling'">CEILING & CORNICE FITTING & DECO</div>
+  <div class="service-card" onclick="location.href='services.html#waterproofing'">WATERPROOFING & DAMP-PROOFING</div>
+  <div class="service-card" onclick="location.href='services.html#interior'">INTERIOR DECO</div>
+</div>
+      <div class="view-btn-container">
+  <button class="view-btn" onclick="window.location.href='services.html'">View All Services</button>
+</div>
+    </div>
+  </section>
+
+  <script>
+    // Make all sections immediately visible without scroll effect
+document.querySelectorAll('section').forEach(section => {
+  section.classList.add('visible');
+});
+
+// Toggle value descriptions
+document.querySelectorAll(".value-header").forEach(header => {
+  header.addEventListener("click", () => {
+    // Close others
+    document.querySelectorAll(".value-header").forEach(h => {
+      if (h !== header) {
+        h.classList.remove("active");
+      }
+    });
+
+    // Toggle the clicked header
+    header.classList.toggle("active");
+  });
+});
+
+// Ensure the "SAFETY" value is always open
+document.addEventListener("DOMContentLoaded", () => {
+  const safetyHeader = document.querySelector(".value-header");
+  if (safetyHeader) {
+    safetyHeader.classList.add("active");
+  }
+});
+  </script>
+
+  <section class="projects">
   <h2>PROJECTS</h2>
-  <!-- View All Projects Button -->
-  <a href="projects.html" class="view-all-btn">View All Projects</a>
 
   <div class="picture-container">
     <!-- Left Big Picture -->
@@ -125,7 +865,168 @@
     </div>
   </div>
 
+  <!-- View All Projects Button -->
+  <a href="projects.html" class="view-all-btn">View All Projects</a>
 </section>
+  <footer>
+  <div class="footer-container">
+    
+    <!-- About Section -->
+    <div>
+      <h2>About</h2>
+      <p>We are a Gauteng-based construction company delivering high-quality services with integrity and precision.</p>
+      <img src="images/IMG-20250421-WA0063_1_-removebg-preview (1).png" alt="Company Logo" style="width: 80px; margin-top: 1rem;" />
+    </div>
 
+    <!-- Contact Section -->
+    <div>
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+  <p>
+    <a href="mailto:mabasojuta@gmail.com">
+      <i class="fas fa-envelope"></i> mabasojuta@gmail.com
+    </a>
+  </p>
+  <p>
+    <a href="tel:+27717426995">
+      <i class="fas fa-phone"></i> +27 71 742 6995 / +27 67 026 0642
+    </a>
+  </p>
+  <p>
+    <a href="https://wa.me/27717426995" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+    </a>
+  </p>
+</div>
+
+
+      <form action="https://formspree.io/f/xwpkkvnk" class="contact-form" id="contactForm">
+        <div>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required pattern="[a-zA-Z ]+" title="Enter a valid name.">
+        </div>
+        <div>
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500"></textarea>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+          <label for="privacyPolicy">I agree to the <a href="privacy.html">Privacy Policy</a>.</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="communicationOptIn" name="communicationOptIn">
+          <label for="communicationOptIn">I would like to receive updates and promotional communications.</label>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="loader" style="display:none;"><img src="loader.gif" alt="Loading..."></div>
+      <div id="response" style="display:none;"></div>
+    </div>
+
+    <!-- Navigation Section -->
+    <div>
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="paints.html">Paint Orders (Gauteng)</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 Juta Daco Construction (Pty) Ltd. Reg No: 2018/242354/07. All rights reserved.</p>
+    <div class="social">
+      <a href="#" class="hover:text-yellow-400" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-yellow-400" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/27717426995" target="_blank" class="hover:text-yellow-400" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <div class="credit">
+      <a href="https://nhlobo.github.io/Mapengo_Innovations/" target="_blank" class="hover:text-yellow-400">
+        <img src="images/logo.png" alt="Mapengo Logo" />
+        Developed & Maintained by Mapengo Innovations
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('loader').style.display = 'block';
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const privacyPolicy = document.getElementById('privacyPolicy').checked;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+                showResponse('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            if (!privacyPolicy) {
+                showResponse('You must agree to the Privacy Policy before submitting.', 'error');
+                return;
+            }
+
+            if (!name || !email || !message) {
+                showResponse('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            if (!navigator.onLine) {
+                showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
+                return;
+            }
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    Accept: 'application/json'
+                }
+            })
+            .then(response => {
+                document.getElementById('loader').style.display = 'none';
+                if (response.ok) {
+                    showResponse('Thank you! Your message has been successfully sent.', 'success');
+                    this.reset();
+                } else {
+                    showResponse('Oops! There was an issue with your submission. Please try again later.', 'error');
+                }
+            })
+            .catch(error => {
+                document.getElementById('loader').style.display = 'none';
+                if (!navigator.onLine) {
+                    showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
+                } else {
+                    showResponse('There was a problem with your submission. Please try again later.', 'error');
+                }
+            });
+        });
+
+        function showResponse(message, type) {
+            const responseDiv = document.getElementById('response');
+            responseDiv.style.display = 'block';
+            responseDiv.textContent = message;
+            responseDiv.className = type === 'success' ? 'success-message' : 'error-message';
+            setTimeout(() => {
+                responseDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
