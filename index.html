@@ -580,98 +580,73 @@
         .column p {
             font-size: 18px;
         }
+       h2 {
+      text-align: center;
+      color: #222;
+    }
 
-      /* Ensure the projects section styles are specific enough */
-section.projects {
-  padding: 40px 20px;
-  text-align: center;
-}
+    section {
+      padding: 40px 20px;
+    }
 
-section.projects h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
+    .gallery-section {
+      position: relative;
+      background: url('images/IMG-20250423-WA0053 ') no-repeat center center/cover;
+      text-align: center;
+      color: black;
+      padding: 60px 20px;
+    }
 
-.picture-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  max-width: 1200px;
-  margin: 0 auto 30px auto;
-  flex-wrap: nowrap; /* VERY IMPORTANT: prevent wrapping */
-}
+    .gallery-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      z-index: 1;
+    }
 
-.left-picture {
-  flex: 2;
-  min-width: 0;
-}
+    .gallery-section > * {
+      position: relative;
+      z-index: 2;
+    }
 
-.right-pictures {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1;
-  min-width: 0;
-}
+    .filter-buttons {
+      margin: 20px 0;
+    }
 
+    .filter-buttons button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      background: #222;
+      color: white;
+      cursor: pointer;
+    }
 
-section.projects .left-picture img,
-section.projects .small-picture img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
-}
+    .filter-buttons .active {
+      background: #ffc107;
+      color: black;
+    }
 
-.small-picture {
-  flex: 1;
-}
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      padding: 20px;
+    }
 
-/* Button styling */
-.view-all-btn {
-  background: #ffc107;
-  border: none;
-  padding: 10px 24px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  color: #000;
-  font-weight: 600;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-}
-
-.view-all-btn:hover {
-  background: #e6b800;
-}
-
-.view-btn-container {
-  text-align: center;
-  margin-top: 30px;
-}
-
-/* Make images responsive but keep structure */
-@media (max-width: 768px) {
-  .picture-container {
-    flex-wrap: nowrap; /* Stay side-by-side */
-  }
-  .left-picture, .right-pictures {
-    flex: 1 1 50%;
-  }
-}
-
-@media (max-width: 480px) {
-  .picture-container {
-    flex-wrap: nowrap; /* Still no wrap */
-  }
-  .left-picture, .right-pictures {
-    flex: 1 1 50%;
-  }
-}
-
+    .gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
     }
   </style>
 </head>
@@ -810,59 +785,69 @@ section.projects .small-picture img {
 </div>
     </div>
   </section>
-  <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Make all sections immediately visible without scroll effect
-  document.querySelectorAll('section').forEach(section => {
-    section.classList.add('visible');
-  });
 
-  // Toggle value descriptions
-  document.querySelectorAll(".value-header").forEach(header => {
-    header.addEventListener("click", () => {
-      // Close others
-      document.querySelectorAll(".value-header").forEach(h => {
-        if (h !== header) {
-          h.classList.remove("active");
+  <!-- MADE WITH LOVE -->
+  <section class="gallery-section">
+    <h2>PROJECTS</h2>
+    <p>Our projects are crafted with care and attention to detail.</p>
+    <div class="filter-buttons">
+      <button onclick="filterGallery('building')" class="active">BUILDING & RENOVATIONS</button>
+      <button onclick="filterGallery('painting')">PAINTING</button>
+      <button onclick="filterGallery('tiling')">TILING</button>
+      <button onclick="filterGallery('paving')">PAVING</button>
+      <button onclick="filterGallery('ceiling')">CEILING & CORNICE</button>
+      <button onclick="filterGallery('waterproofing')">WATERPROOFING</button>
+      <button onclick="filterGallery('interior')">INTERIOR DECO</button>
+      <button onclick="filterGallery('all')">SHOW ALL</button>
+    </div>
+    <div class="gallery">
+      <img src="images/building1.jpg" class="gallery-item building" />
+      <img src="images/building2.jpg" class="gallery-item building" />
+      <img src="images/IMG-20250421-WA0064 (1).jpg" class="gallery-item building" />
+      <img src="images/painting1.jpg" class="gallery-item painting" style="display: none;" />
+      <img src="images/painting2.jpg" class="gallery-item painting" style="display: none;" />
+      <img src="images/painting3.jpg" class="gallery-item painting" style="display: none;" />
+      <img src="images/tiling1.jpg" class="gallery-item tiling" style="display: none;" />
+      <img src="images/tiling2.jpg" class="gallery-item tiling" style="display: none;" />
+      <img src="images/tiling3.jpg" class="gallery-item tiling" style="display: none;" />
+      <img src="images/paving1.jpg" class="gallery-item paving" style="display: none;" />
+      <img src="images/paving2.jpg" class="gallery-item paving" style="display: none;" />
+      <img src="images/paving3.jpg" class="gallery-item paving" style="display: none;" />
+      <img src="images/ceiling1.jpg" class="gallery-item ceiling" style="display: none;" />
+      <img src="images/ceiling2.jpg" class="gallery-item ceiling" style="display: none;" />
+      <img src="images/ceiling3.jpg" class="gallery-item ceiling" style="display: none;" />
+      <img src="images/waterproofing1.jpg" class="gallery-item waterproofing" style="display: none;" />
+      <img src="images/waterproofing2.jpg" class="gallery-item waterproofing" style="display: none;" />
+      <img src="images/waterproofing3.jpg" class="gallery-item waterproofing" style="display: none;" />
+      <img src="images/interior1.jpg" class="gallery-item interior" style="display: none;" />
+      <img src="images/interior2.jpg" class="gallery-item interior" style="display: none;" />
+      <img src="images/interior3.jpg" class="gallery-item interior" style="display: none;" />
+    </div>
+  </section>
+
+  <script>
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.filter-buttons button');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.filter-buttons button[onclick="filterGallery('${category}')"]`).classList.add('active');
+
+      items.forEach(item => {
+        if (category === 'all') {
+          item.style.display = 'block';
+        } else {
+          item.style.display = item.classList.contains(category) ? 'block' : 'none';
         }
       });
+    }
 
-      // Toggle the clicked header
-      header.classList.toggle("active");
-    });
-  });
-
-  // Ensure the "SAFETY" value is always open
-  const safetyHeader = document.querySelector(".value-header");
-  if (safetyHeader) {
-    safetyHeader.classList.add("active");
-  }
-});
+    // Initialize the gallery to show "Building & Renovations" by default
+    window.onload = function() {
+      filterGallery('building');
+    };
   </script>
- <section class="projects visible">
-  <h2>PROJECTS</h2>
-
-  <div class="picture-container">
-    <!-- Left Big Picture -->
-    <div class="left-picture">
-      <img src="Clyde-2.jpg" alt="Picture 1">
-    </div>
-
-    <!-- Right Stacked Pictures -->
-    <div class="right-pictures">
-      <div class="small-picture">
-        <img src="Clyde-2.jpg" alt="Picture 2">
-      </div>
-      <div class="small-picture">
-        <img src="IMG-20241015-WA0003.jpg" alt="Picture 3">
-      </div>
-    </div>
-  </div>
-
-  <!-- View All Projects Button -->
-  <a href="projects.html" class="view-all-btn">View All Projects</a>
-</section>
-
+  
   <footer>
   <div class="footer-container">
     
