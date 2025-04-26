@@ -710,19 +710,39 @@
   </div>
 </footer>
 <!-- JavaScript -->
+<!-- Your Hamburger Button -->
+<button id="toggleButton"><i class="fas fa-bars"></i></button>
+
+<!-- Your Navigation Menu -->
+<ul id="mainMenu">
+  <button id="closeMenuButton"><i class="fas fa-times"></i></button>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Services</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+
+<!-- Add this JavaScript before closing </body> -->
 <script>
   const toggleButton = document.getElementById('toggleButton');
   const mainMenu = document.getElementById('mainMenu');
   const closeMenuButton = document.getElementById('closeMenuButton');
 
-  // When the hamburger is clicked, open the menu
+  // Open menu
   toggleButton.addEventListener('click', () => {
     mainMenu.classList.add('active');
   });
 
-  // When the close button is clicked, close the menu
+  // Close menu with red X button
   closeMenuButton.addEventListener('click', () => {
     mainMenu.classList.remove('active');
+  });
+
+  // Close menu by clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mainMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+      mainMenu.classList.remove('active');
+    }
   });
 </script>
 
