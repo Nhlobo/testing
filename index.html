@@ -711,6 +711,23 @@
 </footer>
 <!-- JavaScript -->
 <script>
+  const toggleButton = document.getElementById('toggleButton');
+  const mainMenu = document.getElementById('mainMenu');
+  const closeMenuButton = document.getElementById('closeMenuButton');
+
+  // When the hamburger is clicked, open the menu
+  toggleButton.addEventListener('click', () => {
+    mainMenu.classList.add('active');
+  });
+
+  // When the close button is clicked, close the menu
+  closeMenuButton.addEventListener('click', () => {
+    mainMenu.classList.remove('active');
+  });
+</script>
+
+  
+<script>
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
             document.getElementById('loader').style.display = 'block';
