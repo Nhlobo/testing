@@ -81,6 +81,97 @@
     .faq-card-body.active {
       max-height: 200px; /* Adjust as needed */
     }
+
+    {
+      font-family: 'Poppins', sans-serif;
+      background-color: #e6f0fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .testimonial-container {
+      text-align: center;
+      background: none;
+      padding: 20px;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .testimonial-container h2 {
+      color: #3366ff;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .testimonial-card {
+      position: relative;
+      background: none;
+      padding: 20px;
+      min-height: 450px;
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      color: #000;
+    }
+
+    .testimonial-title {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .testimonial-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      align-items: center;
+    }
+
+    .arrow {
+      font-size: 2rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s;
+      user-select: none;
+    }
+
+    .arrow:hover {
+      color: #3366ff;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: #3366ff;
+    }
   </style>
 </head>
 <body>
@@ -167,6 +258,104 @@
     });
   }
 </script>
+
+  <div class="testimonial-container">
+  <h2>Testimonial Slider</h2>
+
+  <div class="testimonial-card" id="testimonial-card">
+    <p class="testimonial-text" id="testimonial-text"></p>
+    <div class="testimonial-name" id="testimonial-name"></div>
+    <div class="testimonial-title" id="testimonial-title"></div>
+
+    <div class="testimonial-icons">
+      <span class="arrow" onclick="prevTestimonial()">&#10094;</span>
+      <span class="arrow" onclick="nextTestimonial()">&#10095;</span>
+    </div>
+
+    <div class="dots" id="dots-container"></div>
+  </div>
+</div>
+
+<script>
+  const testimonials = [
+    {
+      text: "They paved my entire driveway beautifully and professionally. The results are outstanding!",
+      name: "James Moyo",
+      title: "Paving Client"
+    },
+    {
+      text: "Excellent tiling work in my bathroom. Neat lines, great detail. Highly recommended!",
+      name: "Sandra Dlamini",
+      title: "Tiling Client"
+    },
+    {
+      text: "The team painted my house with great care and professionalism. The finish is flawless.",
+      name: "Peter Mahlangu",
+      title: "Painting Client"
+    },
+    {
+      text: "From start to finish, they renovated my home perfectly. I love the new layout and finish.",
+      name: "Linda Nkosi",
+      title: "Building & Renovation Client"
+    },
+    {
+      text: "Perfect ceiling and cornice work. Clean, precise and elegant. My home looks fresh now!",
+      name: "Thabo Maseko",
+      title: "Ceiling & Cornice Client"
+    },
+    {
+      text: "Our roof was leaking badly, but they waterproofed it and it’s 100% dry now. Impressive!",
+      name: "Grace Molefe",
+      title: "Waterproofing Client"
+    },
+    {
+      text: "They transformed my living room with stunning interior decor. I get compliments every time!",
+      name: "Sipho Ndlovu",
+      title: "Interior Deco Client"
+    }
+  ];
+
+  let current = 0;
+
+  const text = document.getElementById('testimonial-text');
+  const name = document.getElementById('testimonial-name');
+  const title = document.getElementById('testimonial-title');
+  const dotsContainer = document.getElementById('dots-container');
+
+  function loadTestimonial(index) {
+    const t = testimonials[index];
+    text.textContent = t.text;
+    name.textContent = t.name;
+    title.textContent = t.title;
+
+    // Update dots
+    dotsContainer.innerHTML = '';
+    testimonials.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === index) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        current = i;
+        loadTestimonial(current);
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function nextTestimonial() {
+    current = (current + 1) % testimonials.length;
+    loadTestimonial(current);
+  }
+
+  function prevTestimonial() {
+    current = (current - 1 + testimonials.length) % testimonials.length;
+    loadTestimonial(current);
+  }
+
+  // Initialize
+  loadTestimonial(current);
+</script>
+
 
 </body>
 </html>
