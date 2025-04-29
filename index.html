@@ -1,20 +1,781 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unique FAQ Section</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Juta Daco Construction offers expert Paving, Tiling, Painting, Building & Renovations, Ceiling & Cornice Fitting, Waterproofing, Damp-proofing, and Interior Decoration services across South Africa." />
+  <meta name="keywords" content="Paving South Africa, Tiling Experts, Painting Contractors, Building Renovations, Ceiling Fitting, Cornice Installation, Waterproofing Services, Damp-proofing, Interior Decoration Johannesburg, Best Construction Company South Africa" />
+  <meta name="author" content="Juta Daco Construction" />
+
+  <!-- Open Graph Meta for Social Sharing -->
+  <meta property="og:title" content="Juta Daco Construction | Building Dreams, Creating Futures" />
+  <meta property="og:description" content="Reliable and professional construction services: Paving, Tiling, Painting, Renovations, Waterproofing, and more. Contact us today!" />
+  <meta property="og:image" content="images/logo2" />
+  <meta property="og:url" content="www.JutaDacoConstruction.com" />
+  <meta property="og:type" content="website" />
+
+  <title>Juta Daco Construction | Best Paving, Tiling, Building, and Renovations in South Africa</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Styles -->
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #ffffff;
+    /* General Styles */
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth; /* Ensures smooth scrolling */
+    }
+
+    /* Navigation Styles */
+    nav.smart-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 10px 20px;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    /* Hamburger Menu */
+    #toggleButton {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: black;
+    }
+
+    /* Main Menu */
+    #mainMenu {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    #mainMenu li a {
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      #toggleButton {
+        display: block;
+      }
+
+      #mainMenu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffc107;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100%;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s ease;
+      }
+
+      #mainMenu.active {
+        right: 0;
+      }
+
+      #mainMenu li {
+        margin: 20px 0;
+      }
+
+      #closeMenuButton {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        color: red;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+    }
+
+    /* Close button hidden on desktop */
+    #closeMenuButton {
+      display: none;
+    }
+
+    /* Banner */
+    .banner {
+      background-color: #ffc107;
+      padding: 10px 20px;
+      text-align: center;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .banner .contact-icon {
       display: flex;
       flex-direction: column;
       align-items: center;
+      cursor: pointer;
+      position: relative;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .banner .contact-icon:hover {
+      background-color: #e6b800;
+    }
+
+    .banner .contact-icon i {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .banner .contact-icon .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      min-width: 150px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .banner .contact-icon .dropdown a {
+      color: #333;
+      text-decoration: none;
+      display: block;
+      padding: 8px 0;
+    }
+
+    .banner .contact-icon:hover .dropdown,
+    .banner .contact-icon.active .dropdown {
+      display: block;
+    }
+
+    .banner .contact-icon .chevron-down {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.3s;
+    }
+
+    .banner .contact-icon.active .chevron-down {
+      transform: rotate(180deg);
+    }
+
+    /* Cookie Popup */
+    .cookie-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      z-index: 9999;
+    }
+
+    .cookie-text {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .cookie-btn {
+      background-color: #ffc107;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 40px 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #222;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .left-section, .right-section {
+      flex: 1 1 45%;
+      min-width: 300px;
+      position: relative;
+    }
+
+    .icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .icon-item {
+      text-align: center;
+      flex: 1 1 160px;
+    }
+
+    .icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid gold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+    }
+
+    .icon-circle img {
+      width: 26px;
+      height: 26px;
+    }
+
+    .icon-item h4 {
+      font-size: 0.9rem;
+    }
+
+    .values h3 {
+      font-size: 1rem;
+      margin-top: 15px;
+      position: relative;
+      padding-left: 18px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .values h3::before {
+      content: "➤";
+      position: absolute;
+      left: 0;
+      color: #ffc107;
+    }
+
+    .values p {
+      margin-left: 18px;
+      display: none;
+      margin-top: 5px;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .values h3.active + p {
+      display: block;
+    }
+
+    .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .image-container {
+      flex: 1 1 400px;
+    }
+
+    .image-container img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      flex: 1 1 400px;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 16px;
+      font-size: 0.95rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: #ffc107;
+    }
+
+    .view-btn {
+      background: #ffc107;
+      border: none;
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: #000;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .view-btn:hover {
+      background: #e6b800;
+    }
+
+    .view-btn-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .glass-card-container {
+      position: relative;
+      width: 100%;
+      max-width: 350px;
+      margin-top: 30px;
+    }
+
+    .glass-card-background {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .glass-card-background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .glass-card {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #ffc107;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .glass-card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #000;
+    }
+
+    .glass-card p {
+      font-size: 0.9rem;
+      color: #333;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    .hero-section {
+      width: 100%;
+      height: 80vh; /* Increased height for better visibility */
+      position: relative;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .hero-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .hero-section .next-arrow {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Counting Section */
+    .counting-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 0; /* Remove border radius */
+      margin: 40px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .counting-card {
+      position: relative;
+      width: 100%; /* Full width */
+      max-width: 100%; /* Ensure it takes full width */
+      height: 200px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 0; /* Remove border radius */
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .counting-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .counting-card .number {
+      font-size: 48px;
+      color: #FFA500;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .counting-card p {
+      font-size: 18px;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* View All Projects Button */
+    .view-all-projects-btn {
+      background: #ffc107;
+      border: none;
+      padding: 10px 24px; /* Match padding with view-btn */
+      font-size: 0.9rem; /* Match font size with view-btn */
+      cursor: pointer;
+      color: #000;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      margin-top: 30px; /* Match margin with view-btn-container */
+      border-radius: 0; /* Ensure sharp corners */
+    }
+
+    .view-all-projects-btn:hover {
+      background: #e6b800;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero-image {
+        width: 80%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-image {
+        width: 60%;
+      }
+    }
+
+    /* Footer Styles */
+    .footer-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    h2 {
+      color: #facc15;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      color: #facc15;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      margin-top: 0.25rem;
+      margin-bottom: 1rem;
+      background-color: #1f1f1f;
+      color: #e0e0e0;
+    }
+
+    .contact-form label {
+      font-size: 0.875rem;
+    }
+
+    .contact-form button {
+      background: #facc15;
+      color: #000;
+      padding: 0.75rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+    }
+
+    .contact-form button:hover {
+      background: #fbbf24;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-info i {
+      color: #facc15;
+      width: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .success-message {
+      color: #22c55e;
+      padding-top: 1rem;
+    }
+
+    .error-message {
+      color: #ef4444;
+      padding-top: 1rem;
+    }
+
+    .footer-bottom {
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid #333;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.875rem;
+      color: #aaa;
+    }
+
+    .footer-bottom .social {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-bottom .credit {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .footer-bottom .credit img {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .content-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Styling for the Terms Section */
+    .services-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #ffffff;
       color: #000000;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .terms-title {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .terms-subtitle {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    .services-section p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .services-section ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .services-section ul li {
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .services-section strong {
+      font-weight: bold;
+    }
+
+    footer {
+      background-image: url('images/Waterproofing & Damp-proofing.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
     }
 
     .faq-container {
@@ -26,7 +787,7 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .faq-container h2 {
+    .faq-container h1 {
       color: #000000;
       margin-bottom: 20px;
       font-size: 2rem;
@@ -91,7 +852,7 @@
       width: 90%;
     }
 
-    .testimonial-container h2 {
+    .testimonial-container h1 {
       color: #000000;
       margin-bottom: 30px;
       font-size: 2rem;
@@ -163,199 +924,690 @@
     .dot.active {
       background-color: #e6ac00;
     }
+
+    /* Responsive FAQs Card */
+    @media (max-width: 768px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-card-header {
+        font-size: 1rem;
+      }
+
+      .faq-card-body {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
+
 <body>
+  <!-- Navigation -->
+  <nav class="smart-nav">
+    <div class="logo">
+      <img src="images/IMG-20250421-WA0063_1_-removebg-preview (1).png" alt="Juta Daco Construction Logo - South Africa" />
+    </div>
+    <button id="toggleButton">&#9776;</button>
+    <ul id="mainMenu">
+      <button id="closeMenuButton">&times;</button>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="services.html"><i class="fas fa-tools"></i> Our Services</a></li>
+      <li><a href="projects.html"><i class="fas fa-building"></i> Projects</a></li>
+      <li><a href="order-paint.html"><i class="fas fa-paint-roller"></i> Order Paint</a></li>
+      <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+      <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
+      <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+      <li><a href="#contactForm"><i class="fas fa-phone"></i> Contact Us</a></li>
+    </ul>
+  </nav>
 
-<div class="faq-container">
-  <h2>FAQs</h2>
-
-  <div class="faq-grid">
-    <div class="faq-card">
-      <div class="faq-card-header" onclick="toggleAnswer(this)">
-        What types of paving services do you offer?
-        <span>+</span>
-      </div>
-      <div class="faq-card-body">
-        We offer a variety of paving services including driveway paving, patio paving, and walkway paving. Our team can handle both residential and commercial paving projects.
+  <!-- Banner -->
+  <div class="banner">
+    <div class="contact-icon">
+      <i class="fas fa-envelope"></i>
+      <i class="fas fa-chevron-down chevron-down"></i>
+      <div class="dropdown">
+        <a href="mailto:mabasojuta@gmail.com">mabasojuta@gmail.com</a>
       </div>
     </div>
-
-    <div class="faq-card">
-      <div class="faq-card-header" onclick="toggleAnswer(this)">
-        Can you help with tiling for bathrooms and kitchens?
-        <span>+</span>
-      </div>
-      <div class="faq-card-body">
-        Yes, we specialize in tiling for bathrooms, kitchens, and other areas of your home or business. Our experts ensure precise and durable tiling work.
+    <div class="contact-icon">
+      <i class="fas fa-phone-alt"></i>
+      <i class="fas fa-chevron-down chevron-down"></i>
+      <div class="dropdown">
+        <a href="tel:+27717426995">+27 71 742 6995</a>
+        <a href="tel:+27670260642">+27 67 026 0642</a>
       </div>
     </div>
-
-    <div class="faq-card">
-      <div class="faq-card-header" onclick="toggleAnswer(this)">
-        What kind of painting services do you provide?
-        <span>+</span>
-      </div>
-      <div class="faq-card-body">
-        We offer interior and exterior painting services for both residential and commercial properties. Our painters use high-quality materials to ensure a long-lasting finish.
-      </div>
-    </div>
-
-    <div class="faq-card">
-      <div class="faq-card-header" onclick="toggleAnswer(this)">
-        Do you handle building and renovation projects?
-        <span>+</span>
-      </div>
-      <div class="faq-card-body">
-        Yes, we manage building and renovation projects from start to finish. Whether you need a new construction, home addition, or renovation, our team can handle it all.
-      </div>
-    </div>
-
-    <div class="faq-card">
-      <div class="faq-card-header" onclick="toggleAnswer(this)">
-        What ceiling and cornice services do you offer?
-        <span>+</span>
-      </div>
-      <div class="faq-card-body">
-        We provide ceiling and cornice fitting and decoration services. Our experts can install new ceilings, repair existing ones, and add decorative cornices to enhance your space.
-      </div>
-    </div>
-
-    <div class="faq-card">
-      <div class="faq-card-header" onclick="toggleAnswer(this)">
-        Can you help with waterproofing and damp-proofing?
-        <span>+</span>
-      </div>
-      <div class="faq-card-body">
-        Yes, we offer comprehensive waterproofing and damp-proofing services to protect your property from water damage. Our solutions are tailored to your specific needs.
-      </div>
-    </div>
-
-    <div class="faq-card">
-      <div class="faq-card-header" onclick="toggleAnswer(this)">
-        What interior decoration services do you provide?
-        <span>+</span>
-      </div>
-      <div class="faq-card-body">
-        We offer a range of interior decoration services, including wallpapering, furniture arrangement, and color consulting to transform your space.
+    <div class="contact-icon">
+      <i class="fab fa-whatsapp"></i>
+      <i class="fas fa-chevron-down chevron-down"></i>
+      <div class="dropdown">
+        <a href="https://wa.me/27717426995" target="_blank">Chat on WhatsApp</a>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-  function toggleAnswer(element) {
-    const body = element.nextElementSibling;
-    const isActive = body.classList.toggle('active');
-    element.classList.toggle('active', isActive);
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <img src="images/Waterproofing & Damp-proofing.jpg" alt="Hero Image 2" class="hero-image" />
+  </section>
 
-    // Close other answers
-    const allBodies = document.querySelectorAll('.faq-card-body');
-    allBodies.forEach(b => {
-      if (b !== body) {
-        b.classList.remove('active');
-        b.previousElementSibling.classList.remove('active');
+  <!-- Main Content -->
+  <main>
+    <!-- ABOUT US -->
+    <section class="about-us">
+      <h1>ABOUT US</h1>
+      <div class="container">
+        <div class="left-section">
+          <p>We are known for our excellence and commitment to delivering high-quality projects. Our team of professionals builds strong partnerships and ensures that every project meets the highest standards.</p>
+          <div class="icons">
+            <div class="icon-item">
+              <div class="icon-circle">
+                <img src="images/professionals.png" alt="Excellence">
+              </div>
+              <h4>REPUTATION FOR EXCELLENCE</h4>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <img src="images/collaboration_16743854.png" alt="Partnerships">
+              </div>
+              <h4>BUILD PARTNERSHIPS</h4>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <img src="images/con committment.png" alt="Commitment">
+              </div>
+              <h4>GUIDED BY COMMITMENT</h4>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <img src="images/con proffessonals.png" alt="Professionals">
+              </div>
+              <h4>TEAM OF PROFESSIONALS</h4>
+            </div>
+          </div>
+        </div>
+        <div class="right-section">
+          <h2>Our Values</h2>
+          <div class="values">
+            <h3 class="value-header active">SAFETY</h3>
+            <p>We prioritize safety in all our projects to ensure the well-being of our team and clients.</p>
+            <h3 class="value-header">CUSTOMER SERVICE</h3>
+            <p>Our dedicated customer service ensures that all client needs are met promptly and efficiently.</p>
+            <h3 class="value-header">INTEGRITY</h3>
+            <p>We uphold the highest standards of integrity in all our actions and decisions.</p>
+          </div>
+          <div class="glass-card-container">
+            <div class="glass-card-background">
+              <img src="images/background gellary.jpg" alt="Why Choose Us Background">
+            </div>
+            <div class="glass-card">
+              <h3>Why Choose Us?</h3>
+              <p>Driven by experience, dedication, and excellence in every project we deliver.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Counting Section -->
+    <section class="counting-section">
+      <button class="view-all-projects-btn" onclick="window.location.href='projects.html'">View All Projects</button>
+      <div class="counting-card">
+        <img src="images/background gellary.jpg" alt="Projects Completed Background">
+        <div class="number" data-target="86">0</div>
+        <p>Projects Completed</p>
+        <div class="number" data-target="13">0</div>
+        <p>Years of Experience</p>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-section" id="services">
+      <h1>OUR SERVICES</h1>
+      <p>We offer quality and affordable services for both residential and commercial needs.</p>
+      <div class="content-container">
+        <div class="image-container">
+          <img src="images/Paving.jpg" alt="Construction Image" />
+        </div>
+        <div class="services-grid" id="servicesGrid">
+          <div class="service-card" onclick="location.href='services.html#paving'">PAVING</div>
+          <div class="service-card" onclick="location.href='services.html#tiling'">TILING</div>
+          <div class="service-card" onclick="location.href='services.html#painting'">PAINTING</div>
+          <div class="service-card" onclick="location.href='services.html#building'">BUILDING & RENOVATIONS</div>
+          <div class="service-card" onclick="location.href='services.html#ceiling'">CEILING & CORNICE FITTING & DECO</div>
+          <div class="service-card" onclick="location.href='services.html#waterproofing'">WATERPROOFING & DAMP-PROOFING</div>
+          <div class="service-card" onclick="location.href='services.html#interior'">INTERIOR DECO</div>
+        </div>
+        <div class="view-btn-container">
+          <button class="view-btn" onclick="window.location.href='services.html'">View All Services</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section>
+      <div class="faq-container">
+        <h1>FAQs</h1>
+        <div class="faq-grid">
+          <div class="faq-card">
+            <div class="faq-card-header" onclick="toggleAnswer(this)">
+              What types of paving services do you offer?
+              <span>+</span>
+            </div>
+            <div class="faq-card-body">
+              We offer a variety of paving services including driveway paving, patio paving, and walkway paving. Our team can handle both residential and commercial paving projects.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-card-header" onclick="toggleAnswer(this)">
+              Can you help with tiling for bathrooms and kitchens?
+              <span>+</span>
+            </div>
+            <div class="faq-card-body">
+              Yes, we specialize in tiling for bathrooms, kitchens, and other areas of your home or business. Our experts ensure precise and durable tiling work.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-card-header" onclick="toggleAnswer(this)">
+              What kind of painting services do you provide?
+              <span>+</span>
+            </div>
+            <div class="faq-card-body">
+              We offer interior and exterior painting services for both residential and commercial properties. Our painters use high-quality materials to ensure a long-lasting finish.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-card-header" onclick="toggleAnswer(this)">
+              Do you handle building and renovation projects?
+              <span>+</span>
+            </div>
+            <div class="faq-card-body">
+              Yes, we manage building and renovation projects from start to finish. Whether you need a new construction, home addition, or renovation, our team can handle it all.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-card-header" onclick="toggleAnswer(this)">
+              What ceiling and cornice services do you offer?
+              <span>+</span>
+            </div>
+            <div class="faq-card-body">
+              We provide ceiling and cornice fitting and decoration services. Our experts can install new ceilings, repair existing ones, and add decorative cornices to enhance your space.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-card-header" onclick="toggleAnswer(this)">
+              Can you help with waterproofing and damp-proofing?
+              <span>+</span>
+            </div>
+            <div class="faq-card-body">
+              Yes, we offer comprehensive waterproofing and damp-proofing services to protect your property from water damage. Our solutions are tailored to your specific needs.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-card-header" onclick="toggleAnswer(this)">
+              What interior decoration services do you provide?
+              <span>+</span>
+            </div>
+            <div class="faq-card-body">
+              We offer a range of interior decoration services, including wallpapering, furniture arrangement, and color consulting to transform your space.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section>
+      <div class="testimonial-container">
+        <h1>Testimonials</h1>
+        <div class="testimonial-card" id="testimonial-card">
+          <p class="testimonial-text" id="testimonial-text"></p>
+          <div class="testimonial-name" id="testimonial-name"></div>
+          <div class="testimonial-title" id="testimonial-title"></div>
+          <div class="testimonial-icons">
+            <span class="arrow" onclick="prevTestimonial()">&#10094;</span>
+            <span class="arrow" onclick="nextTestimonial()">&#10095;</span>
+          </div>
+          <div class="dots" id="dots-container"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cookie Popup -->
+  <div class="cookie-popup" id="cookiePopup">
+    <div class="cookie-content">
+      <p class="cookie-text">We use cookies to improve your experience. By using our site, you consent to our use of cookies. <a href="cookie.html">Learn more</a></p>
+      <button class="cookie-btn" id="acceptCookies">Got it!</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <!-- About Section -->
+      <div>
+        <h2>About</h2>
+        <p>We are a Gauteng-based construction company delivering high-quality services with integrity and precision.</p>
+        <img src="images/IMG-20250421-WA0063_1_-removebg-preview (1).png" alt="Company Logo" style="width: 80px; margin-top: 1rem;" />
+      </div>
+
+      <!-- Contact Section -->
+      <div>
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+          <p>
+            <a href="mailto:mabasojuta@gmail.com">
+              <i class="fas fa-envelope"></i> mabasojuta@gmail.com
+            </a>
+          </p>
+          <p>
+            <a href="tel:+27717426995">
+              <i class="fas fa-phone"></i> +27 71 742 6995 / +27 67 026 0642
+            </a>
+          </p>
+          <p>
+            <a href="https://wa.me/27717426995" target="_blank">
+              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+          </p>
+        </div>
+
+        <form action="https://formspree.io/f/xwpkkvnk" class="contact-form" id="contactForm">
+          <div>
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required pattern="[a-zA-Z ]+" title="Enter a valid name.">
+          </div>
+          <div>
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500"></textarea>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+            <label for="privacyPolicy">I agree to the <a href="privacy.html">Privacy Policy</a>.</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="communicationOptIn" name="communicationOptIn">
+            <label for="communicationOptIn">I would like to receive updates and promotional communications.</label>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+        <div id="loader" style="display:none;"><img src="loader.gif" alt="Loading..."></div>
+        <div id="response" style="display:none;"></div>
+      </div>
+
+      <!-- Navigation Section -->
+      <div>
+        <h2>Navigation</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="paints.html">Paint Orders</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Juta Daco Construction (Pty) Ltd. Reg No: 2018/242354/07. All rights reserved.</p>
+      <div class="social">
+        <a href="#" class="hover:text-yellow-400" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-yellow-400" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/27717426995" target="_blank" class="hover:text-yellow-400" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <div class="credit">
+        <a href="https://nhlobo.github.io/Mapengo_Innovations/" target="_blank" class="hover:text-yellow-400">
+          <img src="images/logo.png" alt="Mapengo Logo" />
+          Developed & Maintained by Mapengo Innovations
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Navigation Menu -->
+  <script>
+    const toggleButton = document.getElementById('toggleButton');
+    const mainMenu = document.getElementById('mainMenu');
+    const closeMenuButton = document.getElementById('closeMenuButton');
+
+    // Open menu
+    toggleButton.addEventListener('click', () => {
+      mainMenu.classList.add('active');
+    });
+
+    // Close menu with red X button
+    closeMenuButton.addEventListener('click', () => {
+      mainMenu.classList.remove('active');
+    });
+
+    // Close menu by clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mainMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+        mainMenu.classList.remove('active');
       }
     });
-  }
-</script>
+  </script>
 
-  <div class="testimonial-container">
-  <h2>Testimonial</h2>
-
-  <div class="testimonial-card" id="testimonial-card">
-    <p class="testimonial-text" id="testimonial-text"></p>
-    <div class="testimonial-name" id="testimonial-name"></div>
-    <div class="testimonial-title" id="testimonial-title"></div>
-
-    <div class="testimonial-icons">
-      <span class="arrow" onclick="prevTestimonial()">&#10094;</span>
-      <span class="arrow" onclick="nextTestimonial()">&#10095;</span>
-    </div>
-
-    <div class="dots" id="dots-container"></div>
-  </div>
-</div>
-
-<script>
-  const testimonials = [
-    {
-      text: "They paved my entire driveway beautifully and professionally. The results are outstanding!",
-      name: "James Moyo",
-      title: "Paving Client"
-    },
-    {
-      text: "Excellent tiling work in my bathroom. Neat lines, great detail. Highly recommended!",
-      name: "Sandra Dlamini",
-      title: "Tiling Client"
-    },
-    {
-      text: "The team painted my house with great care and professionalism. The finish is flawless.",
-      name: "Peter Mahlangu",
-      title: "Painting Client"
-    },
-    {
-      text: "From start to finish, they renovated my home perfectly. I love the new layout and finish.",
-      name: "Linda Nkosi",
-      title: "Building & Renovation Client"
-    },
-    {
-      text: "Perfect ceiling and cornice work. Clean, precise and elegant. My home looks fresh now!",
-      name: "Thabo Maseko",
-      title: "Ceiling & Cornice Client"
-    },
-    {
-      text: "Our roof was leaking badly, but they waterproofed it and it’s 100% dry now. Impressive!",
-      name: "Grace Molefe",
-      title: "Waterproofing Client"
-    },
-    {
-      text: "They transformed my living room with stunning interior decor. I get compliments every time!",
-      name: "Sipho Ndlovu",
-      title: "Interior Deco Client"
-    }
-  ];
-
-  let current = 0;
-
-  const text = document.getElementById('testimonial-text');
-  const name = document.getElementById('testimonial-name');
-  const title = document.getElementById('testimonial-title');
-  const dotsContainer = document.getElementById('dots-container');
-
-  function loadTestimonial(index) {
-    const t = testimonials[index];
-    text.textContent = t.text;
-    name.textContent = t.name;
-    title.textContent = t.title;
-
-    // Update dots
-    dotsContainer.innerHTML = '';
-    testimonials.forEach((_, i) => {
-      const dot = document.createElement('span');
-      dot.classList.add('dot');
-      if (i === index) dot.classList.add('active');
-      dot.addEventListener('click', () => {
-        current = i;
-        loadTestimonial(current);
+  <!-- JavaScript for Banner -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (event) => {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+          if (!dropdown.contains(event.target) && !event.target.closest('.contact-icon')) {
+            dropdown.style.display = 'none';
+            dropdown.parentElement.classList.remove('active');
+          }
+        });
       });
-      dotsContainer.appendChild(dot);
+
+      // Toggle dropdown on icon click
+      document.querySelectorAll('.contact-icon').forEach(icon => {
+        icon.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const dropdown = icon.querySelector('.dropdown');
+          const isOpen = dropdown.style.display === 'block';
+          // Close all dropdowns
+          document.querySelectorAll('.dropdown').forEach(dd => {
+            dd.style.display = 'none';
+            dd.parentElement.classList.remove('active');
+          });
+          // Toggle the clicked dropdown
+          dropdown.style.display = isOpen ? 'none' : 'block';
+          icon.classList.toggle('active', !isOpen);
+        });
+      });
+
+      // Handle dropdown behavior for desktop and mobile
+      document.querySelectorAll('.contact-icon').forEach(icon => {
+        icon.addEventListener('mouseenter', () => {
+          if (window.innerWidth >= 768) {
+            const dropdown = icon.querySelector('.dropdown');
+            dropdown.style.display = 'block';
+            icon.classList.add('active');
+          }
+        });
+
+        icon.addEventListener('mouseleave', () => {
+          if (window.innerWidth >= 768) {
+            const dropdown = icon.querySelector('.dropdown');
+            dropdown.style.display = 'none';
+            icon.classList.remove('active');
+          }
+        });
+      });
     });
-  }
+  </script>
 
-  function nextTestimonial() {
-    current = (current + 1) % testimonials.length;
+  <!-- JavaScript for Contact Form -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('loader').style.display = 'block';
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const privacyPolicy = document.getElementById('privacyPolicy').checked;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(email)) {
+        showResponse('Please enter a valid email address.', 'error');
+        return;
+      }
+
+      if (!privacyPolicy) {
+        showResponse('You must agree to the Privacy Policy before submitting.', 'error');
+        return;
+      }
+
+      if (!name || !email || !message) {
+        showResponse('Please fill in all required fields.', 'error');
+        return;
+      }
+
+      if (!navigator.onLine) {
+        showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
+        return;
+      }
+
+      const formData = new FormData(this);
+
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json'
+        }
+      })
+      .then(response => {
+        document.getElementById('loader').style.display = 'none';
+        if (response.ok) {
+          showResponse('Thank you! Your message has been successfully sent.', 'success');
+          this.reset();
+        } else {
+          showResponse('Oops! There was an issue with your submission. Please try again later.', 'error');
+        }
+      })
+      .catch(error => {
+        document.getElementById('loader').style.display = 'none';
+        if (!navigator.onLine) {
+          showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
+        } else {
+          showResponse('There was a problem with your submission. Please try again later.', 'error');
+        }
+      });
+    });
+
+    function showResponse(message, type) {
+      const responseDiv = document.getElementById('response');
+      responseDiv.style.display = 'block';
+      responseDiv.textContent = message;
+      responseDiv.className = type === 'success' ? 'success-message' : 'error-message';
+      setTimeout(() => {
+        responseDiv.style.display = 'none';
+      }, 5000);
+    }
+  </script>
+
+  <script>
+    // Make all sections immediately visible without scroll effect
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('visible');
+    });
+
+    // Toggle value descriptions
+    document.querySelectorAll(".value-header").forEach(header => {
+      header.addEventListener("click", () => {
+        // Close others
+        document.querySelectorAll(".value-header").forEach(h => {
+          if (h !== header) {
+            h.classList.remove("active");
+          }
+        });
+
+        // Toggle the clicked header
+        header.classList.toggle("active");
+      });
+    });
+
+    // Ensure the "SAFETY" value is always open
+    document.addEventListener("DOMContentLoaded", () => {
+      const safetyHeader = document.querySelector(".value-header");
+      if (safetyHeader) {
+        safetyHeader.classList.add("active");
+      }
+
+      // Counting animation for the numbers
+      const counters = document.querySelectorAll('.number');
+      const speed = 2000; // Speed of the counting animation in milliseconds
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const updateCount = () => {
+              const target = +counter.getAttribute('data-target');
+              const count = +counter.innerText;
+
+              // Increment the count
+              const increment = target / speed;
+
+              if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 1);
+              } else {
+                counter.innerText = target;
+              }
+            };
+
+            updateCount();
+            observer.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
+    });
+  </script>
+
+  <script>
+    function toggleAnswer(element) {
+      const body = element.nextElementSibling;
+      const isActive = body.classList.toggle('active');
+      element.classList.toggle('active', isActive);
+
+      // Close other answers
+      const allBodies = document.querySelectorAll('.faq-card-body');
+      allBodies.forEach(b => {
+        if (b !== body) {
+          b.classList.remove('active');
+          b.previousElementSibling.classList.remove('active');
+        }
+      });
+    }
+
+    const testimonials = [
+      {
+        text: "They paved my entire driveway beautifully and professionally. The results are outstanding!",
+        name: "James Moyo",
+        title: "Paving Client"
+      },
+      {
+        text: "Excellent tiling work in my bathroom. Neat lines, great detail. Highly recommended!",
+        name: "Sandra Dlamini",
+        title: "Tiling Client"
+      },
+      {
+        text: "The team painted my house with great care and professionalism. The finish is flawless.",
+        name: "Peter Mahlangu",
+        title: "Painting Client"
+      },
+      {
+        text: "From start to finish, they renovated my home perfectly. I love the new layout and finish.",
+        name: "Linda Nkosi",
+        title: "Building & Renovation Client"
+      },
+      {
+        text: "Perfect ceiling and cornice work. Clean, precise and elegant. My home looks fresh now!",
+        name: "Thabo Maseko",
+        title: "Ceiling & Cornice Client"
+      },
+      {
+        text: "Our roof was leaking badly, but they waterproofed it and it’s 100% dry now. Impressive!",
+        name: "Grace Molefe",
+        title: "Waterproofing Client"
+      },
+      {
+        text: "They transformed my living room with stunning interior decor. I get compliments every time!",
+        name: "Sipho Ndlovu",
+        title: "Interior Deco Client"
+      }
+    ];
+
+    let current = 0;
+
+    const text = document.getElementById('testimonial-text');
+    const name = document.getElementById('testimonial-name');
+    const title = document.getElementById('testimonial-title');
+    const dotsContainer = document.getElementById('dots-container');
+
+    function loadTestimonial(index) {
+      const t = testimonials[index];
+      text.textContent = t.text;
+      name.textContent = t.name;
+      title.textContent = t.title;
+
+      // Update dots
+      dotsContainer.innerHTML = '';
+      testimonials.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === index) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          current = i;
+          loadTestimonial(current);
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function nextTestimonial() {
+      current = (current + 1) % testimonials.length;
+      loadTestimonial(current);
+    }
+
+    function prevTestimonial() {
+      current = (current - 1 + testimonials.length) % testimonials.length;
+      loadTestimonial(current);
+    }
+
+    // Initialize
     loadTestimonial(current);
-  }
-
-  function prevTestimonial() {
-    current = (current - 1 + testimonials.length) % testimonials.length;
-    loadTestimonial(current);
-  }
-
-  // Initialize
-  loadTestimonial(current);
-</script>
-
+  </script>
 </body>
 </html>
+
+<!-- JSON-LD Structured Data (Schema.org Markup) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Juta Daco Construction",
+  "description": "Expert Paving, Tiling, Painting, Renovations, Waterproofing, and Interior Decoration services across South Africa.",
+  "image": "images/logo2",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "ZA"
+  },
+  "email": "mabasojuta@gmail.com",
+  "telephone": "+27717426995",
+  "url": "www.JutaDacoConstruction.com",
+  "openingHours": "Mo,Tu,We,Th,Fr,Sa 08:00-17:00"
+}
+</script>
