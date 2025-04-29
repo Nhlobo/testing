@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQ Section</title>
+  <title>Unique FAQ Section</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -17,7 +17,7 @@
     }
 
     .faq-container {
-      max-width: 800px;
+      max-width: 1200px;
       width: 90%;
       margin: 20px auto;
       padding: 20px;
@@ -33,43 +33,52 @@
       text-align: center;
     }
 
-    .faq-item {
-      border-bottom: 1px solid #ddd;
-      padding: 15px 0;
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
 
-    .faq-item:last-child {
-      border-bottom: none;
+    .faq-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .faq-question {
-      font-size: 1.2rem;
-      color: #333;
+    .faq-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .faq-card-header {
+      background: #3366ff;
+      color: #fff;
+      padding: 15px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .faq-question span {
+    .faq-card-header span {
       font-size: 1.5rem;
       transition: transform 0.3s;
     }
 
-    .faq-question.active span {
+    .faq-card-header.active span {
       transform: rotate(45deg);
     }
 
-    .faq-answer {
-      font-size: 1rem;
-      color: #666;
+    .faq-card-body {
+      padding: 15px;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
-      margin-top: 10px;
     }
 
-    .faq-answer.active {
+    .faq-card-body.active {
       max-height: 200px; /* Adjust as needed */
     }
   </style>
@@ -79,69 +88,81 @@
 <div class="faq-container">
   <h2>Frequently Asked Questions</h2>
 
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleAnswer(this)">
-      What services do you offer?
-      <span>+</span>
+  <div class="faq-grid">
+    <div class="faq-card">
+      <div class="faq-card-header" onclick="toggleAnswer(this)">
+        What services do you offer?
+        <span>+</span>
+      </div>
+      <div class="faq-card-body">
+        We offer a wide range of services including paving, tiling, painting, building and renovation, ceiling and cornice work, waterproofing, and interior decoration.
+      </div>
     </div>
-    <div class="faq-answer">
-      We offer a wide range of services including paving, tiling, painting, building and renovation, ceiling and cornice work, waterproofing, and interior decoration.
-    </div>
-  </div>
 
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleAnswer(this)">
-      How can I get a quote?
-      <span>+</span>
+    <div class="faq-card">
+      <div class="faq-card-header" onclick="toggleAnswer(this)">
+        How can I get a quote?
+        <span>+</span>
+      </div>
+      <div class="faq-card-body">
+        You can get a quote by contacting us through our website or giving us a call. Our team will assess your needs and provide a detailed quote.
+      </div>
     </div>
-    <div class="faq-answer">
-      You can get a quote by contacting us through our website or giving us a call. Our team will assess your needs and provide a detailed quote.
-    </div>
-  </div>
 
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleAnswer(this)">
-      What is your service area?
-      <span>+</span>
+    <div class="faq-card">
+      <div class="faq-card-header" onclick="toggleAnswer(this)">
+        What is your service area?
+        <span>+</span>
+      </div>
+      <div class="faq-card-body">
+        We serve the entire Johannesburg area and surrounding regions. Please contact us to confirm if your location is within our service area.
+      </div>
     </div>
-    <div class="faq-answer">
-      We serve the entire Johannesburg area and surrounding regions. Please contact us to confirm if your location is within our service area.
-    </div>
-  </div>
 
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleAnswer(this)">
-      Do you offer warranties on your work?
-      <span>+</span>
+    <div class="faq-card">
+      <div class="faq-card-header" onclick="toggleAnswer(this)">
+        Do you offer warranties on your work?
+        <span>+</span>
+      </div>
+      <div class="faq-card-body">
+        Yes, we offer warranties on all our work. The duration and terms of the warranty may vary depending on the service provided.
+      </div>
     </div>
-    <div class="faq-answer">
-      Yes, we offer warranties on all our work. The duration and terms of the warranty may vary depending on the service provided.
-    </div>
-  </div>
 
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleAnswer(this)">
-      How long does a typical project take?
-      <span>+</span>
+    <div class="faq-card">
+      <div class="faq-card-header" onclick="toggleAnswer(this)">
+        How long does a typical project take?
+        <span>+</span>
+      </div>
+      <div class="faq-card-body">
+        The duration of a project depends on its scope and complexity. We will provide an estimated timeline when we give you a quote.
+      </div>
     </div>
-    <div class="faq-answer">
-      The duration of a project depends on its scope and complexity. We will provide an estimated timeline when we give you a quote.
+
+    <div class="faq-card">
+      <div class="faq-card-header" onclick="toggleAnswer(this)">
+        Can I customize the services?
+        <span>+</span>
+      </div>
+      <div class="faq-card-body">
+        Yes, we offer customizable services to meet your specific needs. Please discuss your requirements with our team.
+      </div>
     </div>
   </div>
 </div>
 
 <script>
   function toggleAnswer(element) {
-    const answer = element.nextElementSibling;
-    const isActive = answer.classList.toggle('active');
+    const body = element.nextElementSibling;
+    const isActive = body.classList.toggle('active');
     element.classList.toggle('active', isActive);
 
     // Close other answers
-    const allAnswers = document.querySelectorAll('.faq-answer');
-    allAnswers.forEach(a => {
-      if (a !== answer) {
-        a.classList.remove('active');
-        a.previousElementSibling.classList.remove('active');
+    const allBodies = document.querySelectorAll('.faq-card-body');
+    allBodies.forEach(b => {
+      if (b !== body) {
+        b.classList.remove('active');
+        b.previousElementSibling.classList.remove('active');
       }
     });
   }
