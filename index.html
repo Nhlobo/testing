@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Testimonial Slider</title>
+  <title>FAQ Section</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,190 +12,139 @@
       margin: 0;
       padding: 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      min-height: 100vh;
     }
 
-    .testimonial-container {
-      text-align: center;
-      background: none;
-      padding: 20px;
-      max-width: 600px;
+    .faq-container {
+      max-width: 800px;
       width: 90%;
-    }
-
-    .testimonial-container h2 {
-      color: #3366ff;
-      margin-bottom: 30px;
-      font-size: 2rem;
-    }
-
-    .testimonial-card {
-      position: relative;
-      background: none;
+      margin: 20px auto;
       padding: 20px;
-      min-height: 450px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .testimonial-text {
-      font-size: 1rem;
-      color: #333;
+    .faq-container h2 {
+      color: #3366ff;
       margin-bottom: 20px;
-      padding: 0 10px;
+      font-size: 2rem;
+      text-align: center;
     }
 
-    .testimonial-name {
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-top: 10px;
-      color: #000;
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
     }
 
-    .testimonial-title {
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 5px;
+    .faq-item:last-child {
+      border-bottom: none;
     }
 
-    .testimonial-icons {
+    .faq-question {
+      font-size: 1.2rem;
+      color: #333;
+      cursor: pointer;
       display: flex;
       justify-content: space-between;
-      margin-top: 30px;
       align-items: center;
     }
 
-    .arrow {
-      font-size: 2rem;
-      color: #ccc;
-      cursor: pointer;
-      transition: color 0.3s;
-      user-select: none;
+    .faq-question span {
+      font-size: 1.5rem;
+      transition: transform 0.3s;
     }
 
-    .arrow:hover {
-      color: #3366ff;
+    .faq-question.active span {
+      transform: rotate(45deg);
     }
 
-    .dots {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
+    .faq-answer {
+      font-size: 1rem;
+      color: #666;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      margin-top: 10px;
     }
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      margin: 0 5px;
-      background-color: #ccc;
-      border-radius: 50%;
-      display: inline-block;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .dot.active {
-      background-color: #3366ff;
+    .faq-answer.active {
+      max-height: 200px; /* Adjust as needed */
     }
   </style>
 </head>
 <body>
 
-<div class="testimonial-container">
-  <h2>Testimonial Slider</h2>
+<div class="faq-container">
+  <h2>Frequently Asked Questions</h2>
 
-  <div class="testimonial-card" id="testimonial-card">
-    <p class="testimonial-text" id="testimonial-text"></p>
-    <div class="testimonial-name" id="testimonial-name"></div>
-    <div class="testimonial-title" id="testimonial-title"></div>
-
-    <div class="testimonial-icons">
-      <span class="arrow" onclick="prevTestimonial()">&#10094;</span>
-      <span class="arrow" onclick="nextTestimonial()">&#10095;</span>
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleAnswer(this)">
+      What services do you offer?
+      <span>+</span>
     </div>
+    <div class="faq-answer">
+      We offer a wide range of services including paving, tiling, painting, building and renovation, ceiling and cornice work, waterproofing, and interior decoration.
+    </div>
+  </div>
 
-    <div class="dots" id="dots-container"></div>
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleAnswer(this)">
+      How can I get a quote?
+      <span>+</span>
+    </div>
+    <div class="faq-answer">
+      You can get a quote by contacting us through our website or giving us a call. Our team will assess your needs and provide a detailed quote.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleAnswer(this)">
+      What is your service area?
+      <span>+</span>
+    </div>
+    <div class="faq-answer">
+      We serve the entire Johannesburg area and surrounding regions. Please contact us to confirm if your location is within our service area.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleAnswer(this)">
+      Do you offer warranties on your work?
+      <span>+</span>
+    </div>
+    <div class="faq-answer">
+      Yes, we offer warranties on all our work. The duration and terms of the warranty may vary depending on the service provided.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleAnswer(this)">
+      How long does a typical project take?
+      <span>+</span>
+    </div>
+    <div class="faq-answer">
+      The duration of a project depends on its scope and complexity. We will provide an estimated timeline when we give you a quote.
+    </div>
   </div>
 </div>
 
 <script>
-  const testimonials = [
-    {
-      text: "They paved my entire driveway beautifully and professionally. The results are outstanding!",
-      name: "James Moyo",
-      title: "Paving Client"
-    },
-    {
-      text: "Excellent tiling work in my bathroom. Neat lines, great detail. Highly recommended!",
-      name: "Sandra Dlamini",
-      title: "Tiling Client"
-    },
-    {
-      text: "The team painted my house with great care and professionalism. The finish is flawless.",
-      name: "Peter Mahlangu",
-      title: "Painting Client"
-    },
-    {
-      text: "From start to finish, they renovated my home perfectly. I love the new layout and finish.",
-      name: "Linda Nkosi",
-      title: "Building & Renovation Client"
-    },
-    {
-      text: "Perfect ceiling and cornice work. Clean, precise and elegant. My home looks fresh now!",
-      name: "Thabo Maseko",
-      title: "Ceiling & Cornice Client"
-    },
-    {
-      text: "Our roof was leaking badly, but they waterproofed it and it’s 100% dry now. Impressive!",
-      name: "Grace Molefe",
-      title: "Waterproofing Client"
-    },
-    {
-      text: "They transformed my living room with stunning interior decor. I get compliments every time!",
-      name: "Sipho Ndlovu",
-      title: "Interior Deco Client"
-    }
-  ];
+  function toggleAnswer(element) {
+    const answer = element.nextElementSibling;
+    const isActive = answer.classList.toggle('active');
+    element.classList.toggle('active', isActive);
 
-  let current = 0;
-
-  const text = document.getElementById('testimonial-text');
-  const name = document.getElementById('testimonial-name');
-  const title = document.getElementById('testimonial-title');
-  const dotsContainer = document.getElementById('dots-container');
-
-  function loadTestimonial(index) {
-    const t = testimonials[index];
-    text.textContent = t.text;
-    name.textContent = t.name;
-    title.textContent = t.title;
-
-    // Update dots
-    dotsContainer.innerHTML = '';
-    testimonials.forEach((_, i) => {
-      const dot = document.createElement('span');
-      dot.classList.add('dot');
-      if (i === index) dot.classList.add('active');
-      dot.addEventListener('click', () => {
-        current = i;
-        loadTestimonial(current);
-      });
-      dotsContainer.appendChild(dot);
+    // Close other answers
+    const allAnswers = document.querySelectorAll('.faq-answer');
+    allAnswers.forEach(a => {
+      if (a !== answer) {
+        a.classList.remove('active');
+        a.previousElementSibling.classList.remove('active');
+      }
     });
   }
-
-  function nextTestimonial() {
-    current = (current + 1) % testimonials.length;
-    loadTestimonial(current);
-  }
-
-  function prevTestimonial() {
-    current = (current - 1 + testimonials.length) % testimonials.length;
-    loadTestimonial(current);
-  }
-
-  // Initialize
-  loadTestimonial(current);
 </script>
 
 </body>
