@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Mobile Apps for South Africa: Lessons from the Field | Mapengo Innovations</title>
+  <meta name="description" content="Key lessons from building mobile apps tailored to the South African market — from data-light design to multilingual interfaces and local payment gateways.">
+  <meta name="keywords" content="mobile app development South Africa, React Native, Flutter, South African mobile apps, data-light design, PWA South Africa, Mapengo Innovations blog">
+  <meta property="og:title" content="Building Mobile Apps for South Africa: Lessons from the Field">
+  <meta property="og:description" content="Key lessons from building mobile apps tailored to the South African market — from data-light design to multilingual interfaces and local payment gateways.">
+  <meta property="og:image" content="https://nhlobo.github.io/testing/assets/img/og-image.svg">
+  <meta property="og:url" content="https://nhlobo.github.io/testing/blog/posts/building-mobile-apps-south-africa/">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2025-04-22">
+  <meta property="article:author" content="Novice Nhlovo Mathebula">
+  <meta property="article:section" content="Mobile Development">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Building Mobile Apps for South Africa: Lessons from the Field">
+  <meta name="twitter:description" content="Key lessons from building mobile apps tailored to the South African market — from data-light design to multilingual interfaces and local payment gateways.">
+  <link rel="canonical" href="https://nhlobo.github.io/testing/blog/posts/building-mobile-apps-south-africa/">
+  <link rel="icon" href="../../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/pages.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Building Mobile Apps for South Africa: Lessons from the Field",
+    "description": "Key lessons from building mobile apps tailored to the South African market — from data-light design to multilingual interfaces and local payment gateways.",
+    "url": "https://nhlobo.github.io/testing/blog/posts/building-mobile-apps-south-africa/",
+    "datePublished": "2025-04-22",
+    "dateModified": "2025-04-22",
+    "author": {
+      "@type": "Person",
+      "name": "Novice Nhlovo Mathebula",
+      "url": "https://nhlobo.github.io/testing/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mapengo Innovations",
+      "url": "https://nhlobo.github.io/testing/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://nhlobo.github.io/testing/assets/img/logo.svg"
+      }
+    },
+    "image": "https://nhlobo.github.io/testing/assets/img/og-image.svg",
+    "articleSection": "Mobile Development",
+    "keywords": ["mobile apps", "South Africa", "React Native", "Flutter", "data-light design"],
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://nhlobo.github.io/testing/blog/posts/building-mobile-apps-south-africa/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <!-- ══════════ HERO ══════════ -->
+    <section class="hero hero-page" aria-label="Article hero" style="padding-block:clamp(var(--space-12),6vw,var(--space-20));">
+      <div class="hero-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mbg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00b0ff" stop-opacity="0.10"/>
+              <stop offset="100%" stop-color="#1a73e8" stop-opacity="0.06"/>
+            </linearGradient>
+          </defs>
+          <polygon points="0,0 600,0 0,500" fill="url(#mbg1)"/>
+          <polygon points="1440,600 900,600 1440,100" fill="#1a73e8" fill-opacity="0.05"/>
+          <circle cx="1200" cy="100" r="200" fill="#00b0ff" fill-opacity="0.04"/>
+          <circle cx="300" cy="500" r="180" fill="#1a73e8" fill-opacity="0.04"/>
+          <g stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1">
+            <line x1="360" y1="0" x2="360" y2="600"/>
+            <line x1="720" y1="0" x2="720" y2="600"/>
+            <line x1="1080" y1="0" x2="1080" y2="600"/>
+            <line x1="0" y1="200" x2="1440" y2="200"/>
+            <line x1="0" y1="400" x2="1440" y2="400"/>
+          </g>
+        </svg>
+      </div>
+      <div class="container hero-inner">
+        <div style="margin-bottom:var(--space-4);">
+          <a href="../../" style="font-size:var(--text-sm);color:rgba(255,255,255,0.55);font-weight:var(--font-medium);display:inline-flex;align-items:center;gap:0.4rem;transition:color var(--transition-fast);" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+            ← Back to Blog
+          </a>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-5);flex-wrap:wrap;">
+          <span class="badge badge-teal">Mobile Development</span>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);">22 April 2025</span>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);">·</span>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);">8 min read</span>
+        </div>
+        <h1 style="font-size:clamp(var(--text-2xl),4.5vw,3.25rem);line-height:1.15;max-width:780px;margin-bottom:var(--space-6);">
+          Building Mobile Apps for <span class="text-gradient">South Africa</span>: Lessons from the Field
+        </h1>
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#00b0ff);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:var(--text-base);color:#fff;">N</div>
+          <div>
+            <p style="font-size:var(--text-sm);font-weight:var(--font-semibold);color:rgba(255,255,255,0.9);margin:0;">Novice Nhlovo Mathebula</p>
+            <p style="font-size:var(--text-xs);color:rgba(255,255,255,0.5);margin:0;">Founder &amp; Lead Developer, Mapengo Innovations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ ARTICLE BODY ══════════ -->
+    <section class="section" aria-label="Article body">
+      <div class="container">
+        <div class="article-layout">
+
+          <!-- ── ARTICLE CONTENT ── -->
+          <article>
+            <div class="article-hero-visual" role="img" aria-label="Mobile app development visualization" style="background:linear-gradient(135deg,#111827,#0a3a3a);">
+              <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;max-width:700px;">
+                <!-- Phone mockups side by side -->
+                <rect x="220" y="20" width="160" height="290" rx="20" fill="#0a1e38" stroke="#0d3a3a" stroke-width="2"/>
+                <rect x="232" y="40" width="136" height="252" rx="12" fill="#0d2840"/>
+                <!-- App content left phone -->
+                <rect x="232" y="40" width="136" height="38" rx="12" fill="#0a3030"/>
+                <circle cx="248" cy="59" r="10" fill="#00b0ff" opacity="0.4"/>
+                <rect x="265" y="53" width="80" height="6" rx="3" fill="#fff" opacity="0.5"/>
+                <rect x="265" y="63" width="55" height="4" rx="2" fill="#00b0ff" opacity="0.4"/>
+                <!-- Stats cards -->
+                <rect x="238" y="88" width="60" height="50" rx="6" fill="#0a2030" stroke="#1a73e8" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="244" y="96" width="25" height="5" rx="2" fill="#1a73e8" opacity="0.6"/>
+                <rect x="244" y="105" width="48" height="10" rx="3" fill="#fff" opacity="0.4"/>
+                <rect x="244" y="120" width="35" height="4" rx="2" fill="#00b0ff" opacity="0.4"/>
+                <rect x="304" y="88" width="60" height="50" rx="6" fill="#0a2030" stroke="#00b0ff" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="310" y="96" width="25" height="5" rx="2" fill="#00b0ff" opacity="0.6"/>
+                <rect x="310" y="105" width="48" height="10" rx="3" fill="#fff" opacity="0.4"/>
+                <rect x="310" y="120" width="35" height="4" rx="2" fill="#1a73e8" opacity="0.4"/>
+                <!-- Chart area -->
+                <rect x="238" y="148" width="126" height="60" rx="6" fill="#081828"/>
+                <polyline points="244,195 260,175 280,185 300,162 320,170 338,155 354,165" stroke="#00b0ff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="354" cy="165" r="3" fill="#00b0ff"/>
+                <!-- Bottom nav -->
+                <rect x="232" y="267" width="136" height="25" rx="0" fill="#081828"/>
+                <circle cx="260" cy="279" r="5" fill="#1a73e8" opacity="0.7"/>
+                <circle cx="290" cy="279" r="5" fill="#fff" opacity="0.2"/>
+                <circle cx="320" cy="279" r="5" fill="#fff" opacity="0.2"/>
+                <circle cx="350" cy="279" r="5" fill="#fff" opacity="0.2"/>
+
+                <!-- Second phone -->
+                <rect x="420" y="50" width="160" height="260" rx="20" fill="#0a1e38" stroke="#1a3a6b" stroke-width="2"/>
+                <rect x="432" y="68" width="136" height="224" rx="12" fill="#0d1e38"/>
+                <rect x="432" y="68" width="136" height="35" rx="12" fill="#142040"/>
+                <rect x="445" y="78" width="70" height="5" rx="2" fill="#fff" opacity="0.5"/>
+                <rect x="445" y="87" width="50" height="4" rx="2" fill="#1a73e8" opacity="0.5"/>
+                <!-- Map view -->
+                <rect x="438" y="110" width="124" height="80" rx="6" fill="#0a2030"/>
+                <circle cx="500" cy="150" r="18" fill="#1a73e8" opacity="0.15" stroke="#1a73e8" stroke-opacity="0.4" stroke-width="1.5"/>
+                <circle cx="500" cy="150" r="6" fill="#1a73e8"/>
+                <circle cx="500" cy="150" r="3" fill="#fff"/>
+                <!-- Horizontal lines representing streets -->
+                <line x1="438" y1="130" x2="562" y2="130" stroke="#fff" stroke-opacity="0.05" stroke-width="1"/>
+                <line x1="438" y1="150" x2="562" y2="150" stroke="#fff" stroke-opacity="0.05" stroke-width="1"/>
+                <line x1="438" y1="170" x2="562" y2="170" stroke="#fff" stroke-opacity="0.05" stroke-width="1"/>
+                <line x1="460" y1="110" x2="460" y2="190" stroke="#fff" stroke-opacity="0.05" stroke-width="1"/>
+                <line x1="500" y1="110" x2="500" y2="190" stroke="#fff" stroke-opacity="0.05" stroke-width="1"/>
+                <line x1="540" y1="110" x2="540" y2="190" stroke="#fff" stroke-opacity="0.05" stroke-width="1"/>
+                <!-- List items -->
+                <rect x="438" y="200" width="124" height="30" rx="4" fill="#0a2030"/>
+                <circle cx="452" cy="215" r="7" fill="#00b0ff" opacity="0.2"/>
+                <rect x="466" y="210" width="80" height="5" rx="2" fill="#fff" opacity="0.4"/>
+                <rect x="466" y="219" width="55" height="4" rx="2" fill="#00b0ff" opacity="0.3"/>
+                <rect x="438" y="235" width="124" height="30" rx="4" fill="#0a2030"/>
+                <circle cx="452" cy="250" r="7" fill="#1a73e8" opacity="0.2"/>
+                <rect x="466" y="245" width="70" height="5" rx="2" fill="#fff" opacity="0.4"/>
+                <rect x="466" y="254" width="45" height="4" rx="2" fill="#1a73e8" opacity="0.3"/>
+                <!-- Bottom nav right phone -->
+                <rect x="432" y="268" width="136" height="24" rx="0" fill="#081828"/>
+                <circle cx="460" cy="280" r="5" fill="#fff" opacity="0.2"/>
+                <circle cx="490" cy="280" r="5" fill="#1a73e8" opacity="0.7"/>
+                <circle cx="520" cy="280" r="5" fill="#fff" opacity="0.2"/>
+                <circle cx="550" cy="280" r="5" fill="#fff" opacity="0.2"/>
+              </svg>
+            </div>
+
+            <div class="article-header">
+              <div class="article-tags">
+                <span class="tag">Mobile Development</span>
+                <span class="tag">React Native</span>
+                <span class="tag">South Africa</span>
+                <span class="tag">Flutter</span>
+              </div>
+            </div>
+
+            <div class="article-content">
+              <p class="article-lead">
+                Building mobile apps in South Africa is a unique challenge. It's a market shaped by a vibrant, diverse population, widespread smartphone adoption, and connectivity that can vary dramatically from a Sandton coffee shop to a rural village in Limpopo. Over the past few years, our team at Mapengo Innovations has shipped a number of mobile apps — and this is what we've learned.
+              </p>
+
+              <h2>1. Data Is a Currency — Spend It Wisely</h2>
+              <p>
+                A significant portion of South Africans access the internet through prepaid mobile data — and data costs money. Any mobile app that doesn't account for data consumption will struggle to get traction beyond upper-income users.
+              </p>
+              <p>
+                For our MedConnect telemedicine app, we implemented aggressive asset compression, API response caching, and an offline-first architecture using IndexedDB. The result? An app that functioned effectively on as little as 20MB of data per session — far below the industry average for similar apps. This decision alone drove our retention rate up by 34% among users in semi-urban areas.
+              </p>
+              <blockquote>
+                <p>"Design for the 3G user. Delight the 5G user. Never do it the other way around."</p>
+                <cite>— Novice Nhlovo Mathebula, Mapengo Innovations</cite>
+              </blockquote>
+
+              <h2>2. Embrace Progressive Web Apps (PWAs)</h2>
+              <p>
+                Not every project needs a native app on the App Store. For many South African businesses, a well-built Progressive Web App delivers 90% of the native experience while eliminating the friction of app store downloads (and the associated data cost).
+              </p>
+              <p>
+                PWAs are especially powerful when:
+              </p>
+              <ul>
+                <li>Your target audience is cost-sensitive about data</li>
+                <li>Your primary channel is WhatsApp or SMS referrals (links open directly in the browser)</li>
+                <li>You need push notifications without a full native build</li>
+                <li>You're serving feature phone users via a lite web experience</li>
+              </ul>
+              <p>
+                For one of our retail clients, we built a PWA storefront that outperformed their previous React Native app on engagement metrics within 60 days — primarily because customers were far more willing to click a WhatsApp link than to download and install an app.
+              </p>
+
+              <h2>3. Localise for 11 Official Languages (At Minimum)</h2>
+              <p>
+                South Africa has 11 official languages. Even if your app only targets Johannesburg, you'll encounter users who prefer isiZulu, Sesotho, Afrikaans, or any number of other languages alongside English.
+              </p>
+              <p>
+                Full multilingual support is often unrealistic for an MVP, but there are practical steps you can take early:
+              </p>
+              <ol>
+                <li><strong>Externalise all strings from day one.</strong> Don't hardcode UI text. Use an i18n library from the start — the cost of retrofitting it later is enormous.</li>
+                <li><strong>Prioritise isiZulu and Afrikaans</strong> as the first expansion languages after English. Together, they cover a large portion of your likely user base.</li>
+                <li><strong>Use numeric patterns carefully.</strong> Some South African users have different conventions for separators (e.g., R 1 234,50 vs R 1,234.50).</li>
+              </ol>
+
+              <h2>4. Integrate South African Payment Gateways Properly</h2>
+              <p>
+                Stripe is not the default payment processor in South Africa — and for many smaller businesses, the foreign exchange implications make it impractical. You need to understand the local landscape:
+              </p>
+              <ul>
+                <li><strong>PayFast</strong> — the most widely used gateway for online businesses in SA; supports EFT, credit card, and Instant EFT</li>
+                <li><strong>Peach Payments</strong> — developer-friendly, strong enterprise adoption</li>
+                <li><strong>PayGate (by DPO Group)</strong> — a staple for larger organisations</li>
+                <li><strong>Ozow</strong> — instant EFT with a clean UX; growing rapidly</li>
+                <li><strong>SnapScan / Zapper</strong> — QR-code based; popular for in-person transactions</li>
+              </ul>
+              <p>
+                Whichever you choose, always test with real accounts in sandbox mode thoroughly before going live. The edge cases around failed transactions and reconciliation in SA banking can be unpredictable.
+              </p>
+
+              <h2>5. Build for Low-End Devices</h2>
+              <p>
+                While flagship Android phones are popular among higher-income segments, the mass market in South Africa skews heavily toward mid-range and entry-level Android devices. A Xiaomi Redmi 9A or Samsung Galaxy A03 is far more representative of your typical user than a Pixel or Galaxy S series.
+              </p>
+              <p>
+                This has practical implications for your tech choices:
+              </p>
+              <ul>
+                <li>Avoid heavy animation libraries — CSS transitions outperform JavaScript-driven animations on low-end GPUs</li>
+                <li>Lazy-load images and defer non-critical JavaScript</li>
+                <li>Profile your app on a real mid-range device, not just a simulator</li>
+                <li>Keep your APK or app bundle size as small as possible</li>
+              </ul>
+
+              <h2>6. Factor in Loadshedding</h2>
+              <p>
+                This may sound unusual to an international audience, but South Africa's scheduled power cuts (loadshedding) are a real UX consideration. Users may lose power mid-session, and if your app doesn't gracefully handle interrupted connections or unsaved state, you'll lose them.
+              </p>
+              <p>
+                Implement auto-save for form data, optimistic UI updates, and clear reconnection indicators. A small notification that says "Working offline — changes saved locally" does more for user trust than almost any other UI element in the South African context.
+              </p>
+
+              <h2>Closing Thoughts</h2>
+              <p>
+                South Africa's mobile market rewards developers who take the time to understand the local context rather than copying patterns from Silicon Valley or Western Europe. The challenges are real — bandwidth constraints, payment complexity, device fragmentation — but the opportunity is enormous. Over 40 million South Africans carry a smartphone, and the majority are chronically underserved by existing digital products.
+              </p>
+              <p>
+                Build for them. Build for the real South Africa.
+              </p>
+              <p>
+                If you're planning a mobile app and want to talk through your approach, we're always happy to have that conversation.
+              </p>
+
+              <!-- Share -->
+              <div style="margin-top:var(--space-10);padding-top:var(--space-8);border-top:1px solid var(--color-light-300);">
+                <span class="share-label">Share this article:</span>
+                <div class="share-links">
+                  <a href="https://twitter.com/intent/tweet?text=Building%20Mobile%20Apps%20for%20South%20Africa%3A%20Lessons%20from%20the%20Field&url=https://nhlobo.github.io/testing/blog/posts/building-mobile-apps-south-africa/" target="_blank" rel="noopener" class="share-link" aria-label="Share on Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Twitter / X
+                  </a>
+                  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nhlobo.github.io/testing/blog/posts/building-mobile-apps-south-africa/&title=Building%20Mobile%20Apps%20for%20South%20Africa" target="_blank" rel="noopener" class="share-link" aria-label="Share on LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="currentColor"/></svg>
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- ── SIDEBAR ── -->
+          <aside class="article-sidebar" aria-label="Article sidebar">
+            <!-- Author Card -->
+            <div class="sidebar-card" style="margin-bottom:var(--space-6);">
+              <div class="sidebar-card-header" style="text-align:center;">
+                <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#00b0ff);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;color:#fff;margin:0 auto var(--space-3);">N</div>
+                <p class="sidebar-label">Written by</p>
+                <h3 style="font-size:var(--text-base);margin-bottom:var(--space-1);">Novice Nhlovo Mathebula</h3>
+                <p style="font-size:var(--text-sm);color:var(--color-text-light);margin-bottom:var(--space-4);">Founder &amp; Lead Developer</p>
+                <a href="../../../about/" class="btn btn-outline-accent btn-sm" style="width:100%;justify-content:center;">About the Author</a>
+              </div>
+            </div>
+
+            <!-- Related articles -->
+            <div class="sidebar-card">
+              <p class="sidebar-label">Related Articles</p>
+              <article class="blog-card" style="border:none;padding:0;background:none;">
+                <div style="padding:var(--space-4) 0;border-bottom:1px solid var(--color-light-300);">
+                  <span class="tag" style="margin-bottom:var(--space-2);">Digital Transformation</span>
+                  <h3 style="font-size:var(--text-base);font-weight:var(--font-semibold);line-height:1.4;margin-bottom:var(--space-1);">
+                    <a href="../digital-transformation-sa/" style="color:var(--color-text);">5 Digital Transformation Trends Reshaping SA in 2025</a>
+                  </h3>
+                  <p style="font-size:var(--text-sm);color:var(--color-text-light);margin:0;">15 March 2025</p>
+                </div>
+              </article>
+              <article class="blog-card" style="border:none;padding:0;background:none;">
+                <div style="padding:var(--space-4) 0 0;">
+                  <span class="tag" style="margin-bottom:var(--space-2);">UI/UX Design</span>
+                  <h3 style="font-size:var(--text-base);font-weight:var(--font-semibold);line-height:1.4;margin-bottom:var(--space-1);">
+                    <a href="../designing-for-africa/" style="color:var(--color-text);">Designing for Africa: Why Western UX Patterns Often Fail</a>
+                  </h3>
+                  <p style="font-size:var(--text-sm);color:var(--color-text-light);margin:0;">10 May 2025</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- CTA Card -->
+            <div class="sidebar-card" style="margin-top:var(--space-6);background:var(--gradient-hero);border:none;">
+              <p style="font-size:var(--text-base);font-weight:var(--font-semibold);color:var(--color-white);margin-bottom:var(--space-2);">Ready to build your mobile app?</p>
+              <p style="font-size:var(--text-sm);color:rgba(255,255,255,0.65);margin-bottom:var(--space-4);">Let's discuss your project and how we can help bring your vision to life.</p>
+              <a href="../../../contact/" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">Start a Conversation →</a>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ BACK TO BLOG ══════════ -->
+    <section class="section-sm bg-light">
+      <div class="container" style="text-align:center;">
+        <a href="../../" class="btn btn-outline-accent">← Back to Blog</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="../../../assets/js/components.js" defer></script>
+  <script src="../../../assets/js/main.js" defer></script>
+</body>
+</html>
