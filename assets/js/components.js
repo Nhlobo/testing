@@ -47,7 +47,6 @@
     { label: 'Work',         href: 'work/' },
     { label: 'Products',     href: 'products/' },
     { label: 'Technologies', href: 'technologies/' },
-    { label: 'Pricing',      href: 'pricing/' },
     { label: 'Blog',         href: 'blog/' },
     { label: 'Careers',      href: 'careers/' },
     { label: 'Contact',      href: 'contact/' },
@@ -78,7 +77,7 @@
     return `
 <div class="header-inner">
   <a href="${BASE}" class="header-logo" aria-label="Mapengo Innovations — Home">
-    <img src="${BASE}assets/img/logo.svg" alt="Mapengo Innovations" width="180" height="40">
+    <img src="${BASE}images/logo.png" alt="Mapengo Innovations" width="180" height="40">
   </a>
 
   <nav class="header-nav" aria-label="Main navigation">
@@ -113,7 +112,7 @@
       <!-- Brand column -->
       <div class="footer-brand">
         <a href="${BASE}" class="footer-logo" aria-label="Mapengo Innovations">
-          <img src="${BASE}assets/img/logo.svg" alt="Mapengo Innovations" width="160" height="36">
+          <img src="${BASE}images/logo.png" alt="Mapengo Innovations" width="160" height="36">
         </a>
         <p>We specialise in crafting high-performance websites and powerful mobile and web apps that empower businesses. From idea to deployment — built with purpose, passion, and precision.</p>
         <div class="footer-social">
@@ -150,7 +149,6 @@
           <li><a href="${BASE}work/" class="footer-link">Our Work</a></li>
           <li><a href="${BASE}products/" class="footer-link">Products</a></li>
           <li><a href="${BASE}technologies/" class="footer-link">Technologies</a></li>
-          <li><a href="${BASE}pricing/" class="footer-link">Pricing</a></li>
           <li><a href="${BASE}blog/" class="footer-link">Blog</a></li>
           <li><a href="${BASE}careers/" class="footer-link">Careers</a></li>
         </ul>
