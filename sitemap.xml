@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://nhlobo.github.io/testing/</loc><lastmod>2026-03-05</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/about/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/services/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/work/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/products/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/technologies/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/blog/</loc><lastmod>2026-03-05</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/blog/posts/digital-transformation-sa/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/blog/posts/building-mobile-apps-south-africa/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/blog/posts/designing-for-africa/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/careers/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://nhlobo.github.io/testing/contact/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/about/</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/services/</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/work/</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/products/</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/technologies/</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/pricing/</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/blog/</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/blog/posts/digital-transformation-sa/</loc><lastmod>2025-03-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/blog/posts/building-mobile-apps-south-africa/</loc><lastmod>2025-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/blog/posts/designing-for-africa/</loc><lastmod>2025-05-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/careers/</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nhlobo.github.io/testing/contact/</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>
