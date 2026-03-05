@@ -268,7 +268,8 @@
     document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function (link) {
       const href = link.getAttribute('href') || '';
       // Simple substring match for sub-pages
-      if (href && href !== './' && href !== '../' && path.includes(href.replace(/\.\.\//g, ''))) {
+      const cleanHref = href.replace(/^(\.\.\/)+/, '').replace(/^\.\//, '');
+      if (href && href !== './' && href !== '../' && cleanHref && path.includes(cleanHref)) {
         link.classList.add('active');
       }
     });
