@@ -276,6 +276,42 @@
   }
 
   /* ── Init all ───────────────────────────────────────────── */
+  /* ── Contact form → mailto fallback ────────────────────── */
+  function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const get = function (id) {
+        const el = document.getElementById(id);
+        return el ? (el.value || '').trim() : '';
+      };
+
+      const name        = get('contact-name');
+      const email       = get('contact-email');
+      const phone       = get('contact-phone');
+      const company     = get('contact-company');
+      const service     = get('contact-service');
+      const description = get('contact-description');
+      const budget      = get('contact-budget');
+
+      const subject = encodeURIComponent('Project Enquiry from ' + (name || 'Website Visitor'));
+      const body = encodeURIComponent(
+        'Name: '        + name        + '\n' +
+        'Email: '       + email       + '\n' +
+        'Phone: '       + (phone   || 'Not provided') + '\n' +
+        'Company: '     + (company || 'Not provided') + '\n' +
+        'Service: '     + (service || 'Not specified') + '\n' +
+        'Budget: '      + (budget  || 'Not specified') + '\n\n' +
+        'Message:\n'    + description
+      );
+
+      window.location.href = 'mailto:hello@mapengo.co.za?subject=' + subject + '&body=' + body;
+    });
+  }
+
   initStickyHeader();
   initMobileNav();
   initSmoothScroll();
@@ -288,5 +324,6 @@
     initPortfolioFilter();
     initTestimonialSlider();
     initActiveNav();
+    initContactForm();
   });
 })();
