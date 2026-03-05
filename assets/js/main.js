@@ -308,7 +308,7 @@
         'Message:\n'    + description
       );
 
-      window.location.href = 'mailto:hello@mapengo.co.za?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:mapengoinnovations@gmail.com?subject=' + subject + '&body=' + body;
     });
   }
 

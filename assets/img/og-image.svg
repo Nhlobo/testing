@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0A1628"/>
-      <stop offset="60%" stop-color="#0D1F3C"/>
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="60%" stop-color="#1a1a1a"/>
       <stop offset="100%" stop-color="#0A2844"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#FF6B35"/>
-      <stop offset="100%" stop-color="#00C9A7"/>
+      <stop offset="0%" stop-color="#1a73e8"/>
+      <stop offset="100%" stop-color="#00b0ff"/>
     </linearGradient>
   </defs>
   <!-- Background -->
@@ -28,12 +28,12 @@
     <line x1="1050" y1="0" x2="1050" y2="630"/>
   </g>
   <!-- Geometric accent shapes -->
-  <polygon points="950,50 1150,50 1150,250 950,250" fill="#FF6B35" opacity="0.08"/>
-  <polygon points="1000,100 1150,100 1150,250" fill="#00C9A7" opacity="0.12"/>
-  <circle cx="100" cy="530" r="120" fill="#00C9A7" opacity="0.07"/>
+  <polygon points="950,50 1150,50 1150,250 950,250" fill="#1a73e8" opacity="0.08"/>
+  <polygon points="1000,100 1150,100 1150,250" fill="#00b0ff" opacity="0.12"/>
+  <circle cx="100" cy="530" r="120" fill="#00b0ff" opacity="0.07"/>
   <!-- Logo mark large -->
-  <polygon points="120,220 190,260 190,340 120,380 50,340 50,260" fill="none" stroke="#FF6B35" stroke-width="3" opacity="0.5"/>
-  <polygon points="120,240 175,270 175,330 120,360 65,330 65,270" fill="none" stroke="#00C9A7" stroke-width="1.5" opacity="0.3"/>
+  <polygon points="120,220 190,260 190,340 120,380 50,340 50,260" fill="none" stroke="#1a73e8" stroke-width="3" opacity="0.5"/>
+  <polygon points="120,240 175,270 175,330 120,360 65,330 65,270" fill="none" stroke="#00b0ff" stroke-width="1.5" opacity="0.3"/>
   <!-- Accent bar -->
   <rect x="200" y="280" width="6" height="80" fill="url(#accent)" rx="3"/>
   <!-- Main text -->
@@ -42,8 +42,8 @@
   <!-- Tagline accent underline -->
   <rect x="220" y="392" width="260" height="3" fill="url(#accent)" rx="2"/>
   <!-- URL bottom -->
-  <text x="220" y="560" font-family="Arial, sans-serif" font-size="18" fill="#FF6B35" letter-spacing="1">mapengo.co.za</text>
+  <text x="220" y="560" font-family="Arial, sans-serif" font-size="18" fill="#1a73e8" letter-spacing="1">mapengo.co.za</text>
   <!-- SA badge -->
-  <rect x="940" y="520" width="200" height="48" rx="24" fill="#FF6B35" opacity="0.15" stroke="#FF6B35" stroke-width="1"/>
-  <text x="1040" y="551" font-family="Arial, sans-serif" font-size="16" fill="#FF6B35" text-anchor="middle">🇿🇦 Proudly South African</text>
+  <rect x="940" y="520" width="200" height="48" rx="24" fill="#1a73e8" opacity="0.15" stroke="#1a73e8" stroke-width="1"/>
+  <text x="1040" y="551" font-family="Arial, sans-serif" font-size="16" fill="#1a73e8" text-anchor="middle">🇿🇦 Proudly South African</text>
 </svg>

@@ -47,6 +47,7 @@
     { label: 'Work',         href: 'work/' },
     { label: 'Products',     href: 'products/' },
     { label: 'Technologies', href: 'technologies/' },
+    { label: 'Pricing',      href: 'pricing/' },
     { label: 'Blog',         href: 'blog/' },
     { label: 'Careers',      href: 'careers/' },
     { label: 'Contact',      href: 'contact/' },
@@ -114,12 +115,12 @@
         <a href="${BASE}" class="footer-logo" aria-label="Mapengo Innovations">
           <img src="${BASE}assets/img/logo.svg" alt="Mapengo Innovations" width="160" height="36">
         </a>
-        <p>Crafting digital excellence for South African businesses. We build modern, high-performance digital solutions that drive growth.</p>
+        <p>We specialise in crafting high-performance websites and powerful mobile and web apps that empower businesses. From idea to deployment — built with purpose, passion, and precision.</p>
         <div class="footer-social">
           <a href="https://linkedin.com/company/mapengo-innovations" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="currentColor"/></svg>
           </a>
-          <a href="https://github.com/mapengo-innovations" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
+          <a href="https://github.com/Nhlobo" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
           </a>
           <a href="https://twitter.com/mapengotech" class="social-link" aria-label="Twitter / X" target="_blank" rel="noopener">
@@ -137,7 +138,7 @@
           <li><a href="${BASE}services/#ui-ux-design" class="footer-link">UI/UX Design</a></li>
           <li><a href="${BASE}services/#ecommerce" class="footer-link">E-Commerce</a></li>
           <li><a href="${BASE}services/#cloud-hosting" class="footer-link">Cloud & Hosting</a></li>
-          <li><a href="${BASE}services/#it-consulting" class="footer-link">IT Consulting</a></li>
+          <li><a href="${BASE}services/#maintenance-support" class="footer-link">Maintenance & Support</a></li>
         </ul>
       </div>
 
@@ -149,6 +150,7 @@
           <li><a href="${BASE}work/" class="footer-link">Our Work</a></li>
           <li><a href="${BASE}products/" class="footer-link">Products</a></li>
           <li><a href="${BASE}technologies/" class="footer-link">Technologies</a></li>
+          <li><a href="${BASE}pricing/" class="footer-link">Pricing</a></li>
           <li><a href="${BASE}blog/" class="footer-link">Blog</a></li>
           <li><a href="${BASE}careers/" class="footer-link">Careers</a></li>
         </ul>
@@ -159,11 +161,11 @@
         <h4>Contact</h4>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <a href="mailto:hello@mapengo.co.za">hello@mapengo.co.za</a>
+          <a href="mailto:mapengoinnovations@gmail.com">mapengoinnovations@gmail.com</a>
         </div>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 9.56 19.79 19.79 0 01.81 3.18 2 2 0 012.8 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l.96-.96a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          <span>+27 11 123 4567</span>
+          <span>+27 66 552 0197</span>
         </div>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -180,7 +182,7 @@
 <!-- Footer bottom bar -->
 <div class="container">
   <div class="footer-bottom">
-    <p>&copy; ${new Date().getFullYear()} Mapengo Innovations (Pty) Ltd &middot; Reg. 2019/123456/07 &middot; All rights reserved.</p>
+    <p>&copy; ${new Date().getFullYear()} Mapengo Innovations &middot; Founded by Novice Nhlovo Mathebula &middot; Johannesburg, South Africa &middot; All rights reserved.</p>
     <nav class="footer-legal" aria-label="Legal">
       <a href="${BASE}legal/privacy.html">Privacy Policy</a>
       <a href="${BASE}legal/terms.html">Terms of Service</a>

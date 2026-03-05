@@ -1,50 +1,52 @@
 {
   "company": {
     "name": "Mapengo Innovations",
-    "tagline": "Crafting Digital Excellence for South African Businesses",
-    "email": "hello@mapengo.co.za",
-    "phone": "+27 11 123 4567",
-    "whatsapp": "+27 83 123 4567",
-    "address": "Sandton, Johannesburg, Gauteng, South Africa",
-    "founded": "2019",
-    "regNumber": "2019/123456/07",
+    "tagline": "High-Performance Websites & Powerful Apps for South African Businesses",
+    "email": "mapengoinnovations@gmail.com",
+    "personalEmail": "nhlobo365@gmail.com",
+    "phone": "+27 66 552 0197",
+    "whatsapp": "+27 66 552 0197",
+    "address": "Johannesburg, South Africa",
+    "founded": "2022",
+    "founder": "Novice Nhlovo Mathebula",
     "social": {
       "linkedin": "https://linkedin.com/company/mapengo-innovations",
-      "github": "https://github.com/mapengo-innovations",
+      "github": "https://github.com/Nhlobo",
       "twitter": "https://twitter.com/mapengotech"
     }
   },
   "nav": [
-    {"label": "Home", "href": "/"},
-    {"label": "About", "href": "/about/"},
-    {"label": "Services", "href": "/services/"},
-    {"label": "Work", "href": "/work/"},
-    {"label": "Products", "href": "/products/"},
+    {"label": "Home",         "href": "/"},
+    {"label": "About",        "href": "/about/"},
+    {"label": "Services",     "href": "/services/"},
+    {"label": "Work",         "href": "/work/"},
+    {"label": "Products",     "href": "/products/"},
     {"label": "Technologies", "href": "/technologies/"},
-    {"label": "Blog", "href": "/blog/"},
-    {"label": "Careers", "href": "/careers/"},
-    {"label": "Contact", "href": "/contact/"}
+    {"label": "Pricing",      "href": "/pricing/"},
+    {"label": "Blog",         "href": "/blog/"},
+    {"label": "Careers",      "href": "/careers/"},
+    {"label": "Contact",      "href": "/contact/"}
   ],
   "services": [
     {
       "id": "web-development",
       "icon": "web",
       "title": "Web Development",
-      "description": "Modern, performant websites and web applications built with React, Next.js, and cutting-edge technologies.",
-      "features": ["React & Next.js", "Custom CMS", "Performance Optimised", "Accessibility First"]
+      "description": "High-performance websites and web applications built with modern frameworks — from landing pages to full-stack web apps.",
+      "features": ["Custom Design", "React & Next.js", "Performance Optimised", "Mobile-Friendly"]
     },
     {
       "id": "mobile-apps",
       "icon": "mobile",
       "title": "Mobile App Development",
-      "description": "Cross-platform mobile applications for iOS and Android, delivering seamless user experiences.",
+      "description": "Cross-platform mobile applications for iOS and Android, delivering seamless user-friendly experiences.",
       "features": ["React Native", "Flutter", "iOS & Android", "PWA"]
     },
     {
       "id": "ui-ux-design",
       "icon": "design",
       "title": "UI/UX Design",
-      "description": "Research-driven design that balances aesthetics with usability to create memorable digital experiences.",
+      "description": "User-centred design that balances aesthetics with usability to create memorable digital experiences.",
       "features": ["User Research", "Wireframing", "Prototyping", "Design Systems"]
     },
     {
@@ -65,22 +67,15 @@
       "id": "cloud-hosting",
       "icon": "cloud",
       "title": "Cloud & Hosting",
-      "description": "Scalable cloud infrastructure on AWS and Azure, with managed hosting and DevOps support.",
-      "features": ["AWS & Azure", "Docker & Kubernetes", "CI/CD Pipelines", "99.9% Uptime SLA"]
-    },
-    {
-      "id": "it-consulting",
-      "icon": "consulting",
-      "title": "IT Consulting",
-      "description": "Strategic technology advisory to help South African businesses navigate digital transformation.",
-      "features": ["Digital Strategy", "Tech Audits", "Roadmapping", "Team Training"]
+      "description": "Scalable cloud infrastructure with managed hosting and DevOps support for your digital products.",
+      "features": ["AWS & Azure", "Docker", "CI/CD Pipelines", "99.9% Uptime"]
     },
     {
       "id": "maintenance-support",
       "icon": "support",
       "title": "Maintenance & Support",
       "description": "Proactive monitoring, updates, and support to keep your digital products running smoothly.",
-      "features": ["24/7 Monitoring", "SLA Agreements", "Security Patches", "Performance Reports"]
+      "features": ["24/7 Monitoring", "Security Patches", "Performance Reports", "Updates"]
     }
   ],
   "projects": [
@@ -89,7 +84,7 @@
       "title": "ShopZA Platform",
       "client": "RetailEdge SA",
       "category": "E-Commerce",
-      "description": "A full-featured e-commerce platform serving 50,000+ monthly shoppers across South Africa.",
+      "description": "A full-featured e-commerce platform serving thousands of monthly shoppers across South Africa.",
       "stack": ["React", "Node.js", "PostgreSQL", "AWS"],
       "year": 2024
     },
@@ -107,7 +102,7 @@
       "title": "CityFlow Dashboard",
       "client": "Metro Analytics",
       "category": "Web",
-      "description": "Smart city analytics dashboard processing real-time data from IoT sensors.",
+      "description": "Analytics dashboard processing real-time data to help businesses make smarter decisions.",
       "stack": ["Vue.js", "Python", "Redis", "Docker"],
       "year": 2023
     },
@@ -116,7 +111,7 @@
       "title": "TaxEase Portal",
       "client": "FinServ Solutions",
       "category": "Web",
-      "description": "Tax management SaaS platform automating compliance for 500+ SMEs.",
+      "description": "Tax management platform automating compliance for small and medium businesses.",
       "stack": ["Next.js", "PostgreSQL", "AWS Lambda"],
       "year": 2023
     },
@@ -125,7 +120,7 @@
       "title": "Heritage Hotels Website",
       "client": "Heritage Hospitality Group",
       "category": "Web",
-      "description": "Luxury hospitality website with booking integration and immersive storytelling.",
+      "description": "Hospitality website with booking integration and immersive storytelling.",
       "stack": ["HTML5", "CSS3", "JavaScript", "Booking API"],
       "year": 2024
     },
@@ -143,42 +138,27 @@
     {
       "name": "Sipho Ndlovu",
       "role": "CEO, RetailEdge SA",
-      "text": "Mapengo transformed our online presence. The ShopZA platform increased our revenue by 340% in the first year.",
+      "text": "Mapengo Innovations transformed our online presence. The platform exceeded our expectations and drives real results.",
       "rating": 5
     },
     {
       "name": "Dr. Amina Patel",
       "role": "Founder, HealthBridge Africa",
-      "text": "The MedConnect app has helped us reach over 10,000 patients in rural areas. Mapengo's team understood our mission deeply.",
+      "text": "The MedConnect app has helped us reach patients in rural areas. Novice and his team understood our mission deeply.",
       "rating": 5
     },
     {
       "name": "Lerato Dlamini",
       "role": "CTO, Metro Analytics",
-      "text": "Their technical expertise is world-class. The CityFlow dashboard handles millions of data points effortlessly.",
+      "text": "Their technical expertise is world-class. The dashboard handles massive data effortlessly. Our go-to partner.",
       "rating": 5
     }
   ],
   "team": [
     {
-      "name": "Thabo Mokoena",
-      "role": "Chief Technology Officer",
-      "bio": "15+ years in software engineering. Former tech lead at leading SA fintech companies."
-    },
-    {
-      "name": "Zanele Khumalo",
-      "role": "Head of Design",
-      "bio": "Award-winning UX designer with deep expertise in African market user research."
-    },
-    {
-      "name": "Mpho Sithole",
-      "role": "Lead Developer",
-      "bio": "Full-stack engineer specialising in React ecosystems and cloud-native architecture."
-    },
-    {
-      "name": "Nomsa Dube",
-      "role": "Business Development Director",
-      "bio": "10+ years growing tech businesses across South Africa and sub-Saharan Africa."
+      "name": "Novice Nhlovo Mathebula",
+      "role": "Founder & Lead Developer",
+      "bio": "ALX-trained Software Engineer and founder of Mapengo Innovations. Passionate about making high-quality digital solutions accessible to every business."
     }
   ]
 }
