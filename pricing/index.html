@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Mapengo Innovations — Website & App Development</title>
+  <meta name="description" content="Transparent pricing for website and app development by Mapengo Innovations. Basic websites from R3,000. Mobile apps from R50,000. Based in Johannesburg, South Africa.">
+  <meta name="keywords" content="website pricing South Africa, app development cost, web development prices Johannesburg, mobile app development cost SA, Mapengo Innovations pricing">
+  <meta property="og:title" content="Pricing | Mapengo Innovations">
+  <meta property="og:description" content="Transparent website & app development pricing. Basic websites from R3,000 · Basic apps from R50,000.">
+  <meta property="og:image" content="https://nhlobo.github.io/testing/assets/img/og-image.svg">
+  <meta property="og:url" content="https://nhlobo.github.io/testing/pricing/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing | Mapengo Innovations">
+  <meta name="twitter:description" content="Transparent website & app development pricing for South African businesses.">
+  <link rel="canonical" href="https://nhlobo.github.io/testing/pricing/">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+  <style>
+    /* ── Pricing page styles ─────────────────────────────── */
+    .pricing-tabs {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-12);
+      flex-wrap: wrap;
+    }
+
+    .pricing-tab-btn {
+      padding: var(--space-3) var(--space-8);
+      border-radius: var(--radius-full);
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      font-family: var(--font-heading);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      border: 2px solid var(--color-accent);
+      background: transparent;
+      color: var(--color-accent);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .pricing-tab-btn.active,
+    .pricing-tab-btn:hover {
+      background: var(--color-accent);
+      color: var(--color-white);
+      box-shadow: var(--shadow-accent);
+    }
+
+    .pricing-panel { display: none; }
+    .pricing-panel.active { display: block; }
+
+    /* Pricing grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-6);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Pricing card */
+    .pricing-card {
+      background: var(--color-white);
+      border-radius: var(--radius-2xl);
+      border: 2px solid var(--color-light-300);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-accent);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-accent), var(--shadow-lg);
+    }
+
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-accent);
+      color: var(--color-white);
+      font-size: var(--text-xs);
+      font-weight: var(--font-bold);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      padding: var(--space-1) var(--space-5);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+    }
+
+    .pricing-header {
+      padding: var(--space-8) var(--space-6) var(--space-6);
+      border-bottom: 1px solid var(--color-light-300);
+      text-align: center;
+    }
+
+    .pricing-card.featured .pricing-header {
+      background: linear-gradient(135deg, #f0f6ff 0%, #e8f2ff 100%);
+    }
+
+    .pricing-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-1) var(--space-3);
+      background: rgba(26,115,232,0.1);
+      color: var(--color-accent);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--font-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+
+    .pricing-name {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+    }
+
+    .pricing-price {
+      margin-bottom: var(--space-2);
+    }
+
+    .pricing-price .from-label {
+      font-size: var(--text-sm);
+      color: var(--color-muted-dark);
+      display: block;
+      margin-bottom: var(--space-1);
+    }
+
+    .pricing-price .amount {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: var(--font-extrabold);
+      color: var(--color-accent);
+      line-height: 1;
+    }
+
+    .pricing-price .currency {
+      font-size: var(--text-xl);
+      font-weight: var(--font-semibold);
+      vertical-align: top;
+      margin-top: var(--space-2);
+      display: inline-block;
+    }
+
+    .pricing-timeline {
+      font-size: var(--text-sm);
+      color: var(--color-muted-dark);
+      margin-top: var(--space-3);
+      font-weight: var(--font-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+    }
+
+    .pricing-timeline svg {
+      width: 14px;
+      height: 14px;
+      color: var(--color-teal);
+    }
+
+    .pricing-tagline {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-top: var(--space-3);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Features list */
+    .pricing-features {
+      padding: var(--space-6);
+      flex: 1;
+    }
+
+    .pricing-features ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      line-height: var(--leading-relaxed);
+    }
+
+    .pricing-features li .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: var(--radius-full);
+      background: rgba(0,176,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pricing-features li .check-icon svg {
+      width: 11px;
+      height: 11px;
+      stroke: var(--color-teal);
+    }
+
+    /* CTA area */
+    .pricing-cta {
+      padding: var(--space-6);
+      padding-top: 0;
+    }
+
+    .pricing-cta .btn {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Note */
+    .pricing-note {
+      text-align: center;
+      font-size: var(--text-sm);
+      color: var(--color-muted-dark);
+      margin-top: var(--space-10);
+      padding: var(--space-6);
+      background: var(--color-light);
+      border-radius: var(--radius-xl);
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid var(--color-light-300);
+    }
+
+    .pricing-note strong {
+      color: var(--color-text);
+    }
+
+    /* FAQ pricing */
+    .pricing-faq {
+      max-width: 720px;
+      margin: var(--space-12) auto 0;
+    }
+
+    .pricing-faq-item {
+      border-bottom: 1px solid var(--color-light-300);
+      padding: var(--space-5) 0;
+    }
+
+    .pricing-faq-item summary {
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      color: var(--color-text);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding-right: var(--space-2);
+    }
+
+    .pricing-faq-item summary::after {
+      content: '+';
+      font-size: var(--text-2xl);
+      font-weight: var(--font-light);
+      color: var(--color-accent);
+      flex-shrink: 0;
+      line-height: 1;
+      transition: transform var(--transition-fast);
+    }
+
+    .pricing-faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .pricing-faq-item p {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      line-height: var(--leading-relaxed);
+      padding-top: var(--space-4);
+    }
+
+    @media (max-width: 640px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+
+    <!-- ══════════ HERO ══════════ -->
+    <section class="hero hero-page" aria-label="Pricing hero">
+      <div class="hero-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="prhg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1a73e8" stop-opacity="0.10"/>
+              <stop offset="100%" stop-color="#00b0ff" stop-opacity="0.06"/>
+            </linearGradient>
+          </defs>
+          <polygon points="900,0 1440,0 1440,500" fill="url(#prhg1)"/>
+          <circle cx="1300" cy="150" r="200" fill="#00b0ff" fill-opacity="0.05"/>
+          <circle cx="200" cy="400" r="180" fill="#1a73e8" fill-opacity="0.04"/>
+          <polygon points="0,550 300,600 0,600" fill="#1a73e8" fill-opacity="0.06"/>
+          <g stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1">
+            <line x1="360" y1="0" x2="360" y2="600"/>
+            <line x1="720" y1="0" x2="720" y2="600"/>
+            <line x1="1080" y1="0" x2="1080" y2="600"/>
+            <line x1="0" y1="200" x2="1440" y2="200"/>
+            <line x1="0" y1="400" x2="1440" y2="400"/>
+          </g>
+        </svg>
+      </div>
+      <div class="container hero-inner">
+        <span class="overline">Transparent Pricing</span>
+        <h1>Website &amp; App Development <span class="text-gradient">Pricing</span></h1>
+        <p class="lead">
+          Straightforward, value-driven pricing for South African businesses and individuals.
+          No hidden fees — just quality work delivered on time, within budget.
+        </p>
+        <div class="hero-actions" style="margin-top:var(--space-8);">
+          <a href="../contact/" class="btn btn-primary btn-lg">Get a Custom Quote →</a>
+          <a href="../services/" class="btn btn-ghost btn-lg">View Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PRICING TABS ══════════ -->
+    <section class="section" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <span class="overline">Choose Your Plan</span>
+          <h2 id="pricing-heading">Pick a <span class="text-gradient">Category</span></h2>
+          <p>Select between website development and app development pricing below.</p>
+        </div>
+
+        <!-- Tab buttons -->
+        <div class="pricing-tabs reveal" role="tablist" aria-label="Pricing categories">
+          <button class="pricing-tab-btn active" role="tab" aria-selected="true" aria-controls="website-panel" id="website-tab" onclick="switchPricingTab('website')">
+            🌐 Website Development
+          </button>
+          <button class="pricing-tab-btn" role="tab" aria-selected="false" aria-controls="app-panel" id="app-tab" onclick="switchPricingTab('app')">
+            📱 App Development
+          </button>
+        </div>
+
+        <!-- ═══ WEBSITE DEVELOPMENT PRICING ═══ -->
+        <div class="pricing-panel active" id="website-panel" role="tabpanel" aria-labelledby="website-tab">
+
+          <div class="pricing-grid stagger">
+
+            <!-- Basic Website -->
+            <div class="pricing-card reveal">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                  Starter
+                </span>
+                <div class="pricing-name">Basic Website</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount"><span class="currency">R</span>3,000</span>
+                </div>
+                <div class="pricing-tagline">Perfect for individuals, bloggers, and personal portfolios needing a clean, professional online presence.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    1–3 pages
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Custom landing page design
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Contact form integration
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Basic SEO setup
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Responsive design (mobile-friendly)
+                  </li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <a href="../contact/?plan=basic-website" class="btn btn-outline btn-accent">Get Started →</a>
+              </div>
+            </div>
+
+            <!-- Standard Website -->
+            <div class="pricing-card featured reveal">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.4 2.4-7.4L2 9.4h7.6z"/></svg>
+                  Popular
+                </span>
+                <div class="pricing-name">Standard Website</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount"><span class="currency">R</span>6,000</span>
+                </div>
+                <div class="pricing-tagline">Ideal for small businesses, consultants, or non-profits that need a full multi-page website.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    4–8 pages
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Custom homepage and inner page design
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Contact form, gallery, or blog
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Basic SEO optimization
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Social media integration
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Mobile responsiveness
+                  </li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <a href="../contact/?plan=standard-website" class="btn btn-primary">Get Started →</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pricing-note reveal">
+            <strong>Need a larger, custom website?</strong> E-commerce platforms, booking systems, custom web applications, and enterprise sites are also available.
+            <a href="../contact/" style="color:var(--color-accent);font-weight:var(--font-semibold);">Contact us for a custom quote →</a>
+          </div>
+
+        </div>
+
+        <!-- ═══ APP DEVELOPMENT PRICING ═══ -->
+        <div class="pricing-panel" id="app-panel" role="tabpanel" aria-labelledby="app-tab">
+
+          <div class="pricing-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1100px;" class="stagger">
+
+            <!-- Basic App -->
+            <div class="pricing-card reveal">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge">Starter</span>
+                <div class="pricing-name">Basic App</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount"><span class="currency">R</span>50,000</span>
+                </div>
+                <div class="pricing-timeline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Development Time: 2–4 months
+                </div>
+                <div class="pricing-tagline">Simple apps with limited features, perfect for individuals and small businesses.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    User login and registration
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Basic UI/UX design
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Simple functionality (form submission, calculators)
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Push notifications (optional)
+                  </li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <a href="../contact/?plan=basic-app" class="btn btn-outline btn-accent">Get Started →</a>
+              </div>
+            </div>
+
+            <!-- Standard App -->
+            <div class="pricing-card featured reveal">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.4 2.4-7.4L2 9.4h7.6z"/></svg>
+                  Popular
+                </span>
+                <div class="pricing-name">Standard App</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount"><span class="currency">R</span>75,000</span>
+                </div>
+                <div class="pricing-timeline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Development Time: 4–6 months
+                </div>
+                <div class="pricing-tagline">Apps with medium complexity — ideal for businesses ready to go fully digital.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    User profiles and login system
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Advanced UI/UX design with custom features
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Integration with third-party APIs
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Admin dashboard for content management
+                  </li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <a href="../contact/?plan=standard-app" class="btn btn-primary">Get Started →</a>
+              </div>
+            </div>
+
+            <!-- Premium App -->
+            <div class="pricing-card reveal">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge" style="background:rgba(0,176,255,0.1);color:var(--color-teal);">Premium</span>
+                <div class="pricing-name">Premium App</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount" style="color:var(--color-teal);"><span class="currency">R</span>120,000</span>
+                </div>
+                <div class="pricing-timeline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Development Time: 9–12 months
+                </div>
+                <div class="pricing-tagline">Complex apps with custom features — complete end-to-end solution for ambitious businesses.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Complete custom app design and development
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Multiple integrations (payment gateways, cloud storage, etc.)
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Real-time features (chat, live tracking)
+                  </li>
+                  <li>
+                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
+                    Advanced user roles and permissions
+                  </li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <a href="../contact/?plan=premium-app" class="btn btn-outline" style="border-color:var(--color-teal);color:var(--color-teal);" onmouseover="this.style.background='var(--color-teal)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--color-teal)'">Discuss Project →</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pricing-note reveal">
+            <strong>All app quotes include:</strong> Cross-platform (iOS &amp; Android) development, code ownership, and a 30-day post-launch support window.
+            <a href="../contact/" style="color:var(--color-accent);font-weight:var(--font-semibold);">Have a unique requirement? Let's chat →</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════ PROCESS STRIP ══════════ -->
+    <section class="section bg-light" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <span class="overline">How It Works</span>
+          <h2 id="process-heading">From Idea to <span class="text-gradient">Deployment</span></h2>
+          <p>A simple, transparent process so you always know where your project stands.</p>
+        </div>
+        <div class="grid grid-4 stagger" style="gap:var(--space-8);margin-top:var(--space-10);">
+          <div class="reveal" style="text-align:center;">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-accent);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4);font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:#fff;">1</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);">Discovery Call</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-light);">We discuss your goals, requirements, and vision. Free, no-obligation consultation.</p>
+          </div>
+          <div class="reveal" style="text-align:center;">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-accent);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4);font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:#fff;">2</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);">Proposal &amp; Quote</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-light);">You receive a detailed proposal with pricing, timeline, and deliverables — no surprises.</p>
+          </div>
+          <div class="reveal" style="text-align:center;">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-accent);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4);font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:#fff;">3</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);">Build &amp; Review</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-light);">We design and develop your solution with regular check-ins and progress updates throughout.</p>
+          </div>
+          <div class="reveal" style="text-align:center;">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-accent);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4);font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:#fff;">4</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);">Launch &amp; Support</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-light);">Your product goes live. We provide handover, training, and post-launch support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PRICING FAQ ══════════ -->
+    <section class="section" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <span class="overline">Common Questions</span>
+          <h2 id="faq-heading">Pricing <span class="text-gradient">FAQ</span></h2>
+        </div>
+
+        <div class="pricing-faq reveal">
+
+          <details class="pricing-faq-item">
+            <summary>Are these prices fixed or can they change?</summary>
+            <p>The prices shown are starting prices ("from"). The final quote depends on your specific requirements, number of features, integrations needed, and design complexity. We always provide a detailed, fixed quote before starting work so there are no surprises.</p>
+          </details>
+
+          <details class="pricing-faq-item">
+            <summary>Do you require a deposit?</summary>
+            <p>Yes — we typically require a 50% deposit to begin work and the remaining 50% on delivery. For larger projects, a staged payment schedule is available. All payment terms are clearly outlined in your contract.</p>
+          </details>
+
+          <details class="pricing-faq-item">
+            <summary>Do your prices include hosting?</summary>
+            <p>Hosting is not included in the listed prices but can be arranged as an add-on. We can advise on the best hosting solution for your project and budget, from shared hosting to dedicated cloud infrastructure.</p>
+          </details>
+
+          <details class="pricing-faq-item">
+            <summary>Can I upgrade my plan later?</summary>
+            <p>Absolutely. We build with growth in mind. You can always start with a Basic plan and upgrade to add more features, pages, or functionality as your business grows.</p>
+          </details>
+
+          <details class="pricing-faq-item">
+            <summary>What payment methods do you accept?</summary>
+            <p>We accept EFT bank transfers and selected mobile payment methods. All payments are in South African Rand (ZAR). Receipts and invoices are issued for every transaction.</p>
+          </details>
+
+          <details class="pricing-faq-item">
+            <summary>Do you offer maintenance after delivery?</summary>
+            <p>Yes. We offer ongoing maintenance and support packages to keep your site or app updated, secure, and running smoothly. Ask about our monthly maintenance plans when requesting a quote.</p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CTA ══════════ -->
+    <section class="section cta-section" aria-labelledby="pricing-cta-heading">
+      <div class="cta-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4">
+          <polygon points="0,0 600,0 400,400 0,400" fill="#1a73e8" fill-opacity="0.06"/>
+          <polygon points="1440,0 800,0 1100,400 1440,400" fill="#00b0ff" fill-opacity="0.06"/>
+        </svg>
+      </div>
+      <div class="container" style="position:relative;z-index:2;">
+        <div class="reveal" style="text-align:center;">
+          <span class="badge badge-light" style="margin-bottom:var(--space-5);">💬 Let's Talk</span>
+          <h2 id="pricing-cta-heading">Not Sure Which Plan <span class="text-gradient">Is Right for You?</span></h2>
+          <p style="max-width:560px;margin:0 auto var(--space-8);">Every project is unique. Get in touch and we'll help you find the perfect solution at the right price for your goals and budget.</p>
+          <div class="flex justify-center gap-4 flex-wrap">
+            <a href="../contact/" class="btn btn-primary btn-lg">Get a Free Quote →</a>
+            <a href="mailto:mapengoinnovations@gmail.com" class="btn btn-ghost btn-lg">mapengoinnovations@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../assets/js/components.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script>
+    function switchPricingTab(tab) {
+      // Update buttons
+      document.getElementById('website-tab').classList.toggle('active', tab === 'website');
+      document.getElementById('app-tab').classList.toggle('active', tab === 'app');
+
+      // Update aria
+      document.getElementById('website-tab').setAttribute('aria-selected', tab === 'website');
+      document.getElementById('app-tab').setAttribute('aria-selected', tab === 'app');
+
+      // Update panels
+      document.getElementById('website-panel').classList.toggle('active', tab === 'website');
+      document.getElementById('app-panel').classList.toggle('active', tab === 'app');
+    }
+  </script>
+</body>
+</html>
