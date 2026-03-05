@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 50" fill="none">
+  <!-- Geometric mark -->
+  <g transform="translate(0,0)">
+    <!-- Hexagon base shape -->
+    <polygon points="22,4 36,12 36,28 22,36 8,28 8,12" fill="#0A1628"/>
+    <!-- Inner accent triangle pointing up -->
+    <polygon points="22,10 31,24 13,24" fill="#FF6B35" opacity="0.9"/>
+    <!-- Teal dot accent -->
+    <circle cx="22" cy="29" r="3.5" fill="#00C9A7"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="46" y="22" font-family="Syne, Inter, Arial, sans-serif" font-weight="800" font-size="15" fill="#0A1628" letter-spacing="0.5">MAPENGO</text>
+  <text x="46" y="38" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="9" fill="#FF6B35" letter-spacing="2.5">INNOVATIONS</text>
+</svg>
