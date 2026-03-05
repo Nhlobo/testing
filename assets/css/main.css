@@ -137,6 +137,27 @@
   padding: 0;
 }
 
+/* Skip navigation link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  border-radius: 0 0 var(--radius-md) 0;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;

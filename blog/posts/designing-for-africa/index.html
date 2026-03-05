@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designing for Africa: Why Western UX Patterns Often Fail | Mapengo Innovations</title>
+  <meta name="description" content="African users have unique digital behaviours shaped by connectivity, culture, and context. Here's why copying Western UX patterns often falls flat — and what to do instead.">
+  <meta name="keywords" content="UI/UX design Africa, African UX patterns, digital design South Africa, user experience Africa, mobile-first design, inclusive design, Mapengo Innovations blog">
+  <meta property="og:title" content="Designing for Africa: Why Western UX Patterns Often Fail">
+  <meta property="og:description" content="African users have unique digital behaviours shaped by connectivity, culture, and context. Here's why copying Western UX patterns often falls flat — and what to do instead.">
+  <meta property="og:image" content="https://nhlobo.github.io/testing/assets/img/og-image.svg">
+  <meta property="og:url" content="https://nhlobo.github.io/testing/blog/posts/designing-for-africa/">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2025-05-10">
+  <meta property="article:author" content="Novice Nhlovo Mathebula">
+  <meta property="article:section" content="UI/UX Design">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Designing for Africa: Why Western UX Patterns Often Fail">
+  <meta name="twitter:description" content="African users have unique digital behaviours shaped by connectivity, culture, and context. Here's why copying Western UX patterns often falls flat — and what to do instead.">
+  <link rel="canonical" href="https://nhlobo.github.io/testing/blog/posts/designing-for-africa/">
+  <link rel="icon" href="../../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/pages.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Designing for Africa: Why Western UX Patterns Often Fail",
+    "description": "African users have unique digital behaviours shaped by connectivity, culture, and context. Here's why copying Western UX patterns often falls flat — and what to do instead.",
+    "url": "https://nhlobo.github.io/testing/blog/posts/designing-for-africa/",
+    "datePublished": "2025-05-10",
+    "dateModified": "2025-05-10",
+    "author": {
+      "@type": "Person",
+      "name": "Novice Nhlovo Mathebula",
+      "url": "https://nhlobo.github.io/testing/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mapengo Innovations",
+      "url": "https://nhlobo.github.io/testing/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://nhlobo.github.io/testing/assets/img/logo.svg"
+      }
+    },
+    "image": "https://nhlobo.github.io/testing/assets/img/og-image.svg",
+    "articleSection": "UI/UX Design",
+    "keywords": ["UI/UX design", "Africa", "user experience", "mobile-first", "inclusive design"],
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://nhlobo.github.io/testing/blog/posts/designing-for-africa/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <!-- ══════════ HERO ══════════ -->
+    <section class="hero hero-page" aria-label="Article hero" style="padding-block:clamp(var(--space-12),6vw,var(--space-20));">
+      <div class="hero-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="dfa1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1a73e8" stop-opacity="0.10"/>
+              <stop offset="100%" stop-color="#00b0ff" stop-opacity="0.06"/>
+            </linearGradient>
+          </defs>
+          <polygon points="1440,0 800,0 1440,500" fill="url(#dfa1)"/>
+          <polygon points="0,600 500,600 0,100" fill="#00b0ff" fill-opacity="0.05"/>
+          <circle cx="300" cy="150" r="200" fill="#1a73e8" fill-opacity="0.04"/>
+          <circle cx="1200" cy="450" r="180" fill="#00b0ff" fill-opacity="0.04"/>
+          <g stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1">
+            <line x1="360" y1="0" x2="360" y2="600"/>
+            <line x1="720" y1="0" x2="720" y2="600"/>
+            <line x1="1080" y1="0" x2="1080" y2="600"/>
+            <line x1="0" y1="200" x2="1440" y2="200"/>
+            <line x1="0" y1="400" x2="1440" y2="400"/>
+          </g>
+        </svg>
+      </div>
+      <div class="container hero-inner">
+        <div style="margin-bottom:var(--space-4);">
+          <a href="../../" style="font-size:var(--text-sm);color:rgba(255,255,255,0.55);font-weight:var(--font-medium);display:inline-flex;align-items:center;gap:0.4rem;transition:color var(--transition-fast);" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+            ← Back to Blog
+          </a>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-5);flex-wrap:wrap;">
+          <span class="badge badge-accent">UI/UX Design</span>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);">10 May 2025</span>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);">·</span>
+          <span style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);">7 min read</span>
+        </div>
+        <h1 style="font-size:clamp(var(--text-2xl),4.5vw,3.25rem);line-height:1.15;max-width:780px;margin-bottom:var(--space-6);">
+          Designing for Africa: Why <span class="text-gradient">Western UX Patterns</span> Often Fail
+        </h1>
+        <div style="display:flex;align-items:center;gap:var(--space-3);">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#00b0ff);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:var(--text-base);color:#fff;">N</div>
+          <div>
+            <p style="font-size:var(--text-sm);font-weight:var(--font-semibold);color:rgba(255,255,255,0.9);margin:0;">Novice Nhlovo Mathebula</p>
+            <p style="font-size:var(--text-xs);color:rgba(255,255,255,0.5);margin:0;">Founder &amp; Lead Developer, Mapengo Innovations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ ARTICLE BODY ══════════ -->
+    <section class="section" aria-label="Article body">
+      <div class="container">
+        <div class="article-layout">
+
+          <!-- ── ARTICLE CONTENT ── -->
+          <article>
+            <div class="article-hero-visual" role="img" aria-label="UX design visualization" style="background:linear-gradient(135deg,#111111,#1a2a50);">
+              <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;max-width:700px;">
+                <!-- Design wireframe elements -->
+                <!-- Large screen mockup -->
+                <rect x="80" y="30" width="350" height="240" rx="12" fill="#0a1228" stroke="#1a3060" stroke-width="1.5"/>
+                <rect x="80" y="30" width="350" height="32" rx="12" fill="#0d1840"/>
+                <rect x="80" y="50" width="350" height="12" fill="#0d1840"/>
+                <!-- Navigation bar -->
+                <rect x="95" y="38" width="30" height="16" rx="3" fill="#1a73e8" opacity="0.4"/>
+                <rect x="132" y="40" width="22" height="5" rx="2" fill="#fff" opacity="0.3"/>
+                <rect x="132" y="49" width="14" height="4" rx="2" fill="#fff" opacity="0.2"/>
+                <!-- Hero area -->
+                <rect x="92" y="72" width="200" height="12" rx="3" fill="#fff" opacity="0.35"/>
+                <rect x="92" y="89" width="150" height="9" rx="2" fill="#fff" opacity="0.2"/>
+                <rect x="92" y="102" width="110" height="9" rx="2" fill="#fff" opacity="0.15"/>
+                <rect x="92" y="118" width="70" height="22" rx="4" fill="#1a73e8" opacity="0.6"/>
+                <!-- Feature cards -->
+                <rect x="92" y="156" width="95" height="90" rx="6" fill="#0d1e40" stroke="#1a3060" stroke-width="1"/>
+                <rect x="100" y="164" width="30" height="30" rx="4" fill="#1a73e8" opacity="0.2"/>
+                <rect x="100" y="200" width="70" height="5" rx="2" fill="#fff" opacity="0.4"/>
+                <rect x="100" y="210" width="55" height="4" rx="2" fill="#fff" opacity="0.2"/>
+                <rect x="100" y="219" width="45" height="4" rx="2" fill="#fff" opacity="0.15"/>
+                <rect x="197" y="156" width="95" height="90" rx="6" fill="#0d1e40" stroke="#1a3060" stroke-width="1"/>
+                <rect x="205" y="164" width="30" height="30" rx="4" fill="#00b0ff" opacity="0.2"/>
+                <rect x="205" y="200" width="70" height="5" rx="2" fill="#fff" opacity="0.4"/>
+                <rect x="205" y="210" width="55" height="4" rx="2" fill="#fff" opacity="0.2"/>
+                <rect x="205" y="219" width="45" height="4" rx="2" fill="#fff" opacity="0.15"/>
+                <rect x="302" y="156" width="95" height="90" rx="6" fill="#0d1e40" stroke="#1a73e8" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="310" y="164" width="30" height="30" rx="4" fill="#1a73e8" opacity="0.15"/>
+                <rect x="310" y="200" width="70" height="5" rx="2" fill="#fff" opacity="0.4"/>
+
+                <!-- Mobile phone mockup (right side) -->
+                <rect x="490" y="40" width="120" height="220" rx="16" fill="#0a1228" stroke="#1a3060" stroke-width="1.5"/>
+                <rect x="500" y="56" width="100" height="188" rx="8" fill="#0d1840"/>
+                <!-- Mobile nav -->
+                <rect x="500" y="56" width="100" height="28" rx="8" fill="#0a1840"/>
+                <circle cx="515" cy="70" r="8" fill="#1a73e8" opacity="0.4"/>
+                <rect x="530" y="66" width="55" height="5" rx="2" fill="#fff" opacity="0.4"/>
+                <rect x="530" y="75" width="40" height="4" rx="2" fill="#00b0ff" opacity="0.4"/>
+                <!-- Mobile hero -->
+                <rect x="508" y="96" width="84" height="8" rx="2" fill="#fff" opacity="0.4"/>
+                <rect x="508" y="110" width="65" height="6" rx="2" fill="#fff" opacity="0.25"/>
+                <rect x="508" y="122" width="50" height="14" rx="3" fill="#1a73e8" opacity="0.6"/>
+                <!-- Mobile cards (vertical) -->
+                <rect x="508" y="148" width="84" height="36" rx="4" fill="#0d1e40" stroke="#1a3060" stroke-width="1"/>
+                <circle cx="520" cy="166" r="9" fill="#1a73e8" opacity="0.25"/>
+                <rect x="534" y="160" width="50" height="5" rx="2" fill="#fff" opacity="0.35"/>
+                <rect x="534" y="170" width="35" height="4" rx="2" fill="#fff" opacity="0.2"/>
+                <rect x="508" y="192" width="84" height="36" rx="4" fill="#0d1e40" stroke="#00b0ff" stroke-opacity="0.25" stroke-width="1"/>
+                <circle cx="520" cy="210" r="9" fill="#00b0ff" opacity="0.25"/>
+                <rect x="534" y="204" width="50" height="5" rx="2" fill="#fff" opacity="0.35"/>
+                <rect x="534" y="214" width="35" height="4" rx="2" fill="#fff" opacity="0.2"/>
+                <!-- Mobile bottom tab bar -->
+                <rect x="500" y="224" width="100" height="20" rx="0" fill="#080e1e"/>
+                <circle cx="520" cy="234" r="4" fill="#1a73e8" opacity="0.7"/>
+                <circle cx="540" cy="234" r="4" fill="#fff" opacity="0.2"/>
+                <circle cx="560" cy="234" r="4" fill="#fff" opacity="0.2"/>
+                <circle cx="580" cy="234" r="4" fill="#fff" opacity="0.2"/>
+
+                <!-- Connecting arrows/annotations -->
+                <path d="M435 130 C450 130 465 130 490 130" stroke="#1a73e8" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#arrow)"/>
+                <text x="450" y="122" fill="rgba(255,255,255,0.3)" font-size="9" text-anchor="middle">responsive</text>
+              </svg>
+            </div>
+
+            <div class="article-header">
+              <div class="article-tags">
+                <span class="tag">UI/UX Design</span>
+                <span class="tag">Africa</span>
+                <span class="tag">Inclusive Design</span>
+                <span class="tag">Mobile-First</span>
+              </div>
+            </div>
+
+            <div class="article-content">
+              <p class="article-lead">
+                Every week, another global tech company launches an African product that immediately feels alien to its intended users. The interfaces are beautiful by Western standards — but they assume fast internet, large screens, and a relationship with digital products that many African users simply don't share. After years of building in South Africa, these are the patterns we see fail most often, and how we approach design differently.
+              </p>
+
+              <h2>The Assumption Problem</h2>
+              <p>
+                Most UX patterns taught in Western design schools and popularised by Silicon Valley companies are built on a set of assumptions that don't hold across the African continent:
+              </p>
+              <ul>
+                <li>Users have fast, cheap, always-on internet</li>
+                <li>Screens are large and high-resolution</li>
+                <li>Users are digitally literate from childhood</li>
+                <li>Users trust digital systems by default</li>
+                <li>Interaction patterns (swipe, pinch, hamburger menus) are universally understood</li>
+              </ul>
+              <p>
+                None of these assumptions are safe to make in South Africa, let alone across the broader continent.
+              </p>
+
+              <h2>1. The Heavy Page Problem</h2>
+              <p>
+                Full-bleed hero videos. 4K background images. Parallax scrolling. These design choices look stunning on a MacBook Pro in a coffee shop. On a mid-range Android with 3G data in Soweto, they create a terrible experience — and each megabyte carries a real monetary cost for the user.
+              </p>
+              <p>
+                Practical rules we follow:
+              </p>
+              <ul>
+                <li>Target a first contentful paint under 2 seconds on a simulated 4G connection</li>
+                <li>Compress every image to below 100KB where possible</li>
+                <li>Replace video backgrounds with CSS animations or SVG</li>
+                <li>Implement aggressive lazy loading</li>
+                <li>Measure your Lighthouse score on a throttled mobile connection, not desktop</li>
+              </ul>
+
+              <h2>2. Trust Signals Look Different Here</h2>
+              <p>
+                In Western e-commerce, trust is typically built through social proof (reviews, ratings), recognisable brand logos, and HTTPS padlocks. In South Africa and much of Africa, the dynamics are different.
+              </p>
+              <p>
+                Users have been burned by online scams, grey-market goods, and non-delivery far more than typical Western markets. Trust has to be earned differently:
+              </p>
+              <ul>
+                <li><strong>Physical address + phone number</strong> — South African users want to know there's a real person at a real address they could hold accountable</li>
+                <li><strong>WhatsApp contact</strong> — this signals accessibility and approachability in a way that email never does</li>
+                <li><strong>South African payment logos</strong> — PayFast, Ozow, and Instant EFT logos build instant local credibility</li>
+                <li><strong>VAT registration</strong> — displaying your tax number tells South African business users that you're a legitimate entity</li>
+              </ul>
+              <blockquote>
+                <p>"A WhatsApp icon in your footer is worth more trust-signals to the average South African customer than ten five-star reviews."</p>
+                <cite>— Mapengo Innovations design principle</cite>
+              </blockquote>
+
+              <h2>3. Navigation Complexity Kills Conversion</h2>
+              <p>
+                Mega-menus, nested dropdowns, and complex information architectures may work for power users on desktop. For mobile-first users in emerging markets, they're conversion killers. We've seen conversion rates jump by over 20% simply by flattening navigation hierarchies and reducing the number of choices presented at any one time.
+              </p>
+              <p>
+                The "paradox of choice" is acutely felt by users who are newer to digital products. When in doubt, reduce. One clear CTA is almost always better than three competing options.
+              </p>
+
+              <h2>4. Don't Assume the Hamburger Is Universal</h2>
+              <p>
+                The hamburger menu icon (☰) has become a global standard — but in our usability tests with first-generation smartphone users in peri-urban South Africa, discovery rates for hamburger menus were surprisingly low. Many users simply didn't know to tap it.
+              </p>
+              <p>
+                Our approach:
+              </p>
+              <ul>
+                <li>Label the hamburger with the word "Menu" on mobile, especially for apps targeting less digitally-experienced audiences</li>
+                <li>Keep the most critical action (Contact Us, Sign Up, Buy Now) persistently visible rather than buried in a menu</li>
+                <li>Test with real users from your actual target demographic — not just tech-savvy colleagues</li>
+              </ul>
+
+              <h2>5. Colour and Cultural Meaning</h2>
+              <p>
+                Colour carries cultural meaning, and those meanings vary significantly. In Western design, red typically signals danger or error; in many African cultural contexts, red carries different weight (and may not signal "stop" at all). Green doesn't universally mean "go."
+              </p>
+              <p>
+                We're not saying you need to redesign your entire colour system for each culture. But if your product spans multiple African markets, be deliberate about colour choices in key decision moments — especially around payment flows, confirmations, and error states. When in doubt, use text alongside colour. Never use colour alone to convey meaning.
+              </p>
+
+              <h2>6. Language: Beyond Translation</h2>
+              <p>
+                South Africa has 11 official languages. Even if you only ever build an English product, you should be aware that for a large portion of your users, English is a second, third, or fourth language. This has design implications:
+              </p>
+              <ul>
+                <li>Use plain language — avoid idioms, jargon, and clever wordplay that doesn't translate</li>
+                <li>Keep button labels concrete and action-oriented ("Submit your application" over "Let's go!")</li>
+                <li>Avoid dense blocks of text; white space and visual hierarchy matter even more when reading in a second language</li>
+                <li>Avoid placeholders as the only label — users from some linguistic backgrounds struggle to recall what a field is for once they start typing</li>
+              </ul>
+
+              <h2>Designing for Everyone</h2>
+              <p>
+                The constraints of designing for the African market — limited bandwidth, diverse devices, multiple languages, varied digital literacy — ultimately push you toward better design universally. An interface that works well on a 3G connection on a budget Android is almost always a better interface than one that only works on high-end hardware with fast internet.
+              </p>
+              <p>
+                This is why we believe that designing for Africa doesn't mean compromising. It means thinking harder, testing more rigorously, and caring more deeply about the user who is hardest to serve. That discipline produces products that are better for everyone.
+              </p>
+              <p>
+                If you'd like to talk about designing a digital product for the South African or African market, we'd love to hear from you.
+              </p>
+
+              <!-- Share -->
+              <div style="margin-top:var(--space-10);padding-top:var(--space-8);border-top:1px solid var(--color-light-300);">
+                <span class="share-label">Share this article:</span>
+                <div class="share-links">
+                  <a href="https://twitter.com/intent/tweet?text=Designing%20for%20Africa%3A%20Why%20Western%20UX%20Patterns%20Often%20Fail&url=https://nhlobo.github.io/testing/blog/posts/designing-for-africa/" target="_blank" rel="noopener" class="share-link" aria-label="Share on Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Twitter / X
+                  </a>
+                  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nhlobo.github.io/testing/blog/posts/designing-for-africa/&title=Designing%20for%20Africa%3A%20Why%20Western%20UX%20Patterns%20Often%20Fail" target="_blank" rel="noopener" class="share-link" aria-label="Share on LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="currentColor"/></svg>
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- ── SIDEBAR ── -->
+          <aside class="article-sidebar" aria-label="Article sidebar">
+            <!-- Author Card -->
+            <div class="sidebar-card" style="margin-bottom:var(--space-6);">
+              <div class="sidebar-card-header" style="text-align:center;">
+                <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#00b0ff);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;color:#fff;margin:0 auto var(--space-3);">N</div>
+                <p class="sidebar-label">Written by</p>
+                <h3 style="font-size:var(--text-base);margin-bottom:var(--space-1);">Novice Nhlovo Mathebula</h3>
+                <p style="font-size:var(--text-sm);color:var(--color-text-light);margin-bottom:var(--space-4);">Founder &amp; Lead Developer</p>
+                <a href="../../../about/" class="btn btn-outline-accent btn-sm" style="width:100%;justify-content:center;">About the Author</a>
+              </div>
+            </div>
+
+            <!-- Related articles -->
+            <div class="sidebar-card">
+              <p class="sidebar-label">Related Articles</p>
+              <article class="blog-card" style="border:none;padding:0;background:none;">
+                <div style="padding:var(--space-4) 0;border-bottom:1px solid var(--color-light-300);">
+                  <span class="tag" style="margin-bottom:var(--space-2);">Digital Transformation</span>
+                  <h3 style="font-size:var(--text-base);font-weight:var(--font-semibold);line-height:1.4;margin-bottom:var(--space-1);">
+                    <a href="../digital-transformation-sa/" style="color:var(--color-text);">5 Digital Transformation Trends Reshaping SA in 2025</a>
+                  </h3>
+                  <p style="font-size:var(--text-sm);color:var(--color-text-light);margin:0;">15 March 2025</p>
+                </div>
+              </article>
+              <article class="blog-card" style="border:none;padding:0;background:none;">
+                <div style="padding:var(--space-4) 0 0;">
+                  <span class="tag" style="margin-bottom:var(--space-2);">Mobile Development</span>
+                  <h3 style="font-size:var(--text-base);font-weight:var(--font-semibold);line-height:1.4;margin-bottom:var(--space-1);">
+                    <a href="../building-mobile-apps-south-africa/" style="color:var(--color-text);">Building Mobile Apps for South Africa: Lessons from the Field</a>
+                  </h3>
+                  <p style="font-size:var(--text-sm);color:var(--color-text-light);margin:0;">22 April 2025</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- CTA Card -->
+            <div class="sidebar-card" style="margin-top:var(--space-6);background:var(--gradient-hero);border:none;">
+              <p style="font-size:var(--text-base);font-weight:var(--font-semibold);color:var(--color-white);margin-bottom:var(--space-2);">Need a UX partner?</p>
+              <p style="font-size:var(--text-sm);color:rgba(255,255,255,0.65);margin-bottom:var(--space-4);">We design digital experiences that work for real South African users. Let's talk.</p>
+              <a href="../../../contact/" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">Get in Touch →</a>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ BACK TO BLOG ══════════ -->
+    <section class="section-sm bg-light">
+      <div class="container" style="text-align:center;">
+        <a href="../../" class="btn btn-outline-accent">← Back to Blog</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="../../../assets/js/components.js" defer></script>
+  <script src="../../../assets/js/main.js" defer></script>
+</body>
+</html>

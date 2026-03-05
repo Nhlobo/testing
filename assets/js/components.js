@@ -210,10 +210,20 @@
 </div>`;
   }
 
+  /* ── Skip navigation link ───────────────────────────────── */
+  function injectSkipLink() {
+    const skip = document.createElement('a');
+    skip.href = '#main-content';
+    skip.className = 'skip-link';
+    skip.textContent = 'Skip to main content';
+    document.body.insertBefore(skip, document.body.firstChild);
+  }
+
   /* ── Inject into DOM ────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     const headerEl = document.getElementById('site-header');
     const footerEl = document.getElementById('site-footer');
+    const mainEl   = document.querySelector('main');
 
     if (headerEl) {
       headerEl.classList.add('header-transparent');
@@ -223,6 +233,13 @@
     if (footerEl) {
       footerEl.innerHTML = buildFooter();
     }
+
+    // Add id="main-content" to <main> for skip link target
+    if (mainEl && !mainEl.id) {
+      mainEl.id = 'main-content';
+    }
+
+    injectSkipLink();
 
     // Inject cookie banner into body
     const bannerWrapper = document.createElement('div');
