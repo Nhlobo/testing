@@ -17,7 +17,9 @@ A premium, multi-page static website for **Mapengo Innovations** — a South Afr
 | Products | `products/index.html` |
 | Technologies | `technologies/index.html` |
 | Blog | `blog/index.html` |
-| Blog Post Example | `blog/posts/digital-transformation-sa/index.html` |
+| Blog Post — Digital Transformation | `blog/posts/digital-transformation-sa/index.html` |
+| Blog Post — Building Mobile Apps | `blog/posts/building-mobile-apps-south-africa/index.html` |
+| Blog Post — Designing for Africa | `blog/posts/designing-for-africa/index.html` |
 | Careers | `careers/index.html` |
 | Contact | `contact/index.html` |
 | 404 | `404.html` |
@@ -64,7 +66,11 @@ testing/
 ├── blog/
 │   ├── index.html
 │   └── posts/
-│       └── digital-transformation-sa/
+│       ├── digital-transformation-sa/
+│       │   └── index.html
+│       ├── building-mobile-apps-south-africa/
+│       │   └── index.html
+│       └── designing-for-africa/
 │           └── index.html
 ├── careers/index.html
 ├── contact/index.html
