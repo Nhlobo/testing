@@ -734,7 +734,8 @@
   margin-bottom: var(--space-6);
 }
 
-.sidebar-widget h3 {
+.sidebar-widget h3,
+.sidebar-widget h4 {
   font-size: var(--text-base);
   font-weight: var(--font-bold);
   margin-bottom: var(--space-5);
@@ -1638,6 +1639,8 @@
   .service-features-list { grid-template-columns: 1fr; }
   .product-features { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: 1fr; }
+  .services-overview-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-sidebar { position: static; }
 }
 
 @media (max-width: 480px) {
@@ -1645,4 +1648,5 @@
   .tech-cards-grid { grid-template-columns: repeat(2, 1fr); }
   .benefits-grid { grid-template-columns: 1fr; }
   .filter-tabs { gap: var(--space-2); }
+  .services-overview-grid { grid-template-columns: 1fr; }
 }

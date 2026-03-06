@@ -1,14 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 50" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 50" fill="none" role="img" aria-labelledby="logo-title">
+  <title id="logo-title">Mapengo Innovations</title>
   <!-- Geometric mark -->
   <g transform="translate(0,0)">
-    <!-- Hexagon base shape -->
-    <polygon points="22,4 36,12 36,28 22,36 8,28 8,12" fill="#111111"/>
-    <!-- Inner accent triangle pointing up -->
-    <polygon points="22,10 31,24 13,24" fill="#1a73e8" opacity="0.9"/>
-    <!-- Teal dot accent -->
-    <circle cx="22" cy="29" r="3.5" fill="#00b0ff"/>
+    <!-- Outer hexagon -->
+    <polygon points="22,2 37,11 37,29 22,38 7,29 7,11" fill="#111111"/>
+    <!-- Inner accent: upward triangle -->
+    <polygon points="22,9 32,25 12,25" fill="#1a73e8"/>
+    <!-- Teal bottom accent bar -->
+    <rect x="14" y="28" width="16" height="3" rx="1.5" fill="#00b0ff"/>
   </g>
   <!-- Wordmark -->
-  <text x="46" y="22" font-family="Syne, Inter, Arial, sans-serif" font-weight="800" font-size="15" fill="#111111" letter-spacing="0.5">MAPENGO</text>
-  <text x="46" y="38" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="9" fill="#1a73e8" letter-spacing="2.5">INNOVATIONS</text>
+  <text x="47" y="23" font-family="Syne, Inter, Arial, sans-serif" font-weight="800" font-size="16" fill="#111111" letter-spacing="0.3">MAPENGO</text>
+  <text x="47" y="38" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="8.5" fill="#1a73e8" letter-spacing="3">INNOVATIONS</text>
 </svg>
