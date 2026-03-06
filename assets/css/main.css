@@ -1254,20 +1254,16 @@ p + p { margin-top: var(--space-4); }
    17. ANIMATIONS & KEYFRAMES
    ============================================================ */
 
-/* Reveal animations via Intersection Observer */
+/* Reveal — always visible, no animation */
 .reveal,
 .reveal-left,
 .reveal-right,
-.reveal-scale {
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
+.reveal-scale,
 .revealed {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
-/* Hero entrance — no animation, just visible */
+/* Hero entrance — always visible */
 .hero-animate-1,
 .hero-animate-2,
 .hero-animate-3,
@@ -1413,18 +1409,15 @@ p + p { margin-top: var(--space-4); }
   }
 }
 
-/* Respect user motion preferences */
+/* Disable all animations and transitions globally for performance */
+*, *::before, *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+html { scroll-behavior: auto; }
+
+/* Respect user motion preferences (already disabled globally above) */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal, .reveal-left, .reveal-right, .reveal-scale {
-    opacity: 1;
-    transition: none;
-  }
-  .btn, .card, .card-glass, .card-dark,
-  .service-card, .project-card, .testimonial-card,
-  .social-link, .back-to-top, .mobile-nav,
-  .cookie-banner, #site-header {
-    transition: none !important;
-    animation: none !important;
-  }
 }

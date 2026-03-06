@@ -103,75 +103,12 @@
     });
   }
 
-  /* ── Intersection Observer — reveal animations ──────────── */
-  function initReveal() {
-    const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-    if (!els.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-      els.forEach(el => el.classList.add('revealed'));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    els.forEach(el => observer.observe(el));
-  }
-
-  /* ── Counter animation ──────────────────────────────────── */
-  function animateCounter(el, target, duration) {
-    const start = performance.now();
-    const suffix = el.dataset.suffix || '';
-    const prefix = el.dataset.prefix || '';
-
-    function frame(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      // Ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(eased * target);
-      el.textContent = prefix + current + suffix;
-      if (progress < 1) requestAnimationFrame(frame);
-    }
-
-    requestAnimationFrame(frame);
-  }
-
+  /* ── Counter display — static, no animation ────────────── */
   function initCounters() {
     const counters = document.querySelectorAll('[data-counter]');
-    if (!counters.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-      counters.forEach(el => {
-        el.textContent = (el.dataset.prefix || '') + el.dataset.counter + (el.dataset.suffix || '');
-      });
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            animateCounter(el, parseInt(el.dataset.counter, 10), 1800);
-            observer.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    counters.forEach(el => observer.observe(el));
+    counters.forEach(function (el) {
+      el.textContent = (el.dataset.prefix || '') + el.dataset.counter + (el.dataset.suffix || '');
+    });
   }
 
   /* ── Portfolio filter tabs ──────────────────────────────── */
@@ -243,23 +180,12 @@
     });
   }
 
-  /* ── Testimonial simple auto-play (CSS fallback) ────────── */
+  /* ── Testimonial slider — static (show first slide only) ── */
   function initTestimonialSlider() {
-    // Simple fade-through slider if .testimonials-slider present
     const slider = document.querySelector('.testimonials-slider');
     if (!slider) return;
-
     const slides = slider.querySelectorAll('.testimonial-slide');
-    if (slides.length < 2) return;
-
-    let current = 0;
-    slides[0].classList.add('active');
-
-    setInterval(function () {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 4500);
+    if (slides.length) slides[0].classList.add('active');
   }
 
   /* ── Active nav link highlight ──────────────────────────── */
@@ -320,7 +246,6 @@
   initCookieBanner();
 
   document.addEventListener('DOMContentLoaded', function () {
-    initReveal();
     initCounters();
     initPortfolioFilter();
     initTestimonialSlider();

@@ -78,14 +78,14 @@
     <!-- ══════════ PORTFOLIO ══════════ -->
     <section class="section" aria-labelledby="portfolio-heading">
       <div class="container">
-        <div class="section-header centered reveal">
+        <div class="section-header centered">
           <span class="overline">Selected Work</span>
           <h2 id="portfolio-heading">Featured <span class="text-gradient">Projects</span></h2>
           <p>Filter by discipline or browse the full collection below.</p>
         </div>
 
         <!-- Filter Tabs -->
-        <div class="filter-tabs reveal" role="tablist" aria-label="Filter portfolio by category">
+        <div class="filter-tabs" role="tablist" aria-label="Filter portfolio by category">
           <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true" aria-controls="portfolio-grid">All Projects</button>
           <button class="filter-tab" data-filter="web" role="tab" aria-selected="false" aria-controls="portfolio-grid">Web</button>
           <button class="filter-tab" data-filter="mobile" role="tab" aria-selected="false" aria-controls="portfolio-grid">Mobile</button>
@@ -96,7 +96,7 @@
         <div class="portfolio-grid stagger" id="portfolio-grid" role="tabpanel">
 
           <!-- 1. ShopZA Platform -->
-          <article class="portfolio-card reveal" data-category="e-commerce">
+          <article class="portfolio-card" data-category="e-commerce">
             <div class="portfolio-visual" style="background:linear-gradient(135deg,#111111,#1a3a6b);" aria-hidden="true">
               <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                 <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" style="width:70%;opacity:0.9">
@@ -144,7 +144,7 @@
           </article>
 
           <!-- 2. MedConnect App -->
-          <article class="portfolio-card reveal" data-category="mobile">
+          <article class="portfolio-card" data-category="mobile">
             <div class="portfolio-visual" style="background:linear-gradient(135deg,#111827,#0a3a3a);" aria-hidden="true">
               <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                 <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" style="width:70%;opacity:0.9">
@@ -192,7 +192,7 @@
           </article>
 
           <!-- 3. CityFlow Dashboard -->
-          <article class="portfolio-card reveal" data-category="web">
+          <article class="portfolio-card" data-category="web">
             <div class="portfolio-visual" style="background:linear-gradient(135deg,#111111,#2d1040);" aria-hidden="true">
               <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                 <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" style="width:70%;opacity:0.9">
@@ -255,7 +255,7 @@
           </article>
 
           <!-- 4. TaxEase Portal -->
-          <article class="portfolio-card reveal" data-category="web">
+          <article class="portfolio-card" data-category="web">
             <div class="portfolio-visual" style="background:linear-gradient(135deg,#111111,#1a3520);" aria-hidden="true">
               <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                 <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" style="width:70%;opacity:0.9">
@@ -310,7 +310,7 @@
           </article>
 
           <!-- 5. Heritage Hotels Website -->
-          <article class="portfolio-card reveal" data-category="web">
+          <article class="portfolio-card" data-category="web">
             <div class="portfolio-visual" style="background:linear-gradient(135deg,#1a0a28,#3a1a0a);" aria-hidden="true">
               <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                 <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" style="width:70%;opacity:0.9">
@@ -369,7 +369,7 @@
           </article>
 
           <!-- 6. AgriTrack System -->
-          <article class="portfolio-card reveal" data-category="web">
+          <article class="portfolio-card" data-category="web">
             <div class="portfolio-visual" style="background:linear-gradient(135deg,#0a2010,#111111);" aria-hidden="true">
               <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                 <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" style="width:70%;opacity:0.9">
@@ -437,24 +437,24 @@
     <!-- ══════════ RESULTS STATS ══════════ -->
     <section class="section bg-primary" aria-labelledby="results-heading" style="padding-block:var(--space-20)">
       <div class="container">
-        <div class="section-header centered reveal" style="margin-bottom:var(--space-12)">
+        <div class="section-header centered" style="margin-bottom:var(--space-12)">
           <span class="overline" style="color:rgba(255,255,255,0.6)">The Numbers</span>
           <h2 id="results-heading" style="color:var(--color-white)">Real Results for <span class="text-gradient">Real Businesses</span></h2>
         </div>
         <div class="grid grid-3 stagger" style="text-align:center">
-          <div class="reveal">
+          <div >
             <div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;color:var(--color-accent);line-height:1">6</div>
             <div style="color:rgba(255,255,255,0.7);margin-top:var(--space-3);font-size:var(--text-xl);font-weight:var(--font-semibold)">Industries Served</div>
             <div style="color:rgba(255,255,255,0.4);font-size:var(--text-sm);margin-top:var(--space-2)">Retail, Health, Finance, AgriTech, Hospitality &amp; Government</div>
           </div>
-          <div class="reveal">
+          <div >
             <div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;color:var(--color-teal);line-height:1">
               <span data-counter="50" data-suffix="+">50+</span>
             </div>
             <div style="color:rgba(255,255,255,0.7);margin-top:var(--space-3);font-size:var(--text-xl);font-weight:var(--font-semibold)">Projects Delivered</div>
             <div style="color:rgba(255,255,255,0.4);font-size:var(--text-sm);margin-top:var(--space-2)">On time, on budget, on point</div>
           </div>
-          <div class="reveal">
+          <div >
             <div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;color:var(--color-accent);line-height:1">R2M+</div>
             <div style="color:rgba(255,255,255,0.7);margin-top:var(--space-3);font-size:var(--text-xl);font-weight:var(--font-semibold)">Revenue Generated</div>
             <div style="color:rgba(255,255,255,0.4);font-size:var(--text-sm);margin-top:var(--space-2)">For our clients across all projects</div>
