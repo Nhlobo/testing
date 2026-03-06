@@ -106,8 +106,9 @@
   /* ── Intersection Observer — reveal animations ──────────── */
   function initReveal() {
     const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-    if (!els.length || !('IntersectionObserver' in window)) {
-      // Fallback: show all
+    if (!els.length) return;
+
+    if (!('IntersectionObserver' in window)) {
       els.forEach(el => el.classList.add('revealed'));
       return;
     }
@@ -121,7 +122,7 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
     );
 
     els.forEach(el => observer.observe(el));
