@@ -45,7 +45,6 @@
     { label: 'About',        href: 'about/' },
     { label: 'Services',     href: 'services/' },
     { label: 'Work',         href: 'work/' },
-    { label: 'Products',     href: 'products/' },
     { label: 'Technologies', href: 'technologies/' },
     { label: 'Pricing',      href: 'pricing/' },
     { label: 'Blog',         href: 'blog/' },
@@ -148,7 +147,6 @@
         <ul class="footer-links">
           <li><a href="${BASE}about/" class="footer-link">About Us</a></li>
           <li><a href="${BASE}work/" class="footer-link">Our Work</a></li>
-          <li><a href="${BASE}products/" class="footer-link">Products</a></li>
           <li><a href="${BASE}technologies/" class="footer-link">Technologies</a></li>
           <li><a href="${BASE}pricing/" class="footer-link">Pricing</a></li>
           <li><a href="${BASE}blog/" class="footer-link">Blog</a></li>

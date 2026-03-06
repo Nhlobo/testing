@@ -1515,6 +1515,40 @@
   color: var(--color-text);
 }
 
+/* ── Responsive table wrapper ──────────────────────────────── */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-light-300);
+}
+
+.table-responsive table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+
+.table-responsive thead tr {
+  background: var(--color-light);
+  border-bottom: 2px solid var(--color-light-300);
+}
+
+.table-responsive th,
+.table-responsive td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-size: var(--text-sm);
+  border-bottom: 1px solid var(--color-light-300);
+}
+
+.table-responsive tr:last-child td {
+  border-bottom: none;
+}
+
 /* ============================================================
    404 PAGE
    ============================================================ */
