@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/pages.css">
   <style>
@@ -315,6 +316,102 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ── Radio-input tab system ──────────────────────────── */
+    #website-tab,
+    #app-tab {
+      display: none;
+    }
+
+    .pricing-tabs-nav {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      background: var(--color-light, #f5f7fb);
+      border-radius: var(--radius-full);
+      padding: 4px;
+      max-width: 440px;
+      margin: 0 auto var(--space-12);
+      gap: 0;
+    }
+
+    .pricing-tab-label {
+      flex: 1;
+      text-align: center;
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      font-family: var(--font-heading);
+      cursor: pointer;
+      z-index: 1;
+      position: relative;
+      transition: color 0.3s;
+      color: var(--color-text);
+      white-space: nowrap;
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .pricing-tab-slider {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--gradient-accent, var(--color-accent));
+      border-radius: var(--radius-full);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 0;
+      box-shadow: 0 2px 8px rgba(26, 115, 232, 0.35);
+    }
+
+    /* Active label: white text over slider */
+    #website-tab:checked ~ .pricing-tabs-nav .pricing-tab-label[for="website-tab"],
+    #app-tab:checked ~ .pricing-tabs-nav .pricing-tab-label[for="app-tab"] {
+      color: var(--color-white);
+    }
+
+    /* Slide to app position */
+    #app-tab:checked ~ .pricing-tabs-nav .pricing-tab-slider {
+      transform: translateX(100%);
+    }
+
+    /* Tab panel visibility */
+    .app-pricing { display: none; }
+    #website-tab:checked ~ .pricing-tab-panels .website-pricing { display: block; }
+    #app-tab:checked ~ .pricing-tab-panels .app-pricing  { display: block; }
+    #app-tab:checked ~ .pricing-tab-panels .website-pricing { display: none; }
+
+    /* Single-card centred layout */
+    .pricing-tab-panels {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Font Awesome check icon style */
+    .pricing-features li i.fas {
+      font-size: 11px;
+      color: var(--color-teal, #00b0ff);
+      background: rgba(0, 176, 255, 0.12);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 480px) {
+      .pricing-tabs-nav {
+        max-width: 100%;
+      }
+      .pricing-tab-label {
+        font-size: var(--text-xs);
+        padding: var(--space-2) var(--space-3);
+      }
+    }
   </style>
 </head>
 <body>
@@ -360,7 +457,7 @@
     </section>
 
     <!-- ══════════ PRICING TABS ══════════ -->
-    <section class="section" aria-labelledby="pricing-heading">
+    <section id="pricing" class="pricing-section section" aria-labelledby="pricing-heading">
       <div class="container">
         <div class="section-header centered reveal">
           <span class="overline">Choose Your Plan</span>
@@ -368,28 +465,27 @@
           <p>Select between website development and app development pricing below.</p>
         </div>
 
-        <!-- Tab buttons -->
-        <div class="pricing-tabs reveal" role="tablist" aria-label="Pricing categories">
-          <button class="pricing-tab-btn active" role="tab" aria-selected="true" aria-controls="website-panel" id="website-tab" onclick="switchPricingTab('website')">
-            🌐 Website Development
-          </button>
-          <button class="pricing-tab-btn" role="tab" aria-selected="false" aria-controls="app-panel" id="app-tab" onclick="switchPricingTab('app')">
-            📱 App Development
-          </button>
+        <!-- Radio tab controls (hidden but functional via labels) -->
+        <input type="radio" name="pricing-tab" id="website-tab" checked>
+        <input type="radio" name="pricing-tab" id="app-tab">
+
+        <!-- Tab labels with animated slider -->
+        <div class="pricing-tabs-nav reveal" aria-label="Pricing categories">
+          <label for="website-tab" class="pricing-tab-label">🌐 Website Development</label>
+          <label for="app-tab" class="pricing-tab-label">📱 App Development</label>
+          <div class="pricing-tab-slider" aria-hidden="true"></div>
         </div>
 
-        <!-- ═══ WEBSITE DEVELOPMENT PRICING ═══ -->
-        <div class="pricing-panel active" id="website-panel" role="tabpanel" aria-labelledby="website-tab">
+        <!-- Tab panels (one card visible at a time, cycled via Next Plan) -->
+        <div class="pricing-tab-panels">
 
-          <div class="pricing-grid stagger">
+          <!-- ═══ WEBSITE DEVELOPMENT PRICING ═══ -->
+          <div class="pricing-panel-content website-pricing">
 
-            <!-- Basic Website -->
-            <div class="pricing-card reveal">
+            <!-- Basic Website (shown first) -->
+            <div class="pricing-card reveal" id="website-card-0">
               <div class="pricing-header">
-                <span class="pricing-tier-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                  Starter
-                </span>
+                <span class="pricing-tier-badge">Starter</span>
                 <div class="pricing-name">Basic Website</div>
                 <div class="pricing-price">
                   <span class="from-label">From</span>
@@ -399,40 +495,22 @@
               </div>
               <div class="pricing-features">
                 <ul>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    1–3 pages
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Custom landing page design
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Contact form integration
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Basic SEO setup
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Responsive design (mobile-friendly)
-                  </li>
+                  <li><i class="fas fa-check"></i> 1–3 pages</li>
+                  <li><i class="fas fa-check"></i> Custom landing page design</li>
+                  <li><i class="fas fa-check"></i> Contact form integration</li>
+                  <li><i class="fas fa-check"></i> Basic SEO setup</li>
+                  <li><i class="fas fa-check"></i> Responsive design (mobile-friendly)</li>
                 </ul>
               </div>
               <div class="pricing-cta">
-                <a href="../contact/?plan=basic-website" class="btn btn-outline btn-accent">Get Started →</a>
+                <button class="btn btn-outline btn-accent" onclick="nextCard('website')">Next Plan</button>
               </div>
             </div>
 
-            <!-- Standard Website -->
-            <div class="pricing-card featured reveal">
+            <!-- Standard Website (hidden) -->
+            <div class="pricing-card featured reveal" id="website-card-1" style="display:none">
               <div class="pricing-header">
-                <span class="pricing-tier-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.4 2.4-7.4L2 9.4h7.6z"/></svg>
-                  Popular
-                </span>
+                <span class="pricing-tier-badge">Popular</span>
                 <div class="pricing-name">Standard Website</div>
                 <div class="pricing-price">
                   <span class="from-label">From</span>
@@ -442,53 +520,83 @@
               </div>
               <div class="pricing-features">
                 <ul>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    4–8 pages
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Custom homepage and inner page design
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Contact form, gallery, or blog
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Basic SEO optimization
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Social media integration
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Mobile responsiveness
-                  </li>
+                  <li><i class="fas fa-check"></i> 4–8 pages</li>
+                  <li><i class="fas fa-check"></i> Custom homepage and inner page design</li>
+                  <li><i class="fas fa-check"></i> Contact form, gallery, or blog</li>
+                  <li><i class="fas fa-check"></i> Basic SEO optimization</li>
+                  <li><i class="fas fa-check"></i> Social media integration</li>
+                  <li><i class="fas fa-check"></i> Mobile responsiveness</li>
                 </ul>
               </div>
               <div class="pricing-cta">
-                <a href="../contact/?plan=standard-website" class="btn btn-primary">Get Started →</a>
+                <button class="btn btn-primary" onclick="nextCard('website')">Next Plan</button>
               </div>
+            </div>
+
+            <!-- Premium Website (hidden) -->
+            <div class="pricing-card reveal" id="website-card-2" style="display:none">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge" style="background:rgba(0,176,255,0.1);color:var(--color-teal);">Premium</span>
+                <div class="pricing-name">Premium Website</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount" style="color:var(--color-teal);"><span class="currency">R</span>12,000</span>
+                </div>
+                <div class="pricing-tagline">For growing businesses that need a polished, feature-rich website with advanced functionality.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> 9–15 pages</li>
+                  <li><i class="fas fa-check"></i> Custom UI/UX design</li>
+                  <li><i class="fas fa-check"></i> Advanced SEO optimization</li>
+                  <li><i class="fas fa-check"></i> Blog / CMS integration</li>
+                  <li><i class="fas fa-check"></i> Analytics &amp; performance setup</li>
+                  <li><i class="fas fa-check"></i> Social media integration</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <button class="btn btn-outline" style="border-color:var(--color-teal);color:var(--color-teal);" onclick="nextCard('website')">Next Plan</button>
+              </div>
+            </div>
+
+            <!-- E-commerce Package (hidden) -->
+            <div class="pricing-card reveal" id="website-card-3" style="display:none">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge">E-Commerce</span>
+                <div class="pricing-name">E-commerce Package</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount"><span class="currency">R</span>10,000</span>
+                </div>
+                <div class="pricing-tagline">A complete online store for businesses ready to sell products and take payments online.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> Product listings &amp; catalogue</li>
+                  <li><i class="fas fa-check"></i> Shopping cart &amp; checkout</li>
+                  <li><i class="fas fa-check"></i> Payment gateway integration</li>
+                  <li><i class="fas fa-check"></i> Order management system</li>
+                  <li><i class="fas fa-check"></i> Inventory tracking</li>
+                  <li><i class="fas fa-check"></i> Mobile responsive store</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <button class="btn btn-outline btn-accent" onclick="nextCard('website')">Next Plan</button>
+              </div>
+            </div>
+
+            <div class="pricing-note reveal">
+              <strong>Need a larger, custom website?</strong> Enterprise solutions, booking systems, and custom web applications are also available.
+              <a href="../contact/" style="color:var(--color-accent);font-weight:var(--font-semibold);">Contact us for a custom quote →</a>
             </div>
 
           </div>
 
-          <div class="pricing-note reveal">
-            <strong>Need a larger, custom website?</strong> E-commerce platforms, booking systems, custom web applications, and enterprise sites are also available.
-            <a href="../contact/" style="color:var(--color-accent);font-weight:var(--font-semibold);">Contact us for a custom quote →</a>
-          </div>
+          <!-- ═══ APP DEVELOPMENT PRICING ═══ -->
+          <div class="pricing-panel-content app-pricing">
 
-        </div>
-
-        <!-- ═══ APP DEVELOPMENT PRICING ═══ -->
-        <div class="pricing-panel" id="app-panel" role="tabpanel" aria-labelledby="app-tab">
-
-          <div class="pricing-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1100px;" class="stagger">
-
-            <!-- Basic App -->
-            <div class="pricing-card reveal">
+            <!-- Basic App (shown first) -->
+            <div class="pricing-card reveal" id="app-card-0">
               <div class="pricing-header">
                 <span class="pricing-tier-badge">Starter</span>
                 <div class="pricing-name">Basic App</div>
@@ -497,81 +605,56 @@
                   <span class="amount"><span class="currency">R</span>50,000</span>
                 </div>
                 <div class="pricing-timeline">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   Development Time: 2–4 months
                 </div>
-                <div class="pricing-tagline">Simple apps with limited features, perfect for individuals and small businesses.</div>
+                <div class="pricing-tagline">Simple apps with core features, perfect for individuals and small businesses.</div>
               </div>
               <div class="pricing-features">
                 <ul>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    User login and registration
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Basic UI/UX design
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Simple functionality (form submission, calculators)
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Push notifications (optional)
-                  </li>
+                  <li><i class="fas fa-check"></i> User login and registration</li>
+                  <li><i class="fas fa-check"></i> Basic UI/UX design</li>
+                  <li><i class="fas fa-check"></i> Simple functionality (forms, calculators)</li>
+                  <li><i class="fas fa-check"></i> Push notifications (optional)</li>
+                  <li><i class="fas fa-check"></i> Single platform (Android or iOS)</li>
                 </ul>
               </div>
               <div class="pricing-cta">
-                <a href="../contact/?plan=basic-app" class="btn btn-outline btn-accent">Get Started →</a>
+                <button class="btn btn-outline btn-accent" onclick="nextCard('app')">Next Plan</button>
               </div>
             </div>
 
-            <!-- Standard App -->
-            <div class="pricing-card featured reveal">
+            <!-- Standard App (hidden) -->
+            <div class="pricing-card featured reveal" id="app-card-1" style="display:none">
               <div class="pricing-header">
-                <span class="pricing-tier-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.4 2.4-7.4L2 9.4h7.6z"/></svg>
-                  Popular
-                </span>
+                <span class="pricing-tier-badge">Popular</span>
                 <div class="pricing-name">Standard App</div>
                 <div class="pricing-price">
                   <span class="from-label">From</span>
                   <span class="amount"><span class="currency">R</span>75,000</span>
                 </div>
                 <div class="pricing-timeline">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   Development Time: 4–6 months
                 </div>
-                <div class="pricing-tagline">Apps with medium complexity — ideal for businesses ready to go fully digital.</div>
+                <div class="pricing-tagline">Medium-complexity apps — ideal for businesses ready to go fully digital.</div>
               </div>
               <div class="pricing-features">
                 <ul>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    User profiles and login system
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Advanced UI/UX design with custom features
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Integration with third-party APIs
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Admin dashboard for content management
-                  </li>
+                  <li><i class="fas fa-check"></i> User profiles and login system</li>
+                  <li><i class="fas fa-check"></i> Advanced UI/UX design</li>
+                  <li><i class="fas fa-check"></i> Third-party API integration</li>
+                  <li><i class="fas fa-check"></i> Admin dashboard for content management</li>
+                  <li><i class="fas fa-check"></i> Cross-platform (iOS &amp; Android)</li>
                 </ul>
               </div>
               <div class="pricing-cta">
-                <a href="../contact/?plan=standard-app" class="btn btn-primary">Get Started →</a>
+                <button class="btn btn-primary" onclick="nextCard('app')">Next Plan</button>
               </div>
             </div>
 
-            <!-- Premium App -->
-            <div class="pricing-card reveal">
+            <!-- Premium App (hidden) -->
+            <div class="pricing-card reveal" id="app-card-2" style="display:none">
               <div class="pricing-header">
                 <span class="pricing-tier-badge" style="background:rgba(0,176,255,0.1);color:var(--color-teal);">Premium</span>
                 <div class="pricing-name">Premium App</div>
@@ -580,45 +663,33 @@
                   <span class="amount" style="color:var(--color-teal);"><span class="currency">R</span>120,000</span>
                 </div>
                 <div class="pricing-timeline">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   Development Time: 9–12 months
                 </div>
-                <div class="pricing-tagline">Complex apps with custom features — complete end-to-end solution for ambitious businesses.</div>
+                <div class="pricing-tagline">Complex custom apps — a complete end-to-end solution for ambitious businesses.</div>
               </div>
               <div class="pricing-features">
                 <ul>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Complete custom app design and development
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Multiple integrations (payment gateways, cloud storage, etc.)
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Real-time features (chat, live tracking)
-                  </li>
-                  <li>
-                    <span class="check-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg></span>
-                    Advanced user roles and permissions
-                  </li>
+                  <li><i class="fas fa-check"></i> Complete custom app design and development</li>
+                  <li><i class="fas fa-check"></i> Multiple integrations (payments, cloud, etc.)</li>
+                  <li><i class="fas fa-check"></i> Real-time features (chat, live tracking)</li>
+                  <li><i class="fas fa-check"></i> Advanced user roles and permissions</li>
+                  <li><i class="fas fa-check"></i> Dedicated post-launch support</li>
                 </ul>
               </div>
               <div class="pricing-cta">
-                <a href="../contact/?plan=premium-app" class="btn btn-outline" style="border-color:var(--color-teal);color:var(--color-teal);" onmouseover="this.style.background='var(--color-teal)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--color-teal)'">Discuss Project →</a>
+                <button class="btn btn-outline" style="border-color:var(--color-teal);color:var(--color-teal);" onclick="nextCard('app')">Next Plan</button>
               </div>
+            </div>
+
+            <div class="pricing-note reveal">
+              <strong>All app quotes include:</strong> Cross-platform (iOS &amp; Android) development, code ownership, and a 30-day post-launch support window.
+              <a href="../contact/" style="color:var(--color-accent);font-weight:var(--font-semibold);">Have a unique requirement? Let's chat →</a>
             </div>
 
           </div>
 
-          <div class="pricing-note reveal">
-            <strong>All app quotes include:</strong> Cross-platform (iOS &amp; Android) development, code ownership, and a 30-day post-launch support window.
-            <a href="../contact/" style="color:var(--color-accent);font-weight:var(--font-semibold);">Have a unique requirement? Let's chat →</a>
-          </div>
-
         </div>
-
       </div>
     </section>
 
@@ -727,18 +798,21 @@
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
   <script>
-    function switchPricingTab(tab) {
-      // Update buttons
-      document.getElementById('website-tab').classList.toggle('active', tab === 'website');
-      document.getElementById('app-tab').classList.toggle('active', tab === 'app');
-
-      // Update aria
-      document.getElementById('website-tab').setAttribute('aria-selected', tab === 'website');
-      document.getElementById('app-tab').setAttribute('aria-selected', tab === 'app');
-
-      // Update panels
-      document.getElementById('website-panel').classList.toggle('active', tab === 'website');
-      document.getElementById('app-panel').classList.toggle('active', tab === 'app');
+    /* ── nextCard: cycle through pricing cards in a tab ─── */
+    function nextCard(tab) {
+      var container = document.querySelector('.' + tab + '-pricing');
+      if (!container) return;
+      var cards = container.querySelectorAll('.pricing-card');
+      var currentIdx = 0;
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none') {
+          currentIdx = i;
+          break;
+        }
+      }
+      cards[currentIdx].style.display = 'none';
+      var nextIdx = (currentIdx + 1) % cards.length;
+      cards[nextIdx].style.display = 'flex';
     }
   </script>
 </body>
