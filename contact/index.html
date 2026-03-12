@@ -99,12 +99,19 @@
             <h2 id="contact-form-heading">Start a Conversation</h2>
             <p>Fill in the details below and we'll get back to you within 24 hours.</p>
 
-            <form id="contact-form" action="#" method="POST" novalidate>
+            <form id="contact-form" action="https://formspree.io/f/xwpkkvnk" method="POST" novalidate>
+
+              <!-- Honeypot anti-spam (bots fill this, humans won't see it) -->
+              <input type="text" name="_gotcha" autocomplete="off" tabindex="-1"
+                     aria-hidden="true"
+                     style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
 
               <div class="form-grid">
                 <div class="form-group">
                   <label for="contact-name">Full Name <span class="required" aria-hidden="true">*</span></label>
-                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="Thabo Mokoena" required autocomplete="name">
+                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="Thabo Mokoena"
+                         required minlength="2" maxlength="50" autocomplete="name"
+                         pattern="[a-zA-Z\xC0-\xFF\s'.\-]+" title="Name can only contain letters, spaces, hyphens, apostrophes, and periods.">
                 </div>
                 <div class="form-group">
                   <label for="contact-email">Email Address <span class="required" aria-hidden="true">*</span></label>
@@ -140,7 +147,7 @@
 
               <div class="form-group">
                 <label for="contact-description">Project Description <span class="required" aria-hidden="true">*</span></label>
-                <textarea id="contact-description" name="description" class="form-textarea" rows="5" placeholder="Tell us about your project, goals, and timeline…" required></textarea>
+                <textarea id="contact-description" name="message" class="form-textarea" rows="5" placeholder="Tell us about your project, goals, and timeline…" required minlength="10" maxlength="500"></textarea>
               </div>
 
               <div class="form-grid">
@@ -181,13 +188,14 @@
                 Send Message →
               </button>
 
+              <div id="contact-loader" style="display:none;text-align:center;margin-top:var(--space-3);" aria-live="polite">
+                Sending…
+              </div>
+              <div id="contact-response" style="display:none;margin-top:var(--space-3);" aria-live="polite"></div>
+
               <p style="text-align:center;margin-top:var(--space-4);font-size:var(--text-sm);color:var(--color-muted-dark);">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" style="display:inline;vertical-align:middle;margin-right:4px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 We typically respond within 24 business hours.
-              </p>
-              <p style="text-align:center;margin-top:var(--space-2);font-size:var(--text-xs);color:var(--color-muted);">
-                This form opens your email client with your message pre-filled. Alternatively, email us directly at
-                <a href="mailto:mapengoinnovations@gmail.com" style="color:var(--color-accent);">mapengoinnovations@gmail.com</a>.
               </p>
 
             </form>
