@@ -276,40 +276,85 @@
     });
   }
 
-  /* ── Init all ───────────────────────────────────────────── */
-  /* ── Contact form → mailto fallback ────────────────────── */
+  /* ── Contact form → Formspree POST ─────────────────────── */
   function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    form.addEventListener('submit', function (e) {
+    const loader     = document.getElementById('contact-loader');
+    const responseEl = document.getElementById('contact-response');
+
+    function setResponse(msg, ok) {
+      if (!responseEl) return;
+      responseEl.style.display = 'block';
+      responseEl.textContent   = msg;
+      responseEl.className     = ok ? 'success-message' : 'error-message';
+    }
+
+    function setLoading(isLoading) {
+      if (loader) loader.style.display = isLoading ? 'block' : 'none';
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) btn.disabled = isLoading;
+    }
+
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      const get = function (id) {
-        const el = document.getElementById(id);
-        return el ? (el.value || '').trim() : '';
-      };
+      // Clear previous response
+      if (responseEl) {
+        responseEl.style.display = 'none';
+        responseEl.textContent   = '';
+        responseEl.className     = '';
+      }
 
-      const name        = get('contact-name');
-      const email       = get('contact-email');
-      const phone       = get('contact-phone');
-      const company     = get('contact-company');
-      const service     = get('contact-service');
-      const description = get('contact-description');
-      const budget      = get('contact-budget');
+      // Offline/connectivity check
+      if (!navigator.onLine) {
+        setResponse('Unable to submit the form. Please check your connection and try again.', false);
+        return;
+      }
 
-      const subject = encodeURIComponent('Project Enquiry from ' + (name || 'Website Visitor'));
-      const body = encodeURIComponent(
-        'Name: '        + name        + '\n' +
-        'Email: '       + email       + '\n' +
-        'Phone: '       + (phone   || 'Not provided') + '\n' +
-        'Company: '     + (company || 'Not provided') + '\n' +
-        'Service: '     + (service || 'Not specified') + '\n' +
-        'Budget: '      + (budget  || 'Not specified') + '\n\n' +
-        'Message:\n'    + description
-      );
+      // HTML5 constraint validation
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        setResponse('Please ensure all required fields are filled correctly.', false);
+        return;
+      }
 
-      window.location.href = 'mailto:mapengoinnovations@gmail.com?subject=' + subject + '&body=' + body;
+      // Privacy checkbox required
+      const privacy = document.getElementById('contact-privacy');
+      if (privacy && !privacy.checked) {
+        setResponse('You must agree to the Privacy Policy before submitting.', false);
+        return;
+      }
+
+      // Honeypot: silently treat as success to avoid tipping off bots
+      const gotcha = form.querySelector('input[name="_gotcha"]');
+      if (gotcha && gotcha.value) {
+        setResponse('Thank you! Your message has been successfully sent.', true);
+        form.reset();
+        return;
+      }
+
+      try {
+        setLoading(true);
+
+        const res = await fetch(form.action, {
+          method:  'POST',
+          body:    new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (res.ok) {
+          setResponse('Thank you! Your message has been successfully sent.', true);
+          form.reset();
+        } else {
+          setResponse('Oops! There was an issue with your submission. Please try again later.', false);
+        }
+      } catch (_err) {
+        setResponse('There was a problem with your submission. Please try again later.', false);
+      } finally {
+        setLoading(false);
+      }
     });
   }
 
