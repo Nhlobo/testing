@@ -666,17 +666,43 @@ p + p { margin-top: var(--space-4); }
   box-shadow: 0 4px 30px rgba(0,0,0,0.15);
 }
 
-/* Logo */
+/* ============================================================
+   Logo Styles
+   ============================================================ */
+.logo img,
+.header-logo img,
+.footer-logo img {
+  height: 60px;
+  width: auto;
+  max-width: 160%;
+  display: block;
+}
+
+.logo svg,
+.header-logo svg,
+.footer-logo svg {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 520px) {
+  .logo img,
+  .header-logo img,
+  .footer-logo img,
+  .logo svg,
+  .header-logo svg,
+  .footer-logo svg {
+    height: 48px;
+    max-width: 140%;
+  }
+}
+
+/* Header logo container */
 .header-logo {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-}
-
-.header-logo img,
-.header-logo svg {
-  height: 40px;
-  width: auto;
 }
 
 /* Desktop Nav */
@@ -818,8 +844,6 @@ p + p { margin-top: var(--space-4); }
   margin-bottom: var(--space-5);
 }
 
-.footer-brand .footer-logo img,
-.footer-brand .footer-logo svg { height: 36px; width: auto; }
 
 .footer-brand p {
   color: rgba(255,255,255,0.6);

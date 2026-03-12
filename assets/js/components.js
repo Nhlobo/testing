@@ -79,7 +79,7 @@
     return `
 <div class="header-inner">
   <a href="${BASE}" class="header-logo" aria-label="Mapengo Innovations — Home">
-    <img src="${BASE}assets/img/logo.png" alt="Mapengo Innovations" width="180" height="40">
+    <img src="${BASE}assets/img/logo.png" alt="Mapengo Innovations" width="180" height="60">
   </a>
 
   <nav class="header-nav" aria-label="Main navigation">
@@ -114,7 +114,7 @@
       <!-- Brand column -->
       <div class="footer-brand">
         <a href="${BASE}" class="footer-logo" aria-label="Mapengo Innovations">
-          <img src="${BASE}assets/img/logo.png" alt="Mapengo Innovations" width="160" height="36">
+          <img src="${BASE}assets/img/logo.png" alt="Mapengo Innovations" width="160" height="60">
         </a>
         <p>We specialise in crafting high-performance websites and powerful mobile and web apps that empower businesses. From idea to deployment — built with purpose, passion, and precision.</p>
         <div class="footer-social">
