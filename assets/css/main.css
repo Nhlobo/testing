@@ -1275,7 +1275,49 @@ p + p { margin-top: var(--space-4); }
 }
 
 /* ============================================================
-   17. ANIMATIONS & KEYFRAMES
+   17. WHATSAPP FLOATING BUTTON
+   ============================================================ */
+#whatsapp-icon {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background-color: rgba(37, 211, 102, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+#whatsapp-icon:hover,
+#whatsapp-icon:focus-visible {
+  background-color: rgba(37, 211, 102, 1);
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.55);
+  outline: none;
+}
+
+#whatsapp-icon:focus-visible {
+  outline: 3px solid rgba(37, 211, 102, 0.8);
+  outline-offset: 3px;
+}
+
+#whatsapp-icon svg,
+#chatbot-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+  color: #fff;
+}
+
+/* ============================================================
+   18. ANIMATIONS & KEYFRAMES
    ============================================================ */
 
 /* Reveal animations via Intersection Observer */
@@ -1448,7 +1490,7 @@ p + p { margin-top: var(--space-4); }
   .btn, .card, .card-glass, .card-dark,
   .service-card, .project-card, .testimonial-card,
   .social-link, .back-to-top, .mobile-nav,
-  .cookie-banner, #site-header {
+  .cookie-banner, #site-header, #whatsapp-icon {
     transition: none !important;
     animation: none !important;
   }
