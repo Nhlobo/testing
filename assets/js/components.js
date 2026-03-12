@@ -10,29 +10,31 @@
   /* ── Base path detection ────────────────────────────────── */
   function getBasePath() {
     const path = window.location.pathname;
-    // Count directory depth from the repo root
     // GitHub Pages: https://nhlobo.github.io/testing/...
     // Strip trailing slash, split, filter empties
     const parts = path.replace(/\/$/, '').split('/').filter(Boolean);
 
-    // Determine how deep we are relative to the site root.
     // The site root is the "testing" directory on GitHub Pages.
     const repoName = 'testing';
     const repoIdx = parts.indexOf(repoName);
-    let depth = 0;
+    let subParts;
 
     if (repoIdx !== -1) {
       // parts after the repo name are the sub-path segments
-      const subParts = parts.slice(repoIdx + 1);
-      // depth = number of directories below root (not counting the file itself)
-      depth = subParts.length;
-      // If we're at a directory index.html, subParts has one element (dir name)
-      // blog/posts/slug/index.html → depth 3
+      subParts = parts.slice(repoIdx + 1);
     } else {
       // Local dev / custom domain at root
-      depth = parts.length;
+      subParts = parts;
     }
 
+    // If the last segment is a file (has an extension, e.g. "terms.html"),
+    // exclude it from the depth count — only directories count.
+    const lastPart = subParts[subParts.length - 1] || '';
+    if (lastPart.includes('.')) {
+      subParts = subParts.slice(0, -1);
+    }
+
+    const depth = subParts.length;
     if (depth === 0) return './';
     return '../'.repeat(depth);
   }
