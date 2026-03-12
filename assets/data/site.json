@@ -66,7 +66,7 @@
     {
       "id": "cloud-hosting",
       "icon": "cloud",
-      "title": "Cloud & Hosting",
+      "title": "Deployment & Launch",
       "description": "Scalable cloud infrastructure with managed hosting and DevOps support for your digital products.",
       "features": ["AWS & Azure", "Docker", "CI/CD Pipelines", "99.9% Uptime"]
     },
