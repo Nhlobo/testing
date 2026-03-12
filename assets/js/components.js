@@ -138,7 +138,7 @@
           <li><a href="${BASE}services/#mobile-apps" class="footer-link">Mobile Apps</a></li>
           <li><a href="${BASE}services/#ui-ux-design" class="footer-link">UI/UX Design</a></li>
           <li><a href="${BASE}services/#ecommerce" class="footer-link">E-Commerce</a></li>
-          <li><a href="${BASE}services/#cloud-hosting" class="footer-link">Cloud & Hosting</a></li>
+          <li><a href="${BASE}services/#cloud-hosting" class="footer-link">Deployment & Launch</a></li>
           <li><a href="${BASE}services/#maintenance-support" class="footer-link">Maintenance & Support</a></li>
         </ul>
       </div>
@@ -148,6 +148,7 @@
         <h4>Company</h4>
         <ul class="footer-links">
           <li><a href="${BASE}about/" class="footer-link">About Us</a></li>
+          <li><a href="${BASE}about/founder/" class="footer-link">Meet the Founder</a></li>
           <li><a href="${BASE}work/" class="footer-link">Our Work</a></li>
           <li><a href="${BASE}technologies/" class="footer-link">Technologies</a></li>
           <li><a href="${BASE}pricing/" class="footer-link">Pricing</a></li>
