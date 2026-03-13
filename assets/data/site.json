@@ -3,12 +3,10 @@
     "name": "Mapengo Innovations",
     "tagline": "High-Performance Websites & Powerful Apps for South African Businesses",
     "email": "mapengoinnovations@gmail.com",
-    "personalEmail": "nhlobo365@gmail.com",
     "phone": "+27 66 552 0197",
     "whatsapp": "+27 66 552 0197",
     "address": "Johannesburg, South Africa",
     "founded": "2022",
-    "founder": "Novice Nhlovo Mathebula",
     "social": {
       "linkedin": "https://linkedin.com/company/mapengo-innovations",
       "github": "https://github.com/Nhlobo",
@@ -237,7 +235,7 @@
     {
       "name": "Dr. Amina Patel",
       "role": "Founder, HealthBridge Africa",
-      "text": "The MedConnect app has helped us reach patients in rural areas. Novice and his team understood our mission deeply.",
+      "text": "The MedConnect app has helped us reach patients in rural areas. The team understood our mission deeply and delivered beyond our expectations.",
       "rating": 5
     },
     {
@@ -249,9 +247,9 @@
   ],
   "team": [
     {
-      "name": "Novice Nhlovo Mathebula",
-      "role": "Founder & Lead Developer",
-      "bio": "ALX-trained Software Engineer and founder of Mapengo Innovations. Passionate about making high-quality digital solutions accessible to every business."
+      "name": "Nhlovo Mathebula",
+      "role": "Founder & Lead Engineer",
+      "bio": "Full-stack software engineer and the founding architect of Mapengo Innovations. Focused on building clean, scalable digital products that deliver measurable value for South African businesses."
     }
   ]
 }

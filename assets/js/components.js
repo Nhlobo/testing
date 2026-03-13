@@ -87,7 +87,7 @@
   </nav>
 
   <div class="header-cta">
-    <a href="${BASE}contact/" class="btn btn-primary btn-sm">Get Started</a>
+    <a href="${BASE}contact/" class="btn btn-primary btn-sm">Request a Quote</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span>
       <span></span>
@@ -100,7 +100,7 @@
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
   ${mobileItems}
   <div class="mobile-nav-footer">
-    <a href="${BASE}contact/" class="btn btn-primary" style="width:100%;justify-content:center;">Get Started →</a>
+    <a href="${BASE}contact/" class="btn btn-primary" style="width:100%;justify-content:center;">Request a Quote →</a>
   </div>
 </nav>`;
   }
@@ -116,7 +116,7 @@
         <a href="${BASE}" class="footer-logo" aria-label="Mapengo Innovations">
           <img src="${BASE}assets/img/logo.png" alt="Mapengo Innovations" width="160" height="60">
         </a>
-        <p>We specialise in crafting high-performance websites and powerful mobile and web apps that empower businesses. From idea to deployment — built with purpose, passion, and precision.</p>
+        <p>Mapengo Innovations is a South African digital product studio. We design and build high-performance websites, web applications, and mobile apps that help businesses grow, operate efficiently, and compete online.</p>
         <div class="footer-social">
           <a href="https://linkedin.com/company/mapengo-innovations" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="currentColor"/></svg>
@@ -148,12 +148,11 @@
         <h4>Company</h4>
         <ul class="footer-links">
           <li><a href="${BASE}about/" class="footer-link">About Us</a></li>
-          <li><a href="${BASE}about/founder/" class="footer-link">Meet the Founder</a></li>
           <li><a href="${BASE}work/" class="footer-link">Our Work</a></li>
           <li><a href="${BASE}technologies/" class="footer-link">Technologies</a></li>
           <li><a href="${BASE}pricing/" class="footer-link">Pricing</a></li>
           <li><a href="${BASE}blog/" class="footer-link">Blog</a></li>
-          <li><a href="${BASE}careers/" class="footer-link">Careers</a></li>
+          <li><a href="${BASE}careers/" class="footer-link">Collaboration</a></li>
         </ul>
       </div>
 
@@ -183,7 +182,7 @@
 <!-- Footer bottom bar -->
 <div class="container">
   <div class="footer-bottom">
-    <p>&copy; ${new Date().getFullYear()} Mapengo Innovations &middot; Founded by Novice Nhlovo Mathebula &middot; Johannesburg, South Africa &middot; All rights reserved.</p>
+    <p>&copy; ${new Date().getFullYear()} Mapengo Innovations &middot; Johannesburg, South Africa &middot; All rights reserved.</p>
     <nav class="footer-legal" aria-label="Legal">
       <a href="${BASE}legal/privacy.html">Privacy Policy</a>
       <a href="${BASE}legal/terms.html">Terms of Service</a>
