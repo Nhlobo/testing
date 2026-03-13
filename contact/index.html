@@ -89,193 +89,109 @@
       </div>
     </section>
 
-    <!-- ══════════ CONTACT FORM + INFO ══════════ -->
-    <section class="section" aria-labelledby="contact-form-heading">
-      <div class="container">
-        <div class="contact-layout">
-
-          <!-- ── LEFT: FORM ── -->
-          <div class="contact-form-container reveal">
-            <h2 id="contact-form-heading">Start a Conversation</h2>
-            <p>Fill in the details below and we'll get back to you within 24 hours.</p>
-
-            <form id="contact-form" action="https://formspree.io/f/xwpkkvnk" method="POST" novalidate>
-
-              <!-- Honeypot anti-spam (bots fill this, humans won't see it) -->
-              <input type="text" name="_gotcha" autocomplete="off" tabindex="-1"
-                     aria-hidden="true"
-                     style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
-
-              <div class="form-grid">
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <form action="https://formspree.io/f/xwpkkvnk" class="contact-form" id="contactForm">
                 <div class="form-group">
-                  <label for="contact-name">Full Name <span class="required" aria-hidden="true">*</span></label>
-                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="Thabo Mokoena"
-                         required minlength="2" maxlength="50" autocomplete="name"
-                         pattern="[a-zA-Z\xC0-\xFF\s'.\-]+" title="Name can only contain letters, spaces, hyphens, apostrophes, and periods.">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required minlength="2" maxlength="50" pattern="[a-zA-Z ]+" aria-label="Name field" title="Please enter a valid name (letters and spaces only)">
                 </div>
                 <div class="form-group">
-                  <label for="contact-email">Email Address <span class="required" aria-hidden="true">*</span></label>
-                  <input type="email" id="contact-email" name="email" class="form-input" placeholder="thabo@company.co.za" required autocomplete="email">
-                </div>
-              </div>
-
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="contact-phone">Phone Number</label>
-                  <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="+27 66 552 0197" autocomplete="tel">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required aria-label="Email field" title="Please enter a valid email address">
                 </div>
                 <div class="form-group">
-                  <label for="contact-company">Company</label>
-                  <input type="text" id="contact-company" name="company" class="form-input" placeholder="Your Company Name" autocomplete="organization">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500" aria-label="Message field" title="Message should be between 10 and 500 characters"></textarea>
                 </div>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-service">Service Interest</label>
-                <select id="contact-service" name="service" class="form-select">
-                  <option value="" disabled selected>Select a service…</option>
-                  <option value="web-development">Web Development</option>
-                  <option value="mobile-app">Mobile App Development</option>
-                  <option value="ui-ux-design">UI/UX Design</option>
-                  <option value="ecommerce">E-Commerce Solutions</option>
-                  <option value="systems-integration">Systems Integration</option>
-                  <option value="cloud-hosting">Deployment &amp; Launch</option>
-                  <option value="maintenance">Maintenance &amp; Support</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-description">Project Description <span class="required" aria-hidden="true">*</span></label>
-                <textarea id="contact-description" name="message" class="form-textarea" rows="5" placeholder="Tell us about your project, goals, and timeline…" required minlength="10" maxlength="500"></textarea>
-              </div>
-
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="contact-budget">Budget Range</label>
-                  <select id="contact-budget" name="budget" class="form-select">
-                    <option value="" disabled selected>Select a budget range…</option>
-                    <option value="under-25k">Under R25,000</option>
-                    <option value="25-50k">R25,000 – R50,000</option>
-                    <option value="50-100k">R50,000 – R100,000</option>
-                    <option value="100-250k">R100,000 – R250,000</option>
-                    <option value="250k-plus">R250,000+</option>
-                    <option value="unsure">Not sure yet</option>
-                  </select>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+                    <label for="privacyPolicy">I agree to the <a href="privacy.html">Privacy Policy</a>.</label>
                 </div>
-                <div class="form-group">
-                  <label for="contact-source">How did you hear about us?</label>
-                  <select id="contact-source" name="source" class="form-select">
-                    <option value="" disabled selected>Select an option…</option>
-                    <option value="google">Google Search</option>
-                    <option value="linkedin">LinkedIn</option>
-                    <option value="referral">Referral</option>
-                    <option value="social-media">Social Media</option>
-                    <option value="event">Industry Event</option>
-                    <option value="other">Other</option>
-                  </select>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="communicationOptIn" name="communicationOptIn">
+                    <label for="communicationOptIn">I would like to receive updates and promotional communications.</label>
                 </div>
-              </div>
-
-              <div class="form-group" style="flex-direction:row;align-items:flex-start;gap:var(--space-3);">
-                <input type="checkbox" id="contact-privacy" name="privacy" required style="margin-top:3px;width:18px;height:18px;flex-shrink:0;accent-color:var(--color-accent);">
-                <label for="contact-privacy" style="font-size:var(--text-sm);font-weight:var(--font-regular);color:var(--color-text-light);cursor:pointer;">
-                  I agree to the <a href="../legal/privacy.html" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a> and <a href="../legal/terms.html" style="color:var(--color-accent);text-decoration:underline;">Terms of Service</a>
-                </label>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-top:var(--space-4);">
-                Send Message →
-              </button>
-
-              <div id="contact-loader" style="display:none;text-align:center;margin-top:var(--space-3);" aria-live="polite">
-                Sending…
-              </div>
-              <div id="contact-response" style="display:none;margin-top:var(--space-3);" aria-live="polite"></div>
-
-              <p style="text-align:center;margin-top:var(--space-4);font-size:var(--text-sm);color:var(--color-muted-dark);">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" style="display:inline;vertical-align:middle;margin-right:4px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                We typically respond within 24 business hours.
-              </p>
-
+                <button type="submit" class="button contact-button">Send Message</button>
             </form>
-          </div>
-
-          <!-- ── RIGHT: INFO PANEL ── -->
-          <div class="contact-info-panel">
-
-            <!-- Email -->
-            <div class="contact-info-card reveal">
-              <div class="contact-info-icon" style="background:rgba(26,115,232,0.1);color:var(--color-accent);" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </div>
-              <div>
-                <h3>Email</h3>
-                <p><a href="mailto:mapengoinnovations@gmail.com" style="color:var(--color-accent);font-weight:var(--font-medium);">mapengoinnovations@gmail.com</a></p>
-              </div>
+            <div id="loader" style="display:none;" aria-live="polite">
+                <img src="loader.gif" alt="Loading...">
             </div>
-
-            <!-- WhatsApp -->
-            <div class="contact-info-card reveal">
-              <div class="contact-info-icon" style="background:rgba(0,176,255,0.12);color:var(--color-teal);" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                </svg>
-              </div>
-              <div>
-                <h3>WhatsApp</h3>
-                <p>+27 66 552 0197</p>
-                <a href="https://wa.me/27665520197" rel="noopener noreferrer" target="_blank" style="font-size:var(--text-sm);color:var(--color-teal);font-weight:var(--font-medium);">Chat on WhatsApp →</a>
-              </div>
-            </div>
-
-            <!-- Online / Remote -->
-            <div class="contact-info-card reveal">
-              <div class="contact-info-icon" style="background:rgba(26,115,232,0.1);color:var(--color-accent);" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <line x1="2" y1="12" x2="22" y2="12"/>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
-              </div>
-              <div>
-                <h3>Based In</h3>
-                <p>South Africa — Online &amp; Remote</p>
-                <p style="color:var(--color-teal);font-size:var(--text-sm);font-weight:var(--font-medium);">serving clients nationwide</p>
-              </div>
-            </div>
-
-            <!-- Business Hours -->
-            <div class="contact-info-card reveal">
-              <div class="contact-info-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-              </div>
-              <div>
-                <h3>Response Time</h3>
-                <p>Mon–Fri: 08:00–18:00 SAST</p>
-                <p style="color:var(--color-teal);font-size:var(--text-sm);font-weight:var(--font-medium);">Usually within a few hours</p>
-              </div>
-            </div>
-
-            <!-- Online presence banner -->
-            <div class="reveal" style="background:linear-gradient(135deg,rgba(26,115,232,0.12),rgba(0,176,255,0.08));border:1px solid rgba(26,115,232,0.2);border-radius:var(--radius-xl);padding:var(--space-6);margin-top:var(--space-4);">
-              <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-3);">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="1.8" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                <strong style="font-size:var(--text-sm);color:var(--color-text);">Online-Based Company</strong>
-              </div>
-              <p style="font-size:var(--text-sm);color:var(--color-text-light);margin:0;">We operate 100% online and serve clients across South Africa and globally. All consultations, reviews, and project delivery happen via your preferred digital channels.</p>
-            </div>
-
-          </div>
+            <div id="response" style="display:none;" aria-live="polite"></div>
         </div>
-      </div>
     </section>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const privacyPolicy = document.getElementById('privacyPolicy').checked;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+                showResponse('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            if (!privacyPolicy) {
+                showResponse('You must agree to the Privacy Policy before submitting.', 'error');
+                return;
+            }
+
+            if (!name || !email || !message) {
+                showResponse('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            if (!navigator.onLine) {
+                showResponse('It seems there\u2019s an issue with your internet connection. Please check your connection and try again.', 'error');
+                return;
+            }
+
+            document.getElementById('loader').style.display = 'block';
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    Accept: 'application/json'
+                }
+            })
+            .then(response => {
+                document.getElementById('loader').style.display = 'none';
+                if (response.ok) {
+                    showResponse('Thank you! Your message has been successfully sent.', 'success');
+                    this.reset();
+                } else {
+                    showResponse('Oops! There was an issue with your submission. Please try again later.', 'error');
+                }
+            })
+            .catch(error => {
+                document.getElementById('loader').style.display = 'none';
+                if (!navigator.onLine) {
+                    showResponse('It seems there\u2019s an issue with your internet connection. Please check your connection and try again.', 'error');
+                } else {
+                    showResponse('There was a problem with your submission. Please try again later.', 'error');
+                }
+            });
+        });
+
+        function showResponse(message, type) {
+            const responseDiv = document.getElementById('response');
+            responseDiv.style.display = 'block';
+            responseDiv.textContent = message;
+            responseDiv.className = type === 'success' ? 'success-message' : 'error-message';
+            setTimeout(() => {
+                responseDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
 
     <!-- ══════════ WHY WORK WITH US ══════════ -->
     <section class="section bg-light" aria-labelledby="why-heading">
