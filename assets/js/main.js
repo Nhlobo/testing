@@ -277,99 +277,70 @@
   }
 
   /* ── Contact form → Formspree POST ─────────────────────── */
-  function initContactForm() {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
+   document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('loader').style.display = 'block';
 
-    const loader     = document.getElementById('contact-loader');
-    const responseEl = document.getElementById('contact-response');
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const privacyPolicy = document.getElementById('privacyPolicy').checked;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    function setResponse(msg, ok) {
-      if (!responseEl) return;
-      responseEl.style.display = 'block';
-      responseEl.textContent   = msg;
-      responseEl.className     = ok ? 'success-message' : 'error-message';
-    }
+            if (!emailPattern.test(email)) {
+                showResponse('Please enter a valid email address.', 'error');
+                return;
+            }
 
-    function setLoading(isLoading) {
-      if (loader) loader.style.display = isLoading ? 'block' : 'none';
-      const btn = form.querySelector('button[type="submit"]');
-      if (btn) btn.disabled = isLoading;
-    }
+            if (!privacyPolicy) {
+                showResponse('You must agree to the Privacy Policy before submitting.', 'error');
+                return;
+            }
 
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
+            if (!name || !email || !message) {
+                showResponse('Please fill in all required fields.', 'error');
+                return;
+            }
 
-      // Clear previous response
-      if (responseEl) {
-        responseEl.style.display = 'none';
-        responseEl.textContent   = '';
-        responseEl.className     = '';
-      }
+            if (!navigator.onLine) {
+                showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
+                return;
+            }
 
-      // Offline/connectivity check
-      if (!navigator.onLine) {
-        setResponse('Unable to submit the form. Please check your connection and try again.', false);
-        return;
-      }
+            const formData = new FormData(this);
 
-      // HTML5 constraint validation
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        setResponse('Please ensure all required fields are filled correctly.', false);
-        return;
-      }
-
-      // Privacy checkbox required
-      const privacy = document.getElementById('contact-privacy');
-      if (privacy && !privacy.checked) {
-        setResponse('You must agree to the Privacy Policy before submitting.', false);
-        return;
-      }
-
-      // Honeypot: silently treat as success to avoid tipping off bots
-      const gotcha = form.querySelector('input[name="_gotcha"]');
-      if (gotcha && gotcha.value) {
-        setResponse('Thank you! Your message has been successfully sent.', true);
-        form.reset();
-        return;
-      }
-
-      try {
-        setLoading(true);
-
-        const res = await fetch(form.action, {
-          method:  'POST',
-          body:    new FormData(form),
-          headers: { Accept: 'application/json' }
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    Accept: 'application/json'
+                }
+            })
+            .then(response => {
+                document.getElementById('loader').style.display = 'none';
+                if (response.ok) {
+                    showResponse('Thank you! Your message has been successfully sent.', 'success');
+                    this.reset();
+                } else {
+                    showResponse('Oops! There was an issue with your submission. Please try again later.', 'error');
+                }
+            })
+            .catch(error => {
+                document.getElementById('loader').style.display = 'none';
+                if (!navigator.onLine) {
+                    showResponse('It seems there’s an issue with your internet connection. Please check your connection and try again.', 'error');
+                } else {
+                    showResponse('There was a problem with your submission. Please try again later.', 'error');
+                }
+            });
         });
 
-        if (res.ok) {
-          setResponse('Thank you! Your message has been successfully sent.', true);
-          form.reset();
-        } else {
-          setResponse('Oops! There was an issue with your submission. Please try again later.', false);
+        function showResponse(message, type) {
+            const responseDiv = document.getElementById('response');
+            responseDiv.style.display = 'block';
+            responseDiv.textContent = message;
+            responseDiv.className = type === 'success' ? 'success-message' : 'error-message';
+            setTimeout(() => {
+                responseDiv.style.display = 'none';
+            }, 5000);
         }
-      } catch (_err) {
-        setResponse('There was a problem with your submission. Please try again later.', false);
-      } finally {
-        setLoading(false);
-      }
-    });
-  }
-
-  initStickyHeader();
-  initMobileNav();
-  initSmoothScroll();
-  initBackToTop();
-  initCookieBanner();
-
-  document.addEventListener('DOMContentLoaded', function () {
-    initReveal();
-    initCounters();
-    initPortfolioFilter();
-    initTestimonialSlider();
-    initActiveNav();
-    initContactForm();
-  });
-})();
