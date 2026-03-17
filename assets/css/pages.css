@@ -1305,80 +1305,127 @@
 /* ============================================================
    CONTACT PAGE
    ============================================================ */
-.contact-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: var(--space-12);
+  align-items: start;
 }
 
-.contact h1 {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #333;
+.contact-form-container {
+  background: var(--color-white);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  border: 1px solid var(--color-light-300);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Form Styles */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.contact-form-container h2 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-2);
+}
+
+.contact-form-container > p {
+  margin-bottom: var(--space-8);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
 }
 
-label {
-    font-size: 14px;
-    color: #444;
-    margin-bottom: 5px;
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
 }
 
-input,
-textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: all 0.3s ease;
+.form-group label .required {
+  color: var(--color-accent);
+  margin-left: 2px;
 }
 
-input:focus,
-textarea:focus {
-    border-color: #00b0ff;
-    outline: none;
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  border: 1.5px solid var(--color-light-300);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-white);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+  -webkit-appearance: none;
 }
 
-textarea {
-    resize: vertical;
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(26,115,232,0.08);
 }
 
-button {
-    background-color: #00b0ff;
-    color: white;
-    border: none;
-    padding: 14px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
-button:hover {
-    background-color: #0088cc;
+.contact-info-panel { display: flex; flex-direction: column; gap: var(--space-5); }
+
+.contact-info-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  border: 1px solid var(--color-light-300);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  transition: all var(--transition-base);
 }
 
-button:active {
-    background-color: #006f99;
+.contact-info-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(26,115,232,0.2);
 }
 
+.contact-info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background: rgba(26,115,232,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.contact-info-icon svg { width: 22px; height: 22px; }
+.contact-info-card h3 { font-size: var(--text-base); font-weight: var(--font-semibold); margin-bottom: var(--space-1); }
+.contact-info-card p, .contact-info-card a {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+}
+
+.map-placeholder {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--color-light-300);
+  margin-top: var(--space-6);
+}
 
 /* ============================================================
    LEGAL PAGES
