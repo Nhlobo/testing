@@ -277,39 +277,118 @@
   }
 
   /* ── Init all ───────────────────────────────────────────── */
-  /* ── Contact form → mailto fallback ────────────────────── */
+  /* ── Contact form → Formspree submission ───────────────── */
   function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    form.addEventListener('submit', function (e) {
+    const submitBtn = document.getElementById('contact-submit');
+    const statusEl = document.getElementById('contact-form-status');
+
+    function setError(id, message) {
+      const el = document.getElementById(id + '-error');
+      if (el) el.textContent = message || '';
+    }
+
+    function clearErrors() {
+      ['contact-name', 'contact-email', 'contact-description', 'contact-privacy'].forEach(function (id) {
+        setError(id, '');
+      });
+    }
+
+    function validEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function setStatus(message, type) {
+      if (!statusEl) return;
+      statusEl.textContent = message || '';
+      statusEl.classList.remove('success', 'error');
+      if (type) statusEl.classList.add(type);
+    }
+
+    function setLoading(loading) {
+      if (!submitBtn) return;
+      submitBtn.disabled = loading;
+      submitBtn.textContent = loading ? 'Sending...' : 'Send Message →';
+      submitBtn.setAttribute('aria-busy', loading ? 'true' : 'false');
+    }
+
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
+      clearErrors();
+      setStatus('');
 
-      const get = function (id) {
-        const el = document.getElementById(id);
-        return el ? (el.value || '').trim() : '';
-      };
+      const name = (document.getElementById('contact-name')?.value || '').trim();
+      const email = (document.getElementById('contact-email')?.value || '').trim();
+      const phone = (document.getElementById('contact-phone')?.value || '').trim();
+      const company = (document.getElementById('contact-company')?.value || '').trim();
+      const service = (document.getElementById('contact-service')?.value || '').trim();
+      const budget = (document.getElementById('contact-budget')?.value || '').trim();
+      const message = (document.getElementById('contact-description')?.value || '').trim();
+      const privacyAccepted = !!document.getElementById('contact-privacy')?.checked;
 
-      const name        = get('contact-name');
-      const email       = get('contact-email');
-      const phone       = get('contact-phone');
-      const company     = get('contact-company');
-      const service     = get('contact-service');
-      const description = get('contact-description');
-      const budget      = get('contact-budget');
+      let hasError = false;
 
-      const subject = encodeURIComponent('Project Enquiry from ' + (name || 'Website Visitor'));
-      const body = encodeURIComponent(
-        'Name: '        + name        + '\n' +
-        'Email: '       + email       + '\n' +
-        'Phone: '       + (phone   || 'Not provided') + '\n' +
-        'Company: '     + (company || 'Not provided') + '\n' +
-        'Service: '     + (service || 'Not specified') + '\n' +
-        'Budget: '      + (budget  || 'Not specified') + '\n\n' +
-        'Message:\n'    + description
-      );
+      if (name.length < 2) {
+        setError('contact-name', 'Please enter your full name.');
+        hasError = true;
+      }
 
-      window.location.href = 'mailto:mapengoinnovations@gmail.com?subject=' + subject + '&body=' + body;
+      if (!validEmail(email)) {
+        setError('contact-email', 'Please enter a valid email address.');
+        hasError = true;
+      }
+
+      if (message.length < 20) {
+        setError('contact-description', 'Please provide at least 20 characters so we can understand your request.');
+        hasError = true;
+      }
+
+      if (!privacyAccepted) {
+        setError('contact-privacy', 'Please accept the Privacy Policy before submitting.');
+        hasError = true;
+      }
+
+      if (hasError) {
+        setStatus('Please correct the highlighted fields and try again.', 'error');
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const payload = {
+          name: name,
+          email: email,
+          phone: phone || 'Not provided',
+          company: company || 'Not provided',
+          service: service || 'Not specified',
+          budget: budget || 'Not specified',
+          message: message,
+          _subject: 'Website enquiry from ' + name
+        };
+
+        const response = await fetch('https://formspree.io/f/xwpkkvnk', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error('Submission failed');
+        }
+
+        form.reset();
+        setStatus('Thanks, your message has been sent. We will reply within one business day.', 'success');
+      } catch (err) {
+        setStatus('We could not send your message right now. Please try again or email mapengoinnovations@gmail.com.', 'error');
+      } finally {
+        setLoading(false);
+      }
     });
   }
 

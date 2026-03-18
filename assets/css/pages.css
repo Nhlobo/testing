@@ -1679,3 +1679,23 @@
     -webkit-backdrop-filter: none;
   }
 }
+
+.form-error {
+  color: #b42318;
+  font-size: var(--text-xs);
+  min-height: 1em;
+}
+
+.form-status {
+  font-size: var(--text-sm);
+  color: var(--color-muted-dark);
+  min-height: 1.2em;
+}
+
+.form-status.success { color: #067647; }
+.form-status.error { color: #b42318; }
+
+#contact-submit[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
