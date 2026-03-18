@@ -328,7 +328,15 @@
     if (!form) return;
 
     const submitBtn = document.getElementById('contact-submit');
+    const submitLabel = submitBtn ? submitBtn.querySelector('.submit-btn-label') : null;
     const statusEl = document.getElementById('contact-form-status');
+
+    const requiredFields = [
+      { id: 'contact-name', message: 'Please enter your full name.' },
+      { id: 'contact-email', message: 'Please enter a valid email address.' },
+      { id: 'contact-service', message: 'Please choose the service you need.' },
+      { id: 'contact-message', message: 'Please provide a clear project message (minimum 20 characters).' }
+    ];
 
     function setError(id, message) {
       const el = document.getElementById(id + '-error');
@@ -336,13 +344,9 @@
     }
 
     function clearErrors() {
-      ['contact-name', 'contact-email', 'contact-description', 'contact-privacy'].forEach(function (id) {
+      ['contact-name', 'contact-email', 'contact-phone', 'contact-service', 'contact-message'].forEach(function (id) {
         setError(id, '');
       });
-    }
-
-    function validEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
     function setStatus(message, type) {
@@ -352,11 +356,17 @@
       if (type) statusEl.classList.add(type);
     }
 
+    function validPhone(phone) {
+      if (!phone) return true;
+      return /^[+()\d\s-]{7,30}$/.test(phone);
+    }
+
     function setLoading(loading) {
       if (!submitBtn) return;
       submitBtn.disabled = loading;
-      submitBtn.textContent = loading ? 'Sending...' : 'Send Message →';
+      submitBtn.classList.toggle('is-loading', loading);
       submitBtn.setAttribute('aria-busy', loading ? 'true' : 'false');
+      if (submitLabel) submitLabel.textContent = loading ? 'Sending enquiry...' : 'Send Secure Enquiry';
     }
 
     form.addEventListener('submit', async function (e) {
@@ -364,63 +374,40 @@
       clearErrors();
       setStatus('');
 
-      const name = (document.getElementById('contact-name')?.value || '').trim();
-      const email = (document.getElementById('contact-email')?.value || '').trim();
-      const phone = (document.getElementById('contact-phone')?.value || '').trim();
-      const company = (document.getElementById('contact-company')?.value || '').trim();
-      const service = (document.getElementById('contact-service')?.value || '').trim();
-      const budget = (document.getElementById('contact-budget')?.value || '').trim();
-      const message = (document.getElementById('contact-description')?.value || '').trim();
-      const privacyAccepted = !!document.getElementById('contact-privacy')?.checked;
-
       let hasError = false;
 
-      if (name.length < 2) {
-        setError('contact-name', 'Please enter your full name.');
-        hasError = true;
-      }
+      requiredFields.forEach(function (field) {
+        const input = document.getElementById(field.id);
+        if (!input) return;
 
-      if (!validEmail(email)) {
-        setError('contact-email', 'Please enter a valid email address.');
-        hasError = true;
-      }
+        if (!input.checkValidity()) {
+          setError(field.id, field.message);
+          hasError = true;
+        }
+      });
 
-      if (message.length < 20) {
-        setError('contact-description', 'Please provide at least 20 characters so we can understand your request.');
-        hasError = true;
-      }
-
-      if (!privacyAccepted) {
-        setError('contact-privacy', 'Please accept the Privacy Policy before submitting.');
+      const phoneInput = document.getElementById('contact-phone');
+      const phone = phoneInput ? phoneInput.value.trim() : '';
+      if (!validPhone(phone)) {
+        setError('contact-phone', 'Please enter a valid phone number format.');
         hasError = true;
       }
 
       if (hasError) {
-        setStatus('Please correct the highlighted fields and try again.', 'error');
+        setStatus('Please correct the highlighted fields and submit again.', 'error');
         return;
       }
 
       setLoading(true);
 
       try {
-        const payload = {
-          name: name,
-          email: email,
-          phone: phone || 'Not provided',
-          company: company || 'Not provided',
-          service: service || 'Not specified',
-          budget: budget || 'Not specified',
-          message: message,
-          _subject: 'Website enquiry from ' + name
-        };
-
-        const response = await fetch('https://formspree.io/f/xwpkkvnk', {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            Accept: 'application/json'
           },
-          body: JSON.stringify(payload)
+          body: formData
         });
 
         if (!response.ok) {
@@ -428,9 +415,16 @@
         }
 
         form.reset();
-        setStatus('Thanks, your message has been sent. We will reply within one business day.', 'success');
-      } catch (err) {
-        setStatus('We could not send your message right now. Please try again or email mapengoinnovations@gmail.com.', 'error');
+
+        const redirectUrl = form.getAttribute('data-success-redirect');
+        if (redirectUrl) {
+          window.location.assign(redirectUrl);
+          return;
+        }
+
+        setStatus('Thank you. Your enquiry was sent successfully. We will reply within 24 hours.', 'success');
+      } catch (error) {
+        setStatus('Submission failed. Please try again or email mapengoinnovations@gmail.com.', 'error');
       } finally {
         setLoading(false);
       }
