@@ -136,7 +136,7 @@ No build tools or external frameworks are required. The site works as plain stat
 The site is configured for **GitHub Pages** at:
 
 ```
-https://nhlobo.github.io/testing/
+https://www.mapengoinnovations.co.za/
 ```
 
 The `assets/js/components.js` file automatically detects the base path depth so all relative links and asset references resolve correctly both locally and on GitHub Pages.

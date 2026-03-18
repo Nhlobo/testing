@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /legal/
 
-Sitemap: https://nhlobo.github.io/testing/sitemap.xml
+Sitemap: https://www.mapengoinnovations.co.za/sitemap.xml

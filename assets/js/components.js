@@ -1,7 +1,7 @@
 /**
  * Mapengo Innovations — components.js
  * Injects shared header and footer into every page.
- * Handles base path detection for GitHub Pages subdirectory.
+ * Handles base path detection for nested page routes.
  */
 
 (function () {
@@ -10,11 +10,11 @@
   /* ── Base path detection ────────────────────────────────── */
   function getBasePath() {
     const path = window.location.pathname;
-    // GitHub Pages: https://nhlobo.github.io/testing/...
+    // GitHub Pages / static hosting support
     // Strip trailing slash, split, filter empties
     const parts = path.replace(/\/$/, '').split('/').filter(Boolean);
 
-    // The site root is the "testing" directory on GitHub Pages.
+    // Legacy GitHub Pages project folder fallback.
     const repoName = 'testing';
     const repoIdx = parts.indexOf(repoName);
     let subParts;
@@ -88,7 +88,7 @@
 
   <div class="header-cta">
     <a href="${BASE}contact/" class="btn btn-primary btn-sm">Request a Quote</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav" aria-haspopup="true">
       <span></span>
       <span></span>
       <span></span>
@@ -97,7 +97,7 @@
 </div>
 
 <!-- Mobile navigation -->
-<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
   ${mobileItems}
   <div class="mobile-nav-footer">
     <a href="${BASE}contact/" class="btn btn-primary" style="width:100%;justify-content:center;">Request a Quote →</a>

@@ -41,19 +41,25 @@
       const hamburger = document.getElementById('hamburger');
       const mobileNav  = document.getElementById('mobile-nav');
       if (!hamburger || !mobileNav) return;
+      const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
       function openMenu() {
         hamburger.classList.add('open');
         mobileNav.classList.add('open');
         hamburger.setAttribute('aria-expanded', 'true');
+        mobileNav.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        const firstLink = mobileNav.querySelector(focusableSelector);
+        if (firstLink) firstLink.focus();
       }
 
       function closeMenu() {
         hamburger.classList.remove('open');
         mobileNav.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        hamburger.focus();
       }
 
       hamburger.addEventListener('click', function () {
@@ -66,9 +72,29 @@
         link.addEventListener('click', closeMenu);
       });
 
-      // Close on Escape key
+      // Close on Escape key + keep tab focus in open menu
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeMenu();
+        if (!mobileNav.classList.contains('open')) return;
+        if (e.key === 'Escape') {
+          closeMenu();
+          return;
+        }
+        if (e.key !== 'Tab') return;
+
+        const focusable = Array.from(mobileNav.querySelectorAll(focusableSelector));
+        if (!focusable.length) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        const isShift = e.shiftKey;
+
+        if (isShift && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!isShift && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       });
 
       // Close when clicking outside
@@ -81,6 +107,25 @@
           closeMenu();
         }
       });
+
+      // If keyboard users tab to mobile links while hidden, open first.
+      mobileNav.addEventListener('focusin', function () {
+        if (!mobileNav.classList.contains('open') && window.innerWidth <= 1024) {
+          openMenu();
+        }
+      });
+
+      // Ensure hidden menu links are not tabbable when closed.
+      function syncMobileNavTabState() {
+        const isOpen = mobileNav.classList.contains('open');
+        mobileNav.querySelectorAll(focusableSelector).forEach(function (el) {
+          el.tabIndex = isOpen ? 0 : -1;
+        });
+      }
+
+      const observer = new MutationObserver(syncMobileNavTabState);
+      observer.observe(mobileNav, { attributes: true, attributeFilter: ['class'] });
+      syncMobileNavTabState();
     }
 
     // Components are injected via DOMContentLoaded; bind after
