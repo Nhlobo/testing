@@ -416,9 +416,10 @@
 
         form.reset();
 
-        const redirectUrl = form.getAttribute('data-success-redirect');
-        if (redirectUrl) {
-          window.location.assign(redirectUrl);
+        const redirectPath = form.getAttribute('data-success-redirect');
+        if (redirectPath) {
+          const redirectUrl = new URL(redirectPath, window.location.href);
+          window.location.assign(redirectUrl.toString());
           return;
         }
 
