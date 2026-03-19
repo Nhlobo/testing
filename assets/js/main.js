@@ -21,13 +21,8 @@
     if (!header) return;
 
     function updateHeader() {
-      if (window.scrollY > 60) {
-        header.classList.remove('header-transparent');
-        header.classList.add('header-scrolled');
-      } else {
-        header.classList.remove('header-scrolled');
-        header.classList.add('header-transparent');
-      }
+      header.classList.remove('header-transparent');
+      header.classList.add('header-scrolled');
     }
 
     window.addEventListener('scroll', throttle(updateHeader, 50), { passive: true });
@@ -425,7 +420,7 @@
 
         setStatus('Thank you. Your enquiry was sent successfully. We will reply within 24 hours.', 'success');
       } catch (error) {
-        setStatus('Submission failed. Please try again or email mapengoinnovations@gmail.com.', 'error');
+        setStatus('Submission failed. Please try again or email info@MapengoInnovations.co.za.', 'error');
       } finally {
         setLoading(false);
       }
