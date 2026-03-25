@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Work | Mapengo Innovations</title>
-  <meta name="description" content="Explore Mapengo Innovations projects across web, mobile, and e-commerce work delivered for South African businesses.">
-  <meta name="keywords" content="Mapengo projects, web development projects South Africa, mobile app projects, e-commerce projects SA">
-  <meta property="og:title" content="Our Work | Mapengo Innovations">
-  <meta property="og:description" content="Browse our web, mobile, and e-commerce projects built for South African businesses.">
+  <title>Our Systems | Mapengo Innovations</title>
+  <meta name="description" content="Explore the scalable digital systems Mapengo Innovations designs and builds for modern businesses.">
+  <meta name="keywords" content="business systems, enterprise commerce platform, management platform, data intelligence platform, Mapengo Innovations">
+  <meta property="og:title" content="Our Systems | Mapengo Innovations">
+  <meta property="og:description" content="Discover our premium digital systems built for business scalability, performance, and long-term growth.">
   <meta property="og:image" content="https://www.mapengoinnovations.co.za/assets/img/og-image.svg">
   <meta property="og:url" content="https://www.mapengoinnovations.co.za/work/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Our Work | Mapengo Innovations">
-  <meta name="twitter:description" content="Portfolio of digital projects delivered by Mapengo Innovations for South African businesses.">
+  <meta name="twitter:title" content="Our Systems | Mapengo Innovations">
+  <meta name="twitter:description" content="A modern showcase of Mapengo Innovations' high-level software systems for business impact.">
   <link rel="canonical" href="https://www.mapengoinnovations.co.za/work/">
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
@@ -22,17 +22,223 @@
   <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/pages.css">
+
+  <style>
+    :root {
+      --systems-bg: #f7f8fb;
+      --systems-surface: #ffffff;
+      --systems-text: #101828;
+      --systems-muted: #475467;
+      --systems-border: #e4e7ec;
+      --systems-accent: #4f46e5;
+      --systems-shadow: 0 16px 40px rgba(16, 24, 40, 0.08);
+    }
+
+    .systems-page {
+      background: var(--systems-bg);
+      color: var(--systems-text);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .systems-hero {
+      padding: clamp(5.5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem);
+      background: linear-gradient(180deg, #f8f9fc 0%, #f5f7fb 100%);
+      border-bottom: 1px solid var(--systems-border);
+    }
+
+    .systems-hero__inner {
+      max-width: 760px;
+    }
+
+    .systems-overline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--systems-accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .systems-overline::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.45;
+    }
+
+    .systems-hero h1 {
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.2rem;
+    }
+
+    .systems-hero p {
+      margin: 0;
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      line-height: 1.7;
+      color: var(--systems-muted);
+      max-width: 64ch;
+    }
+
+    .systems-section {
+      padding: clamp(3rem, 7vw, 5rem) 0;
+    }
+
+    .systems-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    .system-card {
+      background: var(--systems-surface);
+      border: 1px solid var(--systems-border);
+      border-radius: 22px;
+      padding: clamp(1.5rem, 3vw, 2rem);
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+
+    .system-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--systems-shadow);
+      border-color: #d0d5dd;
+    }
+
+    .system-card--light {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+      opacity: 0.9;
+    }
+
+    .system-card__kicker {
+      display: inline-flex;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--systems-accent);
+      background: rgba(79, 70, 229, 0.08);
+      margin-bottom: 0.9rem;
+    }
+
+    .system-card h2 {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+      letter-spacing: -0.02em;
+    }
+
+    .system-card p {
+      margin: 1rem 0 0;
+      color: var(--systems-muted);
+      line-height: 1.7;
+    }
+
+    .system-card ul {
+      margin: 1.25rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .system-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      color: #344054;
+    }
+
+    .system-card li::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--systems-accent);
+      margin-top: 0.58rem;
+      flex: 0 0 auto;
+      opacity: 0.85;
+    }
+
+    .system-why {
+      margin-top: 1.45rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--systems-border);
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .impact-section {
+      padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+      border-top: 1px solid var(--systems-border);
+    }
+
+    .impact-panel {
+      background: #0f172a;
+      border-radius: 24px;
+      padding: clamp(1.6rem, 3.5vw, 2.3rem);
+      box-shadow: 0 20px 50px rgba(2, 6, 23, 0.32);
+    }
+
+    .impact-panel h2 {
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      letter-spacing: -0.02em;
+    }
+
+    .impact-panel ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: rgba(255, 255, 255, 0.82);
+      display: grid;
+      gap: 0.75rem;
+      line-height: 1.6;
+    }
+
+    @media (min-width: 768px) {
+      .systems-grid {
+        gap: 1.35rem;
+      }
+
+      .system-card {
+        padding: 2rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .systems-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .system-card:first-child,
+      .system-card:nth-child(2),
+      .system-card:nth-child(3) {
+        grid-column: span 1;
+      }
+
+      .system-card--light {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Portfolio | Mapengo Innovations",
+    "name": "Our Systems | Mapengo Innovations",
     "url": "https://www.mapengoinnovations.co.za/work/",
-    "description": "A showcase of digital projects — websites, web apps, mobile apps, and e-commerce platforms delivered by Mapengo Innovations.",
+    "description": "A showcase of enterprise-grade software systems designed by Mapengo Innovations for business growth, efficiency, and performance.",
     "publisher": {
       "@type": "Organization",
       "name": "Mapengo Innovations",
@@ -41,229 +247,90 @@
   }
   </script>
 </head>
-<body>
+<body class="systems-page">
   <header id="site-header"></header>
 
   <main>
-
-    <!-- ══════════ HERO ══════════ -->
-    <section class="hero hero-page" aria-label="Work hero">
-      <div class="hero-bg" aria-hidden="true">
-        <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="phg1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00b0ff" stop-opacity="0.08"/>
-              <stop offset="100%" stop-color="#1a73e8" stop-opacity="0.06"/>
-            </linearGradient>
-          </defs>
-          <polygon points="0,0 500,0 0,400" fill="url(#phg1)"/>
-          <polygon points="1440,600 1000,600 1440,200" fill="#1a73e8" fill-opacity="0.05"/>
-          <circle cx="1200" cy="150" r="220" fill="#00b0ff" fill-opacity="0.04"/>
-          <circle cx="300" cy="450" r="180" fill="#1a73e8" fill-opacity="0.04"/>
-          <g stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1">
-            <line x1="360" y1="0" x2="360" y2="600"/>
-            <line x1="720" y1="0" x2="720" y2="600"/>
-            <line x1="1080" y1="0" x2="1080" y2="600"/>
-            <line x1="0" y1="200" x2="1440" y2="200"/>
-            <line x1="0" y1="400" x2="1440" y2="400"/>
-          </g>
-        </svg>
-      </div>
-      <div class="container hero-inner">
-        <span class="overline">Our Work</span>
-        <h1>Selected Projects <span class="text-gradient">Built for Real Clients</span></h1>
-        <p class="lead">
-          A sample of websites and applications we have designed and developed for South African organisations.
-        </p>
+    <!-- Hero Section -->
+    <section class="systems-hero" aria-labelledby="systems-hero-title">
+      <div class="container systems-hero__inner">
+        <span class="systems-overline">Our Systems</span>
+        <h1 id="systems-hero-title">Our Systems</h1>
+        <p>We design and build scalable digital platforms that help businesses operate, grow, and lead in the digital world.</p>
       </div>
     </section>
 
-    <!-- ══════════ PORTFOLIO ══════════ -->
-    <section class="section" aria-labelledby="portfolio-heading">
+    <!-- Systems Section -->
+    <section class="systems-section" aria-labelledby="systems-heading">
       <div class="container">
-        <div class="section-header centered reveal">
-          <span class="overline">Selected Work</span>
-          <h2 id="portfolio-heading">Featured <span class="text-gradient">Projects</span></h2>
-          <p>Browse verified projects by category. We only show work we can confidently stand behind.</p>
+        <div class="systems-grid">
+          <article class="system-card" aria-labelledby="enterprise-commerce-title">
+            <span class="system-card__kicker">System 01</span>
+            <h2 id="enterprise-commerce-title">Enterprise Commerce Platform</h2>
+            <p>A powerful full-stack system enabling businesses to sell, manage, and scale their operations online.</p>
+            <ul>
+              <li>Product &amp; inventory management</li>
+              <li>Secure authentication system</li>
+              <li>Order &amp; transaction processing</li>
+              <li>Admin dashboard</li>
+              <li>API-based architecture</li>
+            </ul>
+            <p class="system-why">Why it matters: Built for real businesses to operate and scale digitally.</p>
+          </article>
+
+          <article class="system-card" aria-labelledby="business-management-title">
+            <span class="system-card__kicker">System 02</span>
+            <h2 id="business-management-title">Business Management Platform</h2>
+            <p>A centralized platform that helps teams manage operations, customers, and workflows efficiently.</p>
+            <ul>
+              <li>Task &amp; workflow management</li>
+              <li>Customer tracking (CRM)</li>
+              <li>Role-based access control</li>
+              <li>Analytics dashboard</li>
+            </ul>
+            <p class="system-why">Why it matters: Replaces multiple tools with one unified system.</p>
+          </article>
+
+          <article class="system-card" aria-labelledby="data-intelligence-title">
+            <span class="system-card__kicker">System 03</span>
+            <h2 id="data-intelligence-title">Data Intelligence Platform</h2>
+            <p>A data-driven system that collects and visualizes real-time information for smarter decision-making.</p>
+            <ul>
+              <li>API integrations</li>
+              <li>Data visualization dashboards</li>
+              <li>Real-time data processing</li>
+              <li>Performance tracking</li>
+            </ul>
+            <p class="system-why">Why it matters: Helps businesses make informed, data-driven decisions.</p>
+          </article>
+
+          <article class="system-card system-card--light" aria-labelledby="interactive-experience-title">
+            <span class="system-card__kicker">Optional System</span>
+            <h2 id="interactive-experience-title">Interactive Experience Platform</h2>
+            <p>A modern system designed to enhance user interaction through dynamic and engaging experiences.</p>
+          </article>
         </div>
-
-        <!-- Filter Tabs -->
-        <div class="filter-tabs reveal" role="tablist" aria-label="Filter projects by category">
-          <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true" aria-controls="portfolio-grid">All Projects</button>
-          <button class="filter-tab" data-filter="web" role="tab" aria-selected="false" aria-controls="portfolio-grid">Web</button>
-          <button class="filter-tab" data-filter="mobile" role="tab" aria-selected="false" aria-controls="portfolio-grid">Mobile</button>
-          <button class="filter-tab" data-filter="e-commerce" role="tab" aria-selected="false" aria-controls="portfolio-grid">E-Commerce</button>
-        </div>
-
-        <!-- Portfolio Grid -->
-        <div class="portfolio-grid stagger" id="portfolio-grid" role="tabpanel">
-
-          <!-- 1. Crime Solution App -->
-          <article class="portfolio-card reveal" data-category="mobile">
-            <div class="portfolio-visual">
-              <img src="../assets/img/portfolio/crime-solution.jpg" alt="Crime Solution App — community safety platform with incident reporting, neighbourhood watch coordination, and police response features" style="width:100%;height:100%;object-fit:cover;display:block;">
-              <div class="project-badge-overlay">
-                <span class="badge badge-teal">Mobile</span>
-              </div>
-            </div>
-            <div class="portfolio-body">
-              <h3>Crime Solution App</h3>
-              <div class="portfolio-meta">
-                <span class="portfolio-client">Community Safety Initiative</span>
-                <span class="badge badge-teal">Live</span>
-              </div>
-              <p>Community safety app concept with incident logging, location details, and neighbourhood alert sharing.</p>
-              <div class="project-stack">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">JavaScript</span>
-              </div>
-              <a href="https://nhlobo.github.io/Crime-Solution/" class="btn btn-outline-accent btn-sm" target="_blank" rel="noopener" aria-label="View the Crime Solution App live project">View Project →</a>
-            </div>
-          </article>
-
-          <!-- 2. Juta Daco Construction Website -->
-          <article class="portfolio-card reveal" data-category="web">
-            <div class="portfolio-visual">
-              <img src="https://image.thum.io/get/jpeg/width/1200/noanimate/https://nhlobo.github.io/Juta_Daco_Contruction/" alt="Juta Daco Construction website — professional construction company site showcasing services, projects, and contact information" style="width:100%;height:100%;object-fit:cover;display:block;">
-              <div class="project-badge-overlay">
-                <span class="badge badge-accent">Web</span>
-              </div>
-            </div>
-            <div class="portfolio-body">
-              <h3>Juta Daco Construction</h3>
-              <div class="portfolio-meta">
-                <span class="portfolio-client">Juta Daco Construction</span>
-                <span class="badge badge-teal">Live</span>
-              </div>
-              <p>Service website for a construction company with project gallery, service breakdown, and contact enquiry flow.</p>
-              <div class="project-stack">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">JavaScript</span>
-              </div>
-              <a href="https://nhlobo.github.io/Juta_Daco_Contruction/" class="btn btn-outline-accent btn-sm" target="_blank" rel="noopener" aria-label="View the Juta Daco Construction website">View Project →</a>
-            </div>
-          </article>
-
-          <!-- 3. MADYASWANYUKU Pest Control Website -->
-          <article class="portfolio-card reveal" data-category="web">
-            <div class="portfolio-visual">
-              <img src="https://image.thum.io/get/jpeg/width/1200/noanimate/https://nhlobo.github.io/MADYASWANYUKU/" alt="MADYASWANYUKU Pest Control website — professional pest control services site covering termite, ant, rodent, and bed bug treatments" style="width:100%;height:100%;object-fit:cover;display:block;">
-              <div class="project-badge-overlay">
-                <span class="badge badge-teal">Platform</span>
-              </div>
-            </div>
-            <div class="portfolio-body">
-              <h3>Madyaswanyuku Pest Control</h3>
-              <div class="portfolio-meta">
-                <span class="portfolio-client">Madyaswanyuku</span>
-                <span class="badge badge-teal">Live</span>
-              </div>
-              <p>Service website for a pest control provider with treatment pages, quote requests, and contact options.</p>
-              <div class="project-stack">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">JavaScript</span>
-              </div>
-              <a href="https://nhlobo.github.io/MADYASWANYUKU/" class="btn btn-outline-accent btn-sm" target="_blank" rel="noopener" aria-label="View the MADYASWANYUKU Pest Control website">View Project →</a>
-            </div>
-          </article>
-
-          <!-- 4. E-Commerce Projects Placeholder -->
-          <article class="portfolio-card portfolio-card--empty reveal" data-category="e-commerce">
-            <div class="portfolio-body">
-              <h3>E-Commerce Projects</h3>
-              <div class="portfolio-meta">
-                <span class="portfolio-client">Public Portfolio Update</span>
-                <span class="badge">In Progress</span>
-              </div>
-              <p>We are preparing verified e-commerce case studies for this page. In the meantime, contact us for relevant examples during a proposal discussion.</p>
-              <div class="project-stack">
-                <span class="tag">Online Stores</span>
-                <span class="tag">Checkout Flows</span>
-                <span class="tag">Payment Integration</span>
-              </div>
-              <a href="../contact/" class="btn btn-outline-accent btn-sm" aria-label="Request e-commerce examples from Mapengo Innovations">Request Examples →</a>
-            </div>
-          </article>
-
-        </div><!-- /.portfolio-grid -->
       </div>
     </section>
 
-    <!-- ══════════ RESULTS STATS ══════════ -->
-    <section class="section bg-primary" aria-labelledby="results-heading" style="padding-block:var(--space-20)">
+    <!-- Final Impact Section -->
+    <section class="impact-section" aria-labelledby="impact-title">
       <div class="container">
-        <div class="section-header centered reveal" style="margin-bottom:var(--space-12)">
-          <span class="overline" style="color:rgba(255,255,255,0.6)">How We Work</span>
-          <h2 id="results-heading" style="color:var(--color-white)">Delivery Principles <span class="text-gradient">We Follow</span></h2>
-        </div>
-        <div class="grid grid-3 stagger" style="text-align:center">
-          <div class="reveal">
-            <div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;color:var(--color-accent);line-height:1">1</div>
-            <div style="color:rgba(255,255,255,0.7);margin-top:var(--space-3);font-size:var(--text-xl);font-weight:var(--font-semibold)">Local Delivery Focus</div>
-            <div style="color:rgba(255,255,255,0.4);font-size:var(--text-sm);margin-top:var(--space-2)">South African businesses and organisations</div>
-          </div>
-          <div class="reveal">
-            <div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;color:var(--color-teal);line-height:1">
-              <span data-counter="100" data-suffix="%">100%</span>
-            </div>
-            <div style="color:rgba(255,255,255,0.7);margin-top:var(--space-3);font-size:var(--text-xl);font-weight:var(--font-semibold)">Project-by-Project Scoping</div>
-            <div style="color:rgba(255,255,255,0.4);font-size:var(--text-sm);margin-top:var(--space-2)">Clear proposals before development starts</div>
-          </div>
-          <div class="reveal">
-            <div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;color:var(--color-accent);line-height:1">5</div>
-            <div style="color:rgba(255,255,255,0.7);margin-top:var(--space-3);font-size:var(--text-xl);font-weight:var(--font-semibold)">Step Working Process</div>
-            <div style="color:rgba(255,255,255,0.4);font-size:var(--text-sm);margin-top:var(--space-2)">Discover, design, build, test, support</div>
-          </div>
+        <div class="impact-panel">
+          <h2 id="impact-title">Built for Impact</h2>
+          <ul>
+            <li>Designed for scalability</li>
+            <li>Built with modern technologies</li>
+            <li>Focused on real-world business needs</li>
+            <li>Engineered for performance and reliability</li>
+          </ul>
         </div>
       </div>
     </section>
-
-    <!-- ══════════ CTA ══════════ -->
-    <section class="cta-section" aria-labelledby="work-cta-heading">
-      <div class="container" style="text-align:center">
-        <span class="overline" style="color:rgba(255,255,255,0.6)">Your Project Could Be Next</span>
-        <h2 id="work-cta-heading">Ready to Build Something <span class="text-gradient">Great?</span></h2>
-        <p>Share what you need and we will prepare a practical proposal with scope, timeline, and pricing.</p>
-        <div class="flex gap-4" style="justify-content:center;flex-wrap:wrap">
-          <a href="../contact/" class="btn btn-primary btn-lg">Request a Quote <span>→</span></a>
-          <a href="../services/" class="btn btn-ghost btn-lg">Explore Our Services</a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer id="site-footer"></footer>
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
-  <script>
-    // Portfolio tab filtering — main.js initPortfolioFilter handles this
-    // via .filter-tab[data-filter] and .portfolio-card[data-category]
-    document.addEventListener('DOMContentLoaded', function () {
-      // Fallback initialisation in case main.js hasn't set up the filter yet
-      const tabs = document.querySelectorAll('.filter-tab[data-filter]');
-      const cards = document.querySelectorAll('.portfolio-card[data-category]');
-      if (!tabs.length || !cards.length) return;
-
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          const filter = tab.dataset.filter;
-          tabs.forEach(function (t) {
-            t.classList.remove('active');
-            t.setAttribute('aria-selected', 'false');
-          });
-          tab.classList.add('active');
-          tab.setAttribute('aria-selected', 'true');
-          cards.forEach(function (card) {
-            const match = filter === 'all' || card.dataset.category === filter;
-            card.dataset.hidden = match ? 'false' : 'true';
-          });
-        });
-      });
-    });
-  </script>
 </body>
 </html>
