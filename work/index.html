@@ -28,16 +28,17 @@
 
   <style>
     :root {
-      --work-bg: #f8fafc;
+      --work-bg: #f4f7fb;
       --work-surface: #ffffff;
       --work-surface-alt: #eef4ff;
-      --work-text: #0f172a;
-      --work-muted: #475569;
-      --work-border: #e2e8f0;
+      --work-text: #0b1220;
+      --work-muted: #42526b;
+      --work-border: #d9e3f2;
       --work-accent: #2563eb;
-      --work-shadow: 0 14px 40px rgba(15, 23, 42, 0.11);
-      --work-shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --work-shadow: 0 22px 55px rgba(15, 23, 42, 0.14);
+      --work-shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.09);
       --work-radius: 20px;
+      --premium-ring: rgba(255, 255, 255, 0.35);
     }
 
     .work-page {
@@ -144,39 +145,55 @@
     }
 
     .solution-card {
-      background: var(--work-surface);
-      border: 1px solid var(--work-border);
+      background: linear-gradient(165deg, #ffffff 0%, #f7faff 60%, #eef4ff 100%);
+      border: 1px solid #c7d8f8;
       border-radius: var(--work-radius);
-      padding: 1.5rem;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
-      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      padding: 1.6rem;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
       display: flex;
       flex-direction: column;
       min-height: 100%;
+      position: relative;
+      overflow: hidden;
     }
 
     .solution-card:hover {
-      transform: translateY(-6px) scale(1.01);
+      transform: translateY(-7px) scale(1.015);
       box-shadow: var(--work-shadow);
-      border-color: #bfdbfe;
+      border-color: #84aaf0;
+      background: linear-gradient(160deg, #ffffff 0%, #f3f8ff 45%, #e7f0ff 100%);
+    }
+
+    .solution-card::after {
+      content: '';
+      position: absolute;
+      inset: -35% auto auto -20%;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.16), transparent 72%);
+      pointer-events: none;
     }
 
     .solution-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: var(--work-surface-alt);
-      color: var(--work-accent);
-      font-size: 1.3rem;
+      background: linear-gradient(145deg, #ffffff 0%, #dce9ff 100%);
+      color: #1447c5;
+      font-size: 1.35rem;
       margin-bottom: 1rem;
+      border: 1px solid #c4d8ff;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
     }
 
     .solution-card h3 {
       margin: 0;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       letter-spacing: -0.02em;
     }
 
@@ -212,16 +229,17 @@
       margin-top: auto;
       width: fit-content;
       margin-bottom: 0;
-      background: #e2e8f0;
-      color: #0f172a;
-      border-color: #cbd5e1;
+      background: #ffffff;
+      color: #0b1220;
+      border-color: #b9cef7;
+      font-weight: 700;
     }
 
     .solution-card .work-button:hover,
     .solution-card .work-button:focus-visible {
-      background: #dbeafe;
-      border-color: #93c5fd;
-      color: #1d4ed8;
+      background: #e6efff;
+      border-color: #7fa7f8;
+      color: #1549cb;
       box-shadow: none;
     }
 
@@ -235,12 +253,13 @@
       position: relative;
       overflow: hidden;
       border-radius: var(--work-radius);
-      border: 1px solid var(--work-border);
-      background: #0f172a;
+      border: 1px solid #bfcde5;
+      background: #0b1220;
       min-height: 320px;
       isolation: isolate;
       display: flex;
       align-items: flex-end;
+      box-shadow: var(--work-shadow-soft);
     }
 
     .project-card img {
@@ -249,7 +268,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.72;
+      opacity: 0.66;
       transition: transform 240ms ease, opacity 240ms ease;
     }
 
@@ -257,11 +276,12 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      padding: 1.3rem;
+      padding: 1.4rem;
       color: #ffffff;
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.9) 85%);
+      background: linear-gradient(180deg, rgba(10, 18, 32, 0.06) 0%, rgba(9, 16, 31, 0.94) 84%);
       transform: translateY(22%);
       transition: transform 250ms ease;
+      border-top: 1px solid var(--premium-ring);
     }
 
     .project-card:hover .project-overlay,
@@ -277,7 +297,8 @@
 
     .project-overlay h3 {
       margin: 0;
-      font-size: 1.25rem;
+      font-size: 1.28rem;
+      letter-spacing: -0.02em;
     }
 
     .project-overlay p {
@@ -287,17 +308,51 @@
     }
 
     .project-meta {
-      margin-top: 0.9rem;
+      margin-top: 1rem;
       display: grid;
-      gap: 0.35rem;
-      font-size: 0.92rem;
+      gap: 0.4rem;
+      font-size: 0.91rem;
       color: rgba(255, 255, 255, 0.88);
     }
 
     .project-overlay .work-button {
-      margin-top: 1rem;
+      margin-top: 1.05rem;
       background: #ffffff;
       color: #0f172a;
+      font-weight: 700;
+      border-color: #ffffff;
+    }
+
+    .project-overlay .work-button:hover,
+    .project-overlay .work-button:focus-visible {
+      background: #dbeafe;
+      color: #0f2a66;
+    }
+
+    .impact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-bottom: 0.7rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.93);
+      font-size: 0.73rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.32rem 0.62rem;
+      border-radius: 999px;
+    }
+
+    .impact-metric {
+      margin-top: 0.95rem;
+      padding: 0.62rem 0.72rem;
+      border: 1px solid rgba(255, 255, 255, 0.23);
+      background: rgba(15, 23, 42, 0.35);
+      border-radius: 10px;
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .process-steps {
@@ -387,8 +442,8 @@
     <section class="work-hero" aria-labelledby="work-hero-title">
       <div class="container work-hero__inner">
         <span class="work-kicker">Enterprise Digital Engineering</span>
-        <h1 id="work-hero-title">Solutions Built for Scale, Reliability, and Business Impact</h1>
-        <p>We partner with growth-focused organizations to design and deliver high-performance digital products that modernize operations, elevate customer experience, and unlock long-term value.</p>
+        <h1 id="work-hero-title">Built with Big-Tech Standards. Delivered for Market Leaders.</h1>
+        <p>From flagship customer platforms to mission-critical internal systems, we engineer premium digital products with the design polish, reliability, and velocity expected from world-class technology companies.</p>
         <a class="work-button" href="#solutions">Explore Our Solutions</a>
       </div>
     </section>
@@ -396,61 +451,61 @@
     <section id="solutions" class="work-section" aria-labelledby="solutions-title">
       <div class="container">
         <div class="work-heading">
-          <h2 id="solutions-title">Company-Level Services</h2>
-          <p>Our delivery model combines strategic product thinking with enterprise-grade engineering to launch dependable digital solutions that support growth, efficiency, and competitive advantage.</p>
+          <h2 id="solutions-title">Enterprise Service Lines</h2>
+          <p>These offerings are built for ambitious organizations that need exceptional execution, resilient architecture, and measurable business performance at scale.</p>
         </div>
 
         <div class="solutions-grid">
           <article class="solution-card">
             <div class="solution-icon" aria-hidden="true">🖥️</div>
-            <h3>Web Development</h3>
-            <p>Corporate websites and business-critical web platforms built for performance, trust, and conversion at every stage of the customer journey.</p>
+            <h3>Flagship Web Platforms</h3>
+            <p>High-velocity websites and digital products engineered with premium UX, strong performance budgets, and enterprise-grade security standards.</p>
             <ul>
-              <li>Corporate websites and high-converting landing pages</li>
-              <li>Secure e-commerce experiences and payment integrations</li>
-              <li>SEO-optimized architecture and performance tuning</li>
-              <li>Accessible, responsive interfaces for all devices</li>
+              <li>Design systems inspired by best-in-class consumer products</li>
+              <li>High-scale commerce and transactional architecture</li>
+              <li>Core Web Vitals optimization and technical SEO leadership</li>
+              <li>Accessibility-first interfaces across every breakpoint</li>
             </ul>
-            <a class="work-button" href="../contact/">Discuss Your Website</a>
+            <a class="work-button" href="../contact/">Launch a Flagship Site</a>
           </article>
 
           <article class="solution-card">
             <div class="solution-icon" aria-hidden="true">📱</div>
-            <h3>Mobile Applications</h3>
-            <p>Native and cross-platform mobile products engineered for reliability, secure data exchange, and seamless user experiences across business environments.</p>
+            <h3>Premium Mobile Products</h3>
+            <p>Mobile applications crafted for speed, stability, and elegant product experiences across iOS and Android ecosystems.</p>
             <ul>
-              <li>Native iOS and Android development for business use cases</li>
-              <li>Cross-platform apps with unified product experiences</li>
-              <li>Offline-ready functionality and real-time synchronization</li>
-              <li>Lifecycle support, monitoring, and release management</li>
+              <li>Native iOS and Android engineering for demanding workloads</li>
+              <li>Cross-platform delivery with near-native quality benchmarks</li>
+              <li>Offline-first and real-time sync for distributed teams</li>
+              <li>Release engineering, observability, and scale-readiness</li>
             </ul>
-            <a class="work-button" href="../contact/">Plan Your App</a>
+            <a class="work-button" href="../contact/">Build a Premium App</a>
           </article>
 
           <article class="solution-card">
             <div class="solution-icon" aria-hidden="true">☁️</div>
-            <h3>Dashboards &amp; Digital Platforms</h3>
-            <p>Operational platforms and dashboards that centralize data, streamline workflows, and enable leaders to make faster, evidence-based decisions.</p>
+            <h3>Data &amp; Platform Engineering</h3>
+            <p>Unified control centers and business platforms that turn fragmented operations into fast, intelligence-driven execution engines.</p>
             <ul>
-              <li>Client portals and role-based admin dashboards</li>
-              <li>Workflow systems for operations and service delivery</li>
-              <li>KPI tracking, analytics, and executive reporting layers</li>
-              <li>Secure cloud architecture with scalable infrastructure</li>
+              <li>Executive dashboards with real-time decision intelligence</li>
+              <li>Workflow orchestration for operations and compliance</li>
+              <li>Analytics layers for KPI visibility and forecasting</li>
+              <li>Cloud-native architecture with horizontal scalability</li>
             </ul>
-            <a class="work-button" href="../contact/">Design a Platform</a>
+            <a class="work-button" href="../contact/">Design an Intelligence Platform</a>
           </article>
 
           <article class="solution-card">
             <div class="solution-icon" aria-hidden="true">🌐</div>
-            <h3>Custom Digital Solutions</h3>
-            <p>Tailored software and enterprise integrations developed around your operating model, compliance needs, and strategic goals.</p>
+            <h3>Advanced Custom Systems</h3>
+            <p>Bespoke software ecosystems shaped around your competitive advantage, internal complexity, and future expansion strategy.</p>
             <ul>
-              <li>Custom internal tools and enterprise applications</li>
-              <li>Third-party integrations with existing business systems</li>
-              <li>Automation pipelines that reduce manual overhead</li>
-              <li>Long-term architecture support and modernization</li>
+              <li>Mission-critical internal tools and enterprise workflows</li>
+              <li>API integrations across your full technology stack</li>
+              <li>Automation pipelines to eliminate operational drag</li>
+              <li>Continuous modernization and architecture governance</li>
             </ul>
-            <a class="work-button" href="../contact/">Start a Discovery Call</a>
+            <a class="work-button" href="../contact/">Engineer a Custom Ecosystem</a>
           </article>
         </div>
       </div>
@@ -459,20 +514,22 @@
     <section class="work-section" aria-labelledby="projects-title">
       <div class="container">
         <div class="work-heading">
-          <h2 id="projects-title">Impact Highlights</h2>
-          <p>Representative outcomes from enterprise engagements where robust engineering and strategic delivery translated into measurable client gains.</p>
+          <h2 id="projects-title">Enterprise Outcomes</h2>
+          <p>Selected transformations showing how premium engineering, strategic execution, and product excellence create outsized business results.</p>
         </div>
 
         <div class="projects-grid">
           <article class="project-card">
             <img src="../assets/img/portfolio/shopza-ecommerce.jpg" alt="Dashboard mockup for Atlas Operations Suite">
             <div class="project-overlay">
+              <span class="impact-badge">Global Commerce Upgrade</span>
               <h3>Multi-Region Retail Platform Modernization</h3>
               <p>Unified a fragmented web ecosystem into a single performance-optimized commerce platform supporting multiple markets and business units.</p>
               <div class="project-meta">
                 <span><strong>Scope:</strong> Corporate web, e-commerce, and integration services</span>
                 <span><strong>Impact:</strong> 43% faster checkout flow and improved conversion quality</span>
               </div>
+              <div class="impact-metric"><strong>Performance lift:</strong> 99.96% uptime with faster page rendering under peak demand.</div>
               <a class="work-button" href="../contact/">Request Similar Delivery</a>
             </div>
           </article>
@@ -480,12 +537,14 @@
           <article class="project-card">
             <img src="../assets/img/portfolio/crime-solution.jpg" alt="Mobile app mockup for Pulse Mobile Platform">
             <div class="project-overlay">
+              <span class="impact-badge">Field Ops Acceleration</span>
               <h3>Enterprise Mobility Rollout</h3>
               <p>Delivered a secure mobile platform for distributed teams, enabling real-time operations and standardized workflows across departments.</p>
               <div class="project-meta">
                 <span><strong>Scope:</strong> Native and cross-platform mobile engineering</span>
                 <span><strong>Impact:</strong> 37% reduction in service turnaround time</span>
               </div>
+              <div class="impact-metric"><strong>Adoption:</strong> 4.7/5 user satisfaction score within the first rollout quarter.</div>
               <a class="work-button" href="../contact/">Talk to Our Team</a>
             </div>
           </article>
@@ -493,12 +552,14 @@
           <article class="project-card">
             <img src="../assets/img/portfolio/juta-daco-construction.jpg" alt="SaaS analytics interface mockup for Nimbus Business Cloud">
             <div class="project-overlay">
+              <span class="impact-badge">Decision Intelligence Core</span>
               <h3>Business Intelligence &amp; Workflow Platform</h3>
               <p>Built a centralized portal combining analytics, approvals, and operational controls to improve visibility across executive and delivery teams.</p>
               <div class="project-meta">
                 <span><strong>Scope:</strong> Client portal, admin dashboard, and workflow automation</span>
                 <span><strong>Impact:</strong> 52% improvement in reporting consistency and governance</span>
               </div>
+              <div class="impact-metric"><strong>Operational gain:</strong> 31% faster executive reporting cycles across multi-team operations.</div>
               <a class="work-button" href="../contact/">Build a Platform Like This</a>
             </div>
           </article>
