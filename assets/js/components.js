@@ -87,7 +87,7 @@
   </nav>
 
   <div class="header-cta">
-    <a href="${BASE}contact/" class="btn btn-primary btn-sm">Request a Quote</a>
+    <a href="${BASE}contact/" class="btn btn-primary btn-sm">Book a Strategy Session</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav" aria-haspopup="true">
       <span></span>
       <span></span>
@@ -104,7 +104,7 @@
   </button>
   ${mobileItems}
   <div class="mobile-nav-footer">
-    <a href="${BASE}contact/" class="btn btn-primary" style="width:100%;justify-content:center;">Request a Quote →</a>
+    <a href="${BASE}contact/" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Strategy Session →</a>
   </div>
 </nav>`;
   }
@@ -120,7 +120,7 @@
         <a href="${BASE}" class="footer-logo" aria-label="Mapengo Innovations">
           <img src="${BASE}assets/img/logo.png" alt="Mapengo Innovations" width="160" height="60">
         </a>
-        <p>Mapengo Innovations is a South African software company focused on practical outcomes. We design and build fast websites, secure web applications, and mobile apps for startups, SMEs, and established teams.</p>
+        <p>Mapengo Innovations is a digital solutions company that architects enterprise-grade platforms, operational systems, and secure cloud infrastructure for individuals, businesses, and public institutions.</p>
         <div class="footer-social">
           <a href="https://linkedin.com/company/mapengo-innovations" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="currentColor"/></svg>
@@ -176,7 +176,7 @@
           <span>South Africa — Online &amp; Remote<br><span style="color:rgba(255,255,255,0.45);font-size:0.8rem;">Focused on South African businesses</span></span>
         </div>
         <a href="${BASE}contact/" class="btn btn-outline-accent btn-sm" style="margin-top:var(--space-4)">
-          Get in Touch →
+          Engage Our Team →
         </a>
       </div>
     </div>
