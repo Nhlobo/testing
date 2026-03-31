@@ -47,9 +47,10 @@
     { label: 'About',        href: 'about/' },
     { label: 'Services',     href: 'services/' },
     { label: 'Work',         href: 'work/' },
-    { label: 'Process',      href: 'process/' },
-    { label: 'Industries',   href: 'industries/' },
-    { label: 'Testimonials', href: 'testimonials/' },
+    { label: 'Technologies', href: 'technologies/' },
+    { label: 'Pricing',      href: 'pricing/' },
+    { label: 'Blog',         href: 'blog/' },
+    { label: 'Careers',      href: 'careers/' },
     { label: 'Contact',      href: 'contact/' },
   ];
 
@@ -86,8 +87,7 @@
   </nav>
 
   <div class="header-cta">
-    <button class="site-theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">Theme</button>
-    <a href="${BASE}contact/" class="btn btn-primary btn-sm">Book a Strategy Session</a>
+    <a href="${BASE}contact/" class="btn btn-primary btn-sm">Request a Quote</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav" aria-haspopup="true">
       <span></span>
       <span></span>
@@ -98,13 +98,9 @@
 
 <!-- Mobile navigation -->
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
-  <button class="mobile-nav-close" id="mobile-nav-close" type="button" aria-label="Close navigation">
-    <span aria-hidden="true">×</span>
-    <span>Close</span>
-  </button>
   ${mobileItems}
   <div class="mobile-nav-footer">
-    <a href="${BASE}contact/" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Strategy Session →</a>
+    <a href="${BASE}contact/" class="btn btn-primary" style="width:100%;justify-content:center;">Request a Quote →</a>
   </div>
 </nav>`;
   }
@@ -120,7 +116,7 @@
         <a href="${BASE}" class="footer-logo" aria-label="Mapengo Innovations">
           <img src="${BASE}assets/img/logo.png" alt="Mapengo Innovations" width="160" height="60">
         </a>
-        <p>Mapengo Innovations is a digital solutions company that architects enterprise-grade platforms, operational systems, and secure cloud infrastructure for individuals, businesses, and public institutions.</p>
+        <p>Mapengo Innovations is a South African digital solutions company. We design and build websites, web applications, and mobile apps for local businesses, startups, and growing teams.</p>
         <div class="footer-social">
           <a href="https://linkedin.com/company/mapengo-innovations" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="currentColor"/></svg>
@@ -138,10 +134,12 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul class="footer-links">
-          <li><a href="${BASE}services/#web-app-development" class="footer-link">Web App Development</a></li>
-          <li><a href="${BASE}services/#business-systems" class="footer-link">Business Systems</a></li>
-          <li><a href="${BASE}services/#frontend-development" class="footer-link">Frontend Development</a></li>
+          <li><a href="${BASE}services/#web-development" class="footer-link">Web Development</a></li>
+          <li><a href="${BASE}services/#mobile-apps" class="footer-link">Mobile Apps</a></li>
           <li><a href="${BASE}services/#ui-ux-design" class="footer-link">UI/UX Design</a></li>
+          <li><a href="${BASE}services/#ecommerce" class="footer-link">E-Commerce</a></li>
+          <li><a href="${BASE}services/#cloud-hosting" class="footer-link">Deployment & Launch</a></li>
+          <li><a href="${BASE}services/#maintenance-support" class="footer-link">Maintenance & Support</a></li>
         </ul>
       </div>
 
@@ -151,10 +149,10 @@
         <ul class="footer-links">
           <li><a href="${BASE}about/" class="footer-link">About Us</a></li>
           <li><a href="${BASE}work/" class="footer-link">Our Work</a></li>
-          <li><a href="${BASE}process/" class="footer-link">How We Work</a></li>
-          <li><a href="${BASE}industries/" class="footer-link">Industries</a></li>
-          <li><a href="${BASE}testimonials/" class="footer-link">Testimonials</a></li>
-          <li><a href="${BASE}contact/" class="footer-link">Start a Project</a></li>
+          <li><a href="${BASE}technologies/" class="footer-link">Technologies</a></li>
+          <li><a href="${BASE}pricing/" class="footer-link">Pricing</a></li>
+          <li><a href="${BASE}blog/" class="footer-link">Blog</a></li>
+          <li><a href="${BASE}careers/" class="footer-link">Collaboration</a></li>
         </ul>
       </div>
 
@@ -174,7 +172,7 @@
           <span>South Africa — Online &amp; Remote<br><span style="color:rgba(255,255,255,0.45);font-size:0.8rem;">Focused on South African businesses</span></span>
         </div>
         <a href="${BASE}contact/" class="btn btn-outline-accent btn-sm" style="margin-top:var(--space-4)">
-          Engage Our Team →
+          Get in Touch →
         </a>
       </div>
     </div>
@@ -211,10 +209,6 @@
       + '>' + WHATSAPP_SVG + '</a>';
   }
 
-
-  function buildMobileStickyCta() {
-    return `<div class="mobile-sticky-cta"><span>Ready to build?</span><a href="${BASE}contact/">Start Project</a></div>`;
-  }
   /* ── Cookie Banner HTML ─────────────────────────────────── */
   function buildCookieBanner() {
     return `
@@ -270,9 +264,5 @@
     const waWrapper = document.createElement('div');
     waWrapper.innerHTML = buildWhatsAppButton();
     document.body.appendChild(waWrapper.firstElementChild);
-
-    const sticky = document.createElement('div');
-    sticky.innerHTML = buildMobileStickyCta();
-    document.body.appendChild(sticky.firstElementChild);
   });
 })();

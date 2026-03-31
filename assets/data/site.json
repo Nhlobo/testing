@@ -1,7 +1,7 @@
 {
   "company": {
     "name": "Mapengo Innovations",
-    "tagline": "Enterprise Platforms, Operational Systems, and Digital Infrastructure for Growth-Stage and Mission-Critical Organizations",
+    "tagline": "High-Performance Websites & Powerful Apps for South African Businesses",
     "email": "info@MapengoInnovations.co.za",
     "phone": "+27 66 552 0197",
     "whatsapp": "+27 66 552 0197",
@@ -59,7 +59,7 @@
     {
       "id": "web-development",
       "icon": "web",
-      "title": "Platform Engineering",
+      "title": "Web Development",
       "description": "High-performance websites and web applications built with modern frameworks — from landing pages to full-stack web apps.",
       "features": [
         "Custom Design",
@@ -71,7 +71,7 @@
     {
       "id": "mobile-apps",
       "icon": "mobile",
-      "title": "Mobile Systems Engineering",
+      "title": "Mobile App Development",
       "description": "Cross-platform mobile applications for iOS and Android, delivering seamless user-friendly experiences.",
       "features": [
         "React Native",
@@ -83,7 +83,7 @@
     {
       "id": "ui-ux-design",
       "icon": "design",
-      "title": "Enterprise Experience Architecture",
+      "title": "UI/UX Design",
       "description": "User-centred design that balances aesthetics with usability to create memorable digital experiences.",
       "features": [
         "User Research",
@@ -95,7 +95,7 @@
     {
       "id": "ecommerce",
       "icon": "ecommerce",
-      "title": "Digital Commerce Infrastructure",
+      "title": "E-Commerce Solutions",
       "description": "Scalable online stores that convert visitors into customers, built for South African markets.",
       "features": [
         "Shopify & WooCommerce",
@@ -107,7 +107,7 @@
     {
       "id": "systems-integration",
       "icon": "integration",
-      "title": "Systems Integration & Data Interoperability",
+      "title": "Systems Integration",
       "description": "Seamlessly connect your business tools, APIs, and third-party services for unified operations.",
       "features": [
         "REST & GraphQL APIs",
@@ -119,7 +119,7 @@
     {
       "id": "cloud-hosting",
       "icon": "cloud",
-      "title": "Cloud Infrastructure & Release Management",
+      "title": "Deployment & Launch",
       "description": "We deploy your product to trusted third-party platforms such as GitHub Pages and Render — handling CI/CD pipelines, environment configuration, launch readiness, and post-launch support.",
       "features": [
         "GitHub Pages",
@@ -131,7 +131,7 @@
     {
       "id": "maintenance-support",
       "icon": "support",
-      "title": "Managed Reliability & Lifecycle Operations",
+      "title": "Maintenance & Support",
       "description": "Proactive monitoring, updates, and support to keep your digital products running smoothly.",
       "features": [
         "24/7 Monitoring",
