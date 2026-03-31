@@ -86,6 +86,7 @@
   </nav>
 
   <div class="header-cta">
+    <button class="site-theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">Theme</button>
     <a href="${BASE}contact/" class="btn btn-primary btn-sm">Book a Strategy Session</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav" aria-haspopup="true">
       <span></span>
@@ -210,6 +211,10 @@
       + '>' + WHATSAPP_SVG + '</a>';
   }
 
+
+  function buildMobileStickyCta() {
+    return `<div class="mobile-sticky-cta"><span>Ready to build?</span><a href="${BASE}contact/">Start Project</a></div>`;
+  }
   /* ── Cookie Banner HTML ─────────────────────────────────── */
   function buildCookieBanner() {
     return `
@@ -265,5 +270,9 @@
     const waWrapper = document.createElement('div');
     waWrapper.innerHTML = buildWhatsAppButton();
     document.body.appendChild(waWrapper.firstElementChild);
+
+    const sticky = document.createElement('div');
+    sticky.innerHTML = buildMobileStickyCta();
+    document.body.appendChild(sticky.firstElementChild);
   });
 })();

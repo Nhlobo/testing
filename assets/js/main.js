@@ -634,6 +634,36 @@
     });
   }
 
+
+  function initThemeToggle() {
+    const key = 'mapengo_theme';
+    const root = document.documentElement;
+    const stored = localStorage.getItem(key);
+    if (stored) root.setAttribute('data-theme', stored);
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem(key, next);
+    });
+  }
+
+  function initStackFilter() {
+    const buttons = document.querySelectorAll('.stack-btn');
+    const cards = document.querySelectorAll('.stack-card[data-stack]');
+    if (!buttons.length || !cards.length) return;
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const key = btn.dataset.stack;
+        cards.forEach(function (card) {
+          card.style.display = key === 'all' || card.dataset.stack === key ? '' : 'none';
+        });
+      });
+    });
+  }
   initStickyHeader();
   initMobileNav();
   initSmoothScroll();
@@ -653,5 +683,7 @@
     initProjectShowcase();
     initServiceCapabilityModal();
     initPageTransitions();
+    initThemeToggle();
+    initStackFilter();
   });
 })();
