@@ -515,6 +515,77 @@
     });
   }
 
+
+  /* ── Work page filter + preview modal ───────────────────── */
+  function initProjectShowcase() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card[data-filter]');
+
+    if (filterButtons.length && cards.length) {
+      filterButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          filterButtons.forEach(btn => btn.classList.remove('is-active'));
+          button.classList.add('is-active');
+          const activeFilter = button.dataset.filter;
+
+          cards.forEach(function (card) {
+            const match = activeFilter === 'all' || card.dataset.filter === activeFilter;
+            card.classList.toggle('is-hidden', !match);
+          });
+        });
+      });
+    }
+
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
+
+    const title = document.getElementById('project-modal-title');
+    const category = document.getElementById('project-modal-category');
+    const problem = document.getElementById('project-modal-problem');
+    const solution = document.getElementById('project-modal-solution');
+    const features = document.getElementById('project-modal-features');
+
+    function openModal(data) {
+      if (title) title.textContent = data.title || 'Project Preview';
+      if (category) category.textContent = data.category || 'Category';
+      if (problem) problem.textContent = data.problem || '';
+      if (solution) solution.textContent = data.solution || '';
+
+      if (features) {
+        features.innerHTML = '';
+        (data.features || '').split('|').map(x => x.trim()).filter(Boolean).forEach(function (item) {
+          const li = document.createElement('li');
+          li.textContent = item;
+          features.appendChild(li);
+        });
+      }
+
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.project-preview-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        openModal(btn.dataset);
+      });
+    });
+
+    modal.querySelectorAll('[data-close-modal="project-modal"]').forEach(function (el) {
+      el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  }
+
   initStickyHeader();
   initMobileNav();
   initSmoothScroll();
@@ -531,5 +602,6 @@
     initContactForm();
     initCaseCarousel();
     initCaseModal();
+    initProjectShowcase();
   });
 })();
