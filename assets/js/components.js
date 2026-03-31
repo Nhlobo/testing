@@ -44,12 +44,11 @@
   /* ── Navigation data ────────────────────────────────────── */
   const navLinks = [
     { label: 'Home',       href: '' },
+    { label: 'Our Work',   href: 'work/' },
     { label: 'Services',   href: 'services/' },
-    { label: 'Work',       href: 'work/' },
+    { label: 'Industries', href: 'industries/' },
     { label: 'About',      href: 'about/' },
     { label: 'Contact',    href: 'contact/' },
-    { label: 'Process',    href: 'process/' },
-    { label: 'Industries', href: 'industries/' },
   ];
 
   /* ── Active link detection ──────────────────────────────── */
@@ -85,7 +84,7 @@
   </nav>
 
   <div class="header-cta">
-    <a href="${BASE}contact/" class="btn btn-primary btn-sm">Book a Strategy Session</a>
+    <a href="${BASE}contact/" class="btn btn-primary btn-sm">Contact Us</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav" aria-haspopup="true">
       <span></span>
       <span></span>
@@ -102,7 +101,7 @@
   </button>
   ${mobileItems}
   <div class="mobile-nav-footer">
-    <a href="${BASE}contact/" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Strategy Session →</a>
+    <a href="${BASE}contact/" class="btn btn-primary" style="width:100%;justify-content:center;">Contact Us →</a>
   </div>
 </nav>`;
   }
@@ -118,7 +117,7 @@
         <a href="${BASE}" class="footer-logo" aria-label="Mapengo Innovations">
           <img src="${BASE}assets/img/logo.png" alt="Mapengo Innovations" width="160" height="60">
         </a>
-        <p>Mapengo Innovations is a digital solutions company that architects enterprise-grade platforms, operational systems, and secure cloud infrastructure for individuals, businesses, and public institutions.</p>
+        <p>Mapengo Innovations is a South African digital systems provider. We build practical booking systems, management systems, and web-based internal tools that help organisations operate better.</p>
         <div class="footer-social">
           <a href="https://linkedin.com/company/mapengo-innovations" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="currentColor"/></svg>
@@ -137,11 +136,9 @@
         <h4>Services</h4>
         <ul class="footer-links">
           <li><a href="${BASE}services/#web-app-development" class="footer-link">Web App Development</a></li>
-          <li><a href="${BASE}services/#business-systems" class="footer-link">Business Systems</a></li>
+          <li><a href="${BASE}services/#booking-reservation-systems" class="footer-link">Booking Systems</a></li>
+          <li><a href="${BASE}services/#business-management-systems" class="footer-link">Management Systems</a></li>
           <li><a href="${BASE}services/#frontend-development" class="footer-link">Frontend Development</a></li>
-          <li><a href="${BASE}services/#ui-ux-design" class="footer-link">UI/UX Design</a></li>
-          <li><a href="${BASE}services/#cloud-solutions" class="footer-link">Cloud Solutions</a></li>
-          <li><a href="${BASE}services/#data-management" class="footer-link">Data Management</a></li>
         </ul>
       </div>
 
@@ -151,10 +148,8 @@
         <ul class="footer-links">
           <li><a href="${BASE}about/" class="footer-link">About Us</a></li>
           <li><a href="${BASE}work/" class="footer-link">Our Work</a></li>
-          <li><a href="${BASE}process/" class="footer-link">How We Work</a></li>
           <li><a href="${BASE}industries/" class="footer-link">Industries</a></li>
-          <li><a href="${BASE}testimonials/" class="footer-link">Testimonials</a></li>
-          <li><a href="${BASE}contact/" class="footer-link">Start a Project</a></li>
+          <li><a href="${BASE}contact/" class="footer-link">Contact</a></li>
         </ul>
       </div>
 
@@ -174,7 +169,7 @@
           <span>South Africa — Online &amp; Remote<br><span style="color:rgba(255,255,255,0.45);font-size:0.8rem;">Focused on South African businesses</span></span>
         </div>
         <a href="${BASE}contact/" class="btn btn-outline-accent btn-sm" style="margin-top:var(--space-4)">
-          Engage Our Team →
+          Get in Touch →
         </a>
       </div>
     </div>
