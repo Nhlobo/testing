@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
+  <header id="site-header"></header>
+
   <div class="bg-blur bg-blur-one"></div>
   <div class="bg-blur bg-blur-two"></div>
   <header class="work-hero container reveal">
@@ -28,6 +32,60 @@
         <button class="filter-btn" data-filter="apps">Apps</button>
         <button class="filter-btn" data-filter="systems">Systems</button>
       </div>
+    </section>
+
+
+    <section class="segment reveal">
+      <div class="segment-head">
+        <h2>Featured Projects</h2>
+        <p>Highlighted delivery examples from our portfolio, placed in their correct business maturity groups below.</p>
+      </div>
+      <div class="project-grid">
+      <article class="project-card reveal" data-filter="systems" data-segment="Government">
+        <a href="./projects/crime-solution.html" class="project-link">
+          <div class="project-image-wrap">
+            <img src="https://images.unsplash.com/photo-1453873531674-2151bcd01707?auto=format&fit=crop&w=1400&q=80" alt="Public Safety Intelligence Platform" loading="lazy" class="project-image" />
+            <span class="project-tag">GovTech</span>
+          </div>
+          <div class="project-content">
+            <p class="project-segment">Government</p>
+            <h3>Public Safety Intelligence Platform</h3>
+            <p>Advanced public safety reporting and intelligence workflows for mission-critical responses.</p>
+            <span class="project-cta">View Case Study →</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="project-card reveal" data-filter="systems" data-segment="Small Business">
+        <a href="./projects/pest-control.html" class="project-link">
+          <div class="project-image-wrap">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=80" alt="Field Service Operations Platform" loading="lazy" class="project-image" />
+            <span class="project-tag">Systems</span>
+          </div>
+          <div class="project-content">
+            <p class="project-segment">Small Business</p>
+            <h3>Field Service Operations Platform</h3>
+            <p>Service booking, route optimization, and customer communication for field operations teams.</p>
+            <span class="project-cta">View Case Study →</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="project-card reveal" data-filter="systems" data-segment="Growing Business">
+        <a href="./projects/construction.html" class="project-link">
+          <div class="project-image-wrap">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80" alt="Construction Delivery Command Center" loading="lazy" class="project-image" />
+            <span class="project-tag">Systems</span>
+          </div>
+          <div class="project-content">
+            <p class="project-segment">Growing Business</p>
+            <h3>Construction Delivery Command Center</h3>
+            <p>Project visibility, site-to-office coordination, and delivery tracking for construction teams.</p>
+            <span class="project-cta">View Case Study →</span>
+          </div>
+        </a>
+      </article>
+    </div>
     </section>
 
     <section class="segment reveal">
@@ -281,6 +339,9 @@
     </section>
   </main>
 
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/components.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
   <script src="./js/script.js"></script>
 </body>
 </html>
