@@ -43,14 +43,13 @@
 
   /* ── Navigation data ────────────────────────────────────── */
   const navLinks = [
-    { label: 'Home',         href: '' },
-    { label: 'About',        href: 'about/' },
-    { label: 'Services',     href: 'services/' },
-    { label: 'Work',         href: 'work/' },
-    { label: 'Process',      href: 'process/' },
-    { label: 'Industries',   href: 'industries/' },
-    { label: 'Testimonials', href: 'testimonials/' },
-    { label: 'Contact',      href: 'contact/' },
+    { label: 'Home',       href: '' },
+    { label: 'Services',   href: 'services/' },
+    { label: 'Work',       href: 'work/' },
+    { label: 'About',      href: 'about/' },
+    { label: 'Contact',    href: 'contact/' },
+    { label: 'Process',    href: 'process/' },
+    { label: 'Industries', href: 'industries/' },
   ];
 
   /* ── Active link detection ──────────────────────────────── */
