@@ -21,17 +21,12 @@
     if (!header) return;
 
     function updateHeader() {
-      if (window.scrollY > 24) {
-        header.classList.remove('header-transparent');
-        header.classList.add('header-scrolled');
-      } else {
-        header.classList.add('header-transparent');
-        header.classList.remove('header-scrolled');
-      }
+      header.classList.remove('header-transparent');
+      header.classList.add('header-scrolled');
     }
 
     window.addEventListener('scroll', throttle(updateHeader, 50), { passive: true });
-    updateHeader();
+    updateHeader(); // run on load
   }
 
   /* ── Mobile hamburger nav ───────────────────────────────── */
@@ -40,16 +35,12 @@
     function setup() {
       const hamburger = document.getElementById('hamburger');
       const mobileNav  = document.getElementById('mobile-nav');
-      const header = document.getElementById('site-header');
-      const mobileClose = document.getElementById('mobile-nav-close');
       if (!hamburger || !mobileNav) return;
       const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
       function openMenu() {
         hamburger.classList.add('open');
         mobileNav.classList.add('open');
-        if (header) header.classList.add('nav-open');
-        document.body.classList.add('menu-open');
         hamburger.setAttribute('aria-expanded', 'true');
         mobileNav.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -60,8 +51,6 @@
       function closeMenu() {
         hamburger.classList.remove('open');
         mobileNav.classList.remove('open');
-        if (header) header.classList.remove('nav-open');
-        document.body.classList.remove('menu-open');
         hamburger.setAttribute('aria-expanded', 'false');
         mobileNav.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
@@ -77,10 +66,6 @@
       mobileNav.querySelectorAll('.mobile-nav-link, .btn').forEach(link => {
         link.addEventListener('click', closeMenu);
       });
-
-      if (mobileClose) {
-        mobileClose.addEventListener('click', closeMenu);
-      }
 
       // Close on Escape key + keep tab focus in open menu
       document.addEventListener('keydown', function (e) {
@@ -136,12 +121,6 @@
       const observer = new MutationObserver(syncMobileNavTabState);
       observer.observe(mobileNav, { attributes: true, attributeFilter: ['class'] });
       syncMobileNavTabState();
-
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 1024 && mobileNav.classList.contains('open')) {
-          closeMenu();
-        }
-      });
     }
 
     // Components are injected via DOMContentLoaded; bind after
@@ -306,10 +285,11 @@
 
   /* ── Testimonial simple auto-play (CSS fallback) ────────── */
   function initTestimonialSlider() {
-    const slider = document.querySelector('[data-slider], .testimonials-slider');
+    // Simple fade-through slider if .testimonials-slider present
+    const slider = document.querySelector('.testimonials-slider');
     if (!slider) return;
 
-    const slides = slider.querySelectorAll('.testimonial-card, .testimonial-slide');
+    const slides = slider.querySelectorAll('.testimonial-slide');
     if (slides.length < 2) return;
 
     let current = 0;
@@ -319,7 +299,7 @@
       slides[current].classList.remove('active');
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
-    }, 4200);
+    }, 4500);
   }
 
   /* ── Active nav link highlight ──────────────────────────── */
@@ -334,78 +314,6 @@
         link.classList.add('active');
       }
     });
-  }
-
-
-
-  /* ── Service worker (offline support) ─────────────────── */
-  function initServiceWorker() {
-    if (!('serviceWorker' in navigator)) return;
-
-    window.addEventListener('load', function () {
-      const path = window.location.pathname;
-      const parts = path.replace(/\/$/, '').split('/').filter(Boolean);
-      const repoName = 'testing';
-      const repoIdx = parts.indexOf(repoName);
-      const scopeBase = repoIdx !== -1 ? `/${parts.slice(0, repoIdx + 1).join('/')}/` : '/';
-      const swUrl = `${scopeBase}sw.js`;
-
-      navigator.serviceWorker.register(swUrl, { scope: scopeBase }).catch(function () {
-        // Non-critical enhancement: fail silently on unsupported hosts.
-      });
-    });
-  }
-
-
-  function initCaseCarousel() {
-    const root = document.querySelector('[data-carousel]');
-    if (!root) return;
-    const track = root.querySelector('.carousel-track');
-    const prev = root.querySelector('.carousel-btn.prev');
-    const next = root.querySelector('.carousel-btn.next');
-    if (!track || !prev || !next) return;
-
-    function slide(dir) {
-      const amt = Math.min(track.clientWidth, 420);
-      track.scrollBy({ left: dir * amt, behavior: 'smooth' });
-    }
-
-    prev.addEventListener('click', function () { slide(-1); });
-    next.addEventListener('click', function () { slide(1); });
-  }
-
-  function initCaseModal() {
-    const modal = document.getElementById('case-modal');
-    if (!modal) return;
-
-    const contentMap = {
-      case1: 'Key Features: role-based dashboards, geospatial incident pinning, response-time analytics, escalation automation, encrypted records. Impact: simulated reduction from 19 minutes to 11 minutes in critical routing windows.',
-      case2: 'Key Features: procurement tracker, contractor portal, executive dashboard, integration-ready API layer, milestone health scorecards. Impact: simulated 1.8M ZAR annual delay-cost reduction.',
-      case3: 'Key Features: route scheduling, client reminders, digital job cards, technician reports, operational KPI dashboard. Impact: simulated increase in technician utilisation from 62% to 81%.'
-    };
-
-    const title = document.getElementById('case-modal-title');
-    const body = document.getElementById('case-modal-content');
-
-    document.querySelectorAll('[data-case-modal]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        const key = btn.getAttribute('data-case-modal');
-        if (title) title.textContent = btn.closest('.project-body').querySelector('h3').textContent;
-        if (body) body.textContent = contentMap[key] || '';
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-      });
-    });
-
-    function close() {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-    }
-
-    const closeBtn = modal.querySelector('.case-modal-close');
-    if (closeBtn) closeBtn.addEventListener('click', close);
-    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   }
 
   /* ── Init all ───────────────────────────────────────────── */
@@ -519,157 +427,11 @@
     });
   }
 
-
-  /* ── Work page filter + preview modal ───────────────────── */
-  function initProjectShowcase() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.project-card[data-filter]');
-
-    if (filterButtons.length && cards.length) {
-      filterButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          filterButtons.forEach(btn => btn.classList.remove('is-active'));
-          button.classList.add('is-active');
-          const activeFilter = button.dataset.filter;
-
-          cards.forEach(function (card) {
-            const match = activeFilter === 'all' || card.dataset.filter === activeFilter;
-            card.classList.toggle('is-hidden', !match);
-          });
-        });
-      });
-    }
-
-    const modal = document.getElementById('project-modal');
-    if (!modal) return;
-
-    const title = document.getElementById('project-modal-title');
-    const category = document.getElementById('project-modal-category');
-    const problem = document.getElementById('project-modal-problem');
-    const solution = document.getElementById('project-modal-solution');
-    const features = document.getElementById('project-modal-features');
-
-    function openModal(data) {
-      if (title) title.textContent = data.title || 'Project Preview';
-      if (category) category.textContent = data.category || 'Category';
-      if (problem) problem.textContent = data.problem || '';
-      if (solution) solution.textContent = data.solution || '';
-
-      if (features) {
-        features.innerHTML = '';
-        (data.features || '').split('|').map(x => x.trim()).filter(Boolean).forEach(function (item) {
-          const li = document.createElement('li');
-          li.textContent = item;
-          features.appendChild(li);
-        });
-      }
-
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.project-preview-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        openModal(btn.dataset);
-      });
-    });
-
-    modal.querySelectorAll('[data-close-modal="project-modal"]').forEach(function (el) {
-      el.addEventListener('click', closeModal);
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-    });
-  }
-
-
-
-  function initServiceCapabilityModal() {
-    const modal = document.getElementById('service-modal');
-    if (!modal) return;
-
-    const title = document.getElementById('service-modal-title');
-    const desc = document.getElementById('service-modal-description');
-
-    function closeModal() {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.service-modal-trigger').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (title) title.textContent = btn.dataset.service || 'Service';
-        if (desc) desc.textContent = btn.dataset.description || '';
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    modal.querySelectorAll('[data-close-modal="service-modal"]').forEach(function (el) {
-      el.addEventListener('click', closeModal);
-    });
-  }
-
-  function initPageTransitions() {
-    document.addEventListener('click', function (e) {
-      const link = e.target.closest('a[href]');
-      if (!link) return;
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || link.target === '_blank' || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-      const url = new URL(href, window.location.href);
-      if (url.origin !== window.location.origin) return;
-      e.preventDefault();
-      document.body.classList.add('page-transitioning');
-      setTimeout(function () { window.location.assign(url.toString()); }, 180);
-    });
-  }
-
-
-  function initThemeToggle() {
-    const key = 'mapengo_theme';
-    const root = document.documentElement;
-    const stored = localStorage.getItem(key);
-    if (stored) root.setAttribute('data-theme', stored);
-    const btn = document.getElementById('theme-toggle');
-    if (!btn) return;
-    btn.addEventListener('click', function () {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem(key, next);
-    });
-  }
-
-  function initStackFilter() {
-    const buttons = document.querySelectorAll('.stack-btn');
-    const cards = document.querySelectorAll('.stack-card[data-stack]');
-    if (!buttons.length || !cards.length) return;
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const key = btn.dataset.stack;
-        cards.forEach(function (card) {
-          card.style.display = key === 'all' || card.dataset.stack === key ? '' : 'none';
-        });
-      });
-    });
-  }
   initStickyHeader();
   initMobileNav();
   initSmoothScroll();
   initBackToTop();
   initCookieBanner();
-  initServiceWorker();
 
   document.addEventListener('DOMContentLoaded', function () {
     initReveal();
@@ -678,12 +440,5 @@
     initTestimonialSlider();
     initActiveNav();
     initContactForm();
-    initCaseCarousel();
-    initCaseModal();
-    initProjectShowcase();
-    initServiceCapabilityModal();
-    initPageTransitions();
-    initThemeToggle();
-    initStackFilter();
   });
 })();

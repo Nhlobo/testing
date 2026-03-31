@@ -1,8 +1,578 @@
-<!DOCTYPE html><html lang="en-ZA"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Case Studies | Mapengo Innovations</title><link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/pages.css"><link rel="stylesheet" href="../assets/css/redesign.css"></head><body><header id="site-header"></header><main>
-<section class="hero-premium"><div class="container"><span class="hero-badge">Case Studies</span><h1>Challenge → Solution → Results storytelling</h1><p class="lead">Each engagement is designed to solve a clear business challenge and deliver trackable results.</p></div></section>
-<section class="section"><div class="container case-grid">
-<article class="case-card"><h3>Public Safety Reporting Platform</h3><p><strong>Challenge:</strong> fragmented incident escalation.</p><p><strong>Solution:</strong> digital intake and response orchestration.</p><p class="metric">KPI: +300% processing efficiency</p><a href="projects/crime-solution.html" class="btn btn-primary btn-sm">Full case study</a></article>
-<article class="case-card"><h3>SME Operations Suite</h3><p><strong>Challenge:</strong> administrative drag.</p><p><strong>Solution:</strong> unified CRM, sales and support workflows.</p><p class="metric">KPI: -42% admin overhead</p><a href="projects/portfolio.html" class="btn btn-primary btn-sm">Full case study</a></article>
-<article class="case-card"><h3>Transport Dispatch Platform</h3><p><strong>Challenge:</strong> delayed coordination and limited visibility.</p><p><strong>Solution:</strong> dispatch automation with tracking dashboards.</p><p class="metric">KPI: +31% delivery coordination speed</p><a href="projects/transport.html" class="btn btn-primary btn-sm">Full case study</a></article>
-</div></section>
-</main><footer id="site-footer"></footer><script src="../assets/js/components.js" defer></script><script src="../assets/js/main.js" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product, Work &amp; Capabilities | Mapengo Innovations</title>
+  <meta name="description" content="Explore how Mapengo Innovations designs, engineers, and scales digital products with a world-class product operating model.">
+  <meta name="keywords" content="product engineering company, software capabilities, digital product delivery, enterprise platforms, Mapengo Innovations">
+  <meta property="og:title" content="Product, Work &amp; Capabilities | Mapengo Innovations">
+  <meta property="og:description" content="A modern product and capabilities showcase: strategic design, software engineering, data platforms, and measurable business outcomes.">
+  <meta property="og:image" content="https://www.mapengoinnovations.co.za/assets/img/og-image.svg">
+  <meta property="og:url" content="https://www.mapengoinnovations.co.za/work/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Product, Work &amp; Capabilities | Mapengo Innovations">
+  <meta name="twitter:description" content="See how we deliver product strategy, engineering velocity, and enterprise-grade execution.">
+  <link rel="canonical" href="https://www.mapengoinnovations.co.za/work/">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-elev: #0d1526;
+      --panel: #111d34;
+      --panel-soft: #0f1a2f;
+      --text: #ecf1ff;
+      --muted: #a8b6d6;
+      --line: rgba(168, 182, 214, 0.24);
+      --brand: #6ea8fe;
+      --brand-strong: #3b82f6;
+      --mint: #50e3c2;
+      --radius: 22px;
+      --shadow-lg: 0 24px 60px rgba(3, 7, 18, 0.45);
+      --shadow-md: 0 14px 34px rgba(3, 7, 18, 0.35);
+    }
+
+    .work-page {
+      background: radial-gradient(circle at 10% 0%, #13213f 0%, var(--bg) 40%), var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .work-page h1,
+    .work-page h2,
+    .work-page h3 {
+      color: var(--text);
+    }
+
+    .work-shell {
+      padding: clamp(3.5rem, 8vw, 6rem) 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-hero {
+      display: grid;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: fit-content;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(110, 168, 254, 0.4);
+      background: rgba(59, 130, 246, 0.16);
+      color: #c6dcff;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .work-hero h1 {
+      margin: 0;
+      max-width: 14ch;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .work-hero p {
+      margin: 0;
+      max-width: 66ch;
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.78rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f8df9, #2b6fe6);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(43, 111, 230, 0.4);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      color: #d9e6ff;
+      background: rgba(13, 21, 38, 0.7);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .hero-metrics {
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .metric {
+      background: linear-gradient(165deg, rgba(17, 29, 52, 0.95), rgba(11, 20, 38, 0.95));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1rem;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.45rem;
+      letter-spacing: -0.03em;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .work-section {
+      padding: clamp(3rem, 8vw, 5.6rem) 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title {
+      display: grid;
+      gap: 0.7rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3.4vw, 2.9rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-title p {
+      margin: 0;
+      max-width: 74ch;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .logo-row {
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .logo-pill {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      text-align: center;
+      padding: 0.85rem;
+      color: #d5e2ff;
+      background: rgba(15, 26, 47, 0.75);
+      font-size: 0.87rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .capability-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .capability-card {
+      padding: 1.4rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(150deg, rgba(17, 29, 52, 0.95), rgba(10, 18, 32, 0.92));
+      box-shadow: var(--shadow-md);
+    }
+
+    .capability-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .capability-card p {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .capability-list {
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .capability-list li {
+      display: flex;
+      gap: 0.5rem;
+      color: #dbe8ff;
+      font-size: 0.95rem;
+    }
+
+    .capability-list li::before {
+      content: '↳';
+      color: var(--mint);
+    }
+
+    .delivery-lanes {
+      display: grid;
+      gap: 0.9rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .lane {
+      background: var(--panel-soft);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1rem;
+    }
+
+    .lane small {
+      color: #94a8d2;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      font-size: 0.7rem;
+    }
+
+    .lane h3 {
+      margin: 0.5rem 0 0;
+      font-size: 1.05rem;
+    }
+
+    .lane p {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .work-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .work-card {
+      display: grid;
+      gap: 0.9rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: var(--panel);
+      box-shadow: var(--shadow-md);
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .work-card__content {
+      padding: 0 1.1rem 1.15rem;
+    }
+
+    .work-card__content h3 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .work-card__content p {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .result-pill {
+      margin-top: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-radius: 999px;
+      background: rgba(80, 227, 194, 0.12);
+      border: 1px solid rgba(80, 227, 194, 0.32);
+      color: #baf9ea;
+      padding: 0.34rem 0.68rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .final-cta {
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(140deg, rgba(17, 29, 52, 0.96), rgba(8, 15, 29, 0.95));
+      box-shadow: var(--shadow-lg);
+      padding: clamp(1.6rem, 4vw, 2.8rem);
+    }
+
+    .final-cta h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+      letter-spacing: -0.03em;
+    }
+
+    .final-cta p {
+      margin: 0.9rem auto 0;
+      max-width: 68ch;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .final-cta .hero-actions {
+      justify-content: center;
+      margin-top: 1.2rem;
+    }
+
+    @media (max-width: 1080px) {
+      .capability-grid,
+      .work-grid,
+      .logo-row,
+      .delivery-lanes,
+      .hero-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .capability-grid,
+      .work-grid,
+      .logo-row,
+      .delivery-lanes,
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .work-hero h1 {
+        max-width: none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Product, Work & Capabilities | Mapengo Innovations",
+    "url": "https://www.mapengoinnovations.co.za/work/",
+    "description": "A premium product and capabilities page for Mapengo Innovations highlighting operating model, technical depth, and delivery outcomes.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mapengo Innovations",
+      "url": "https://www.mapengoinnovations.co.za/"
+    }
+  }
+  </script>
+</head>
+<body class="work-page">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="work-shell" aria-labelledby="work-title">
+      <div class="container work-hero">
+        <span class="eyebrow">Product Studio + Delivery Engine</span>
+        <h1 id="work-title">We build category-defining software products.</h1>
+        <p>Our work model combines product strategy, design craft, engineering rigor, and operational intelligence. The result: modern digital products that ship faster, scale reliably, and move measurable business metrics.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="../contact/">Start a Product Conversation</a>
+          <a class="btn btn-secondary" href="#capabilities">Explore Capabilities</a>
+        </div>
+        <div class="hero-metrics" aria-label="Performance highlights">
+          <div class="metric"><strong>90+</strong><span>Product releases supported per year</span></div>
+          <div class="metric"><strong>99.95%</strong><span>Platform availability target on critical systems</span></div>
+          <div class="metric"><strong>3.8x</strong><span>Average delivery speed-up for modernization projects</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-section" aria-labelledby="partners-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="partners-title">Trusted execution model for ambitious teams</h2>
+          <p>We collaborate with founders, enterprise teams, and operational leaders that need high-confidence delivery across customer products, internal tools, and core platform capabilities.</p>
+        </div>
+        <div class="logo-row" role="list" aria-label="Industries we support">
+          <div class="logo-pill" role="listitem">Fintech Platforms</div>
+          <div class="logo-pill" role="listitem">Retail &amp; Commerce</div>
+          <div class="logo-pill" role="listitem">Public Services</div>
+          <div class="logo-pill" role="listitem">Logistics Ops</div>
+          <div class="logo-pill" role="listitem">Professional Services</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities" class="work-section" aria-labelledby="capabilities-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="capabilities-title">Capabilities built for product scale</h2>
+          <p>From concept to continuous delivery, our multi-disciplinary teams run a product operating model similar to top software companies: clear ownership, rapid iteration, deep quality standards, and outcome accountability.</p>
+        </div>
+        <div class="capability-grid">
+          <article class="capability-card">
+            <h3>Product Strategy &amp; Discovery</h3>
+            <p>Define what to build, for whom, and why it wins in the market.</p>
+            <ul class="capability-list">
+              <li>User research, journey mapping, and opportunity sizing</li>
+              <li>Roadmap architecture and feature sequencing</li>
+              <li>Business case framing and success metric definition</li>
+            </ul>
+          </article>
+
+          <article class="capability-card">
+            <h3>Experience Design Systems</h3>
+            <p>Design language and interaction patterns that create trust and usability at scale.</p>
+            <ul class="capability-list">
+              <li>High-fidelity UX and prototyping for complex workflows</li>
+              <li>Reusable component systems for consistent velocity</li>
+              <li>Accessibility and inclusive experience standards</li>
+            </ul>
+          </article>
+
+          <article class="capability-card">
+            <h3>Full-Stack Product Engineering</h3>
+            <p>Build secure, high-performance products with resilient architecture and CI/CD pipelines.</p>
+            <ul class="capability-list">
+              <li>Web and mobile engineering with quality gates</li>
+              <li>Service APIs, integrations, and event-driven systems</li>
+              <li>Performance optimization and release orchestration</li>
+            </ul>
+          </article>
+
+          <article class="capability-card">
+            <h3>Data, AI &amp; Operations Intelligence</h3>
+            <p>Turn scattered operational data into decision-ready dashboards and automation.</p>
+            <ul class="capability-list">
+              <li>Executive reporting, telemetry, and KPI systems</li>
+              <li>Workflow automation for approvals and compliance</li>
+              <li>Predictive insights for planning and utilization</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-section" aria-labelledby="model-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="model-title">How we run delivery</h2>
+          <p>A clear operating model keeps teams aligned and results compounding across the full product lifecycle.</p>
+        </div>
+
+        <div class="delivery-lanes" role="list" aria-label="Delivery operating model stages">
+          <article class="lane" role="listitem">
+            <small>Phase 01</small>
+            <h3>Frame the Outcome</h3>
+            <p>Define goals, constraints, and measurable success metrics with stakeholders.</p>
+          </article>
+          <article class="lane" role="listitem">
+            <small>Phase 02</small>
+            <h3>Design the System</h3>
+            <p>Prototype journeys, architect services, and validate technical boundaries.</p>
+          </article>
+          <article class="lane" role="listitem">
+            <small>Phase 03</small>
+            <h3>Ship in Cycles</h3>
+            <p>Deliver in fast increments with QA automation and release confidence.</p>
+          </article>
+          <article class="lane" role="listitem">
+            <small>Phase 04</small>
+            <h3>Scale &amp; Optimize</h3>
+            <p>Continuously improve reliability, conversion, adoption, and team productivity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-section" aria-labelledby="featured-work-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="featured-work-title">Representative product work</h2>
+          <p>Examples of digital products and platforms that improved speed, visibility, and growth outcomes for operational teams.</p>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card">
+            <img src="../assets/img/portfolio/shopza-ecommerce.jpg" alt="Retail commerce dashboard and storefront experience">
+            <div class="work-card__content">
+              <h3>Unified Commerce Platform</h3>
+              <p>Re-architected a fragmented online retail ecosystem into one scalable platform with modern checkout and analytics.</p>
+              <span class="result-pill">+43% conversion efficiency</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img src="../assets/img/portfolio/crime-solution.jpg" alt="Mobile operations workspace with live field updates">
+            <div class="work-card__content">
+              <h3>Field Service Mobility Suite</h3>
+              <p>Delivered a mission-critical mobile product enabling faster service dispatch, evidence capture, and team coordination.</p>
+              <span class="result-pill">-37% turnaround time</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img src="../assets/img/portfolio/juta-daco-construction.png" alt="Juta Daco Construction website homepage">
+            <div class="work-card__content">
+              <h3>Juta Daco Construction Website</h3>
+              <p>Featured the original construction homepage visual with clear service navigation, contact shortcuts, and quote call-to-actions.</p>
+              <span class="result-pill">Construction case study</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-section" aria-labelledby="final-cta-title">
+      <div class="container">
+        <div class="final-cta">
+          <h2 id="final-cta-title">Need a software partner that delivers like a product company?</h2>
+          <p>Whether you are modernizing a legacy platform or launching a new digital product, we can help you plan, build, and scale with the clarity and quality expected from world-class teams.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="../contact/">Book a Strategy Session</a>
+            <a class="btn btn-secondary" href="../services/">View Service Model</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/components.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

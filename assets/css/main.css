@@ -143,8 +143,6 @@
   --z-raised:  10;
   --z-dropdown:100;
   --z-sticky:  1200;
-  --z-mobile-nav: 3000;
-  --z-mobile-nav-toggle: 3100;
   --z-overlay: 300;
   --z-modal:   400;
   --z-toast:   500;
@@ -648,10 +646,6 @@ p + p { margin-top: var(--space-4); }
   box-shadow: 0 4px 30px rgba(0,0,0,0.15);
 }
 
-#site-header.nav-open {
-  z-index: var(--z-mobile-nav-toggle);
-}
-
 .header-inner {
   display: flex;
   align-items: center;
@@ -808,17 +802,10 @@ p + p { margin-top: var(--space-4); }
 .mobile-nav {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100dvh;
-  max-height: 100dvh;
-  z-index: var(--z-mobile-nav);
+  inset: 0;
+  z-index: calc(var(--z-sticky) - 1);
   background: var(--color-primary);
-  padding: calc(72px + var(--space-6) + env(safe-area-inset-top, 0px))
-    max(var(--space-6), env(safe-area-inset-right, 0px))
-    max(var(--space-6), env(safe-area-inset-bottom, 0px))
-    max(var(--space-6), env(safe-area-inset-left, 0px));
+  padding: calc(72px + var(--space-6)) var(--space-6) var(--space-6);
   flex-direction: column;
   gap: var(--space-2);
   overflow-y: auto;
@@ -832,31 +819,6 @@ p + p { margin-top: var(--space-4); }
   transform: translateX(0);
   visibility: visible;
   pointer-events: auto;
-}
-
-.mobile-nav-close {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  align-self: flex-end;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.08);
-  color: var(--color-white);
-  border-radius: 999px;
-  padding: 0.45rem 0.9rem;
-  font-size: var(--text-sm);
-  font-weight: var(--font-semibold);
-}
-
-.mobile-nav-close span[aria-hidden="true"] {
-  font-size: 1.1rem;
-  line-height: 1;
-}
-
-.mobile-nav-close:hover,
-.mobile-nav-close:focus-visible {
-  background: rgba(255,255,255,0.16);
-  border-color: rgba(255,255,255,0.3);
 }
 
 .mobile-nav-link {
@@ -1126,33 +1088,7 @@ p + p { margin-top: var(--space-4); }
 .hero-page h1 { font-size: clamp(var(--text-4xl), 4vw, var(--text-6xl)); }
 
 /* ============================================================
-   12. TRUST STRIP
-   ============================================================ */
-.trust-strip {
-  background: #0d1117;
-  border-block: 1px solid rgba(255,255,255,0.12);
-  padding-block: var(--space-5);
-}
-
-.trust-list {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--space-4);
-}
-
-.trust-list li {
-  color: rgba(255,255,255,0.9);
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius-full);
-  padding: 0.6rem 0.8rem;
-  background: rgba(255,255,255,0.04);
-}
-
-/* ============================================================
-   13. STATS STRIP
+   12. STATS STRIP
    ============================================================ */
 .stats-strip {
   background: var(--color-white);
@@ -1513,7 +1449,6 @@ p + p { margin-top: var(--space-4); }
 
   .hero { min-height: auto; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
-  .trust-list { grid-template-columns: 1fr 1fr; }
 
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat-item:not(:last-child)::after { display: none; }
@@ -1548,7 +1483,6 @@ p + p { margin-top: var(--space-4); }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .btn { min-width: 0; }
   .hero-actions { flex-direction: column; align-items: stretch; }
-  .trust-list { grid-template-columns: 1fr; }
   .badge { font-size: 10px; }
 }
 
@@ -1594,39 +1528,4 @@ p + p { margin-top: var(--space-4); }
     transition: none !important;
     animation: none !important;
   }
-}
-
-/* Homepage enterprise refresh */
-.hero-enterprise {
-  position: relative;
-  background: radial-gradient(circle at 20% 20%, rgba(26,115,232,.22), transparent 40%), radial-gradient(circle at 80% 10%, rgba(0,176,255,.18), transparent 35%), #070b14;
-}
-.hero-enterprise .hero-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(255,255,255,.02) 20%, rgba(255,255,255,.08) 22%, rgba(255,255,255,.02) 24%);
-  background-size: 280% 100%;
-  animation: shimmer 8s linear infinite;
-}
-@keyframes shimmer { to { background-position: -280% 0; } }
-.enterprise-trust .trust-title { text-align:center; font-weight: 700; margin-bottom: var(--space-4); color: var(--color-white); }
-.logo-row { display:flex; flex-wrap:wrap; justify-content:center; gap: var(--space-6); color: var(--color-muted); margin-bottom: var(--space-8); }
-.case-carousel { display:grid; grid-template-columns: auto 1fr auto; gap: var(--space-4); align-items:center; }
-.carousel-track { display:grid; grid-auto-flow: column; grid-auto-columns: minmax(300px, 1fr); overflow:hidden; gap: var(--space-4); scroll-behavior:smooth; }
-.carousel-btn { width:42px; height:42px; border-radius:50%; background:var(--gradient-accent); color:#fff; font-size:1.5rem; }
-.case-slide { min-height: 290px; backdrop-filter: var(--glass-blur-sm); }
-.industry-grid { display:flex; flex-wrap:wrap; gap: var(--space-3); justify-content:center; }
-.industry-grid .tag { background: rgba(17,24,39,.9); color:#fff; padding: .6rem 1rem; border-radius: var(--radius-full); }
-.process-steps { display:grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--space-4); }
-.process-pill { padding: var(--space-5); border-radius: var(--radius-lg); border:1px solid var(--glass-border); background: var(--glass-bg); text-align:center; font-weight:600; }
-.tech-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: var(--space-5); }
-.case-modal { position:fixed; inset:0; background: rgba(5,8,15,.75); display:none; place-items:center; z-index: var(--z-modal); }
-.case-modal.open { display:grid; }
-.case-modal-panel { max-width: 680px; width: calc(100% - 2rem); background:#0f1422; border:1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--space-8); color:#fff; position:relative; }
-.case-modal-panel p { color: #c9d5f5; }
-.case-modal-close { position:absolute; right:1rem; top:1rem; color:#fff; font-size: 2rem; }
-@media (max-width: 900px) {
-  .case-carousel { grid-template-columns: 1fr; }
-  .carousel-btn { display:none; }
 }
