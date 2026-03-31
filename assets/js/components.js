@@ -120,7 +120,7 @@
         <a href="${BASE}" class="footer-logo" aria-label="Mapengo Innovations">
           <img src="${BASE}assets/img/logo.png" alt="Mapengo Innovations" width="160" height="60">
         </a>
-        <p>Mapengo Innovations is a South African digital solutions company. We design and build websites, web applications, and mobile apps for local businesses, startups, and growing teams.</p>
+        <p>Mapengo Innovations is a South African software company focused on practical outcomes. We design and build fast websites, secure web applications, and mobile apps for startups, SMEs, and established teams.</p>
         <div class="footer-social">
           <a href="https://linkedin.com/company/mapengo-innovations" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="currentColor"/></svg>
