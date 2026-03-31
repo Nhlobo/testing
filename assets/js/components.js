@@ -47,10 +47,9 @@
     { label: 'About',        href: 'about/' },
     { label: 'Services',     href: 'services/' },
     { label: 'Work',         href: 'work/' },
-    { label: 'Technologies', href: 'technologies/' },
-    { label: 'Pricing',      href: 'pricing/' },
-    { label: 'Blog',         href: 'blog/' },
-    { label: 'Careers',      href: 'careers/' },
+    { label: 'Process',      href: 'process/' },
+    { label: 'Industries',   href: 'industries/' },
+    { label: 'Testimonials', href: 'testimonials/' },
     { label: 'Contact',      href: 'contact/' },
   ];
 
@@ -138,12 +137,10 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul class="footer-links">
-          <li><a href="${BASE}services/#web-development" class="footer-link">Web Development</a></li>
-          <li><a href="${BASE}services/#mobile-apps" class="footer-link">Mobile Apps</a></li>
+          <li><a href="${BASE}services/#web-app-development" class="footer-link">Web App Development</a></li>
+          <li><a href="${BASE}services/#business-systems" class="footer-link">Business Systems</a></li>
+          <li><a href="${BASE}services/#frontend-development" class="footer-link">Frontend Development</a></li>
           <li><a href="${BASE}services/#ui-ux-design" class="footer-link">UI/UX Design</a></li>
-          <li><a href="${BASE}services/#ecommerce" class="footer-link">E-Commerce</a></li>
-          <li><a href="${BASE}services/#cloud-hosting" class="footer-link">Deployment & Launch</a></li>
-          <li><a href="${BASE}services/#maintenance-support" class="footer-link">Maintenance & Support</a></li>
         </ul>
       </div>
 
@@ -153,10 +150,10 @@
         <ul class="footer-links">
           <li><a href="${BASE}about/" class="footer-link">About Us</a></li>
           <li><a href="${BASE}work/" class="footer-link">Our Work</a></li>
-          <li><a href="${BASE}technologies/" class="footer-link">Technologies</a></li>
-          <li><a href="${BASE}pricing/" class="footer-link">Pricing</a></li>
-          <li><a href="${BASE}blog/" class="footer-link">Blog</a></li>
-          <li><a href="${BASE}careers/" class="footer-link">Collaboration</a></li>
+          <li><a href="${BASE}process/" class="footer-link">How We Work</a></li>
+          <li><a href="${BASE}industries/" class="footer-link">Industries</a></li>
+          <li><a href="${BASE}testimonials/" class="footer-link">Testimonials</a></li>
+          <li><a href="${BASE}contact/" class="footer-link">Start a Project</a></li>
         </ul>
       </div>
 

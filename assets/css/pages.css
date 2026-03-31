@@ -1793,3 +1793,85 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* ============================================================
+   PROJECT SHOWCASE UPGRADES
+   ============================================================ */
+.project-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-8);
+}
+
+.filter-btn {
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-light-300);
+  background: var(--color-white);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  transition: all var(--transition-base);
+}
+
+.filter-btn:hover,
+.filter-btn.is-active {
+  background: var(--gradient-accent);
+  color: var(--color-white);
+  border-color: transparent;
+  box-shadow: var(--shadow-accent);
+}
+
+.project-card.is-hidden {
+  display: none;
+}
+
+.project-card .tag {
+  display: inline-flex;
+  margin-bottom: var(--space-3);
+}
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: none;
+}
+
+.project-modal.open {
+  display: block;
+}
+
+.project-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.7);
+}
+
+.project-modal-panel {
+  position: relative;
+  width: min(760px, calc(100% - 2rem));
+  margin: 6vh auto;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-xl);
+}
+
+.project-modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  font-size: var(--text-2xl);
+  line-height: 1;
+}
+
+.project-modal-list {
+  list-style: disc;
+  margin-left: 1.2rem;
+  color: var(--color-text-light);
+}
+
+.project-modal-list li + li {
+  margin-top: var(--space-2);
+}
