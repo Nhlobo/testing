@@ -36,6 +36,7 @@
       const hamburger = document.getElementById('hamburger');
       const mobileNav  = document.getElementById('mobile-nav');
       const header = document.getElementById('site-header');
+      const mobileClose = document.getElementById('mobile-nav-close');
       if (!hamburger || !mobileNav) return;
       const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -71,6 +72,10 @@
       mobileNav.querySelectorAll('.mobile-nav-link, .btn').forEach(link => {
         link.addEventListener('click', closeMenu);
       });
+
+      if (mobileClose) {
+        mobileClose.addEventListener('click', closeMenu);
+      }
 
       // Close on Escape key + keep tab focus in open menu
       document.addEventListener('keydown', function (e) {

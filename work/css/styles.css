@@ -23,7 +23,6 @@ body{
 .bg-blur-one{width:320px;height:320px;background:#4c7dff;top:10%;left:-120px}
 .bg-blur-two{width:360px;height:360px;background:#2bc8a6;bottom:5%;right:-140px}
 .work-hero{padding:clamp(4rem,10vw,7rem) 0 3rem;display:grid;gap:1.1rem}
-.eyebrow{margin:0;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#4b73b8}
 h1{margin:0;font-size:clamp(2.1rem,5.4vw,4.4rem);line-height:1.05;max-width:16ch;letter-spacing:-.03em}
 .hero-sub{margin:0;color:var(--muted);font-size:clamp(1rem,2vw,1.2rem)}
 .btn-primary{display:inline-flex;width:fit-content;padding:.85rem 1.35rem;border-radius:999px;text-decoration:none;color:white;background:linear-gradient(135deg,#1a73e8,#0f58c7);box-shadow:0 12px 30px rgba(26,115,232,.25);transition:.25s transform,.25s box-shadow}
@@ -33,13 +32,13 @@ h1{margin:0;font-size:clamp(2.1rem,5.4vw,4.4rem);line-height:1.05;max-width:16ch
 .filters{display:flex;gap:.6rem;flex-wrap:wrap}
 .filter-btn{border:1px solid var(--line);background:#fff;color:#2f3b4f;border-radius:999px;padding:.55rem 1rem;cursor:pointer;transition:.2s}
 .filter-btn:hover,.filter-btn.is-active{background:#edf3ff;border-color:#1a73e8;color:#1a73e8}
-.segment{padding:1.2rem 0 2.4rem}
+.segment{padding:1.2rem 0 2.4rem;content-visibility:auto;contain-intrinsic-size:1px 900px}
 .segment + .segment{border-top:1px solid var(--line)}
 .segment-head{display:grid;gap:.5rem;margin-bottom:1.1rem}
 .segment-head h3{margin:0;font-size:1.45rem}
 .segment-head p{margin:0;color:var(--muted)}
 .project-grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
-.project-card{transition:.35s opacity,.35s transform,max-height .4s ease;max-height:560px}
+.project-card{transition:.35s opacity,.35s transform,max-height .4s ease;max-height:560px;content-visibility:auto;contain-intrinsic-size:1px 420px}
 .project-card.is-hidden{opacity:0;transform:scale(.96);pointer-events:none;max-height:0;overflow:hidden;margin:0}
 .project-link{display:block;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:inherit;height:100%;box-shadow:0 14px 35px rgba(0,0,0,.25);transition:.3s transform,.3s box-shadow,.3s border-color}
 .project-link:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(26,115,232,.18);border-color:rgba(26,115,232,.45)}
