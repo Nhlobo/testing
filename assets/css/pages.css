@@ -464,6 +464,42 @@
   color: var(--color-text-light);
 }
 
+
+/* Monochrome variant for services page section styling */
+.services-page-neutral .text-gradient {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--color-text);
+}
+
+.services-page-neutral .overline {
+  color: var(--color-text-light);
+}
+
+.services-page-neutral .section-header .overline::before {
+  background: var(--color-light-400);
+}
+
+.services-page-neutral .webapp-service-stack {
+  background: var(--color-bg);
+}
+
+.services-page-neutral .service-overview-card:hover {
+  border-color: var(--color-light-400);
+}
+
+.services-page-neutral .feature-check {
+  background: var(--color-light-200);
+  color: var(--color-text-light);
+}
+
+.services-page-neutral .hero-bg svg,
+.services-page-neutral .service-full-visual svg,
+.services-page-neutral .card-icon svg,
+.services-page-neutral .feature-check svg {
+  filter: grayscale(1) saturate(0);
+}
+
 /* ============================================================
    WORK / PORTFOLIO PAGE
    ============================================================ */
