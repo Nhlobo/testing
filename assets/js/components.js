@@ -141,6 +141,8 @@
           <li><a href="${BASE}services/#business-systems" class="footer-link">Business Systems</a></li>
           <li><a href="${BASE}services/#frontend-development" class="footer-link">Frontend Development</a></li>
           <li><a href="${BASE}services/#ui-ux-design" class="footer-link">UI/UX Design</a></li>
+          <li><a href="${BASE}services/#cloud-solutions" class="footer-link">Cloud Solutions</a></li>
+          <li><a href="${BASE}services/#data-management" class="footer-link">Data Management</a></li>
         </ul>
       </div>
 
