@@ -98,6 +98,10 @@
 
 <!-- Mobile navigation -->
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+  <button class="mobile-nav-close" id="mobile-nav-close" type="button" aria-label="Close navigation">
+    <span aria-hidden="true">×</span>
+    <span>Close</span>
+  </button>
   ${mobileItems}
   <div class="mobile-nav-footer">
     <a href="${BASE}contact/" class="btn btn-primary" style="width:100%;justify-content:center;">Request a Quote →</a>
