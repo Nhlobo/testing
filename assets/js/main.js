@@ -352,6 +352,58 @@
     });
   }
 
+
+  function initCaseCarousel() {
+    const root = document.querySelector('[data-carousel]');
+    if (!root) return;
+    const track = root.querySelector('.carousel-track');
+    const prev = root.querySelector('.carousel-btn.prev');
+    const next = root.querySelector('.carousel-btn.next');
+    if (!track || !prev || !next) return;
+
+    function slide(dir) {
+      const amt = Math.min(track.clientWidth, 420);
+      track.scrollBy({ left: dir * amt, behavior: 'smooth' });
+    }
+
+    prev.addEventListener('click', function () { slide(-1); });
+    next.addEventListener('click', function () { slide(1); });
+  }
+
+  function initCaseModal() {
+    const modal = document.getElementById('case-modal');
+    if (!modal) return;
+
+    const contentMap = {
+      case1: 'Key Features: role-based dashboards, geospatial incident pinning, response-time analytics, escalation automation, encrypted records. Impact: simulated reduction from 19 minutes to 11 minutes in critical routing windows.',
+      case2: 'Key Features: procurement tracker, contractor portal, executive dashboard, integration-ready API layer, milestone health scorecards. Impact: simulated 1.8M ZAR annual delay-cost reduction.',
+      case3: 'Key Features: route scheduling, client reminders, digital job cards, technician reports, operational KPI dashboard. Impact: simulated increase in technician utilisation from 62% to 81%.'
+    };
+
+    const title = document.getElementById('case-modal-title');
+    const body = document.getElementById('case-modal-content');
+
+    document.querySelectorAll('[data-case-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const key = btn.getAttribute('data-case-modal');
+        if (title) title.textContent = btn.closest('.project-body').querySelector('h3').textContent;
+        if (body) body.textContent = contentMap[key] || '';
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    const closeBtn = modal.querySelector('.case-modal-close');
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  }
+
   /* ── Init all ───────────────────────────────────────────── */
   /* ── Contact form → Formspree submission ───────────────── */
   function initContactForm() {
@@ -477,5 +529,7 @@
     initTestimonialSlider();
     initActiveNav();
     initContactForm();
+    initCaseCarousel();
+    initCaseModal();
   });
 })();
