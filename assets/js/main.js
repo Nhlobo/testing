@@ -332,6 +332,26 @@
     });
   }
 
+
+
+  /* ── Service worker (offline support) ─────────────────── */
+  function initServiceWorker() {
+    if (!('serviceWorker' in navigator)) return;
+
+    window.addEventListener('load', function () {
+      const path = window.location.pathname;
+      const parts = path.replace(/\/$/, '').split('/').filter(Boolean);
+      const repoName = 'testing';
+      const repoIdx = parts.indexOf(repoName);
+      const scopeBase = repoIdx !== -1 ? `/${parts.slice(0, repoIdx + 1).join('/')}/` : '/';
+      const swUrl = `${scopeBase}sw.js`;
+
+      navigator.serviceWorker.register(swUrl, { scope: scopeBase }).catch(function () {
+        // Non-critical enhancement: fail silently on unsupported hosts.
+      });
+    });
+  }
+
   /* ── Init all ───────────────────────────────────────────── */
   /* ── Contact form → Formspree submission ───────────────── */
   function initContactForm() {
@@ -448,6 +468,7 @@
   initSmoothScroll();
   initBackToTop();
   initCookieBanner();
+  initServiceWorker();
 
   document.addEventListener('DOMContentLoaded', function () {
     initReveal();
