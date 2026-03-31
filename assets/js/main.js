@@ -544,7 +544,6 @@
     const problem = document.getElementById('project-modal-problem');
     const solution = document.getElementById('project-modal-solution');
     const features = document.getElementById('project-modal-features');
-    const outcomes = document.getElementById('project-modal-outcomes');
 
     function openModal(data) {
       if (title) title.textContent = data.title || 'Project Preview';
@@ -560,8 +559,6 @@
           features.appendChild(li);
         });
       }
-
-      if (outcomes) outcomes.textContent = data.outcomes || '';
 
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
