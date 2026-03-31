@@ -35,12 +35,16 @@
     function setup() {
       const hamburger = document.getElementById('hamburger');
       const mobileNav  = document.getElementById('mobile-nav');
+      const header = document.getElementById('site-header');
+      const mobileClose = document.getElementById('mobile-nav-close');
       if (!hamburger || !mobileNav) return;
       const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
       function openMenu() {
         hamburger.classList.add('open');
         mobileNav.classList.add('open');
+        if (header) header.classList.add('nav-open');
+        document.body.classList.add('menu-open');
         hamburger.setAttribute('aria-expanded', 'true');
         mobileNav.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -51,6 +55,8 @@
       function closeMenu() {
         hamburger.classList.remove('open');
         mobileNav.classList.remove('open');
+        if (header) header.classList.remove('nav-open');
+        document.body.classList.remove('menu-open');
         hamburger.setAttribute('aria-expanded', 'false');
         mobileNav.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
@@ -66,6 +72,10 @@
       mobileNav.querySelectorAll('.mobile-nav-link, .btn').forEach(link => {
         link.addEventListener('click', closeMenu);
       });
+
+      if (mobileClose) {
+        mobileClose.addEventListener('click', closeMenu);
+      }
 
       // Close on Escape key + keep tab focus in open menu
       document.addEventListener('keydown', function (e) {
@@ -121,6 +131,12 @@
       const observer = new MutationObserver(syncMobileNavTabState);
       observer.observe(mobileNav, { attributes: true, attributeFilter: ['class'] });
       syncMobileNavTabState();
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1024 && mobileNav.classList.contains('open')) {
+          closeMenu();
+        }
+      });
     }
 
     // Components are injected via DOMContentLoaded; bind after
@@ -316,6 +332,26 @@
     });
   }
 
+
+
+  /* ── Service worker (offline support) ─────────────────── */
+  function initServiceWorker() {
+    if (!('serviceWorker' in navigator)) return;
+
+    window.addEventListener('load', function () {
+      const path = window.location.pathname;
+      const parts = path.replace(/\/$/, '').split('/').filter(Boolean);
+      const repoName = 'testing';
+      const repoIdx = parts.indexOf(repoName);
+      const scopeBase = repoIdx !== -1 ? `/${parts.slice(0, repoIdx + 1).join('/')}/` : '/';
+      const swUrl = `${scopeBase}sw.js`;
+
+      navigator.serviceWorker.register(swUrl, { scope: scopeBase }).catch(function () {
+        // Non-critical enhancement: fail silently on unsupported hosts.
+      });
+    });
+  }
+
   /* ── Init all ───────────────────────────────────────────── */
   /* ── Contact form → Formspree submission ───────────────── */
   function initContactForm() {
@@ -432,6 +468,7 @@
   initSmoothScroll();
   initBackToTop();
   initCookieBanner();
+  initServiceWorker();
 
   document.addEventListener('DOMContentLoaded', function () {
     initReveal();
