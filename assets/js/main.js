@@ -21,12 +21,17 @@
     if (!header) return;
 
     function updateHeader() {
-      header.classList.remove('header-transparent');
-      header.classList.add('header-scrolled');
+      if (window.scrollY > 24) {
+        header.classList.remove('header-transparent');
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.add('header-transparent');
+        header.classList.remove('header-scrolled');
+      }
     }
 
     window.addEventListener('scroll', throttle(updateHeader, 50), { passive: true });
-    updateHeader(); // run on load
+    updateHeader();
   }
 
   /* ── Mobile hamburger nav ───────────────────────────────── */
@@ -301,11 +306,10 @@
 
   /* ── Testimonial simple auto-play (CSS fallback) ────────── */
   function initTestimonialSlider() {
-    // Simple fade-through slider if .testimonials-slider present
-    const slider = document.querySelector('.testimonials-slider');
+    const slider = document.querySelector('[data-slider], .testimonials-slider');
     if (!slider) return;
 
-    const slides = slider.querySelectorAll('.testimonial-slide');
+    const slides = slider.querySelectorAll('.testimonial-card, .testimonial-slide');
     if (slides.length < 2) return;
 
     let current = 0;
@@ -315,7 +319,7 @@
       slides[current].classList.remove('active');
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
-    }, 4500);
+    }, 4200);
   }
 
   /* ── Active nav link highlight ──────────────────────────── */
@@ -586,6 +590,50 @@
     });
   }
 
+
+
+  function initServiceCapabilityModal() {
+    const modal = document.getElementById('service-modal');
+    if (!modal) return;
+
+    const title = document.getElementById('service-modal-title');
+    const desc = document.getElementById('service-modal-description');
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.service-modal-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (title) title.textContent = btn.dataset.service || 'Service';
+        if (desc) desc.textContent = btn.dataset.description || '';
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    modal.querySelectorAll('[data-close-modal="service-modal"]').forEach(function (el) {
+      el.addEventListener('click', closeModal);
+    });
+  }
+
+  function initPageTransitions() {
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || link.target === '_blank' || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+      const url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      e.preventDefault();
+      document.body.classList.add('page-transitioning');
+      setTimeout(function () { window.location.assign(url.toString()); }, 180);
+    });
+  }
+
   initStickyHeader();
   initMobileNav();
   initSmoothScroll();
@@ -603,5 +651,7 @@
     initCaseCarousel();
     initCaseModal();
     initProjectShowcase();
+    initServiceCapabilityModal();
+    initPageTransitions();
   });
 })();
