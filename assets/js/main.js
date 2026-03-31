@@ -35,12 +35,15 @@
     function setup() {
       const hamburger = document.getElementById('hamburger');
       const mobileNav  = document.getElementById('mobile-nav');
+      const header = document.getElementById('site-header');
       if (!hamburger || !mobileNav) return;
       const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
       function openMenu() {
         hamburger.classList.add('open');
         mobileNav.classList.add('open');
+        if (header) header.classList.add('nav-open');
+        document.body.classList.add('menu-open');
         hamburger.setAttribute('aria-expanded', 'true');
         mobileNav.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -51,6 +54,8 @@
       function closeMenu() {
         hamburger.classList.remove('open');
         mobileNav.classList.remove('open');
+        if (header) header.classList.remove('nav-open');
+        document.body.classList.remove('menu-open');
         hamburger.setAttribute('aria-expanded', 'false');
         mobileNav.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
@@ -121,6 +126,12 @@
       const observer = new MutationObserver(syncMobileNavTabState);
       observer.observe(mobileNav, { attributes: true, attributeFilter: ['class'] });
       syncMobileNavTabState();
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1024 && mobileNav.classList.contains('open')) {
+          closeMenu();
+        }
+      });
     }
 
     // Components are injected via DOMContentLoaded; bind after
