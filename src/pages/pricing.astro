@@ -79,6 +79,68 @@ const plans = [
         ))}
       </div>
     </section>
+
+    <!-- Retainers / Ongoing Support -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <div style="text-align:center;margin-bottom:var(--space-8);">
+          <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">Monthly Retainers & Support</h2>
+          <p style="color:var(--color-grey-600);font-size:1rem;max-width:580px;margin:0 auto;">Keep your digital systems healthy, secure, and growing with ongoing partnership options.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-3);">
+          {[
+            {
+              name: 'Maintenance',
+              price: 'R 1,500',
+              period: '/month',
+              desc: 'Keep your site secure and running smoothly.',
+              features: ['Monthly security updates', 'Performance monitoring', 'Content updates (2h)', 'Uptime monitoring'],
+              accent: false,
+            },
+            {
+              name: 'Growth Partner',
+              price: 'R 5,000',
+              period: '/month',
+              desc: 'Active development and optimisation every month.',
+              features: ['Everything in Maintenance', '8 hours development', 'SEO tracking and improvements', 'Monthly analytics report', 'Priority support'],
+              accent: true,
+            },
+            {
+              name: 'Dedicated Team',
+              price: 'R 15,000+',
+              period: '/month',
+              desc: 'A dedicated development team for your business.',
+              features: ['Full-time developer access', 'Unlimited content updates', 'Feature development', 'Custom integrations', 'Dedicated account manager'],
+              accent: false,
+            },
+          ].map(plan => (
+            <div style={`background:${plan.accent ? 'var(--color-primary)' : 'var(--color-grey-50)'};color:${plan.accent ? 'var(--color-white)' : 'var(--color-primary)'};padding:var(--space-4);border-radius:var(--radius-xl);`}>
+              <h3 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;margin-bottom:6px;">{plan.name}</h3>
+              <p style={`font-size:.9rem;margin-bottom:var(--space-3);${plan.accent ? 'opacity:.75;' : 'color:var(--color-grey-600);'}`}>{plan.desc}</p>
+              <div style="margin-bottom:var(--space-3);">
+                <span style={`font-family:var(--font-heading);font-size:2rem;font-weight:800;${plan.accent ? '' : 'color:var(--color-accent);'}`}>{plan.price}</span>
+                <span style="font-size:.85rem;opacity:.65;margin-left:4px;">{plan.period}</span>
+              </div>
+              <ul style="list-style:none;padding:0;margin:0 0 var(--space-4);">
+                {plan.features.map(f => (
+                  <li style={`padding:6px 0;font-size:.9rem;display:flex;gap:8px;align-items:flex-start;border-bottom:1px solid ${plan.accent ? 'rgba(255,255,255,.1)' : 'var(--color-grey-200)'};`}>
+                    <span style="color:var(--color-teal);flex-shrink:0;">✓</span>{f}
+                  </li>
+                ))}
+              </ul>
+              <a href={`${base}contact/`} style={`display:block;text-align:center;padding:10px 20px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;font-size:.9rem;background:${plan.accent ? 'var(--color-accent)' : 'var(--color-accent)'};color:var(--color-white);`}>Get Started</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:var(--color-accent);color:var(--color-white);padding:var(--space-10) var(--space-4);text-align:center;">
+      <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;margin-bottom:var(--space-2);">Not Sure What You Need?</h2>
+      <p style="opacity:.9;margin-bottom:var(--space-4);font-size:1.05rem;">Book a free 30-minute consultation. We'll scope your project and give you a fixed quote.</p>
+      <a href={`${base}contact/`} data-smart-cta style="background:var(--color-white);color:var(--color-accent);padding:14px 36px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;display:inline-block;">Book Free Consultation</a>
+    </section>
   </main>
 
   <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
