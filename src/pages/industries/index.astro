@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
+const industries = (await getCollection('industries')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout
+  title="Industries We Serve"
+  description="Mapengo Innovations builds digital solutions for retail, transport, education, healthcare, construction, and SMEs across South Africa."
+>
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+    <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
+        <li><a href={`${base}services/`} style="color:var(--color-white);text-decoration:none;">Services</a></li>
+        <li><a href={`${base}industries/`} style="color:var(--color-accent);text-decoration:none;font-weight:600;">Industries</a></li>
+        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
+        <li><a href={`${base}pricing/`} style="color:var(--color-white);text-decoration:none;">Pricing</a></li>
+        <li><a href={`${base}blog/`} style="color:var(--color-white);text-decoration:none;">Blog</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <p style="color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--space-2);font-size:.85rem;">South Africa-First</p>
+      <h1 style="font-family:var(--font-heading);font-size:clamp(2.5rem,5vw,3.5rem);font-weight:800;margin-bottom:var(--space-2);">Industries We Serve</h1>
+      <p style="opacity:.8;font-size:1.1rem;max-width:640px;margin:0 auto;">We don't build generic software. We build systems that understand the specific challenges of your industry — and the South African context you operate in.</p>
+    </section>
+
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--space-4);">
+        {industries.map(ind => (
+          <a href={`${base}industries/${ind.data.slug}/`} style="background:var(--color-white);padding:var(--space-4);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);text-decoration:none;display:flex;flex-direction:column;gap:var(--space-2);transition:box-shadow .2s;">
+            <span style="font-size:2.5rem;">{ind.data.icon}</span>
+            <h2 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:var(--color-primary);">{ind.data.title}</h2>
+            <p style="color:var(--color-grey-600);font-size:.95rem;line-height:1.6;flex:1;">{ind.data.description}</p>
+            <div style="margin-top:var(--space-1);">
+              <p style="font-size:.8rem;font-weight:600;color:var(--color-primary);margin-bottom:8px;">Key challenges we solve:</p>
+              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px;">
+                {ind.data.challenges.slice(0, 3).map(c => (
+                  <li style="font-size:.8rem;color:var(--color-grey-600);display:flex;gap:6px;align-items:flex-start;">
+                    <span style="color:var(--color-teal);flex-shrink:0;">✓</span>{c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <span style="color:var(--color-accent);font-weight:600;font-size:.9rem;margin-top:var(--space-1);">Explore solutions →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:var(--color-accent);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;margin-bottom:var(--space-2);">Don't See Your Industry?</h2>
+      <p style="opacity:.9;margin-bottom:var(--space-4);font-size:1.05rem;max-width:540px;margin-left:auto;margin-right:auto;">We've built systems for dozens of South African industries. Tell us about your challenges and we'll design the right solution.</p>
+      <a href={`${base}contact/`} data-smart-cta style="background:var(--color-white);color:var(--color-accent);padding:14px 36px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;display:inline-block;">Start the Conversation</a>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
+    <p>&copy; {new Date().getFullYear()} Mapengo Innovations — <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Privacy</a> · <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Terms</a></p>
+  </footer>
+</BaseLayout>
