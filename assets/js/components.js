@@ -190,7 +190,7 @@
     <nav class="footer-legal" aria-label="Legal">
       <a href="${BASE}legal/privacy/">Privacy Policy</a>
       <a href="${BASE}legal/terms/">Terms of Service</a>
-      <a href="${BASE}legal/popia/">Cookie Policy</a>
+      <a href="${BASE}legal/popia/">POPIA Compliance</a>
     </nav>
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
@@ -222,7 +222,7 @@
     <p class="cookie-text">
       We use cookies to enhance your browsing experience, serve personalised ads or content, and
       analyse our traffic. By clicking "Accept All", you consent to our use of cookies.
-      See our <a href="${BASE}legal/cookies.html" style="color:inherit;text-decoration:underline;">Cookie Policy</a> for more information.
+      See our <a href="${BASE}legal/cookies/" style="color:inherit;text-decoration:underline;">Cookie Policy</a> for more information.
     </p>
     <div class="cookie-prefs">
       <div class="cookie-pref">
