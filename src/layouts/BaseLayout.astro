@@ -1,0 +1,129 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = '/assets/img/og-image.svg',
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = 'https://www.mapengoinnovations.co.za';
+const fullTitle = title.includes('Mapengo') ? title : `${title} | Mapengo Innovations`;
+---
+
+<!doctype html>
+<html lang="en-ZA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:site_name" content="Mapengo Innovations" />
+    <meta property="og:locale" content="en_ZA" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@mapengotech" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0A1628" />
+
+    <!-- Fonts preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <slot />
+
+    <!-- Intelligence / Personalization (inline, runs before consent check) -->
+    <script is:inline>
+      (function () {
+        var KEY = 'mi_intelligence';
+        var CONSENT_KEY = 'mi_consent';
+        function getConsent() {
+          try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null'); } catch { return null; }
+        }
+        function loadSession() {
+          try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch { return null; }
+        }
+        function computeIntent(d) {
+          if (d.visits >= 4 || d.scrollDepth > 70 || d.ctaClicks.length > 2) return 'high-intent';
+          if (d.visits >= 2) return 'returning';
+          return 'new';
+        }
+        var consent = getConsent();
+        if (consent && consent.personalization) {
+          var data = loadSession() || { visits: 0, pageViews: [], ctaClicks: [], industryInterests: [], scrollDepth: 0, timeOnSite: 0, lastVisit: Date.now(), intent: 'new' };
+          data.visits += 1;
+          data.lastVisit = Date.now();
+          data.intent = computeIntent(data);
+          localStorage.setItem(KEY, JSON.stringify(data));
+        }
+        // Update smart CTAs
+        document.addEventListener('DOMContentLoaded', function () {
+          var session = loadSession();
+          var intent = session ? computeIntent(session) : 'new';
+          var ctaMap = {
+            'new': { text: 'Explore Our Solutions', href: '/services/' },
+            'returning': { text: 'Get a Custom Quote', href: '/contact/' },
+            'high-intent': { text: 'Start Your Project Today', href: '/contact/#form' }
+          };
+          var cta = ctaMap[intent] || ctaMap['new'];
+          document.querySelectorAll('[data-smart-cta]').forEach(function (el) {
+            el.textContent = cta.text;
+            el.href = cta.href;
+          });
+          // Scroll depth tracking
+          if (consent && consent.analytics) {
+            window.addEventListener('scroll', function () {
+              var depth = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+              if (session && depth > (session.scrollDepth || 0)) {
+                session.scrollDepth = depth;
+                if (consent && consent.personalization) localStorage.setItem(KEY, JSON.stringify(session));
+              }
+            }, { passive: true });
+          }
+        });
+      })();
+    </script>
+
+    <!-- Service Worker registration -->
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js').catch(function () {});
+        });
+      }
+    </script>
+  </body>
+</html>
