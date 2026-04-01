@@ -188,9 +188,9 @@
   <div class="footer-bottom">
     <p>&copy; ${new Date().getFullYear()} Mapengo Innovations &middot; Johannesburg, South Africa &middot; All rights reserved.</p>
     <nav class="footer-legal" aria-label="Legal">
-      <a href="${BASE}legal/privacy.html">Privacy Policy</a>
-      <a href="${BASE}legal/terms.html">Terms of Service</a>
-      <a href="${BASE}legal/cookies.html">Cookie Policy</a>
+      <a href="${BASE}legal/privacy/">Privacy Policy</a>
+      <a href="${BASE}legal/terms/">Terms of Service</a>
+      <a href="${BASE}legal/popia/">POPIA Compliance</a>
     </nav>
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
@@ -217,13 +217,28 @@
   function buildCookieBanner() {
     return `
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
-  <p class="cookie-text">
-    We use cookies to enhance your experience. By continuing, you agree to our
-    <a href="${BASE}legal/cookies.html">Cookie Policy</a>.
-  </p>
-  <div class="cookie-actions">
-    <button class="btn btn-ghost btn-sm" id="cookie-decline">Decline</button>
-    <button class="btn btn-primary btn-sm" id="cookie-accept">Accept</button>
+  <div class="cookie-inner">
+    <p class="cookie-title">We value your privacy</p>
+    <p class="cookie-text">
+      We use cookies to enhance your browsing experience, serve personalised ads or content, and
+      analyse our traffic. By clicking "Accept All", you consent to our use of cookies.
+      See our <a href="${BASE}legal/cookies/" style="color:inherit;text-decoration:underline;">Cookie Policy</a> for more information.
+    </p>
+    <div class="cookie-prefs">
+      <div class="cookie-pref">
+        <label><input type="checkbox" id="cookie-pref-necessary" checked disabled> Necessary</label>
+      </div>
+      <div class="cookie-pref">
+        <label><input type="checkbox" id="cookie-pref-analytics"> Analytics</label>
+      </div>
+      <div class="cookie-pref">
+        <label><input type="checkbox" id="cookie-pref-marketing"> Marketing</label>
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-cookie btn-cookie-accept" id="cookie-accept">Accept All</button>
+      <button class="btn-cookie btn-cookie-reject" id="cookie-decline">Reject All</button>
+    </div>
   </div>
 </div>`;
   }
@@ -263,6 +278,75 @@
     const bannerWrapper = document.createElement('div');
     bannerWrapper.innerHTML = buildCookieBanner();
     document.body.appendChild(bannerWrapper.firstElementChild);
+
+    // Cookie banner show/hide logic
+    var cookieBanner = document.getElementById('cookie-banner');
+    if (cookieBanner) {
+      if (!localStorage.getItem('mi_consent')) {
+        cookieBanner.classList.add('show');
+      }
+      var acceptBtn = cookieBanner.querySelector('.btn-cookie-accept');
+      var rejectBtn = cookieBanner.querySelector('.btn-cookie-reject');
+      if (acceptBtn) {
+        acceptBtn.addEventListener('click', function () {
+          var prefs = { analytics: true, personalization: true, marketing: true };
+          if (typeof MIConsent !== 'undefined') { MIConsent.set(prefs); } else { localStorage.setItem('mi_consent', JSON.stringify(prefs)); }
+          cookieBanner.classList.remove('show');
+        });
+      }
+      if (rejectBtn) {
+        rejectBtn.addEventListener('click', function () {
+          var prefs = { analytics: false, personalization: false, marketing: false };
+          if (typeof MIConsent !== 'undefined') { MIConsent.set(prefs); } else { localStorage.setItem('mi_consent', JSON.stringify(prefs)); }
+          cookieBanner.classList.remove('show');
+        });
+      }
+      // Custom save button (if preference checkboxes present)
+      var saveBtn = cookieBanner.querySelector('.btn-cookie-custom');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', function () {
+          var analytics = cookieBanner.querySelector('#cookie-pref-analytics');
+          var marketing = cookieBanner.querySelector('#cookie-pref-marketing');
+          var prefs = {
+            analytics: analytics ? analytics.checked : false,
+            personalization: analytics ? analytics.checked : false,
+            marketing: marketing ? marketing.checked : false,
+          };
+          if (typeof MIConsent !== 'undefined') { MIConsent.set(prefs); } else { localStorage.setItem('mi_consent', JSON.stringify(prefs)); }
+          cookieBanner.classList.remove('show');
+        });
+      }
+    }
+
+    // Inject sticky CTA bar
+    var ctaBar = document.createElement('div');
+    ctaBar.id = 'sticky-cta-bar';
+    ctaBar.className = 'sticky-cta-bar';
+    ctaBar.style.display = 'none';
+    var smartCtaText = (typeof MIIntelligence !== 'undefined') ? MIIntelligence.getPersonalizedCTA() : 'Get Started';
+    var smartCtaLink = (typeof MIIntelligence !== 'undefined') ? MIIntelligence.getPersonalizedCTALink(BASE) : BASE + 'contact/';
+    ctaBar.innerHTML = '<span class="sticky-cta-text">Ready to transform your business?</span>'
+      + '<a href="' + smartCtaLink + '" class="btn btn-primary btn-sm" data-analytics-cta="sticky-cta">' + smartCtaText + '</a>'
+      + '<button id="sticky-cta-close" class="sticky-cta-close" aria-label="Close">\u2715</button>';
+    document.body.appendChild(ctaBar);
+
+    // Show sticky CTA after scrolling past 40% of page height
+    window.addEventListener('scroll', function () {
+      var bar = document.getElementById('sticky-cta-bar');
+      if (!bar || bar._closed) return;
+      if (window.scrollY > document.body.scrollHeight * 0.4) {
+        bar.style.display = 'flex';
+      }
+    });
+
+    // Close button dismisses sticky CTA
+    var ctaClose = document.getElementById('sticky-cta-close');
+    if (ctaClose) {
+      ctaClose.addEventListener('click', function () {
+        var bar = document.getElementById('sticky-cta-bar');
+        if (bar) { bar.style.display = 'none'; bar._closed = true; }
+      });
+    }
 
     // Inject WhatsApp floating button
     const waWrapper = document.createElement('div');
