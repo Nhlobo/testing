@@ -1,15 +1,92 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Mapengo Innovations</title>
-  </head>
-  <body>
-    <h1>Mapengo Innovations</h1>
-  </body>
-</html>
+<BaseLayout
+  title="Mapengo Innovations — Digital Solutions for South African Businesses"
+  description="We build fast, modern websites and apps that help South African businesses grow. From web development to mobile apps, cloud hosting and beyond."
+>
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+    <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
+        <li><a href={`${base}services/`} style="color:var(--color-white);text-decoration:none;">Services</a></li>
+        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
+        <li><a href={`${base}pricing/`} style="color:var(--color-white);text-decoration:none;">Pricing</a></li>
+        <li><a href={`${base}blog/`} style="color:var(--color-white);text-decoration:none;">Blog</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-16) var(--space-4);text-align:center;">
+      <div style="max-width:800px;margin:0 auto;">
+        <p style="color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--space-2);">South African Digital Innovation</p>
+        <h1 style="font-family:var(--font-heading);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:var(--space-3);">
+          We Build Digital Products<br/>That <span style="color:var(--color-accent);">Drive Growth</span>
+        </h1>
+        <p style="font-size:1.25rem;opacity:.85;max-width:600px;margin:0 auto var(--space-5);">
+          From Johannesburg to Cape Town — websites, mobile apps, and cloud solutions built for the South African market.
+        </p>
+        <div style="display:flex;gap:var(--space-2);justify-content:center;flex-wrap:wrap;">
+          <a href={`${base}contact/`} data-smart-cta style="background:var(--color-accent);color:var(--color-white);padding:16px 36px;border-radius:var(--radius-full);font-weight:700;font-size:1.1rem;text-decoration:none;">Start Your Project</a>
+          <a href={`${base}work/`} style="border:2px solid rgba(255,255,255,.4);color:var(--color-white);padding:16px 36px;border-radius:var(--radius-full);font-weight:600;text-decoration:none;">View Our Work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services preview -->
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:var(--max-width);margin:0 auto;text-align:center;">
+        <h2 style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">What We Build</h2>
+        <p style="color:var(--color-grey-600);font-size:1.1rem;margin-bottom:var(--space-8);">End-to-end digital solutions for growing businesses.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-3);">
+          {[
+            { icon: '🌐', title: 'Web Development', desc: 'High-performance websites and web apps built with modern frameworks.' },
+            { icon: '📱', title: 'Mobile Apps', desc: 'Cross-platform iOS and Android apps with React Native.' },
+            { icon: '☁️', title: 'Cloud Hosting', desc: 'Reliable, scalable cloud infrastructure on AWS and Azure.' },
+            { icon: '🛒', title: 'E-Commerce', desc: 'Custom online stores designed to convert and scale.' },
+          ].map(s => (
+            <div style="background:var(--color-white);padding:var(--space-4);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);text-align:left;">
+              <div style="font-size:2rem;margin-bottom:var(--space-2);">{s.icon}</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:var(--color-primary);margin-bottom:8px;">{s.title}</h3>
+              <p style="color:var(--color-grey-600);font-size:.95rem;">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+        <a href={`${base}services/`} style="display:inline-block;margin-top:var(--space-6);color:var(--color-accent);font-weight:600;text-decoration:none;">View all services →</a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:var(--color-accent);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;margin-bottom:var(--space-2);">Ready to Build Something Great?</h2>
+      <p style="opacity:.9;margin-bottom:var(--space-4);font-size:1.1rem;">Let's talk about your project and how we can help.</p>
+      <a href={`${base}contact/`} style="background:var(--color-white);color:var(--color-accent);padding:14px 36px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;">Get in Touch</a>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-8) var(--space-4);">
+    <div style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4);">
+      <div>
+        <p style="font-family:var(--font-heading);font-size:1.25rem;font-weight:800;color:var(--color-white);margin-bottom:8px;">Mapengo Innovations</p>
+        <p style="font-size:.9rem;">Building South Africa's digital future.</p>
+      </div>
+      <nav style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;">
+        <a href={`${base}services/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Services</a>
+        <a href={`${base}work/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Work</a>
+        <a href={`${base}blog/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Blog</a>
+        <a href={`${base}contact/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Contact</a>
+        <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Privacy</a>
+        <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Terms</a>
+      </nav>
+    </div>
+    <div style="max-width:var(--max-width);margin:var(--space-4) auto 0;border-top:1px solid rgba(255,255,255,.1);padding-top:var(--space-3);font-size:.85rem;">
+      &copy; {new Date().getFullYear()} Mapengo Innovations. All rights reserved.
+    </div>
+  </footer>
+</BaseLayout>

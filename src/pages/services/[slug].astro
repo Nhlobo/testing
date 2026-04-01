@@ -1,0 +1,82 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const solutions = await getCollection('solutions');
+  return solutions.map(s => ({
+    params: { slug: s.data.slug },
+    props: { solution: s },
+  }));
+}
+
+const { solution } = Astro.props;
+const { Content } = await render(solution);
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title={solution.data.title}
+  description={solution.data.description}
+>
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+    <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
+        <li><a href={`${base}services/`} style="color:var(--color-accent);text-decoration:none;font-weight:600;">Services</a></li>
+        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-12) var(--space-4);">
+      <div style="max-width:800px;margin:0 auto;">
+        <a href={`${base}services/`} style="color:var(--color-accent);text-decoration:none;font-size:.9rem;">← All Services</a>
+        <div style="margin-top:var(--space-3);">
+          <p style="font-size:3rem;margin-bottom:var(--space-2);">{solution.data.icon}</p>
+          <h1 style="font-family:var(--font-heading);font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:var(--space-2);">{solution.data.title}</h1>
+          <p style="font-size:1.2rem;opacity:.85;">{solution.data.description}</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:var(--space-10) var(--space-4);">
+      <div style="max-width:800px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr;gap:var(--space-6);align-items:start;">
+        <div class="prose">
+          <Content />
+        </div>
+        <aside style="background:var(--color-grey-50);padding:var(--space-4);border-radius:var(--radius-lg);">
+          <h3 style="font-family:var(--font-heading);font-size:1.1rem;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-2);">Key Features</h3>
+          <ul style="list-style:none;padding:0;margin:0 0 var(--space-4);">
+            {solution.data.features.map(f => (
+              <li style="padding:8px 0;border-bottom:1px solid var(--color-grey-200);display:flex;gap:8px;align-items:center;font-size:.9rem;">
+                <span style="color:var(--color-teal);">✓</span> {f}
+              </li>
+            ))}
+          </ul>
+          <a href={`${base}contact/`} style="display:block;text-align:center;background:var(--color-accent);color:var(--color-white);padding:12px 24px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;">Get a Quote</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
+    <p>&copy; {new Date().getFullYear()} Mapengo Innovations — <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Privacy</a> · <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Terms</a></p>
+  </footer>
+</BaseLayout>
+
+<style>
+  .prose :global(h2), .prose :global(h3) {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-2);
+  }
+  .prose :global(p) { line-height: 1.8; color: #374151; margin-bottom: var(--space-3); }
+  .prose :global(ul) { padding-left: var(--space-4); margin-bottom: var(--space-3); }
+  .prose :global(li) { line-height: 1.7; color: #374151; margin-bottom: 4px; }
+  .prose :global(strong) { color: var(--color-primary); }
+</style>

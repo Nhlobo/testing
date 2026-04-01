@@ -3,7 +3,8 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: 'https://www.mapengoinnovations.co.za',
+  site: 'https://nhlobo.github.io/testing/',
+  base: '/testing',
   integrations: [mdx(), sitemap()],
   output: 'static',
 });

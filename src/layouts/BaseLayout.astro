@@ -13,11 +13,12 @@ const {
   title,
   description,
   canonical = Astro.url.href,
-  ogImage = '/assets/img/og-image.svg',
+  ogImage = `${import.meta.env.BASE_URL}assets/img/og-image.svg`,
   noindex = false,
 } = Astro.props;
 
-const siteUrl = 'https://www.mapengoinnovations.co.za';
+const siteUrl = 'https://nhlobo.github.io/testing';
+const base = import.meta.env.BASE_URL;
 const fullTitle = title.includes('Mapengo') ? title : `${title} | Mapengo Innovations`;
 ---
 
@@ -51,11 +52,10 @@ const fullTitle = title.includes('Mapengo') ? title : `${title} | Mapengo Innova
     <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 
     <!-- PWA -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href={`${base}manifest.json`} />
     <meta name="theme-color" content="#0A1628" />
 
     <!-- Fonts preconnect -->
@@ -65,8 +65,8 @@ const fullTitle = title.includes('Mapengo') ? title : `${title} | Mapengo Innova
   <body>
     <slot />
 
-    <!-- Intelligence / Personalization (inline, runs before consent check) -->
-    <script is:inline>
+    <!-- Smart CTA / Intelligence (inline, runs before consent check) -->
+    <script is:inline define:vars={{ base }}>
       (function () {
         var KEY = 'mi_intelligence';
         var CONSENT_KEY = 'mi_consent';
@@ -94,9 +94,9 @@ const fullTitle = title.includes('Mapengo') ? title : `${title} | Mapengo Innova
           var session = loadSession();
           var intent = session ? computeIntent(session) : 'new';
           var ctaMap = {
-            'new': { text: 'Explore Our Solutions', href: '/services/' },
-            'returning': { text: 'Get a Custom Quote', href: '/contact/' },
-            'high-intent': { text: 'Start Your Project Today', href: '/contact/#form' }
+            'new': { text: 'Explore Our Solutions', href: base + 'services/' },
+            'returning': { text: 'Get a Custom Quote', href: base + 'contact/' },
+            'high-intent': { text: 'Start Your Project Today', href: base + 'contact/#form' }
           };
           var cta = ctaMap[intent] || ctaMap['new'];
           document.querySelectorAll('[data-smart-cta]').forEach(function (el) {
@@ -118,12 +118,13 @@ const fullTitle = title.includes('Mapengo') ? title : `${title} | Mapengo Innova
     </script>
 
     <!-- Service Worker registration -->
-    <script is:inline>
+    <script is:inline define:vars={{ swPath: base + 'sw.js' }}>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
-          navigator.serviceWorker.register('/sw.js').catch(function () {});
+          navigator.serviceWorker.register(swPath).catch(function () {});
         });
       }
     </script>
+
   </body>
 </html>
