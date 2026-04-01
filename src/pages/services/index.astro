@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
+const solutions = (await getCollection('solutions')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout
+  title="Our Services"
+  description="Web development, mobile apps, e-commerce, cloud hosting, UI/UX design and more — tailored for South African businesses."
+>
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+    <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
+        <li><a href={`${base}services/`} style="color:var(--color-accent);text-decoration:none;font-weight:600;">Services</a></li>
+        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
+        <li><a href={`${base}pricing/`} style="color:var(--color-white);text-decoration:none;">Pricing</a></li>
+        <li><a href={`${base}blog/`} style="color:var(--color-white);text-decoration:none;">Blog</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <h1 style="font-family:var(--font-heading);font-size:3rem;font-weight:800;margin-bottom:var(--space-2);">Our Services</h1>
+      <p style="opacity:.8;font-size:1.1rem;max-width:600px;margin:0 auto;">Everything you need to build, launch, and grow your digital presence.</p>
+    </section>
+
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-4);">
+        {solutions.map(s => (
+          <a href={`${base}services/${s.data.slug}/`} style="background:var(--color-white);padding:var(--space-4);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);text-decoration:none;display:block;transition:box-shadow .2s;">
+            <p style="font-size:2rem;margin-bottom:var(--space-2);">{s.data.icon}</p>
+            <h2 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:var(--color-primary);margin-bottom:8px;">{s.data.title}</h2>
+            <p style="color:var(--color-grey-600);font-size:.9rem;line-height:1.6;margin-bottom:var(--space-3);">{s.data.description}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              {s.data.features.map(f => (
+                <span style="background:var(--color-grey-100);color:var(--color-grey-600);font-size:.75rem;padding:3px 10px;border-radius:var(--radius-full);">{f}</span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
+    <p>&copy; {new Date().getFullYear()} Mapengo Innovations — <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Privacy</a> · <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Terms</a></p>
+  </footer>
+</BaseLayout>

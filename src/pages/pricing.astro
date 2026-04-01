@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
+
+const plans = [
+  {
+    name: 'Starter',
+    price: 'R 8,500',
+    period: 'once-off',
+    desc: 'Perfect for small businesses ready to go online.',
+    features: ['5-page website', 'Mobile responsive', 'SEO basics', 'Contact form', '3 months support'],
+    cta: 'Get Started',
+    accent: false,
+  },
+  {
+    name: 'Business',
+    price: 'R 24,000',
+    period: 'once-off',
+    desc: 'Full-featured site for growing businesses.',
+    features: ['Up to 15 pages', 'CMS integration', 'Blog setup', 'Analytics', 'SEO optimisation', '6 months support'],
+    cta: 'Most Popular',
+    accent: true,
+  },
+  {
+    name: 'Enterprise',
+    price: 'Custom',
+    period: 'quote',
+    desc: 'Tailored solutions for complex requirements.',
+    features: ['Unlimited pages', 'Custom integrations', 'E-commerce', 'Mobile app', 'Dedicated support', 'SLA guarantee'],
+    cta: 'Get a Quote',
+    accent: false,
+  },
+];
+---
+
+<BaseLayout
+  title="Pricing"
+  description="Transparent pricing for websites, apps, and digital solutions built for South African businesses."
+>
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+    <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
+        <li><a href={`${base}services/`} style="color:var(--color-white);text-decoration:none;">Services</a></li>
+        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
+        <li><a href={`${base}pricing/`} style="color:var(--color-accent);text-decoration:none;font-weight:600;">Pricing</a></li>
+        <li><a href={`${base}blog/`} style="color:var(--color-white);text-decoration:none;">Blog</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <h1 style="font-family:var(--font-heading);font-size:3rem;font-weight:800;margin-bottom:var(--space-2);">Simple, Transparent Pricing</h1>
+      <p style="opacity:.8;font-size:1.1rem;">No surprises. Pay for what you need.</p>
+    </section>
+
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4);align-items:start;">
+        {plans.map(plan => (
+          <div style={`background:${plan.accent ? 'var(--color-accent)' : 'var(--color-white)'};color:${plan.accent ? 'var(--color-white)' : 'var(--color-primary)'};padding:var(--space-5);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);`}>
+            <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;margin-bottom:8px;">{plan.name}</h2>
+            <p style={`font-size:.95rem;margin-bottom:var(--space-3);opacity:${plan.accent ? '.9' : '1'};color:${plan.accent ? 'rgba(255,255,255,.9)' : 'var(--color-grey-600)'};`}>{plan.desc}</p>
+            <div style="margin-bottom:var(--space-4);">
+              <span style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;">{plan.price}</span>
+              <span style={`font-size:.9rem;opacity:.7;margin-left:4px;`}>{plan.period}</span>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0 0 var(--space-4);">
+              {plan.features.map(f => (
+                <li style={`padding:6px 0;font-size:.95rem;display:flex;gap:8px;align-items:center;border-bottom:1px solid ${plan.accent ? 'rgba(255,255,255,.2)' : 'var(--color-grey-200)'};`}>
+                  <span style="color:var(--color-teal);">✓</span> {f}
+                </li>
+              ))}
+            </ul>
+            <a href={`${base}contact/`} style={`display:block;text-align:center;padding:12px 24px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;background:${plan.accent ? 'var(--color-white)' : 'var(--color-accent)'};color:${plan.accent ? 'var(--color-accent)' : 'var(--color-white)'};`}>{plan.cta}</a>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
+    <p>&copy; {new Date().getFullYear()} Mapengo Innovations — <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Privacy</a> · <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Terms</a></p>
+  </footer>
+</BaseLayout>

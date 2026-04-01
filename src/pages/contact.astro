@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
+---
+
+<BaseLayout
+  title="Contact Us"
+  description="Get in touch with Mapengo Innovations. Tell us about your project and we'll get back to you within 24 hours."
+>
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+    <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
+        <li><a href={`${base}services/`} style="color:var(--color-white);text-decoration:none;">Services</a></li>
+        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
+        <li><a href={`${base}pricing/`} style="color:var(--color-white);text-decoration:none;">Pricing</a></li>
+        <li><a href={`${base}blog/`} style="color:var(--color-white);text-decoration:none;">Blog</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <h1 style="font-family:var(--font-heading);font-size:3rem;font-weight:800;margin-bottom:var(--space-2);">Let's Build Together</h1>
+      <p style="opacity:.8;font-size:1.1rem;">Tell us about your project — we'll respond within 24 hours.</p>
+    </section>
+
+    <section id="form" style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:680px;margin:0 auto;background:var(--color-white);padding:var(--space-6);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);">
+        <h2 style="font-family:var(--font-heading);font-size:1.75rem;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-4);">Send Us a Message</h2>
+
+        <!-- Static form — action can be wired to a form API via CONTACT_FORM_ENDPOINT secret -->
+        <form
+          method="POST"
+          action={import.meta.env.CONTACT_FORM_ENDPOINT || '#'}
+          style="display:flex;flex-direction:column;gap:var(--space-3);"
+        >
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2);">
+            <div>
+              <label for="fname" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">First Name *</label>
+              <input id="fname" name="first_name" type="text" required placeholder="Nhlovo"
+                style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;box-sizing:border-box;" />
+            </div>
+            <div>
+              <label for="lname" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">Last Name *</label>
+              <input id="lname" name="last_name" type="text" required placeholder="Mathebula"
+                style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;box-sizing:border-box;" />
+            </div>
+          </div>
+          <div>
+            <label for="email" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">Email Address *</label>
+            <input id="email" name="email" type="email" required placeholder="hello@company.co.za"
+              style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;box-sizing:border-box;" />
+          </div>
+          <div>
+            <label for="company" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">Company</label>
+            <input id="company" name="company" type="text" placeholder="Your Company"
+              style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;box-sizing:border-box;" />
+          </div>
+          <div>
+            <label for="service" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">Service Interested In</label>
+            <select id="service" name="service"
+              style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;background:var(--color-white);">
+              <option value="">Select a service...</option>
+              <option>Web Development</option>
+              <option>Mobile App</option>
+              <option>E-Commerce</option>
+              <option>Cloud Hosting</option>
+              <option>UI/UX Design</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">Message *</label>
+            <textarea id="message" name="message" required rows={5} placeholder="Tell us about your project..."
+              style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;resize:vertical;box-sizing:border-box;"></textarea>
+          </div>
+          <button type="submit"
+            style="background:var(--color-accent);color:var(--color-white);padding:14px 32px;border:none;border-radius:var(--radius-full);font-size:1rem;font-weight:700;cursor:pointer;">
+            Send Message →
+          </button>
+          <p style="font-size:.85rem;color:var(--color-grey-600);text-align:center;">
+            We respect your privacy. See our <a href={`${base}legal/privacy/`} style="color:var(--color-accent);">Privacy Policy</a>.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <section style="padding:var(--space-10) var(--space-4);text-align:center;">
+      <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-4);">Or reach us directly</h2>
+      <div style="display:flex;justify-content:center;gap:var(--space-6);flex-wrap:wrap;color:var(--color-grey-600);">
+        <div><strong style="color:var(--color-primary);">Email</strong><br/>hello@mapengoinnovations.co.za</div>
+        <div><strong style="color:var(--color-primary);">Location</strong><br/>Johannesburg, South Africa</div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
+    <p>&copy; {new Date().getFullYear()} Mapengo Innovations — <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Privacy</a> · <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Terms</a></p>
+  </footer>
+</BaseLayout>
