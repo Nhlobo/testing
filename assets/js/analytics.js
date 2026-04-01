@@ -13,7 +13,15 @@
     try {
       var id = sessionStorage.getItem(SESSION_KEY);
       if (!id) {
-        id = Date.now() + '-' + Math.random().toString(36).slice(2, 9);
+        // Use crypto.getRandomValues for a cryptographically secure random ID
+        if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
+          var arr = new Uint32Array(2);
+          crypto.getRandomValues(arr);
+          id = Date.now() + '-' + arr[0].toString(36) + arr[1].toString(36);
+        } else {
+          // Fallback for very old environments — this value is non-security-sensitive
+          id = Date.now() + '-' + (Date.now() ^ (Date.now() >>> 9)).toString(36);
+        }
         sessionStorage.setItem(SESSION_KEY, id);
       }
       return id;

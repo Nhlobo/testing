@@ -289,13 +289,30 @@
       var rejectBtn = cookieBanner.querySelector('.btn-cookie-reject');
       if (acceptBtn) {
         acceptBtn.addEventListener('click', function () {
-          localStorage.setItem('mi_consent', JSON.stringify({ analytics: true, marketing: true, ts: Date.now() }));
+          var prefs = { analytics: true, personalization: true, marketing: true };
+          if (typeof MIConsent !== 'undefined') { MIConsent.set(prefs); } else { localStorage.setItem('mi_consent', JSON.stringify(prefs)); }
           cookieBanner.classList.remove('show');
         });
       }
       if (rejectBtn) {
         rejectBtn.addEventListener('click', function () {
-          localStorage.setItem('mi_consent', JSON.stringify({ analytics: false, marketing: false, ts: Date.now() }));
+          var prefs = { analytics: false, personalization: false, marketing: false };
+          if (typeof MIConsent !== 'undefined') { MIConsent.set(prefs); } else { localStorage.setItem('mi_consent', JSON.stringify(prefs)); }
+          cookieBanner.classList.remove('show');
+        });
+      }
+      // Custom save button (if preference checkboxes present)
+      var saveBtn = cookieBanner.querySelector('.btn-cookie-custom');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', function () {
+          var analytics = cookieBanner.querySelector('#cookie-pref-analytics');
+          var marketing = cookieBanner.querySelector('#cookie-pref-marketing');
+          var prefs = {
+            analytics: analytics ? analytics.checked : false,
+            personalization: analytics ? analytics.checked : false,
+            marketing: marketing ? marketing.checked : false,
+          };
+          if (typeof MIConsent !== 'undefined') { MIConsent.set(prefs); } else { localStorage.setItem('mi_consent', JSON.stringify(prefs)); }
           cookieBanner.classList.remove('show');
         });
       }
@@ -306,8 +323,10 @@
     ctaBar.id = 'sticky-cta-bar';
     ctaBar.className = 'sticky-cta-bar';
     ctaBar.style.display = 'none';
+    var smartCtaText = (typeof MIIntelligence !== 'undefined') ? MIIntelligence.getPersonalizedCTA() : 'Get Started';
+    var smartCtaLink = (typeof MIIntelligence !== 'undefined') ? MIIntelligence.getPersonalizedCTALink(BASE) : BASE + 'contact/';
     ctaBar.innerHTML = '<span class="sticky-cta-text">Ready to transform your business?</span>'
-      + '<a href="' + BASE + 'contact/" class="btn btn-primary btn-sm">Get Started</a>'
+      + '<a href="' + smartCtaLink + '" class="btn btn-primary btn-sm" data-analytics-cta="sticky-cta">' + smartCtaText + '</a>'
       + '<button id="sticky-cta-close" class="sticky-cta-close" aria-label="Close">\u2715</button>';
     document.body.appendChild(ctaBar);
 

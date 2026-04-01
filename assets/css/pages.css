@@ -1926,6 +1926,9 @@
   to { transform: rotate(360deg); }
 }
 
+/* ── Alias for --max-width (uses --container-max) ─────────── */
+:root { --max-width: var(--container-max, 1200px); }
+
 /* ── Sticky CTA Bar ──────────────────────────────────────── */
 .sticky-cta-bar {
   position: fixed;
