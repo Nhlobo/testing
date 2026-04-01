@@ -1,7 +1,9 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: 'https://mapengoinnovations.co.za',
-  integrations: [sitemap()],
+  site: 'https://www.mapengoinnovations.co.za',
+  integrations: [mdx(), sitemap()],
+  output: 'static',
 });

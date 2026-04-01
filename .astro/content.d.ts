@@ -1,4 +1,15 @@
 declare module 'astro:content' {
+	interface Render {
+		'.mdx': Promise<{
+			Content: import('astro').MDXContent;
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+			components: import('astro').MDXInstance<{}>['components'];
+		}>;
+	}
+}
+
+declare module 'astro:content' {
 	export interface RenderResult {
 		Content: import('astro/runtime/server/index.js').AstroComponentFactory;
 		headings: import('astro').MarkdownHeading[];
@@ -162,7 +173,39 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		
+		"blog": Record<string, {
+  id: string;
+  body?: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+"caseStudies": Record<string, {
+  id: string;
+  body?: string;
+  collection: "caseStudies";
+  data: InferEntrySchema<"caseStudies">;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+"industries": Record<string, {
+  id: string;
+  body?: string;
+  collection: "industries";
+  data: InferEntrySchema<"industries">;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+"solutions": Record<string, {
+  id: string;
+  body?: string;
+  collection: "solutions";
+  data: InferEntrySchema<"solutions">;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+
 	};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
@@ -194,6 +237,6 @@ declare module 'astro:content' {
 		LiveContentConfig['collections'][C]['loader']
 	>;
 
-	export type ContentConfig = typeof import("../src/content.config.mjs");
+	export type ContentConfig = typeof import("../src/content/config.js");
 	export type LiveContentConfig = never;
 }
