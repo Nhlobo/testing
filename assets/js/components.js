@@ -138,6 +138,7 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul class="footer-links">
+          <li><a href="${BASE}web-application-development.html" class="footer-link">Web Application Development</a></li>
           <li><a href="${BASE}services/#web-development" class="footer-link">Web Development</a></li>
           <li><a href="${BASE}services/#mobile-apps" class="footer-link">Mobile Apps</a></li>
           <li><a href="${BASE}services/#ui-ux-design" class="footer-link">UI/UX Design</a></li>
