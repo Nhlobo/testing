@@ -7,8 +7,9 @@ const solutions = (await getCollection('solutions')).sort(
   (a, b) => a.data.order - b.data.order
 );
 
-const coreServices = solutions.filter(s => ['web-development','mobile-apps','systems-integration','ui-ux-design'].includes(s.data.slug));
-const additionalServices = solutions.filter(s => !['web-development','mobile-apps','systems-integration','ui-ux-design'].includes(s.data.slug));
+const coreServiceSlugs = ['web-development', 'mobile-apps', 'systems-integration', 'ui-ux-design'];
+const coreServices = solutions.filter(s => coreServiceSlugs.includes(s.data.slug));
+const additionalServices = solutions.filter(s => !coreServiceSlugs.includes(s.data.slug));
 ---
 
 <BaseLayout
