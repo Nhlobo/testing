@@ -1,103 +1,1050 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
 ---
 
 <BaseLayout
-  title="Contact Us"
-  description="Get in touch with Mapengo Innovations. Tell us about your project and we'll get back to you within 24 hours."
+  title="Get a Free Quote"
+  description="Get a tailored project quote from Mapengo Innovations. Tell us your requirements in 5 steps and receive a personalised proposal within 24 hours."
 >
-  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-3) var(--space-4);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.25);">
     <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
-      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
-      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
-        <li><a href={`${base}services/`} style="color:var(--color-white);text-decoration:none;">Services</a></li>
-        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
-        <li><a href={`${base}pricing/`} style="color:var(--color-white);text-decoration:none;">Pricing</a></li>
-        <li><a href={`${base}blog/`} style="color:var(--color-white);text-decoration:none;">Blog</a></li>
-        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;letter-spacing:-.5px;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;align-items:center;">
+        <li><a href={`${base}services/`} style="color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;font-weight:500;">Services</a></li>
+        <li><a href={`${base}industries/`} style="color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;font-weight:500;">Industries</a></li>
+        <li><a href={`${base}case-studies/`} style="color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;font-weight:500;">Case Studies</a></li>
+        <li><a href={`${base}about/`} style="color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;font-weight:500;">About</a></li>
+        <li><a href={`${base}blog/`} style="color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;font-weight:500;">Blog</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:9px 22px;border-radius:var(--radius-full);text-decoration:none;font-weight:700;font-size:.9rem;">Get Quote</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
-      <h1 style="font-family:var(--font-heading);font-size:3rem;font-weight:800;margin-bottom:var(--space-2);">Let's Build Together</h1>
-      <p style="opacity:.8;font-size:1.1rem;">Tell us about your project — we'll respond within 24 hours.</p>
-    </section>
-
-    <section id="form" style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
-      <div style="max-width:680px;margin:0 auto;background:var(--color-white);padding:var(--space-6);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);">
-        <h2 style="font-family:var(--font-heading);font-size:1.75rem;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-4);">Send Us a Message</h2>
-
-        <!-- Static form — action can be wired to a form API via CONTACT_FORM_ENDPOINT secret -->
-        <form
-          method="POST"
-          action={import.meta.env.CONTACT_FORM_ENDPOINT || '#'}
-          style="display:flex;flex-direction:column;gap:var(--space-3);"
-        >
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2);">
-            <div>
-              <label for="fname" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">First Name *</label>
-              <input id="fname" name="first_name" type="text" required placeholder="Nhlovo"
-                style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;box-sizing:border-box;" />
-            </div>
-            <div>
-              <label for="lname" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">Last Name *</label>
-              <input id="lname" name="last_name" type="text" required placeholder="Mathebula"
-                style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;box-sizing:border-box;" />
-            </div>
-          </div>
-          <div>
-            <label for="email" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">Email Address *</label>
-            <input id="email" name="email" type="email" required placeholder="hello@company.co.za"
-              style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;box-sizing:border-box;" />
-          </div>
-          <div>
-            <label for="company" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">Company</label>
-            <input id="company" name="company" type="text" placeholder="Your Company"
-              style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;box-sizing:border-box;" />
-          </div>
-          <div>
-            <label for="service" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">Service Interested In</label>
-            <select id="service" name="service"
-              style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;background:var(--color-white);">
-              <option value="">Select a service...</option>
-              <option>Web Development</option>
-              <option>Mobile App</option>
-              <option>E-Commerce</option>
-              <option>Cloud Hosting</option>
-              <option>UI/UX Design</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div>
-            <label for="message" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.9rem;">Message *</label>
-            <textarea id="message" name="message" required rows={5} placeholder="Tell us about your project..."
-              style="width:100%;padding:12px;border:1px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:1rem;resize:vertical;box-sizing:border-box;"></textarea>
-          </div>
-          <button type="submit"
-            style="background:var(--color-accent);color:var(--color-white);padding:14px 32px;border:none;border-radius:var(--radius-full);font-size:1rem;font-weight:700;cursor:pointer;">
-            Send Message →
-          </button>
-          <p style="font-size:.85rem;color:var(--color-grey-600);text-align:center;">
-            We respect your privacy. See our <a href={`${base}legal/privacy/`} style="color:var(--color-accent);">Privacy Policy</a>.
-          </p>
-        </form>
+    <section style="background:linear-gradient(135deg,#0A1628 0%,#0f2040 60%,#1a2e50 100%);color:var(--color-white);padding:var(--space-12) var(--space-4) var(--space-10);text-align:center;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,201,167,.08) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(255,107,53,.06) 0%,transparent 50%);pointer-events:none;"></div>
+      <div style="position:relative;max-width:720px;margin:0 auto;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,201,167,.12);border:1px solid rgba(0,201,167,.25);border-radius:var(--radius-full);padding:6px 16px;margin-bottom:var(--space-3);">
+          <span style="width:8px;height:8px;background:var(--color-teal);border-radius:50%;display:inline-block;animation:pulse-dot 1.8s ease-in-out infinite;"></span>
+          <span style="font-size:.8rem;font-weight:600;color:var(--color-teal);letter-spacing:.5px;text-transform:uppercase;">Free No-Obligation Quote</span>
+        </div>
+        <h1 style="font-family:var(--font-heading);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:var(--space-2);letter-spacing:-.02em;">Build Something<br/><span style="color:var(--color-accent);">Extraordinary</span></h1>
+        <p style="font-size:1.15rem;opacity:.85;line-height:1.7;margin-bottom:var(--space-4);max-width:560px;margin-left:auto;margin-right:auto;">Tell us about your vision in 5 quick steps — we&#39;ll craft a personalised proposal with transparent ZAR pricing, delivered within 24 hours.</p>
+        <div style="display:flex;justify-content:center;gap:var(--space-3);flex-wrap:wrap;font-size:.875rem;opacity:.75;">
+          <span>&#10003; No hidden fees</span>
+          <span>&#10003; SA-based team</span>
+          <span>&#10003; Response within 24 hours</span>
+          <span>&#10003; POPIA compliant</span>
+        </div>
       </div>
     </section>
 
-    <section style="padding:var(--space-10) var(--space-4);text-align:center;">
-      <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-4);">Or reach us directly</h2>
-      <div style="display:flex;justify-content:center;gap:var(--space-6);flex-wrap:wrap;color:var(--color-grey-600);">
-        <div><strong style="color:var(--color-primary);">Email</strong><br/>hello@mapengoinnovations.co.za</div>
-        <div><strong style="color:var(--color-primary);">Location</strong><br/>Johannesburg, South Africa</div>
+    <section id="quote-form" style="padding:var(--space-10) var(--space-4) var(--space-12);background:var(--color-grey-50);">
+      <div style="max-width:820px;margin:0 auto;">
+
+        <!-- Progress Indicator -->
+        <div id="progress-bar" style="margin-bottom:var(--space-6);">
+          <div style="display:flex;align-items:center;justify-content:center;gap:0;position:relative;padding:0 var(--space-4);">
+            <div style="position:absolute;top:20px;left:calc(10% + 20px);right:calc(10% + 20px);height:2px;background:var(--color-grey-200);z-index:0;"></div>
+            <div id="progress-line" style="position:absolute;top:20px;left:calc(10% + 20px);width:0%;height:2px;background:var(--color-accent);z-index:1;transition:width .4s ease;"></div>
+            <div style="display:flex;justify-content:space-between;width:100%;position:relative;z-index:2;">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;">
+                <div id="dot-1" style="width:40px;height:40px;border-radius:50%;background:var(--color-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.875rem;transition:all .3s;box-shadow:0 2px 8px rgba(255,107,53,.4);">1</div>
+                <span id="dot-label-1" style="font-size:.72rem;font-weight:600;color:var(--color-accent);text-align:center;line-height:1.2;">Business<br/>Type</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;">
+                <div id="dot-2" style="width:40px;height:40px;border-radius:50%;background:var(--color-grey-200);color:var(--color-grey-600);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.875rem;transition:all .3s;">2</div>
+                <span id="dot-label-2" style="font-size:.72rem;font-weight:500;color:var(--color-grey-600);text-align:center;line-height:1.2;">Services<br/>Needed</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;">
+                <div id="dot-3" style="width:40px;height:40px;border-radius:50%;background:var(--color-grey-200);color:var(--color-grey-600);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.875rem;transition:all .3s;">3</div>
+                <span id="dot-label-3" style="font-size:.72rem;font-weight:500;color:var(--color-grey-600);text-align:center;line-height:1.2;">Budget &amp;<br/>Timeline</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;">
+                <div id="dot-4" style="width:40px;height:40px;border-radius:50%;background:var(--color-grey-200);color:var(--color-grey-600);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.875rem;transition:all .3s;">4</div>
+                <span id="dot-label-4" style="font-size:.72rem;font-weight:500;color:var(--color-grey-600);text-align:center;line-height:1.2;">Project<br/>Details</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;">
+                <div id="dot-5" style="width:40px;height:40px;border-radius:50%;background:var(--color-grey-200);color:var(--color-grey-600);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.875rem;transition:all .3s;">5</div>
+                <span id="dot-label-5" style="font-size:.72rem;font-weight:500;color:var(--color-grey-600);text-align:center;line-height:1.2;">Review &amp;<br/>Submit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--color-white);border-radius:var(--radius-xl);box-shadow:var(--shadow-xl);overflow:hidden;">
+
+          <!-- STEP 1: Business Type -->
+          <div id="step-1" class="form-step">
+            <div style="padding:var(--space-5) var(--space-5) var(--space-3);">
+              <p style="font-size:.8rem;font-weight:600;color:var(--color-teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Step 1 of 5</p>
+              <h2 style="font-family:var(--font-heading);font-size:1.75rem;font-weight:800;color:var(--color-primary);margin-bottom:8px;">Who are you building for?</h2>
+              <p style="color:var(--color-grey-600);font-size:.95rem;">This helps us tailor our recommendation and pricing to your scale.</p>
+            </div>
+            <div style="padding:0 var(--space-5) var(--space-5);">
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:var(--space-2);" id="business-type-grid">
+
+                <button type="button" class="type-card" data-value="individual" onclick="selectBusinessType(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#128100;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">Individual / Freelancer</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">Personal projects, portfolios, or side businesses needing a professional digital presence.</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="type-card" data-value="startup" onclick="selectBusinessType(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#128640;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">Startup</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">Early-stage business under R1M revenue. Speed to market and lean budgets matter most.</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="type-card" data-value="sme" onclick="selectBusinessType(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#127970;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">SME (R1M&#8211;R10M)</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">Growing business needing robust systems, automation, and scalable digital infrastructure.</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="type-card" data-value="enterprise" onclick="selectBusinessType(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#127963;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">Enterprise (R10M+)</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">Large organisations requiring enterprise-grade architecture, integrations, and SLAs.</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="type-card" data-value="government" onclick="selectBusinessType(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#127970;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">Government / NGO</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">Public sector and non-profit entities with compliance, accessibility, and impact focus.</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+              </div>
+              <div id="error-step1" style="display:none;margin-top:var(--space-2);padding:12px 16px;background:#FFF5F0;border:1px solid #FFD0B5;border-radius:var(--radius-md);color:#C0410A;font-size:.875rem;font-weight:500;">&#9888; Please select your business type to continue.</div>
+            </div>
+            <div style="padding:var(--space-4) var(--space-5);border-top:1px solid var(--color-grey-100);display:flex;justify-content:flex-end;">
+              <button type="button" onclick="goToStep(2)" style="background:var(--color-accent);color:#fff;padding:14px 36px;border-radius:var(--radius-full);border:none;font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;">
+                Continue &#8594;
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Service Selection -->
+          <div id="step-2" class="form-step" style="display:none;">
+            <div style="padding:var(--space-5) var(--space-5) var(--space-3);">
+              <p style="font-size:.8rem;font-weight:600;color:var(--color-teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Step 2 of 5</p>
+              <h2 style="font-family:var(--font-heading);font-size:1.75rem;font-weight:800;color:var(--color-primary);margin-bottom:8px;">What do you need built?</h2>
+              <p style="color:var(--color-grey-600);font-size:.95rem;">Select all that apply &#8212; you can choose multiple services for a bundled quote.</p>
+            </div>
+            <div style="padding:0 var(--space-5) var(--space-5);">
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:var(--space-2);">
+
+                <button type="button" class="service-card" data-value="web" onclick="toggleService(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#127760;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">Web Development</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">Custom websites, landing pages, and web apps built for performance and conversions.</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="service-card" data-value="mobile" onclick="toggleService(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#128241;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">Mobile App</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">iOS and Android apps &#8212; from consumer-facing products to internal field tools.</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="service-card" data-value="ecommerce" onclick="toggleService(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#128722;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">E-Commerce Store</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">Online stores with local payment gateways (PayFast, Peach Payments, SnapScan).</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="service-card" data-value="erp" onclick="toggleService(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#9881;&#65039;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">Business System / ERP</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">Custom CRMs, ERPs, inventory, HR, and workflow automation tailored to your processes.</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="service-card" data-value="design" onclick="toggleService(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#127912;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">UI/UX Design</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">User research, wireframes, prototypes, and pixel-perfect design systems.</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="service-card" data-value="cloud" onclick="toggleService(this)"
+                  style="text-align:left;padding:var(--space-3);border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:2rem;margin-bottom:10px;">&#9729;&#65039;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-primary);margin-bottom:4px;">Cloud Infrastructure</div>
+                  <div style="font-size:.8rem;color:var(--color-grey-600);line-height:1.5;">AWS, GCP, Azure deployments, DevOps pipelines, and managed hosting solutions.</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:12px;right:12px;width:24px;height:24px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.75rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+              </div>
+              <div id="error-step2" style="display:none;margin-top:var(--space-2);padding:12px 16px;background:#FFF5F0;border:1px solid #FFD0B5;border-radius:var(--radius-md);color:#C0410A;font-size:.875rem;font-weight:500;">&#9888; Please select at least one service to continue.</div>
+            </div>
+            <div style="padding:var(--space-4) var(--space-5);border-top:1px solid var(--color-grey-100);display:flex;justify-content:space-between;align-items:center;">
+              <button type="button" onclick="goToStep(1)" style="background:none;border:2px solid var(--color-grey-200);color:var(--color-grey-600);padding:13px 28px;border-radius:var(--radius-full);font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;">
+                &#8592; Back
+              </button>
+              <button type="button" onclick="goToStep(3)" style="background:var(--color-accent);color:#fff;padding:14px 36px;border-radius:var(--radius-full);border:none;font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;">
+                Continue &#8594;
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Budget & Timeline -->
+          <div id="step-3" class="form-step" style="display:none;">
+            <div style="padding:var(--space-5) var(--space-5) var(--space-3);">
+              <p style="font-size:.8rem;font-weight:600;color:var(--color-teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Step 3 of 5</p>
+              <h2 style="font-family:var(--font-heading);font-size:1.75rem;font-weight:800;color:var(--color-primary);margin-bottom:8px;">Budget &amp; Timeline</h2>
+              <p style="color:var(--color-grey-600);font-size:.95rem;">Honest numbers help us propose the right solution &#8212; no judgement, all brackets are valid.</p>
+            </div>
+            <div style="padding:0 var(--space-5) var(--space-5);">
+              <h3 style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);font-size:1.1rem;margin-bottom:var(--space-2);">Investment Range (ZAR)</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:var(--space-1);">
+
+                <button type="button" class="budget-card" data-value="under15k" onclick="selectBudget(this)"
+                  style="text-align:left;padding:16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-family:var(--font-heading);font-weight:800;font-size:1rem;color:var(--color-primary);margin-bottom:3px;">Under R15,000</div>
+                  <div style="font-size:.78rem;color:var(--color-grey-600);">Landing pages, small sites</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:10px;right:10px;width:20px;height:20px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.65rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="budget-card" data-value="15k-50k" onclick="selectBudget(this)"
+                  style="text-align:left;padding:16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-family:var(--font-heading);font-weight:800;font-size:1rem;color:var(--color-primary);margin-bottom:3px;">R15,000&#8211;R50,000</div>
+                  <div style="font-size:.78rem;color:var(--color-grey-600);">Brochure sites, MVPs</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:10px;right:10px;width:20px;height:20px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.65rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="budget-card" data-value="50k-150k" onclick="selectBudget(this)"
+                  style="text-align:left;padding:16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-family:var(--font-heading);font-weight:800;font-size:1rem;color:var(--color-primary);margin-bottom:3px;">R50,000&#8211;R150,000</div>
+                  <div style="font-size:.78rem;color:var(--color-grey-600);">Full apps, e-commerce, ERP</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:10px;right:10px;width:20px;height:20px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.65rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="budget-card" data-value="150k-500k" onclick="selectBudget(this)"
+                  style="text-align:left;padding:16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-family:var(--font-heading);font-weight:800;font-size:1rem;color:var(--color-primary);margin-bottom:3px;">R150,000&#8211;R500,000</div>
+                  <div style="font-size:.78rem;color:var(--color-grey-600);">Enterprise systems</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:10px;right:10px;width:20px;height:20px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.65rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="budget-card" data-value="500k+" onclick="selectBudget(this)"
+                  style="text-align:left;padding:16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-family:var(--font-heading);font-weight:800;font-size:1rem;color:var(--color-primary);margin-bottom:3px;">R500,000+</div>
+                  <div style="font-size:.78rem;color:var(--color-grey-600);">Large-scale, multi-phase</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:10px;right:10px;width:20px;height:20px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.65rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+              </div>
+
+              <h3 style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);font-size:1.1rem;margin-top:var(--space-4);margin-bottom:var(--space-2);">Desired Timeline</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:var(--space-1);">
+
+                <button type="button" class="timeline-card" data-value="asap" onclick="selectTimeline(this)"
+                  style="text-align:left;padding:16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:1.4rem;margin-bottom:6px;">&#9889;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:.95rem;color:var(--color-primary);margin-bottom:3px;">ASAP (2&#8211;4 weeks)</div>
+                  <div style="font-size:.78rem;color:var(--color-grey-600);">Urgent, focused scope</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:10px;right:10px;width:20px;height:20px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.65rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="timeline-card" data-value="1-3months" onclick="selectTimeline(this)"
+                  style="text-align:left;padding:16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:1.4rem;margin-bottom:6px;">&#128197;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:.95rem;color:var(--color-primary);margin-bottom:3px;">1&#8211;3 Months</div>
+                  <div style="font-size:.78rem;color:var(--color-grey-600);">Standard project delivery</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:10px;right:10px;width:20px;height:20px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.65rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="timeline-card" data-value="3-6months" onclick="selectTimeline(this)"
+                  style="text-align:left;padding:16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:1.4rem;margin-bottom:6px;">&#128467;&#65039;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:.95rem;color:var(--color-primary);margin-bottom:3px;">3&#8211;6 Months</div>
+                  <div style="font-size:.78rem;color:var(--color-grey-600);">Complex iterative builds</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:10px;right:10px;width:20px;height:20px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.65rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+                <button type="button" class="timeline-card" data-value="6months+" onclick="selectTimeline(this)"
+                  style="text-align:left;padding:16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-lg);background:var(--color-white);cursor:pointer;transition:all .2s;position:relative;">
+                  <div style="font-size:1.4rem;margin-bottom:6px;">&#127959;&#65039;</div>
+                  <div style="font-family:var(--font-heading);font-weight:700;font-size:.95rem;color:var(--color-primary);margin-bottom:3px;">6+ Months</div>
+                  <div style="font-size:.78rem;color:var(--color-grey-600);">Long-term partnership</div>
+                  <div class="selected-check" style="display:none;position:absolute;top:10px;right:10px;width:20px;height:20px;background:var(--color-teal);border-radius:50%;color:#fff;font-size:.65rem;align-items:center;justify-content:center;font-weight:700;">&#10003;</div>
+                </button>
+
+              </div>
+
+              <!-- Indicative Quote -->
+              <div id="quote-estimate" style="display:none;margin-top:var(--space-4);padding:var(--space-3);background:linear-gradient(135deg,rgba(0,201,167,.08),rgba(0,201,167,.04));border:1px solid rgba(0,201,167,.25);border-radius:var(--radius-lg);">
+                <div style="display:flex;align-items:flex-start;gap:12px;">
+                  <div style="width:40px;height:40px;background:rgba(0,201,167,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;">&#128161;</div>
+                  <div>
+                    <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);margin-bottom:6px;font-size:1rem;">Indicative Estimate</p>
+                    <p id="quote-text" style="color:var(--color-grey-600);font-size:.9rem;line-height:1.6;margin:0;"></p>
+                    <p style="font-size:.78rem;color:var(--color-grey-600);margin-top:6px;margin-bottom:0;opacity:.8;">*Estimates are indicative. A detailed proposal will be provided after submission.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="error-step3" style="display:none;margin-top:var(--space-2);padding:12px 16px;background:#FFF5F0;border:1px solid #FFD0B5;border-radius:var(--radius-md);color:#C0410A;font-size:.875rem;font-weight:500;">&#9888; Please select both a budget range and a timeline to continue.</div>
+            </div>
+            <div style="padding:var(--space-4) var(--space-5);border-top:1px solid var(--color-grey-100);display:flex;justify-content:space-between;align-items:center;">
+              <button type="button" onclick="goToStep(2)" style="background:none;border:2px solid var(--color-grey-200);color:var(--color-grey-600);padding:13px 28px;border-radius:var(--radius-full);font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;">
+                &#8592; Back
+              </button>
+              <button type="button" onclick="goToStep(4)" style="background:var(--color-accent);color:#fff;padding:14px 36px;border-radius:var(--radius-full);border:none;font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;">
+                Continue &#8594;
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 4: Project Details -->
+          <div id="step-4" class="form-step" style="display:none;">
+            <div style="padding:var(--space-5) var(--space-5) var(--space-3);">
+              <p style="font-size:.8rem;font-weight:600;color:var(--color-teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Step 4 of 5</p>
+              <h2 style="font-family:var(--font-heading);font-size:1.75rem;font-weight:800;color:var(--color-primary);margin-bottom:8px;">Tell us about your project</h2>
+              <p style="color:var(--color-grey-600);font-size:.95rem;">A few details so we can assign the right specialist and prepare a meaningful proposal.</p>
+            </div>
+            <div style="padding:0 var(--space-5) var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);">
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2);">
+                <div>
+                  <label for="full-name" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.875rem;">Full Name <span style="color:var(--color-accent);">*</span></label>
+                  <input id="full-name" type="text" placeholder="Nhlovo Mathebula"
+                    style="width:100%;padding:13px 16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:.95rem;font-family:var(--font-body);transition:border-color .2s;box-sizing:border-box;outline:none;"
+                    onfocus="this.style.borderColor='var(--color-accent)'" onblur="this.style.borderColor='var(--color-grey-200)'" />
+                  <div id="err-name" style="display:none;font-size:.78rem;color:#C0410A;margin-top:4px;">Please enter your full name.</div>
+                </div>
+                <div id="business-name-wrap">
+                  <label for="business-name" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.875rem;">Business Name <span style="color:var(--color-accent);">*</span></label>
+                  <input id="business-name" type="text" placeholder="Acme Solutions (Pty) Ltd"
+                    style="width:100%;padding:13px 16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:.95rem;font-family:var(--font-body);transition:border-color .2s;box-sizing:border-box;outline:none;"
+                    onfocus="this.style.borderColor='var(--color-accent)'" onblur="this.style.borderColor='var(--color-grey-200)'" />
+                  <div id="err-business" style="display:none;font-size:.78rem;color:#C0410A;margin-top:4px;">Please enter your business name.</div>
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2);">
+                <div>
+                  <label for="email-addr" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.875rem;">Email Address <span style="color:var(--color-accent);">*</span></label>
+                  <input id="email-addr" type="email" placeholder="hello@company.co.za"
+                    style="width:100%;padding:13px 16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:.95rem;font-family:var(--font-body);transition:border-color .2s;box-sizing:border-box;outline:none;"
+                    onfocus="this.style.borderColor='var(--color-accent)'" onblur="this.style.borderColor='var(--color-grey-200)'" />
+                  <div id="err-email" style="display:none;font-size:.78rem;color:#C0410A;margin-top:4px;">Please enter a valid email address.</div>
+                </div>
+                <div>
+                  <label for="phone" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.875rem;">Phone <span style="font-weight:400;color:var(--color-grey-600);">(optional)</span></label>
+                  <input id="phone" type="tel" placeholder="0XX XXX XXXX"
+                    style="width:100%;padding:13px 16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:.95rem;font-family:var(--font-body);transition:border-color .2s;box-sizing:border-box;outline:none;"
+                    onfocus="this.style.borderColor='var(--color-accent)'" onblur="this.style.borderColor='var(--color-grey-200)'" />
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2);">
+                <div>
+                  <label for="city" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.875rem;">City</label>
+                  <select id="city" style="width:100%;padding:13px 16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:.95rem;font-family:var(--font-body);background:var(--color-white);box-sizing:border-box;outline:none;"
+                    onfocus="this.style.borderColor='var(--color-accent)'" onblur="this.style.borderColor='var(--color-grey-200)'">
+                    <option value="">Select city...</option>
+                    <option value="johannesburg">Johannesburg</option>
+                    <option value="cape-town">Cape Town</option>
+                    <option value="durban">Durban</option>
+                    <option value="pretoria">Pretoria</option>
+                    <option value="port-elizabeth">Gqeberha (Port Elizabeth)</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="referral" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.875rem;">How did you hear about us?</label>
+                  <select id="referral" style="width:100%;padding:13px 16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:.95rem;font-family:var(--font-body);background:var(--color-white);box-sizing:border-box;outline:none;"
+                    onfocus="this.style.borderColor='var(--color-accent)'" onblur="this.style.borderColor='var(--color-grey-200)'">
+                    <option value="">Select...</option>
+                    <option value="google">Google Search</option>
+                    <option value="social">Social Media</option>
+                    <option value="referral">Referral / Word of Mouth</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="description" style="display:block;font-weight:600;color:var(--color-primary);margin-bottom:6px;font-size:.875rem;">
+                  Project Description <span style="color:var(--color-accent);">*</span>
+                  <span id="char-count" style="font-weight:400;color:var(--color-grey-600);font-size:.78rem;margin-left:8px;">(0 / 50 min)</span>
+                </label>
+                <textarea id="description" rows="5"
+                  placeholder="Describe your project &#8212; what problem are you solving, who are your users, what features do you need, and any specific technologies or integrations required? The more detail you provide, the more accurate our proposal will be."
+                  style="width:100%;padding:13px 16px;border:2px solid var(--color-grey-200);border-radius:var(--radius-md);font-size:.95rem;font-family:var(--font-body);line-height:1.6;resize:vertical;box-sizing:border-box;outline:none;"
+                  onfocus="this.style.borderColor='var(--color-accent)'" onblur="this.style.borderColor='var(--color-grey-200)'"
+                  oninput="updateCharCount(this)"></textarea>
+                <div id="err-desc" style="display:none;font-size:.78rem;color:#C0410A;margin-top:4px;">Please describe your project (minimum 50 characters).</div>
+              </div>
+
+            </div>
+            <div style="padding:var(--space-4) var(--space-5);border-top:1px solid var(--color-grey-100);display:flex;justify-content:space-between;align-items:center;">
+              <button type="button" onclick="goToStep(3)" style="background:none;border:2px solid var(--color-grey-200);color:var(--color-grey-600);padding:13px 28px;border-radius:var(--radius-full);font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;">
+                &#8592; Back
+              </button>
+              <button type="button" onclick="goToStep(5)" style="background:var(--color-accent);color:#fff;padding:14px 36px;border-radius:var(--radius-full);border:none;font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;">
+                Review Quote &#8594;
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 5: Summary & Submit -->
+          <div id="step-5" class="form-step" style="display:none;">
+            <div style="padding:var(--space-5) var(--space-5) var(--space-3);">
+              <p style="font-size:.8rem;font-weight:600;color:var(--color-teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Step 5 of 5</p>
+              <h2 style="font-family:var(--font-heading);font-size:1.75rem;font-weight:800;color:var(--color-primary);margin-bottom:8px;">Your Quote Summary</h2>
+              <p style="color:var(--color-grey-600);font-size:.95rem;">Review your selections before we prepare your personalised proposal.</p>
+            </div>
+            <div style="padding:0 var(--space-5) var(--space-5);">
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2);margin-bottom:var(--space-4);" id="summary-grid">
+                <div style="background:var(--color-grey-50);padding:var(--space-3);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);">
+                  <p style="font-size:.75rem;text-transform:uppercase;letter-spacing:.8px;color:var(--color-grey-600);font-weight:600;margin-bottom:6px;">Business Type</p>
+                  <p id="sum-type" style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);font-size:.95rem;margin:0;">&#8212;</p>
+                </div>
+                <div style="background:var(--color-grey-50);padding:var(--space-3);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);">
+                  <p style="font-size:.75rem;text-transform:uppercase;letter-spacing:.8px;color:var(--color-grey-600);font-weight:600;margin-bottom:6px;">Services Selected</p>
+                  <p id="sum-services" style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);font-size:.9rem;margin:0;line-height:1.5;">&#8212;</p>
+                </div>
+                <div style="background:var(--color-grey-50);padding:var(--space-3);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);">
+                  <p style="font-size:.75rem;text-transform:uppercase;letter-spacing:.8px;color:var(--color-grey-600);font-weight:600;margin-bottom:6px;">Investment Range</p>
+                  <p id="sum-budget" style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);font-size:.95rem;margin:0;">&#8212;</p>
+                </div>
+                <div style="background:var(--color-grey-50);padding:var(--space-3);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);">
+                  <p style="font-size:.75rem;text-transform:uppercase;letter-spacing:.8px;color:var(--color-grey-600);font-weight:600;margin-bottom:6px;">Timeline</p>
+                  <p id="sum-timeline" style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);font-size:.95rem;margin:0;">&#8212;</p>
+                </div>
+                <div style="background:var(--color-grey-50);padding:var(--space-3);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);">
+                  <p style="font-size:.75rem;text-transform:uppercase;letter-spacing:.8px;color:var(--color-grey-600);font-weight:600;margin-bottom:6px;">Contact</p>
+                  <p id="sum-contact" style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);font-size:.85rem;margin:0;white-space:pre-line;line-height:1.5;">&#8212;</p>
+                </div>
+                <div style="background:var(--color-grey-50);padding:var(--space-3);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);">
+                  <p style="font-size:.75rem;text-transform:uppercase;letter-spacing:.8px;color:var(--color-grey-600);font-weight:600;margin-bottom:6px;">Location</p>
+                  <p id="sum-city" style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);font-size:.95rem;margin:0;">&#8212;</p>
+                </div>
+              </div>
+
+              <div style="margin-bottom:var(--space-4);padding:var(--space-3);background:linear-gradient(135deg,rgba(255,107,53,.08),rgba(255,107,53,.04));border:1px solid rgba(255,107,53,.2);border-radius:var(--radius-lg);">
+                <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);margin-bottom:6px;font-size:1rem;">&#128202; Indicative Quote</p>
+                <p id="sum-estimate-text" style="color:var(--color-grey-600);font-size:.9rem;line-height:1.6;margin:0;"></p>
+              </div>
+
+              <div style="background:var(--color-grey-50);padding:var(--space-3);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);margin-bottom:var(--space-4);">
+                <p style="font-size:.75rem;text-transform:uppercase;letter-spacing:.8px;color:var(--color-grey-600);font-weight:600;margin-bottom:8px;">Project Description</p>
+                <p id="sum-desc" style="color:var(--color-primary);font-size:.9rem;line-height:1.6;margin:0;">&#8212;</p>
+              </div>
+
+              <p style="font-size:.8rem;color:var(--color-grey-600);line-height:1.6;margin-bottom:var(--space-3);">
+                By submitting this form you agree to our
+                <a href={`${base}legal/privacy/`} style="color:var(--color-accent);text-decoration:none;" target="_blank">Privacy Policy</a>
+                and <a href={`${base}legal/popia/`} style="color:var(--color-accent);text-decoration:none;" target="_blank">POPIA Compliance Notice</a>.
+                We will never sell or share your information.
+              </p>
+
+              <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
+                <button type="button" id="submit-btn" onclick="submitQuote()"
+                  style="flex:1;min-width:200px;background:var(--color-accent);color:#fff;padding:16px 28px;border-radius:var(--radius-full);border:none;font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+                  Submit Quote Request &#128640;
+                </button>
+                <a id="wa-prefill-btn" href="#" target="_blank" rel="noopener noreferrer"
+                  style="flex:1;min-width:200px;background:#25D366;color:#fff;padding:15px 24px;border-radius:var(--radius-full);font-size:.95rem;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.528 5.857L.057 23.571l5.887-1.544A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.782 9.782 0 01-5.031-1.391l-.36-.214-3.734.979.996-3.648-.235-.374A9.79 9.79 0 012.18 12C2.18 6.58 6.58 2.18 12 2.18S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+                  Prefer to chat? WhatsApp
+                </a>
+              </div>
+
+            </div>
+            <div style="padding:var(--space-4) var(--space-5);border-top:1px solid var(--color-grey-100);display:flex;justify-content:flex-start;">
+              <button type="button" onclick="goToStep(4)" style="background:none;border:2px solid var(--color-grey-200);color:var(--color-grey-600);padding:13px 28px;border-radius:var(--radius-full);font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;">
+                &#8592; Edit Details
+              </button>
+            </div>
+          </div>
+
+          <!-- SUCCESS STATE -->
+          <div id="step-success" class="form-step" style="display:none;text-align:center;padding:var(--space-8) var(--space-5);">
+            <div style="width:80px;height:80px;background:linear-gradient(135deg,var(--color-teal),#00a88b);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4);box-shadow:0 8px 24px rgba(0,201,167,.3);">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">Thank you, <span id="success-name">there</span>! &#127881;</h2>
+            <p style="color:var(--color-grey-600);font-size:1.05rem;line-height:1.7;max-width:520px;margin:0 auto var(--space-5);">We&#39;ve received your quote request. A member of our team will be in touch with a personalised proposal <strong style="color:var(--color-primary);">within 24 business hours</strong>.</p>
+
+            <div style="background:var(--color-grey-50);border-radius:var(--radius-lg);padding:var(--space-4);margin-bottom:var(--space-5);text-align:left;max-width:480px;margin-left:auto;margin-right:auto;">
+              <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);margin-bottom:var(--space-2);font-size:1rem;">&#128203; What happens next?</p>
+              <div style="display:flex;flex-direction:column;gap:12px;">
+                <div style="display:flex;align-items:flex-start;gap:12px;">
+                  <div style="width:28px;height:28px;background:var(--color-accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;">1</div>
+                  <p style="margin:0;font-size:.9rem;color:var(--color-grey-600);padding-top:4px;">Our solutions architect reviews your requirements and prepares a detailed scope of work.</p>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:12px;">
+                  <div style="width:28px;height:28px;background:var(--color-accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;">2</div>
+                  <p style="margin:0;font-size:.9rem;color:var(--color-grey-600);padding-top:4px;">You receive a transparent, itemised proposal with clear ZAR pricing and milestone breakdown.</p>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:12px;">
+                  <div style="width:28px;height:28px;background:var(--color-accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;">3</div>
+                  <p style="margin:0;font-size:.9rem;color:var(--color-grey-600);padding-top:4px;">We schedule a free 30-minute discovery call to answer questions before you commit.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;justify-content:center;">
+              <a href={`${base}work/`} style="background:var(--color-primary);color:#fff;padding:14px 32px;border-radius:var(--radius-full);font-weight:700;font-size:.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+                View Case Studies &#8594;
+              </a>
+              <a id="success-wa-btn" href="https://wa.me/27600000000" target="_blank" rel="noopener noreferrer"
+                style="background:#25D366;color:#fff;padding:14px 32px;border-radius:var(--radius-full);font-weight:700;font-size:.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.528 5.857L.057 23.571l5.887-1.544A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.782 9.782 0 01-5.031-1.391l-.36-.214-3.734.979.996-3.648-.235-.374A9.79 9.79 0 012.18 12C2.18 6.58 6.58 2.18 12 2.18S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+
+        </div><!-- /form card -->
       </div>
     </section>
+
+    <!-- DIRECT CONTACT SECTION -->
+    <section style="padding:var(--space-10) var(--space-4);background:var(--color-white);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <div style="text-align:center;margin-bottom:var(--space-6);">
+          <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);margin-bottom:12px;">Prefer to reach us directly?</h2>
+          <p style="color:var(--color-grey-600);font-size:1rem;">Our team is available during business hours. Based in Johannesburg, serving clients across all nine provinces.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--space-3);">
+          <div style="background:var(--color-grey-50);padding:var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);text-align:center;">
+            <div style="width:52px;height:52px;background:rgba(255,107,53,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-2);font-size:1.4rem;">&#9993;&#65039;</div>
+            <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);margin-bottom:6px;font-size:.95rem;">Email Us</p>
+            <a href="mailto:hello@mapengoinnovations.co.za" style="color:var(--color-accent);text-decoration:none;font-size:.85rem;font-weight:500;">hello@mapengoinnovations.co.za</a>
+          </div>
+          <div style="background:var(--color-grey-50);padding:var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);text-align:center;">
+            <div style="width:52px;height:52px;background:rgba(37,211,102,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-2);font-size:1.4rem;">&#128172;</div>
+            <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);margin-bottom:6px;font-size:.95rem;">WhatsApp</p>
+            <a href="https://wa.me/27600000000?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote." target="_blank" rel="noopener noreferrer" style="color:#25D366;text-decoration:none;font-size:.85rem;font-weight:500;">+27 60 000 0000</a>
+          </div>
+          <div style="background:var(--color-grey-50);padding:var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);text-align:center;">
+            <div style="width:52px;height:52px;background:rgba(10,22,40,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-2);font-size:1.4rem;">&#128205;</div>
+            <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);margin-bottom:6px;font-size:.95rem;">Location</p>
+            <p style="color:var(--color-grey-600);font-size:.85rem;line-height:1.5;margin:0;">Johannesburg, Gauteng<br/>Serving all SA provinces</p>
+          </div>
+          <div style="background:var(--color-grey-50);padding:var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--color-grey-100);text-align:center;">
+            <div style="width:52px;height:52px;background:rgba(0,201,167,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-2);font-size:1.4rem;">&#128336;</div>
+            <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);margin-bottom:6px;font-size:.95rem;">Business Hours</p>
+            <p style="color:var(--color-grey-600);font-size:.85rem;line-height:1.5;margin:0;">Mon&#8211;Fri, 08:00&#8211;18:00 SAST<br/><span style="font-size:.78rem;">Weekends by arrangement</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST SECTION -->
+    <section style="padding:var(--space-10) var(--space-4);background:var(--color-primary);color:var(--color-white);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <div style="text-align:center;margin-bottom:var(--space-6);">
+          <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;margin-bottom:12px;">Why clients choose Mapengo</h2>
+          <p style="opacity:.75;font-size:1rem;max-width:520px;margin:0 auto;">Over 50 South African businesses trust us to deliver on time, within scope, and with full pricing transparency.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-4);">
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:var(--space-4);">
+            <div style="font-size:2rem;margin-bottom:12px;">&#127919;</div>
+            <h3 style="font-family:var(--font-heading);font-weight:700;font-size:1.15rem;margin-bottom:8px;">Fixed-Price Contracts</h3>
+            <p style="opacity:.75;font-size:.9rem;line-height:1.6;margin:0;">No surprise invoices. We scope projects meticulously upfront and honour our quoted price &#8212; even if scope refinements occur during discovery.</p>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:var(--space-4);">
+            <div style="font-size:2rem;margin-bottom:12px;">&#127480;&#127462;</div>
+            <h3 style="font-family:var(--font-heading);font-weight:700;font-size:1.15rem;margin-bottom:8px;">100% South African Team</h3>
+            <p style="opacity:.75;font-size:.9rem;line-height:1.6;margin:0;">Our entire development, design, and project management team is based in South Africa &#8212; same time zone, same context, same commitment.</p>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:var(--space-4);">
+            <div style="font-size:2rem;margin-bottom:12px;">&#128274;</div>
+            <h3 style="font-family:var(--font-heading);font-weight:700;font-size:1.15rem;margin-bottom:8px;">POPIA Compliant &amp; Secure</h3>
+            <p style="opacity:.75;font-size:.9rem;line-height:1.6;margin:0;">We process all client data in compliance with the Protection of Personal Information Act (POPIA). Your project details remain strictly confidential.</p>
+          </div>
+        </div>
+        <div style="margin-top:var(--space-5);padding:var(--space-3) var(--space-4);background:rgba(0,201,167,.1);border:1px solid rgba(0,201,167,.2);border-radius:var(--radius-lg);display:flex;align-items:flex-start;gap:16px;max-width:680px;margin-left:auto;margin-right:auto;">
+          <span style="font-size:1.5rem;flex-shrink:0;">&#128737;&#65039;</span>
+          <p style="font-size:.85rem;opacity:.9;line-height:1.6;margin:0;"><strong>POPIA Notice:</strong> By submitting this form, you consent to Mapengo Innovations (Pty) Ltd processing your personal information for the purpose of providing a project quote, in accordance with the Protection of Personal Information Act 4 of 2013. You may withdraw consent at any time by emailing hello@mapengoinnovations.co.za.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
-    <p>&copy; {new Date().getFullYear()} Mapengo Innovations — <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Privacy</a> · <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Terms</a></p>
+  <footer style="background:var(--color-grey-800);color:rgba(255,255,255,.65);padding:var(--space-8) var(--space-4) var(--space-4);">
+    <div style="max-width:var(--max-width);margin:0 auto;">
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-6);">
+        <div>
+          <a href={base} style="font-family:var(--font-heading);font-size:1.6rem;font-weight:800;color:#fff;text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+          <p style="margin-top:var(--space-2);font-size:.875rem;line-height:1.7;max-width:260px;">South Africa&#39;s trusted software partner. We build digital products that drive real business outcomes.</p>
+          <p style="margin-top:12px;font-size:.8rem;color:rgba(255,255,255,.4);">Johannesburg &#183; Gauteng &#183; South Africa</p>
+        </div>
+        <div>
+          <p style="font-family:var(--font-heading);font-weight:700;color:#fff;font-size:.9rem;margin-bottom:var(--space-2);">Services</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:.85rem;">
+            <li><a href={`${base}services/`} style="color:rgba(255,255,255,.65);text-decoration:none;">Web Development</a></li>
+            <li><a href={`${base}services/`} style="color:rgba(255,255,255,.65);text-decoration:none;">Mobile Apps</a></li>
+            <li><a href={`${base}services/`} style="color:rgba(255,255,255,.65);text-decoration:none;">E-Commerce</a></li>
+            <li><a href={`${base}services/`} style="color:rgba(255,255,255,.65);text-decoration:none;">Cloud &amp; DevOps</a></li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-family:var(--font-heading);font-weight:700;color:#fff;font-size:.9rem;margin-bottom:var(--space-2);">Company</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:.85rem;">
+            <li><a href={`${base}about/`} style="color:rgba(255,255,255,.65);text-decoration:none;">About Us</a></li>
+            <li><a href={`${base}work/`} style="color:rgba(255,255,255,.65);text-decoration:none;">Case Studies</a></li>
+            <li><a href={`${base}blog/`} style="color:rgba(255,255,255,.65);text-decoration:none;">Blog</a></li>
+            <li><a href={`${base}pricing/`} style="color:rgba(255,255,255,.65);text-decoration:none;">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-family:var(--font-heading);font-weight:700;color:#fff;font-size:.9rem;margin-bottom:var(--space-2);">Legal</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:.85rem;">
+            <li><a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.65);text-decoration:none;">Privacy Policy</a></li>
+            <li><a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.65);text-decoration:none;">Terms of Service</a></li>
+            <li><a href={`${base}legal/popia/`} style="color:rgba(255,255,255,.65);text-decoration:none;">POPIA Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:var(--space-3);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);font-size:.8rem;">
+        <p style="margin:0;">&copy; {new Date().getFullYear()} Mapengo Innovations (Pty) Ltd. All rights reserved.</p>
+        <p style="margin:0;opacity:.5;">Registered in South Africa &#183; POPIA Compliant</p>
+      </div>
+    </div>
   </footer>
+
+  <style>
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .6; transform: scale(1.3); }
+    }
+    @media (max-width: 640px) {
+      #summary-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
+  <script is:inline>
+  (function () {
+    'use strict';
+
+    var MIN_DESC_CHARS = 50;
+
+    var state = {
+      step: 1,
+      businessType: null,
+      services: [],
+      budget: null,
+      timeline: null,
+      fullName: '',
+      businessName: '',
+      email: '',
+      phone: '',
+      city: '',
+      referral: '',
+      description: ''
+    };
+
+    var typeLabels = {
+      individual: 'Individual / Freelancer',
+      startup: 'Startup (< R1M)',
+      sme: 'SME (R1M–R10M)',
+      enterprise: 'Enterprise (R10M+)',
+      government: 'Government / NGO'
+    };
+    var serviceLabels = {
+      web: 'Web Development',
+      mobile: 'Mobile App',
+      ecommerce: 'E-Commerce Store',
+      erp: 'Business System / ERP',
+      design: 'UI/UX Design',
+      cloud: 'Cloud Infrastructure'
+    };
+    var budgetLabels = {
+      'under15k': 'Under R15,000',
+      '15k-50k': 'R15,000–R50,000',
+      '50k-150k': 'R50,000–R150,000',
+      '150k-500k': 'R150,000–R500,000',
+      '500k+': 'R500,000+'
+    };
+    var timelineLabels = {
+      asap: 'ASAP (2–4 weeks)',
+      '1-3months': '1–3 Months',
+      '3-6months': '3–6 Months',
+      '6months+': '6+ Months'
+    };
+    var cityLabels = {
+      johannesburg: 'Johannesburg',
+      'cape-town': 'Cape Town',
+      durban: 'Durban',
+      pretoria: 'Pretoria',
+      'port-elizabeth': 'Gqeberha (Port Elizabeth)',
+      other: 'Other'
+    };
+
+    var estimates = {
+      'under15k': { min: 8000, max: 15000, weeks: '2–4' },
+      '15k-50k': { min: 15000, max: 50000, weeks: '4–10' },
+      '50k-150k': { min: 50000, max: 150000, weeks: '8–16' },
+      '150k-500k': { min: 150000, max: 500000, weeks: '16–32' },
+      '500k+': { min: 500000, max: null, weeks: '32+' }
+    };
+    var serviceComplexity = { web: 1, design: 1.1, ecommerce: 1.3, mobile: 1.4, erp: 1.6, cloud: 1.2 };
+
+    function formatZAR(n) {
+      return 'R' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    function computeQuote() {
+      if (!state.budget || state.services.length === 0) return null;
+      var e = estimates[state.budget];
+      var complexity = state.services.reduce(function(acc, s) {
+        return acc + (serviceComplexity[s] || 1);
+      }, 0) / state.services.length;
+      var minVal = Math.round((e.min * complexity) / 1000) * 1000;
+      var maxVal = e.max ? Math.round((e.max * complexity) / 1000) * 1000 : null;
+      var serviceStr = state.services.map(function(s) { return serviceLabels[s]; }).join(', ');
+      var rangeStr = maxVal ? (formatZAR(minVal) + '–' + formatZAR(maxVal)) : (formatZAR(minVal) + '+');
+      return 'Based on ' + serviceStr + ' with a ' + (budgetLabels[state.budget] || '') + ' investment bracket, expect an investment of approximately ' + rangeStr + ' and a delivery timeline of ' + e.weeks + ' weeks. This is a preliminary estimate — your formal proposal will include a full itemised breakdown.';
+    }
+
+    function updateProgress(step) {
+      var totalSteps = 5;
+      var pct = step <= totalSteps ? ((step - 1) / (totalSteps - 1)) * 100 : 100;
+      var line = document.getElementById('progress-line');
+      if (line) line.style.width = pct + '%';
+      for (var i = 1; i <= totalSteps; i++) {
+        var dot = document.getElementById('dot-' + i);
+        var lbl = document.getElementById('dot-label-' + i);
+        if (!dot) continue;
+        if (i < step) {
+          dot.style.background = 'var(--color-teal)';
+          dot.style.color = '#fff';
+          dot.style.boxShadow = '0 2px 8px rgba(0,201,167,.35)';
+          dot.innerHTML = '&#10003;';
+          if (lbl) { lbl.style.color = 'var(--color-teal)'; lbl.style.fontWeight = '600'; }
+        } else if (i === step) {
+          dot.style.background = 'var(--color-accent)';
+          dot.style.color = '#fff';
+          dot.style.boxShadow = '0 2px 8px rgba(255,107,53,.4)';
+          dot.innerHTML = String(i);
+          if (lbl) { lbl.style.color = 'var(--color-accent)'; lbl.style.fontWeight = '700'; }
+        } else {
+          dot.style.background = 'var(--color-grey-200)';
+          dot.style.color = 'var(--color-grey-600)';
+          dot.style.boxShadow = 'none';
+          dot.innerHTML = String(i);
+          if (lbl) { lbl.style.color = 'var(--color-grey-600)'; lbl.style.fontWeight = '500'; }
+        }
+      }
+    }
+
+    window.goToStep = function(target) {
+      if (target > state.step) {
+        if (!validateStep(state.step)) return;
+      }
+      document.querySelectorAll('.form-step').forEach(function(el) { el.style.display = 'none'; });
+      if (target === 5) populateSummary();
+      var stepEl = document.getElementById('step-' + target);
+      if (stepEl) stepEl.style.display = 'block';
+      state.step = target;
+      updateProgress(target);
+      var formEl = document.getElementById('quote-form');
+      if (formEl) formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    function validateStep(step) {
+      if (step === 1) {
+        var err = document.getElementById('error-step1');
+        if (!state.businessType) { if (err) err.style.display = 'block'; return false; }
+        if (err) err.style.display = 'none';
+      }
+      if (step === 2) {
+        var err2 = document.getElementById('error-step2');
+        if (state.services.length === 0) { if (err2) err2.style.display = 'block'; return false; }
+        if (err2) err2.style.display = 'none';
+      }
+      if (step === 3) {
+        var err3 = document.getElementById('error-step3');
+        if (!state.budget || !state.timeline) { if (err3) err3.style.display = 'block'; return false; }
+        if (err3) err3.style.display = 'none';
+      }
+      if (step === 4) {
+        var valid = true;
+        var nameEl = document.getElementById('full-name');
+        var bizEl = document.getElementById('business-name');
+        var emailEl = document.getElementById('email-addr');
+        var descEl = document.getElementById('description');
+        var errName = document.getElementById('err-name');
+        var errBiz = document.getElementById('err-business');
+        var errEmail = document.getElementById('err-email');
+        var errDesc = document.getElementById('err-desc');
+
+        state.fullName = nameEl ? nameEl.value.trim() : '';
+        state.businessName = bizEl ? bizEl.value.trim() : '';
+        state.email = emailEl ? emailEl.value.trim() : '';
+        state.phone = ((document.getElementById('phone') || {}).value || '').trim();
+        state.city = (document.getElementById('city') || {}).value || '';
+        state.referral = (document.getElementById('referral') || {}).value || '';
+        state.description = descEl ? descEl.value.trim() : '';
+
+        if (!state.fullName) {
+          if (errName) errName.style.display = 'block';
+          if (nameEl) nameEl.style.borderColor = '#C0410A';
+          valid = false;
+        } else {
+          if (errName) errName.style.display = 'none';
+          if (nameEl) nameEl.style.borderColor = 'var(--color-grey-200)';
+        }
+        var needsBiz = state.businessType !== 'individual';
+        if (needsBiz && !state.businessName) {
+          if (errBiz) errBiz.style.display = 'block';
+          if (bizEl) bizEl.style.borderColor = '#C0410A';
+          valid = false;
+        } else {
+          if (errBiz) errBiz.style.display = 'none';
+          if (bizEl) bizEl.style.borderColor = 'var(--color-grey-200)';
+        }
+        var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRe.test(state.email)) {
+          if (errEmail) errEmail.style.display = 'block';
+          if (emailEl) emailEl.style.borderColor = '#C0410A';
+          valid = false;
+        } else {
+          if (errEmail) errEmail.style.display = 'none';
+          if (emailEl) emailEl.style.borderColor = 'var(--color-grey-200)';
+        }
+        if (state.description.length < MIN_DESC_CHARS) {
+          if (errDesc) errDesc.style.display = 'block';
+          if (descEl) descEl.style.borderColor = '#C0410A';
+          valid = false;
+        } else {
+          if (errDesc) errDesc.style.display = 'none';
+          if (descEl) descEl.style.borderColor = 'var(--color-grey-200)';
+        }
+        return valid;
+      }
+      return true;
+    }
+
+    window.selectBusinessType = function(btn) {
+      state.businessType = btn.getAttribute('data-value');
+      try { localStorage.setItem('mi_user_type', state.businessType); } catch(e) {}
+      document.querySelectorAll('.type-card').forEach(function(c) {
+        c.style.borderColor = 'var(--color-grey-200)';
+        c.style.background = 'var(--color-white)';
+        c.style.transform = 'none';
+        var chk = c.querySelector('.selected-check');
+        if (chk) chk.style.display = 'none';
+      });
+      btn.style.borderColor = 'var(--color-accent)';
+      btn.style.background = '#FFF8F5';
+      btn.style.transform = 'translateY(-2px)';
+      var chk = btn.querySelector('.selected-check');
+      if (chk) chk.style.display = 'flex';
+      var bizWrap = document.getElementById('business-name-wrap');
+      if (bizWrap) {
+        var lbl = bizWrap.querySelector('label');
+        if (lbl) {
+          if (state.businessType === 'individual') {
+            lbl.innerHTML = 'Business / Project Name <span style="font-weight:400;color:var(--color-grey-600);">(optional)</span>';
+          } else {
+            lbl.innerHTML = 'Business Name <span style="color:var(--color-accent);">*</span>';
+          }
+        }
+      }
+      var errStep1 = document.getElementById('error-step1');
+      if (errStep1) errStep1.style.display = 'none';
+    };
+
+    window.toggleService = function(btn) {
+      var val = btn.getAttribute('data-value');
+      var idx = state.services.indexOf(val);
+      if (idx === -1) {
+        state.services.push(val);
+        btn.style.borderColor = 'var(--color-teal)';
+        btn.style.background = '#F0FDFB';
+        btn.style.transform = 'translateY(-2px)';
+        var chk = btn.querySelector('.selected-check');
+        if (chk) chk.style.display = 'flex';
+      } else {
+        state.services.splice(idx, 1);
+        btn.style.borderColor = 'var(--color-grey-200)';
+        btn.style.background = 'var(--color-white)';
+        btn.style.transform = 'none';
+        var chk2 = btn.querySelector('.selected-check');
+        if (chk2) chk2.style.display = 'none';
+      }
+      var err2 = document.getElementById('error-step2');
+      if (state.services.length > 0 && err2) err2.style.display = 'none';
+      if (state.budget) updateQuoteEstimate();
+    };
+
+    window.selectBudget = function(btn) {
+      state.budget = btn.getAttribute('data-value');
+      document.querySelectorAll('.budget-card').forEach(function(c) {
+        c.style.borderColor = 'var(--color-grey-200)';
+        c.style.background = 'var(--color-white)';
+        var chk = c.querySelector('.selected-check');
+        if (chk) chk.style.display = 'none';
+      });
+      btn.style.borderColor = 'var(--color-accent)';
+      btn.style.background = '#FFF8F5';
+      var chk = btn.querySelector('.selected-check');
+      if (chk) chk.style.display = 'flex';
+      updateQuoteEstimate();
+      var err3 = document.getElementById('error-step3');
+      if (state.timeline && err3) err3.style.display = 'none';
+    };
+
+    window.selectTimeline = function(btn) {
+      state.timeline = btn.getAttribute('data-value');
+      document.querySelectorAll('.timeline-card').forEach(function(c) {
+        c.style.borderColor = 'var(--color-grey-200)';
+        c.style.background = 'var(--color-white)';
+        var chk = c.querySelector('.selected-check');
+        if (chk) chk.style.display = 'none';
+      });
+      btn.style.borderColor = 'var(--color-primary)';
+      btn.style.background = '#F3F5F8';
+      var chk = btn.querySelector('.selected-check');
+      if (chk) chk.style.display = 'flex';
+      var err3 = document.getElementById('error-step3');
+      if (state.budget && err3) err3.style.display = 'none';
+    };
+
+    function updateQuoteEstimate() {
+      var q = computeQuote();
+      var box = document.getElementById('quote-estimate');
+      var txt = document.getElementById('quote-text');
+      if (!box || !txt) return;
+      if (q) { txt.textContent = q; box.style.display = 'block'; }
+      else { box.style.display = 'none'; }
+    }
+
+    window.updateCharCount = function(el) {
+      var count = el.value.length;
+      var span = document.getElementById('char-count');
+      if (!span) return;
+      if (count >= MIN_DESC_CHARS) {
+        span.textContent = '(' + count + ' chars ✓)';
+        span.style.color = 'var(--color-teal)';
+        var errDesc = document.getElementById('err-desc');
+        if (errDesc) errDesc.style.display = 'none';
+        el.style.borderColor = 'var(--color-grey-200)';
+      } else {
+        span.textContent = '(' + count + ' / ' + MIN_DESC_CHARS + ' min)';
+        span.style.color = 'var(--color-grey-600)';
+      }
+    };
+
+    function populateSummary() {
+      state.fullName = ((document.getElementById('full-name') || {}).value || state.fullName || '').trim();
+      state.businessName = ((document.getElementById('business-name') || {}).value || state.businessName || '').trim();
+      state.email = ((document.getElementById('email-addr') || {}).value || state.email || '').trim();
+      state.phone = ((document.getElementById('phone') || {}).value || '').trim();
+      state.city = (document.getElementById('city') || {}).value || '';
+      state.referral = (document.getElementById('referral') || {}).value || '';
+      state.description = ((document.getElementById('description') || {}).value || state.description || '').trim();
+
+      setText('sum-type', typeLabels[state.businessType] || '—');
+      setText('sum-services', state.services.map(function(s) { return serviceLabels[s]; }).join(', ') || '—');
+      setText('sum-budget', budgetLabels[state.budget] || '—');
+      setText('sum-timeline', timelineLabels[state.timeline] || '—');
+      var contactStr = state.fullName + (state.businessName ? ' · ' + state.businessName : '') + '\n' + state.email + (state.phone ? ' · ' + state.phone : '');
+      setText('sum-contact', contactStr);
+      setText('sum-city', cityLabels[state.city] || state.city || '—');
+      setText('sum-desc', state.description || '—');
+      var q = computeQuote();
+      setText('sum-estimate-text', q || 'Complete budget and service selections to see an estimate.');
+      buildWhatsAppLink();
+    }
+
+    function setText(id, val) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = val;
+    }
+
+    function buildWhatsAppLink() {
+      var msg = 'Hi Mapengo Innovations! I\'d like to request a quote.\n\n' +
+        '*Business Type:* ' + (typeLabels[state.businessType] || 'N/A') + '\n' +
+        '*Services:* ' + (state.services.map(function(s) { return serviceLabels[s]; }).join(', ') || 'N/A') + '\n' +
+        '*Budget:* ' + (budgetLabels[state.budget] || 'N/A') + '\n' +
+        '*Timeline:* ' + (timelineLabels[state.timeline] || 'N/A') + '\n' +
+        '*Name:* ' + (state.fullName || 'N/A') + '\n' +
+        '*Business:* ' + (state.businessName || 'N/A') + '\n' +
+        '*Email:* ' + (state.email || 'N/A') + '\n' +
+        '*Description:* ' + (state.description ? state.description.substring(0, 200) : 'N/A');
+      var waUrl = 'https://wa.me/27600000000?text=' + encodeURIComponent(msg);
+      var waBtn = document.getElementById('wa-prefill-btn');
+      if (waBtn) waBtn.href = waUrl;
+      var successWaBtn = document.getElementById('success-wa-btn');
+      if (successWaBtn) successWaBtn.href = waUrl;
+    }
+
+    window.submitQuote = function() {
+      var btn = document.getElementById('submit-btn');
+      if (btn) { btn.disabled = true; btn.style.opacity = '.7'; btn.textContent = 'Submitting…'; }
+      try {
+        var submission = {
+          timestamp: new Date().toISOString(),
+          businessType: state.businessType,
+          services: state.services,
+          budget: state.budget,
+          timeline: state.timeline,
+          fullName: state.fullName,
+          businessName: state.businessName,
+          email: state.email,
+          city: state.city,
+          referral: state.referral
+        };
+        var history = JSON.parse(localStorage.getItem('mi_quote_history') || '[]');
+        history.push(submission);
+        localStorage.setItem('mi_quote_history', JSON.stringify(history.slice(-10)));
+      } catch(e) {}
+      setTimeout(function() {
+        document.querySelectorAll('.form-step').forEach(function(el) { el.style.display = 'none'; });
+        var successEl = document.getElementById('step-success');
+        if (successEl) successEl.style.display = 'block';
+        var nameSpan = document.getElementById('success-name');
+        var firstName = (state.fullName || '').split(' ')[0];
+        if (nameSpan && firstName) nameSpan.textContent = firstName;
+        buildWhatsAppLink();
+        updateProgress(6);
+        var pb = document.getElementById('progress-bar');
+        if (pb) pb.style.opacity = '.4';
+        var formEl = document.getElementById('quote-form');
+        if (formEl) formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 900);
+    };
+
+    // Restore saved business type
+    try {
+      var savedType = localStorage.getItem('mi_user_type');
+      if (savedType) state.businessType = savedType;
+    } catch(e) {}
+
+    updateProgress(1);
+
+  })();
+  </script>
+
 </BaseLayout>

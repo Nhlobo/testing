@@ -12,15 +12,16 @@ const caseStudies = (await getCollection('caseStudies')).sort(
   title="Case Studies"
   description="Real results for South African businesses. See how Mapengo Innovations has helped companies transform digitally with measurable impact."
 >
-  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-3) var(--space-4);position:sticky;top:0;z-index:500;box-shadow:0 2px 12px rgba(0,0,0,.25);">
     <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
-      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
-      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
-        <li><a href={`${base}services/`} style="color:var(--color-white);text-decoration:none;">Services</a></li>
-        <li><a href={`${base}industries/`} style="color:var(--color-white);text-decoration:none;">Industries</a></li>
-        <li><a href={`${base}work/`} style="color:var(--color-accent);text-decoration:none;font-weight:600;">Work</a></li>
-        <li><a href={`${base}pricing/`} style="color:var(--color-white);text-decoration:none;">Pricing</a></li>
-        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;flex-shrink:0;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;align-items:center;">
+        <li><a href={`${base}services/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Services</a></li>
+        <li><a href={`${base}industries/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Industries</a></li>
+        <li><a href={`${base}case-studies/`} style="color:var(--color-white);font-weight:700;border-bottom:2px solid var(--color-accent);padding-bottom:2px;text-decoration:none;font-size:.9375rem;">Case Studies</a></li>
+        <li><a href={`${base}about/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">About</a></li>
+        <li><a href={`${base}blog/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Blog</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:9px 22px;border-radius:var(--radius-full);font-weight:700;font-size:.875rem;text-decoration:none;">Get Quote</a></li>
       </ul>
     </nav>
   </header>
