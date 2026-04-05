@@ -1550,7 +1550,6 @@ p + p { margin-top: var(--space-4); }
   margin: 0;
 }
 
-/* Tech stack tag cloud */
 /* WAD hero stats card */
 .wad-stats-grid {
   display: grid;
@@ -1656,6 +1655,7 @@ p + p { margin-top: var(--space-4); }
   }
 }
 
+/* Tech stack tag cloud */
 .stack-tags {
   display: flex;
   flex-wrap: wrap;
