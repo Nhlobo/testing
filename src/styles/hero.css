@@ -258,7 +258,7 @@
   flex-shrink: 0;
 }
 
-/* ── Decorative glow sphere ───────────────────────────────── */
+/* Decorative glow sphere: filter:blur already promotes to compositor layer */
 .hero__glow {
   position: absolute;
   width: 540px;
@@ -271,8 +271,7 @@
   opacity: 0.35;
   filter: blur(10px);
   pointer-events: none;
-  /* GPU-composited layer — no repaints */
-  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 /* ── Responsive adjustments ───────────────────────────────── */
@@ -329,7 +328,7 @@
 }
 
 .text-muted {
-  color: var(--color-text-muted) !important;
+  color: var(--color-text-muted);
 }
 
 /* Hover underline link */

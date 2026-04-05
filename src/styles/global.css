@@ -73,7 +73,6 @@ body {
   font-family: var(--font-body);
   color: var(--color-text-base);
   background: var(--gradient-body);
-  background-attachment: fixed;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
