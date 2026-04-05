@@ -646,6 +646,8 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
   (function () {
     'use strict';
 
+    var MIN_DESC_CHARS = 50;
+
     var state = {
       step: 1,
       businessType: null,
@@ -830,7 +832,7 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
           if (errEmail) errEmail.style.display = 'none';
           if (emailEl) emailEl.style.borderColor = 'var(--color-grey-200)';
         }
-        if (state.description.length < 50) {
+        if (state.description.length < MIN_DESC_CHARS) {
           if (errDesc) errDesc.style.display = 'block';
           if (descEl) descEl.style.borderColor = '#C0410A';
           valid = false;
@@ -942,14 +944,14 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
       var count = el.value.length;
       var span = document.getElementById('char-count');
       if (!span) return;
-      if (count >= 50) {
+      if (count >= MIN_DESC_CHARS) {
         span.textContent = '(' + count + ' chars ✓)';
         span.style.color = 'var(--color-teal)';
         var errDesc = document.getElementById('err-desc');
         if (errDesc) errDesc.style.display = 'none';
         el.style.borderColor = 'var(--color-grey-200)';
       } else {
-        span.textContent = '(' + count + ' / 50 min)';
+        span.textContent = '(' + count + ' / ' + MIN_DESC_CHARS + ' min)';
         span.style.color = 'var(--color-grey-600)';
       }
     };
