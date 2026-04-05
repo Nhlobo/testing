@@ -126,26 +126,58 @@ const processSteps = [
   <main>
 
     <!-- ─── HERO ─── -->
-    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-16) var(--space-4) var(--space-12);text-align:center;position:relative;overflow:hidden;">
-      <!-- Decorative background glow -->
-      <div style="position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(255,107,53,.15) 0%,transparent 70%);pointer-events:none;" aria-hidden="true"></div>
-      <div style="max-width:860px;margin:0 auto;position:relative;">
-        <p style="color:var(--color-accent);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:var(--space-2);font-size:.8rem;display:inline-flex;align-items:center;gap:8px;">
-          <span style="display:inline-block;width:24px;height:2px;background:var(--color-accent);"></span>
+    <section class="hero">
+      <div class="hero__inner">
+        <!-- Decorative glow sphere -->
+        <div class="hero__glow" aria-hidden="true"></div>
+
+        <!-- Overline tag -->
+        <div class="hero__tag">
+          <span class="hero__tag-dot"></span>
           South African Digital Innovation
-          <span style="display:inline-block;width:24px;height:2px;background:var(--color-accent);"></span>
-        </p>
-        <h1 style="font-family:var(--font-heading);font-size:clamp(2.6rem,6.5vw,4.75rem);font-weight:800;line-height:1.08;margin-bottom:var(--space-4);letter-spacing:-1px;">
-          We Build Digital Systems<br/>That <span style="color:var(--color-accent);">Transform Businesses</span>
-        </h1>
-        <p style="font-size:1.2rem;opacity:.8;max-width:640px;margin:0 auto var(--space-6);line-height:1.7;">
-          From Johannesburg to Cape Town — websites, mobile apps, and enterprise systems purpose-built for the South African market. POPIA-compliant. Performance-obsessed.
-        </p>
-        <div style="display:flex;gap:var(--space-2);justify-content:center;flex-wrap:wrap;">
-          <a href={`${base}contact/`} data-analytics-cta="hero-get-quote" style="background:var(--color-accent);color:var(--color-white);padding:17px 40px;border-radius:var(--radius-full);font-weight:700;font-size:1.05rem;text-decoration:none;box-shadow:0 4px 20px rgba(255,107,53,.4);" onmouseover="this.style.background='#e85a24';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--color-accent)';this.style.transform='none'">Get a Free Quote</a>
-          <a href={`${base}work/`} data-analytics-cta="hero-view-work" style="border:2px solid rgba(255,255,255,.3);color:var(--color-white);padding:17px 40px;border-radius:var(--radius-full);font-weight:600;font-size:1.05rem;text-decoration:none;backdrop-filter:blur(4px);" onmouseover="this.style.borderColor='rgba(255,255,255,.7)'" onmouseout="this.style.borderColor='rgba(255,255,255,.3)'">View Our Work</a>
         </div>
-        <p style="margin-top:var(--space-4);font-size:.85rem;opacity:.5;">Trusted by businesses across Johannesburg · Cape Town · Durban · Pretoria</p>
+
+        <!-- Main heading -->
+        <h1 class="hero__heading">
+          We Build Digital Systems<br/>
+          That <span class="hero__heading-accent">Transform Businesses</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero__sub">
+          From Johannesburg to Cape Town — websites, mobile apps, and enterprise systems
+          purpose-built for the South African market. POPIA-compliant. Performance-obsessed.
+        </p>
+
+        <!-- CTA buttons -->
+        <div class="hero__actions">
+          <a href={`${base}contact/`} data-analytics-cta="hero-get-quote" class="btn-premium">
+            Get a Free Quote
+          </a>
+          <a href={`${base}work/`} data-analytics-cta="hero-view-work" class="btn-ghost-premium">
+            View Our Work
+          </a>
+        </div>
+
+        <!-- Meta strip -->
+        <div class="hero__meta">
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">Projects</span>
+            <span class="hero__meta-value">50+ Delivered</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">Performance</span>
+            <span class="hero__meta-value">95+ Lighthouse</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">Stack</span>
+            <span class="hero__meta-value">Astro · HTML · CSS</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">Status</span>
+            <span class="hero__meta-pill">Active</span>
+          </div>
+        </div>
       </div>
     </section>
 
