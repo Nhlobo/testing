@@ -226,7 +226,7 @@ const processSteps = [
                 </div>
                 {sol.data.features && sol.data.features.length > 0 && (
                   <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;">
-                    {sol.data.features.slice(0,3).map((f: string) => (
+                    {sol.data.features.slice(0,3).map((f) => (
                       <li style="background:var(--color-grey-50);color:var(--color-grey-600);font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:var(--radius-full);">{f}</li>
                     ))}
                   </ul>
@@ -268,7 +268,7 @@ const processSteps = [
                     <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--color-white);margin-bottom:4px;line-height:1.3;">{cs.data.title}</h3>
                     <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:var(--space-4);">{cs.data.client}</p>
                     <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;">
-                      {cs.data.metrics.slice(0, 3).map((m: {value:string;label:string}) => (
+                      {cs.data.metrics.slice(0, 3).map((m) => (
                         <div>
                           <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-accent);line-height:1;">{m.value}</div>
                           <div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-top:2px;">{m.label}</div>
