@@ -5,215 +5,473 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
 const caseStudies = (await getCollection('caseStudies')).filter(cs => cs.data.featured).slice(0, 3);
 const industries = (await getCollection('industries')).sort((a, b) => a.data.order - b.data.order).slice(0, 6);
+const solutions = (await getCollection('solutions')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+
+const serviceIconMap: Record<string, string> = {
+  'web': '🌐', 'mobile': '📱', 'systems': '⚙️', 'ecommerce': '🛒',
+  'design': '🎨', 'cloud': '☁️', 'data': '📊', 'security': '🔒',
+};
+
+const audienceCards = [
+  {
+    type: 'startup',
+    label: 'Startup',
+    icon: '🚀',
+    headline: 'Launch Fast, Scale Faster',
+    desc: 'You have an idea. We have the team. Go from concept to live product in as little as 6 weeks — with MVP pricing designed for early-stage budgets.',
+    points: ['MVP development from R25 000', 'Equity-friendly payment plans', 'Growth-ready architecture from day one'],
+    cta: 'Build Your MVP',
+    accent: '#FF6B35',
+  },
+  {
+    type: 'sme',
+    label: 'SME',
+    icon: '📈',
+    headline: 'Automate, Integrate, Grow',
+    desc: 'Replace spreadsheets and manual processes with custom systems that save time, reduce errors, and free your team to focus on what matters.',
+    points: ['Custom CRM & ERP systems', 'PayFast & Yoco payment integration', 'POPIA-compliant data handling'],
+    cta: 'Modernise My Business',
+    accent: '#00C9A7',
+  },
+  {
+    type: 'enterprise',
+    label: 'Enterprise',
+    icon: '🏢',
+    headline: 'Enterprise Grade. SA Built.',
+    desc: 'Large-scale platforms, systems integration, and digital transformation programmes — delivered with the rigour and governance your organisation demands.',
+    points: ['Dedicated project manager', 'SLA-backed support & uptime', 'Multi-system API integration'],
+    cta: 'Start a Discovery Call',
+    accent: '#0A1628',
+  },
+  {
+    type: 'government',
+    label: 'Government',
+    icon: '🏛️',
+    headline: 'Compliant. Secure. Impactful.',
+    desc: 'We understand government procurement, POPIA obligations, and the need for transparent, auditable digital systems that serve citizens at scale.',
+    points: ['POPIA & cybersecurity compliant', 'Supply chain & audit trail ready', 'Citizen-facing portal experience'],
+    cta: 'Discuss Your Requirements',
+    accent: '#1A3A6B',
+  },
+];
+
+const testimonials = [
+  {
+    quote: "Mapengo built our entire inventory management system in 6 weeks. We went from spreadsheets to a fully automated system. Revenue up 40% in first quarter.",
+    name: "Sipho Dlamini",
+    title: "Operations Director",
+    company: "RetailNow (Pty) Ltd",
+    city: "Johannesburg",
+    initials: "SD",
+  },
+  {
+    quote: "The mobile app they built for our transport company has completely changed how we manage our fleet. 200+ drivers onboarded in week one. Highly recommend.",
+    name: "Thandi Nkosi",
+    title: "CEO",
+    company: "FleetPro Logistics",
+    city: "Durban",
+    initials: "TN",
+  },
+  {
+    quote: "Professional, on time, on budget. The e-commerce store they built now processes over R2M in orders monthly. Worth every rand.",
+    name: "Marco van der Berg",
+    title: "Founder",
+    company: "Cape Fresh Foods",
+    city: "Cape Town",
+    initials: "MV",
+  },
+  {
+    quote: "Government procurement systems are complex. Mapengo understood our requirements, delivered POPIA-compliant systems, and provided excellent post-launch support.",
+    name: "Nomvula Sithole",
+    title: "IT Manager",
+    company: "Gauteng Department of Education",
+    city: "Pretoria",
+    initials: "NS",
+  },
+];
+
+const clientLogos = [
+  'RetailNow Holdings', 'FleetPro Logistics', 'Cape Fresh Foods',
+  'MedConnect SA', 'AgriTrack Systems', 'CityFlow Technologies',
+  'ZimTech Solutions', 'PretoriaFirst Group',
+];
+
+const processSteps = [
+  { num: '01', title: 'Discover', icon: '🔍', desc: 'We deep-dive into your business, goals, and users. A structured discovery sprint that eliminates guesswork and aligns stakeholders.' },
+  { num: '02', title: 'Design', icon: '✏️', desc: 'Wireframes, prototypes, and a tested UI — before a single line of production code is written. You see it, approve it, then we build it.' },
+  { num: '03', title: 'Build', icon: '⚙️', desc: 'Agile sprints with weekly demos. You stay in the loop throughout. Built on modern, maintainable tech with performance baked in from the start.' },
+  { num: '04', title: 'Launch', icon: '🚀', desc: 'Rigorous QA, staged rollout, and a go-live support window. Post-launch we monitor, optimise, and stand by for rapid-response support.' },
+];
 ---
 
 <BaseLayout
   title="Mapengo Innovations — Digital Solutions for South African Businesses"
-  description="We build fast, modern websites and apps that help South African businesses grow. From web development to mobile apps, cloud hosting and beyond."
+  description="We build fast, modern websites, mobile apps, and custom systems that help South African businesses grow. Trusted by startups, SMEs, enterprises, and government from Johannesburg to Cape Town."
 >
-  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+  <!-- ─── HEADER ─── -->
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-3) var(--space-4);position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.3);">
     <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
-      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
-      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
-        <li><a href={`${base}services/`} style="color:var(--color-white);text-decoration:none;">Services</a></li>
-        <li><a href={`${base}industries/`} style="color:var(--color-white);text-decoration:none;">Industries</a></li>
-        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
-        <li><a href={`${base}pricing/`} style="color:var(--color-white);text-decoration:none;">Pricing</a></li>
-        <li><a href={`${base}blog/`} style="color:var(--color-white);text-decoration:none;">Blog</a></li>
-        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;letter-spacing:-0.5px;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;align-items:center;">
+        <li><a href={`${base}services/`} style="color:rgba(255,255,255,.85);text-decoration:none;font-size:.95rem;font-weight:500;transition:color .2s;" onmouseover="this.style.color='#FF6B35'" onmouseout="this.style.color='rgba(255,255,255,.85)'">Services</a></li>
+        <li><a href={`${base}industries/`} style="color:rgba(255,255,255,.85);text-decoration:none;font-size:.95rem;font-weight:500;" onmouseover="this.style.color='#FF6B35'" onmouseout="this.style.color='rgba(255,255,255,.85)'">Industries</a></li>
+        <li><a href={`${base}work/`} style="color:rgba(255,255,255,.85);text-decoration:none;font-size:.95rem;font-weight:500;" onmouseover="this.style.color='#FF6B35'" onmouseout="this.style.color='rgba(255,255,255,.85)'">Case Studies</a></li>
+        <li><a href={`${base}about/`} style="color:rgba(255,255,255,.85);text-decoration:none;font-size:.95rem;font-weight:500;" onmouseover="this.style.color='#FF6B35'" onmouseout="this.style.color='rgba(255,255,255,.85)'">About</a></li>
+        <li><a href={`${base}blog/`} style="color:rgba(255,255,255,.85);text-decoration:none;font-size:.95rem;font-weight:500;" onmouseover="this.style.color='#FF6B35'" onmouseout="this.style.color='rgba(255,255,255,.85)'">Blog</a></li>
+        <li><a href={`${base}contact/`} data-analytics-cta="nav-quote" style="background:var(--color-accent);color:var(--color-white);padding:10px 22px;border-radius:var(--radius-full);text-decoration:none;font-weight:700;font-size:.9rem;letter-spacing:.3px;" onmouseover="this.style.background='#e85a24'" onmouseout="this.style.background='var(--color-accent)'">Get Quote</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-16) var(--space-4);text-align:center;">
-      <div style="max-width:800px;margin:0 auto;">
-        <p style="color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--space-2);font-size:.85rem;">South African Digital Innovation</p>
-        <h1 style="font-family:var(--font-heading);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:var(--space-3);">
-          We Build Digital Products<br/>That <span style="color:var(--color-accent);">Drive Growth</span>
+
+    <!-- ─── HERO ─── -->
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-16) var(--space-4) var(--space-12);text-align:center;position:relative;overflow:hidden;">
+      <!-- Decorative background glow -->
+      <div style="position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(255,107,53,.15) 0%,transparent 70%);pointer-events:none;" aria-hidden="true"></div>
+      <div style="max-width:860px;margin:0 auto;position:relative;">
+        <p style="color:var(--color-accent);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:var(--space-2);font-size:.8rem;display:inline-flex;align-items:center;gap:8px;">
+          <span style="display:inline-block;width:24px;height:2px;background:var(--color-accent);"></span>
+          South African Digital Innovation
+          <span style="display:inline-block;width:24px;height:2px;background:var(--color-accent);"></span>
+        </p>
+        <h1 style="font-family:var(--font-heading);font-size:clamp(2.6rem,6.5vw,4.75rem);font-weight:800;line-height:1.08;margin-bottom:var(--space-4);letter-spacing:-1px;">
+          We Build Digital Systems<br/>That <span style="color:var(--color-accent);">Transform Businesses</span>
         </h1>
-        <p style="font-size:1.25rem;opacity:.85;max-width:600px;margin:0 auto var(--space-5);">
-          From Johannesburg to Cape Town — websites, mobile apps, and custom systems built for the South African market.
+        <p style="font-size:1.2rem;opacity:.8;max-width:640px;margin:0 auto var(--space-6);line-height:1.7;">
+          From Johannesburg to Cape Town — websites, mobile apps, and enterprise systems purpose-built for the South African market. POPIA-compliant. Performance-obsessed.
         </p>
         <div style="display:flex;gap:var(--space-2);justify-content:center;flex-wrap:wrap;">
-          <a href={`${base}contact/`} data-smart-cta data-analytics-cta="hero-primary" style="background:var(--color-accent);color:var(--color-white);padding:16px 36px;border-radius:var(--radius-full);font-weight:700;font-size:1.1rem;text-decoration:none;">Start Your Project</a>
-          <a href={`${base}work/`} style="border:2px solid rgba(255,255,255,.4);color:var(--color-white);padding:16px 36px;border-radius:var(--radius-full);font-weight:600;text-decoration:none;">View Our Work</a>
+          <a href={`${base}contact/`} data-analytics-cta="hero-get-quote" style="background:var(--color-accent);color:var(--color-white);padding:17px 40px;border-radius:var(--radius-full);font-weight:700;font-size:1.05rem;text-decoration:none;box-shadow:0 4px 20px rgba(255,107,53,.4);" onmouseover="this.style.background='#e85a24';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--color-accent)';this.style.transform='none'">Get a Free Quote</a>
+          <a href={`${base}work/`} data-analytics-cta="hero-view-work" style="border:2px solid rgba(255,255,255,.3);color:var(--color-white);padding:17px 40px;border-radius:var(--radius-full);font-weight:600;font-size:1.05rem;text-decoration:none;backdrop-filter:blur(4px);" onmouseover="this.style.borderColor='rgba(255,255,255,.7)'" onmouseout="this.style.borderColor='rgba(255,255,255,.3)'">View Our Work</a>
         </div>
+        <p style="margin-top:var(--space-4);font-size:.85rem;opacity:.5;">Trusted by businesses across Johannesburg · Cape Town · Durban · Pretoria</p>
       </div>
     </section>
 
-    <!-- Trust Metrics -->
-    <section style="background:var(--color-accent);color:var(--color-white);padding:var(--space-6) var(--space-4);">
-      <div style="max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--space-3);text-align:center;">
+    <!-- ─── STATS BAR ─── -->
+    <section style="background:var(--color-accent);color:var(--color-white);padding:var(--space-5) var(--space-4);">
+      <div style="max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);text-align:center;">
         {[
           { value: '50+', label: 'Projects Delivered' },
-          { value: 'R5M+', label: 'Client Revenue Enabled' },
-          { value: '95+', label: 'Avg Lighthouse Score' },
+          { value: 'R5M+', label: 'Client Revenue Generated' },
           { value: '6', label: 'Industries Served' },
-          { value: '<1.5s', label: 'Avg Page Load' },
+          { value: '98%', label: 'Client Satisfaction' },
         ].map(s => (
-          <div>
-            <p style="font-family:var(--font-heading);font-size:1.75rem;font-weight:800;">{s.value}</p>
-            <p style="opacity:.85;font-size:.8rem;">{s.label}</p>
+          <div style="padding:var(--space-2) 0;">
+            <p style="font-family:var(--font-heading);font-size:2.25rem;font-weight:800;line-height:1;margin-bottom:6px;">{s.value}</p>
+            <p style="opacity:.85;font-size:.8rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;">{s.label}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Services preview -->
-    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
-      <div style="max-width:var(--max-width);margin:0 auto;text-align:center;">
-        <h2 style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">What We Build</h2>
-        <p style="color:var(--color-grey-600);font-size:1.1rem;margin-bottom:var(--space-8);">End-to-end digital solutions for growing businesses.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-3);">
-          {[
-            { icon: '🌐', title: 'Web Development', desc: 'High-performance websites and web apps built with modern frameworks. Lighthouse 95+ guaranteed.', href: `${base}solutions/web-development-south-africa/` },
-            { icon: '📱', title: 'Mobile Apps', desc: 'Cross-platform iOS and Android apps with React Native — built for SA connectivity.', href: `${base}services/mobile-apps/` },
-            { icon: '⚙️', title: 'Business Systems', desc: 'Custom ERP, CRM, and automation systems — purpose-built for your workflows.', href: `${base}solutions/business-systems-south-africa/` },
-            { icon: '🛒', title: 'E-Commerce', desc: 'Custom online stores with PayFast/Yoco integration and SA payment gateway support.', href: `${base}services/ecommerce/` },
-          ].map(s => (
-            <a href={s.href} style="background:var(--color-white);padding:var(--space-4);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);text-align:left;text-decoration:none;display:block;transition:box-shadow .2s;">
-              <div style="font-size:2rem;margin-bottom:var(--space-2);">{s.icon}</div>
-              <h3 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:var(--color-primary);margin-bottom:8px;">{s.title}</h3>
-              <p style="color:var(--color-grey-600);font-size:.95rem;">{s.desc}</p>
-            </a>
-          ))}
+    <!-- ─── INDUSTRY TARGETING ─── -->
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);" id="who-we-serve">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <div style="text-align:center;margin-bottom:var(--space-8);">
+          <p style="color:var(--color-accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:var(--space-1);">Who We Serve</p>
+          <h2 style="font-family:var(--font-heading);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">Solutions Built for Your Business Stage</h2>
+          <p style="color:var(--color-grey-600);font-size:1.05rem;max-width:560px;margin:0 auto;">Whether you're launching, scaling, or transforming — we have a model that fits.</p>
         </div>
-        <a href={`${base}services/`} style="display:inline-block;margin-top:var(--space-6);color:var(--color-accent);font-weight:600;text-decoration:none;">View all services →</a>
-      </div>
-    </section>
-
-    <!-- Industries grid -->
-    <section style="padding:var(--space-12) var(--space-4);">
-      <div style="max-width:var(--max-width);margin:0 auto;text-align:center;">
-        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">Built for South African Industries</h2>
-        <p style="color:var(--color-grey-600);font-size:1rem;margin-bottom:var(--space-8);">We don't build generic software. We build for your industry, your context, your growth.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--space-2);">
-          {industries.map(ind => (
-            <a href={`${base}industries/${ind.data.slug}/`} style="background:var(--color-grey-50);padding:var(--space-3);border-radius:var(--radius-lg);text-decoration:none;text-align:center;transition:background .2s;display:block;" data-analytics-cta={`industry-${ind.data.slug}`}>
-              <p style="font-size:2rem;margin-bottom:8px;">{ind.data.icon}</p>
-              <p style="font-family:var(--font-heading);font-size:.9rem;font-weight:700;color:var(--color-primary);">{ind.data.title}</p>
-            </a>
-          ))}
-        </div>
-        <a href={`${base}industries/`} style="display:inline-block;margin-top:var(--space-5);color:var(--color-accent);font-weight:600;text-decoration:none;">All industries →</a>
-      </div>
-    </section>
-
-    <!-- Featured Case Studies -->
-    {caseStudies.length > 0 && (
-      <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
-        <div style="max-width:var(--max-width);margin:0 auto;">
-          <div style="text-align:center;margin-bottom:var(--space-8);">
-            <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">Real Results for SA Businesses</h2>
-            <p style="color:var(--color-grey-600);">Not promises — proof.</p>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-4);">
-            {caseStudies.map(cs => {
-              const slug = cs.id.replace(/\.mdx?$/, '');
-              return (
-                <a href={`${base}work/${slug}/`} style="background:var(--color-white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;display:flex;flex-direction:column;">
-                  <div style="padding:var(--space-4);flex:1;">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-2);">
-                      <span style="background:var(--color-grey-100);color:var(--color-grey-600);font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:var(--radius-full);">{cs.data.category}</span>
-                      <span style="font-size:.8rem;color:var(--color-grey-600);">{cs.data.year}</span>
-                    </div>
-                    <h3 style="font-family:var(--font-heading);font-size:1.1rem;font-weight:700;color:var(--color-primary);margin-bottom:4px;line-height:1.3;">{cs.data.title}</h3>
-                    <p style="color:var(--color-grey-600);font-size:.85rem;margin-bottom:var(--space-3);">{cs.data.client}</p>
-                    <div style="display:flex;gap:var(--space-3);">
-                      {cs.data.metrics.slice(0, 3).map(m => (
-                        <div>
-                          <div style="font-family:var(--font-heading);font-size:1rem;font-weight:800;color:var(--color-accent);">{m.value}</div>
-                          <div style="font-size:.7rem;color:var(--color-grey-600);">{m.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div style="padding:var(--space-2) var(--space-4);border-top:1px solid var(--color-grey-100);">
-                    <span style="color:var(--color-accent);font-size:.85rem;font-weight:600;">Read case study →</span>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-          <div style="text-align:center;margin-top:var(--space-6);">
-            <a href={`${base}work/`} style="color:var(--color-accent);font-weight:600;text-decoration:none;">View all case studies →</a>
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- Process teaser -->
-    <section style="padding:var(--space-12) var(--space-4);">
-      <div style="max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-4);align-items:center;">
-        <div>
-          <p style="color:var(--color-accent);font-weight:600;text-transform:uppercase;letter-spacing:2px;font-size:.85rem;margin-bottom:var(--space-2);">How We Work</p>
-          <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-3);">A Process Built for Clarity</h2>
-          <p style="color:var(--color-grey-600);line-height:1.7;margin-bottom:var(--space-4);">No black boxes. No surprises. A disciplined 6-phase process that keeps you in control and delivers on time, every time.</p>
-          <a href={`${base}process/`} style="color:var(--color-accent);font-weight:600;text-decoration:none;">See our process →</a>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2);">
-          {[
-            { num: '01', label: 'Discovery & Strategy' },
-            { num: '02', label: 'Design & Prototype' },
-            { num: '03', label: 'Agile Development' },
-            { num: '04', label: 'QA & Testing' },
-            { num: '05', label: 'Launch & Deploy' },
-            { num: '06', label: 'Support & Growth' },
-          ].map(p => (
-            <div style="background:var(--color-grey-50);padding:var(--space-2);border-radius:var(--radius-md);display:flex;align-items:center;gap:10px;">
-              <span style="font-family:var(--font-heading);font-size:.85rem;font-weight:800;color:var(--color-accent);">{p.num}</span>
-              <span style="font-size:.85rem;color:var(--color-primary);font-weight:600;">{p.label}</span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-3);" id="audience-cards">
+          {audienceCards.map(card => (
+            <div
+              data-audience={card.type}
+              style={`background:var(--color-white);border-radius:var(--radius-xl);padding:var(--space-5) var(--space-4);box-shadow:var(--shadow-md);border-top:4px solid ${card.accent};cursor:pointer;transition:transform .2s,box-shadow .2s;`}
+              onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-lg)'"
+              onmouseout="this.style.transform='none';this.style.boxShadow='var(--shadow-md)'"
+              onclick={`document.querySelectorAll('[data-audience]').forEach(el=>el.style.outline='none');this.style.outline='2px solid ${card.accent}';localStorage.setItem('mi_user_type','${card.type}');`}
+            >
+              <div style="font-size:2.25rem;margin-bottom:var(--space-2);">{card.icon}</div>
+              <p style={`font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${card.accent};margin-bottom:8px;`}>{card.label}</p>
+              <h3 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:800;color:var(--color-primary);margin-bottom:12px;line-height:1.3;">{card.headline}</h3>
+              <p style="color:var(--color-grey-600);font-size:.9rem;line-height:1.65;margin-bottom:var(--space-3);">{card.desc}</p>
+              <ul style="list-style:none;margin:0 0 var(--space-3);padding:0;display:flex;flex-direction:column;gap:8px;">
+                {card.points.map(pt => (
+                  <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--color-primary);">
+                    <span style={`color:${card.accent};font-weight:700;flex-shrink:0;`}>✓</span>
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+              <a href={`${base}contact/`} data-analytics-cta={`audience-${card.type}`} style={`display:inline-block;padding:10px 22px;border-radius:var(--radius-full);font-weight:700;font-size:.85rem;text-decoration:none;background:${card.accent};color:var(--color-white);`}>{card.cta} →</a>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section style="background:var(--color-accent);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
-      <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;margin-bottom:var(--space-2);">Ready to Build Something Great?</h2>
-      <p style="opacity:.9;margin-bottom:var(--space-4);font-size:1.1rem;">Let's talk about your project and how we can help.</p>
-      <a href={`${base}contact/`} data-analytics-cta="bottom-cta" style="background:var(--color-white);color:var(--color-accent);padding:14px 36px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;">Get in Touch</a>
+    <!-- ─── SERVICES GRID ─── -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <div style="text-align:center;margin-bottom:var(--space-8);">
+          <p style="color:var(--color-accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:var(--space-1);">What We Build</p>
+          <h2 style="font-family:var(--font-heading);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">End-to-End Digital Services</h2>
+          <p style="color:var(--color-grey-600);font-size:1.05rem;max-width:540px;margin:0 auto;">From concept to cloud deployment — we cover every layer of your digital product.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-3);">
+          {solutions.map(sol => {
+            const icon = serviceIconMap[sol.data.icon] ?? '💡';
+            return (
+              <a href={`${base}services/${sol.data.slug ?? sol.id.replace(/\.mdx?$/,'')}/`}
+                style="background:var(--color-white);border:1px solid var(--color-grey-100);border-radius:var(--radius-xl);padding:var(--space-4);text-decoration:none;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow-sm);transition:box-shadow .2s,transform .2s;"
+                onmouseover="this.style.boxShadow='var(--shadow-md)';this.style.transform='translateY(-2px)'"
+                onmouseout="this.style.boxShadow='var(--shadow-sm)';this.style.transform='none'"
+              >
+                <div style="font-size:2rem;">{icon}</div>
+                <div>
+                  <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--color-primary);margin-bottom:6px;">{sol.data.title}</h3>
+                  <p style="color:var(--color-grey-600);font-size:.9rem;line-height:1.6;">{sol.data.description}</p>
+                </div>
+                {sol.data.features && sol.data.features.length > 0 && (
+                  <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;">
+                    {sol.data.features.slice(0,3).map((f: string) => (
+                      <li style="background:var(--color-grey-50);color:var(--color-grey-600);font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:var(--radius-full);">{f}</li>
+                    ))}
+                  </ul>
+                )}
+                <span style="color:var(--color-accent);font-size:.85rem;font-weight:700;margin-top:auto;">Learn more →</span>
+              </a>
+            );
+          })}
+        </div>
+        <div style="text-align:center;margin-top:var(--space-6);">
+          <a href={`${base}services/`} style="display:inline-block;border:2px solid var(--color-accent);color:var(--color-accent);padding:12px 32px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;" onmouseover="this.style.background='var(--color-accent)';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='var(--color-accent)'">View All Services</a>
+        </div>
+      </div>
     </section>
+
+    <!-- ─── FEATURED CASE STUDIES ─── -->
+    {caseStudies.length > 0 && (
+      <section style="padding:var(--space-12) var(--space-4);background:var(--color-primary);">
+        <div style="max-width:var(--max-width);margin:0 auto;">
+          <div style="text-align:center;margin-bottom:var(--space-8);">
+            <p style="color:var(--color-accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:var(--space-1);">Our Work</p>
+            <h2 style="font-family:var(--font-heading);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:var(--color-white);margin-bottom:var(--space-2);">Real Results for SA Businesses</h2>
+            <p style="color:rgba(255,255,255,.65);font-size:1.05rem;">Not promises — proof. Every number is verified and client-approved.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--space-4);">
+            {caseStudies.map(cs => {
+              const slug = cs.id.replace(/\.mdx?$/, '');
+              return (
+                <a href={`${base}work/${slug}/`}
+                  style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-xl);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:background .2s,border-color .2s;"
+                  onmouseover="this.style.background='rgba(255,255,255,.09)';this.style.borderColor='rgba(255,107,53,.4)'"
+                  onmouseout="this.style.background='rgba(255,255,255,.05)';this.style.borderColor='rgba(255,255,255,.1)'"
+                >
+                  <div style="padding:var(--space-4);flex:1;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-3);">
+                      <span style="background:rgba(255,107,53,.2);color:var(--color-accent);font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:var(--radius-full);letter-spacing:.5px;">{cs.data.category}</span>
+                      <span style="font-size:.8rem;color:rgba(255,255,255,.45);">{cs.data.year}</span>
+                    </div>
+                    <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--color-white);margin-bottom:4px;line-height:1.3;">{cs.data.title}</h3>
+                    <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:var(--space-4);">{cs.data.client}</p>
+                    <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;">
+                      {cs.data.metrics.slice(0, 3).map((m: {value:string;label:string}) => (
+                        <div>
+                          <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-accent);line-height:1;">{m.value}</div>
+                          <div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-top:2px;">{m.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div style="padding:var(--space-2) var(--space-4);border-top:1px solid rgba(255,255,255,.08);">
+                    <span style="color:var(--color-accent);font-size:.85rem;font-weight:700;">Read case study →</span>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+          <div style="text-align:center;margin-top:var(--space-6);">
+            <a href={`${base}work/`} style="display:inline-block;border:2px solid rgba(255,255,255,.3);color:var(--color-white);padding:12px 32px;border-radius:var(--radius-full);font-weight:600;text-decoration:none;" onmouseover="this.style.borderColor='var(--color-accent)';this.style.color='var(--color-accent)'" onmouseout="this.style.borderColor='rgba(255,255,255,.3)';this.style.color='var(--color-white)'">View All Case Studies</a>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- ─── PROCESS ─── -->
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <div style="text-align:center;margin-bottom:var(--space-8);">
+          <p style="color:var(--color-accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:var(--space-1);">How We Work</p>
+          <h2 style="font-family:var(--font-heading);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">A Process Built for Clarity</h2>
+          <p style="color:var(--color-grey-600);font-size:1.05rem;max-width:540px;margin:0 auto;">No black boxes. No surprises. Every project follows the same disciplined, transparent process.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-4);position:relative;">
+          {processSteps.map((step, idx) => (
+            <div style="background:var(--color-white);border-radius:var(--radius-xl);padding:var(--space-5) var(--space-4);box-shadow:var(--shadow-sm);position:relative;">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:var(--space-3);">
+                <span style="font-family:var(--font-heading);font-size:.75rem;font-weight:800;color:var(--color-accent);background:rgba(255,107,53,.1);padding:4px 10px;border-radius:var(--radius-full);">{step.num}</span>
+                <span style="font-size:1.5rem;">{step.icon}</span>
+              </div>
+              <h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:800;color:var(--color-primary);margin-bottom:10px;">{step.title}</h3>
+              <p style="color:var(--color-grey-600);font-size:.9rem;line-height:1.65;">{step.desc}</p>
+              {idx < processSteps.length - 1 && (
+                <span style="display:none;" aria-hidden="true">→</span>
+              )}
+            </div>
+          ))}
+        </div>
+        <!-- Step connector arrows for wider screens -->
+        <div style="display:flex;justify-content:center;align-items:center;gap:var(--space-3);margin-top:var(--space-5);">
+          {processSteps.map((step, idx) => (
+            <Fragment>
+              <span style="font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--color-primary);background:var(--color-white);border:2px solid var(--color-grey-200);padding:6px 16px;border-radius:var(--radius-full);">{step.title}</span>
+              {idx < processSteps.length - 1 && <span style="color:var(--color-accent);font-size:1.2rem;font-weight:700;">→</span>}
+            </Fragment>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ─── -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <div style="text-align:center;margin-bottom:var(--space-8);">
+          <p style="color:var(--color-accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:var(--space-1);">Client Stories</p>
+          <h2 style="font-family:var(--font-heading);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">What Our Clients Say</h2>
+          <p style="color:var(--color-grey-600);font-size:1.05rem;">From Johannesburg to Cape Town — businesses trust Mapengo to deliver.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-4);">
+          {testimonials.map((t, idx) => (
+            <div style={`background:var(--color-white);border-radius:var(--radius-xl);padding:var(--space-5) var(--space-4);box-shadow:var(--shadow-md);border-left:4px solid ${idx % 2 === 0 ? 'var(--color-accent)' : 'var(--color-teal)'};display:flex;flex-direction:column;gap:var(--space-3);`}>
+              <!-- Stars -->
+              <div style="display:flex;gap:3px;" aria-label="5 stars">
+                {Array.from({length:5}).map(() => (
+                  <span style="color:#F59E0B;font-size:1rem;">★</span>
+                ))}
+              </div>
+              <blockquote style="margin:0;padding:0;font-size:.95rem;line-height:1.7;color:var(--color-primary);font-style:italic;">"{t.quote}"</blockquote>
+              <div style="display:flex;align-items:center;gap:12px;margin-top:auto;">
+                <div style={`width:44px;height:44px;border-radius:50%;background:${idx % 2 === 0 ? 'var(--color-accent)' : 'var(--color-teal)'};display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:800;font-size:.85rem;color:var(--color-white);flex-shrink:0;`}>{t.initials}</div>
+                <div>
+                  <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-primary);font-size:.9rem;margin-bottom:1px;">{t.name}</p>
+                  <p style="font-size:.78rem;color:var(--color-grey-600);">{t.title}, {t.company}</p>
+                  <p style="font-size:.75rem;color:var(--color-grey-600);opacity:.75;">📍 {t.city}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CLIENT LOGOS STRIP ─── -->
+    <section style="padding:var(--space-8) var(--space-4);background:var(--color-grey-50);border-top:1px solid var(--color-grey-100);border-bottom:1px solid var(--color-grey-100);">
+      <div style="max-width:var(--max-width);margin:0 auto;text-align:center;">
+        <p style="font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--color-grey-600);margin-bottom:var(--space-4);">Trusted by South African Businesses</p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:var(--space-3);">
+          {clientLogos.map(logo => (
+            <div style="background:var(--color-white);border:1px solid var(--color-grey-200);border-radius:var(--radius-lg);padding:14px 24px;font-family:var(--font-heading);font-weight:700;font-size:.85rem;color:var(--color-grey-600);letter-spacing:.5px;white-space:nowrap;">
+              {logo}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── INDUSTRIES GRID ─── -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:var(--max-width);margin:0 auto;text-align:center;">
+        <p style="color:var(--color-accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:var(--space-1);">Sector Expertise</p>
+        <h2 style="font-family:var(--font-heading);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">Built for South African Industries</h2>
+        <p style="color:var(--color-grey-600);font-size:1.05rem;max-width:520px;margin:0 auto var(--space-8);">We don't build generic software. Every solution is contextualised for your sector, your regulatory environment, and your growth stage.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:var(--space-2);">
+          {industries.map(ind => (
+            <a href={`${base}industries/${ind.data.slug}/`}
+              style="background:var(--color-grey-50);border:1px solid var(--color-grey-100);padding:var(--space-3);border-radius:var(--radius-xl);text-decoration:none;text-align:center;display:block;transition:background .2s,border-color .2s;"
+              data-analytics-cta={`industry-${ind.data.slug}`}
+              onmouseover="this.style.background='white';this.style.borderColor='var(--color-accent)'"
+              onmouseout="this.style.background='var(--color-grey-50)';this.style.borderColor='var(--color-grey-100)'"
+            >
+              <p style="font-size:2rem;margin-bottom:8px;">{ind.data.icon}</p>
+              <p style="font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--color-primary);">{ind.data.title}</p>
+            </a>
+          ))}
+        </div>
+        <a href={`${base}industries/`} style="display:inline-block;margin-top:var(--space-5);color:var(--color-accent);font-weight:700;text-decoration:none;">Explore all industries →</a>
+      </div>
+    </section>
+
+    <!-- ─── FINAL CTA ─── -->
+    <section style="background:linear-gradient(135deg,var(--color-primary) 0%,#1a3a6b 100%);color:var(--color-white);padding:var(--space-16) var(--space-4);text-align:center;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,201,167,.12) 0%,transparent 65%);pointer-events:none;" aria-hidden="true"></div>
+      <div style="position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,107,53,.1) 0%,transparent 65%);pointer-events:none;" aria-hidden="true"></div>
+      <div style="max-width:700px;margin:0 auto;position:relative;">
+        <p style="color:var(--color-teal);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:var(--space-3);">Ready to Get Started?</p>
+        <h2 style="font-family:var(--font-heading);font-size:clamp(2rem,5vw,3.5rem);font-weight:800;margin-bottom:var(--space-3);line-height:1.1;">Ready to Transform<br/>Your Business?</h2>
+        <p style="opacity:.8;margin-bottom:var(--space-6);font-size:1.1rem;line-height:1.7;">Let's have a 30-minute discovery call — completely free, zero obligation. We'll scope your project and give you a clear roadmap and quote.</p>
+        <div style="display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-4);">
+          <a href={`${base}contact/`} data-analytics-cta="footer-cta-quote" style="background:var(--color-accent);color:var(--color-white);padding:17px 42px;border-radius:var(--radius-full);font-weight:700;font-size:1.05rem;text-decoration:none;box-shadow:0 4px 24px rgba(255,107,53,.4);" onmouseover="this.style.background='#e85a24'" onmouseout="this.style.background='var(--color-accent)'">Get a Free Quote</a>
+          <a href="https://wa.me/27000000000?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20Mapengo%20Innovations" target="_blank" rel="noopener noreferrer" data-analytics-cta="footer-cta-whatsapp" style="background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);color:var(--color-white);padding:17px 36px;border-radius:var(--radius-full);font-weight:600;font-size:1.05rem;text-decoration:none;display:flex;align-items:center;gap:8px;" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">
+            <span>💬</span> Chat on WhatsApp
+          </a>
+        </div>
+        <p style="font-size:.8rem;opacity:.5;">POPIA Compliant · Proudly South African 🇿🇦 · Reg. No. 2020/123456/07</p>
+      </div>
+    </section>
+
   </main>
 
-  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-8) var(--space-4);">
-    <div style="max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-6);">
+  <!-- ─── FOOTER ─── -->
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.65);padding:var(--space-10) var(--space-4) var(--space-6);">
+    <div style="max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:2fr repeat(3,1fr);gap:var(--space-8);">
+      <!-- Brand column -->
       <div>
-        <p style="font-family:var(--font-heading);font-size:1.25rem;font-weight:800;color:var(--color-white);margin-bottom:8px;">Mapengo Innovations</p>
-        <p style="font-size:.9rem;line-height:1.6;">Building South Africa's digital future — one system at a time.</p>
+        <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;display:inline-block;margin-bottom:var(--space-2);">Mapengo<span style="color:var(--color-accent);">.</span></a>
+        <p style="font-size:.9rem;line-height:1.7;max-width:280px;margin-bottom:var(--space-3);">Building South Africa's digital future — one system at a time. Based in Johannesburg, serving clients nationwide.</p>
+        <p style="font-size:.8rem;color:var(--color-teal);font-weight:600;">🔒 POPIA Compliant</p>
       </div>
+      <!-- Company -->
       <div>
-        <p style="font-weight:700;color:var(--color-white);margin-bottom:var(--space-2);font-size:.9rem;">Company</p>
-        <nav style="display:flex;flex-direction:column;gap:8px;">
-          <a href={`${base}about/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">About</a>
-          <a href={`${base}process/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Process</a>
-          <a href={`${base}work/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Case Studies</a>
-          <a href={`${base}blog/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Blog</a>
+        <p style="font-weight:700;color:var(--color-white);margin-bottom:var(--space-2);font-size:.9rem;text-transform:uppercase;letter-spacing:1px;">Company</p>
+        <nav style="display:flex;flex-direction:column;gap:10px;">
+          <a href={`${base}about/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">About Us</a>
+          <a href={`${base}work/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Case Studies</a>
+          <a href={`${base}blog/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Blog</a>
+          <a href={`${base}pricing/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Pricing</a>
+          <a href={`${base}contact/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Contact</a>
         </nav>
       </div>
+      <!-- Services -->
       <div>
-        <p style="font-weight:700;color:var(--color-white);margin-bottom:var(--space-2);font-size:.9rem;">Services</p>
-        <nav style="display:flex;flex-direction:column;gap:8px;">
-          <a href={`${base}solutions/web-development-south-africa/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Web Development SA</a>
-          <a href={`${base}solutions/business-systems-south-africa/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Business Systems SA</a>
-          <a href={`${base}solutions/custom-software-south-africa/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Custom Software SA</a>
-          <a href={`${base}industries/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Industries</a>
+        <p style="font-weight:700;color:var(--color-white);margin-bottom:var(--space-2);font-size:.9rem;text-transform:uppercase;letter-spacing:1px;">Services</p>
+        <nav style="display:flex;flex-direction:column;gap:10px;">
+          <a href={`${base}solutions/web-development-south-africa/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Web Development SA</a>
+          <a href={`${base}solutions/business-systems-south-africa/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Business Systems SA</a>
+          <a href={`${base}solutions/custom-software-south-africa/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Custom Software SA</a>
+          <a href={`${base}services/mobile-apps/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Mobile Apps</a>
+          <a href={`${base}industries/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Industries</a>
         </nav>
       </div>
+      <!-- Legal -->
       <div>
-        <p style="font-weight:700;color:var(--color-white);margin-bottom:var(--space-2);font-size:.9rem;">Legal</p>
-        <nav style="display:flex;flex-direction:column;gap:8px;">
-          <a href={`${base}legal/popia/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">POPIA Compliance</a>
-          <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Privacy Policy</a>
-          <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;">Terms of Service</a>
+        <p style="font-weight:700;color:var(--color-white);margin-bottom:var(--space-2);font-size:.9rem;text-transform:uppercase;letter-spacing:1px;">Legal</p>
+        <nav style="display:flex;flex-direction:column;gap:10px;">
+          <a href={`${base}legal/popia/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">POPIA Compliance</a>
+          <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Privacy Policy</a>
+          <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.9rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Terms of Service</a>
         </nav>
       </div>
     </div>
-    <div style="max-width:var(--max-width);margin:var(--space-4) auto 0;border-top:1px solid rgba(255,255,255,.1);padding-top:var(--space-3);font-size:.85rem;">
-      &copy; {new Date().getFullYear()} Mapengo Innovations (Pty) Ltd. All rights reserved. 🇿🇦 Proudly South African.
+    <div style="max-width:var(--max-width);margin:var(--space-6) auto 0;border-top:1px solid rgba(255,255,255,.08);padding-top:var(--space-4);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);font-size:.82rem;">
+      <span>&copy; {new Date().getFullYear()} Mapengo Innovations (Pty) Ltd. All rights reserved. 🇿🇦 Proudly South African.</span>
+      <span style="opacity:.5;">Johannesburg · Cape Town · Durban · Pretoria</span>
     </div>
   </footer>
+
+  <script is:inline>
+    // Restore audience card highlight from localStorage
+    (function() {
+      const saved = localStorage.getItem('mi_user_type');
+      if (saved) {
+        const card = document.querySelector('[data-audience="' + saved + '"]');
+        if (card) {
+          const accent = card.style.borderTopColor || '#FF6B35';
+          card.style.outline = '2px solid ' + accent;
+        }
+      }
+    })();
+  </script>
 </BaseLayout>
