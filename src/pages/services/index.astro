@@ -12,15 +12,17 @@ const solutions = (await getCollection('solutions')).sort(
   title="Our Services"
   description="Web development, mobile apps, e-commerce, cloud hosting, UI/UX design and more — tailored for South African businesses."
 >
-  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-3) var(--space-4);position:sticky;top:0;z-index:500;box-shadow:0 2px 12px rgba(0,0,0,.25);">
     <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
-      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
-      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
-        <li><a href={`${base}services/`} style="color:var(--color-accent);text-decoration:none;font-weight:600;">Services</a></li>
-        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
-        <li><a href={`${base}pricing/`} style="color:var(--color-white);text-decoration:none;">Pricing</a></li>
-        <li><a href={`${base}blog/`} style="color:var(--color-white);text-decoration:none;">Blog</a></li>
-        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;flex-shrink:0;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;align-items:center;">
+        <li><a href={`${base}services/`} style="color:var(--color-white);font-weight:700;border-bottom:2px solid var(--color-accent);padding-bottom:2px;text-decoration:none;font-size:.9375rem;">Services</a></li>
+        <li><a href={`${base}industries/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Industries</a></li>
+        <li><a href={`${base}case-studies/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Case Studies</a></li>
+        <li><a href={`${base}work/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Work</a></li>
+        <li><a href={`${base}about/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">About</a></li>
+        <li><a href={`${base}blog/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Blog</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:9px 22px;border-radius:var(--radius-full);font-weight:700;font-size:.875rem;text-decoration:none;">Get Quote</a></li>
       </ul>
     </nav>
   </header>
@@ -45,6 +47,57 @@ const solutions = (await getCollection('solutions')).sort(
             </div>
           </a>
         ))}
+      </div>
+    </section>
+    <!-- Why Mapengo -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <p style="text-align:center;color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">Why Choose Us</p>
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-8);">Why Mapengo for Your Next Project?</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4);">
+          {[
+            { icon: '🇿🇦', title: 'Built for South Africa', desc: 'Every solution is engineered with SA realities in mind: load shedding resilience, slow-network optimisation, POPIA compliance, and support for local payment methods like SnapScan and Ozow.' },
+            { icon: '📦', title: 'End-to-End Ownership', desc: 'We handle strategy, design, development, testing, deployment, and ongoing support. You get a single accountable partner — not a chain of contractors passing blame.' },
+            { icon: '📈', title: 'Results, Not Deliverables', desc: 'We measure success by your business outcomes — increased revenue, reduced operational costs, and happier customers — not just feature checklists or go-live dates.' },
+          ].map(v => (
+            <div style="background:var(--color-white);padding:var(--space-5);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border-left:4px solid var(--color-accent);">
+              <p style="font-size:2rem;margin-bottom:var(--space-2);">{v.icon}</p>
+              <h3 style="font-family:var(--font-heading);font-size:1.1rem;font-weight:700;color:var(--color-primary);margin-bottom:8px;">{v.title}</h3>
+              <p style="color:var(--color-grey-600);font-size:.9rem;line-height:1.65;">{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Process in Brief -->
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <p style="text-align:center;color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">How We Work</p>
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-8);">Our Process in Brief</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-4);">
+          {[
+            { step: '01', title: 'Discover', desc: 'We listen first. Deep-dive workshops to understand your business, users, and goals before a single line of code is written.' },
+            { step: '02', title: 'Design', desc: 'Wireframes and interactive prototypes reviewed with your team. We align on the solution before building it.' },
+            { step: '03', title: 'Build', desc: 'Iterative development with weekly demos. You see progress at every stage — no black-box surprises at launch.' },
+            { step: '04', title: 'Launch & Grow', desc: 'Smooth go-live with post-launch monitoring. We stay on to optimise performance and add features as your business scales.' },
+          ].map((p, i) => (
+            <div style="background:var(--color-white);padding:var(--space-4);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);position:relative;">
+              <div style="font-family:var(--font-heading);font-size:3rem;font-weight:800;color:var(--color-grey-100);line-height:1;margin-bottom:var(--space-2);">{p.step}</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.05rem;font-weight:700;color:var(--color-primary);margin-bottom:8px;">{p.title}</h3>
+              <p style="color:var(--color-grey-600);font-size:.875rem;line-height:1.65;">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <div style="max-width:640px;margin:0 auto;">
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;margin-bottom:var(--space-2);">Ready to Get Started?</h2>
+        <p style="opacity:.8;font-size:1.05rem;margin-bottom:var(--space-5);">Tell us about your project and we'll get back to you within one business day with a tailored proposal.</p>
+        <a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:14px 36px;border-radius:var(--radius-full);font-weight:700;font-size:1rem;text-decoration:none;display:inline-block;">Get a Free Quote</a>
       </div>
     </section>
   </main>
