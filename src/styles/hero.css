@@ -271,7 +271,6 @@
   opacity: 0.35;
   filter: blur(10px);
   pointer-events: none;
-  will-change: transform;
 }
 
 /* ── Responsive adjustments ───────────────────────────────── */
