@@ -46,6 +46,7 @@
     { label: 'Home',         href: '' },
     { label: 'About',        href: 'about/' },
     { label: 'Services',     href: 'services/' },
+    { label: 'Web App Dev',  href: 'web-application-development/' },
     { label: 'Work',         href: 'work/' },
     { label: 'Technologies', href: 'technologies/' },
     { label: 'Pricing',      href: 'pricing/' },
