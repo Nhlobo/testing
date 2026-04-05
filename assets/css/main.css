@@ -1461,7 +1461,7 @@ p + p { margin-top: var(--space-4); }
 .inset-0 { inset: 0; }
 
 /* ============================================================
-   19. MAPENGO DESIGN SYSTEM — WEB APP DEV PAGE UTILITIES
+   19. MAPENGO DESIGN SYSTEM — WEB APPLICATION DEVELOPMENT PAGE
    ============================================================ */
 
 /* Eyebrow / category label for dark sections */
@@ -1551,6 +1551,111 @@ p + p { margin-top: var(--space-4); }
 }
 
 /* Tech stack tag cloud */
+/* WAD hero stats card */
+.wad-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+.wad-stat {
+  text-align: center;
+}
+
+.wad-stat-value {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-extrabold);
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.wad-stat-label {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: rgba(255,255,255,0.55);
+  margin-top: var(--space-1);
+}
+
+/* WAD case study card header */
+.wad-case-header {
+  border-radius: var(--radius-lg);
+  margin: calc(-1 * var(--space-8)) calc(-1 * var(--space-8)) var(--space-6);
+  height: 160px;
+}
+
+/* WAD tech category heading */
+.wad-tech-category {
+  margin-bottom: var(--space-8);
+}
+
+.wad-tech-category:last-child {
+  margin-bottom: 0;
+}
+
+.wad-tech-category h3 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+/* WAD badge margin */
+.wad-badge-mb {
+  margin-bottom: var(--space-3);
+}
+
+/* WAD view all link wrapper */
+.wad-view-all {
+  text-align: center;
+  margin-top: var(--space-10);
+}
+
+/* WAD contact checklist */
+.wad-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.wad-checklist li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: rgba(255,255,255,0.75);
+  font-size: var(--text-sm);
+}
+
+.wad-checklist li span {
+  color: var(--color-teal);
+  font-size: var(--text-lg);
+  flex-shrink: 0;
+}
+
+/* WAD contact action buttons row */
+.wad-contact-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* WAD two-column form row */
+.wad-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 480px) {
+  .wad-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .stack-tags {
   display: flex;
   flex-wrap: wrap;

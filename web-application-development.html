@@ -82,22 +82,22 @@
             <div aria-hidden="true">
               <!-- Hero visual: key stats -->
               <div class="card-glass" style="padding: var(--space-8);">
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-5);">
-                  <div style="text-align:center;">
-                    <div style="font-family:var(--font-heading); font-size:var(--text-4xl); font-weight:var(--font-extrabold); color:var(--color-white); line-height:1;">50+</div>
-                    <div style="font-size:var(--text-xs); text-transform:uppercase; letter-spacing:var(--tracking-wide); color:rgba(255,255,255,0.55); margin-top:var(--space-1);">Projects Delivered</div>
+                <div class="wad-stats-grid">
+                  <div class="wad-stat">
+                    <div class="wad-stat-value">50+</div>
+                    <div class="wad-stat-label">Projects Delivered</div>
                   </div>
-                  <div style="text-align:center;">
-                    <div style="font-family:var(--font-heading); font-size:var(--text-4xl); font-weight:var(--font-extrabold); color:var(--color-teal); line-height:1;">95+</div>
-                    <div style="font-size:var(--text-xs); text-transform:uppercase; letter-spacing:var(--tracking-wide); color:rgba(255,255,255,0.55); margin-top:var(--space-1);">Lighthouse Score</div>
+                  <div class="wad-stat">
+                    <div class="wad-stat-value" style="color:var(--color-teal);">95/100</div>
+                    <div class="wad-stat-label">Lighthouse Score</div>
                   </div>
-                  <div style="text-align:center;">
-                    <div style="font-family:var(--font-heading); font-size:var(--text-4xl); font-weight:var(--font-extrabold); color:var(--color-accent-light); line-height:1;">&lt;1.5s</div>
-                    <div style="font-size:var(--text-xs); text-transform:uppercase; letter-spacing:var(--tracking-wide); color:rgba(255,255,255,0.55); margin-top:var(--space-1);">Load Time</div>
+                  <div class="wad-stat">
+                    <div class="wad-stat-value" style="color:var(--color-accent-light);">&lt;1.5s</div>
+                    <div class="wad-stat-label">Load Time</div>
                   </div>
-                  <div style="text-align:center;">
-                    <div style="font-family:var(--font-heading); font-size:var(--text-4xl); font-weight:var(--font-extrabold); color:var(--color-white); line-height:1;">R5M+</div>
-                    <div style="font-size:var(--text-xs); text-transform:uppercase; letter-spacing:var(--tracking-wide); color:rgba(255,255,255,0.55); margin-top:var(--space-1);">Revenue Enabled</div>
+                  <div class="wad-stat">
+                    <div class="wad-stat-value">R5M+</div>
+                    <div class="wad-stat-label">Revenue Enabled</div>
                   </div>
                 </div>
               </div>
@@ -229,37 +229,37 @@
         <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
 
           <article class="card fade-in">
-            <div class="project-visual" style="border-radius: var(--radius-lg); margin: calc(-1 * var(--space-8)) calc(-1 * var(--space-8)) var(--space-6); height: 160px; background: var(--gradient-hero);" aria-hidden="true">
+            <div class="wad-case-header project-visual" style="background: var(--gradient-hero);" aria-hidden="true">
               <span class="project-visual-label">ShopZA</span>
             </div>
-            <span class="badge badge-accent" style="margin-bottom:var(--space-3);">E-Commerce</span>
+            <span class="badge badge-accent wad-badge-mb">E-Commerce</span>
             <h3 class="card-title">ShopZA Marketplace Platform</h3>
             <p class="card-text">Multi-vendor marketplace with PayFast integration, vendor dashboards, and real-time inventory — serving 1,200+ products at launch.</p>
             <a href="./work/" class="card-link">View Case Study →</a>
           </article>
 
           <article class="card fade-in">
-            <div class="project-visual" style="border-radius: var(--radius-lg); margin: calc(-1 * var(--space-8)) calc(-1 * var(--space-8)) var(--space-6); height: 160px; background: linear-gradient(135deg, #1c3a5e, #0f2038);" aria-hidden="true">
+            <div class="wad-case-header project-visual" style="background: linear-gradient(135deg, #1c3a5e, #0f2038);" aria-hidden="true">
               <span class="project-visual-label">Juta</span>
             </div>
-            <span class="badge badge-teal" style="margin-bottom:var(--space-3);">Construction</span>
+            <span class="badge badge-teal wad-badge-mb">Construction</span>
             <h3 class="card-title">Juta DACO Construction Portal</h3>
             <p class="card-text">Project management portal for site teams — snag lists, compliance checklists, and document management replacing manual spreadsheets.</p>
             <a href="./work/" class="card-link">View Case Study →</a>
           </article>
 
           <article class="card fade-in">
-            <div class="project-visual" style="border-radius: var(--radius-lg); margin: calc(-1 * var(--space-8)) calc(-1 * var(--space-8)) var(--space-6); height: 160px; background: linear-gradient(135deg, #1e3a2f, #0d2419);" aria-hidden="true">
+            <div class="wad-case-header project-visual" style="background: linear-gradient(135deg, #1e3a2f, #0d2419);" aria-hidden="true">
               <span class="project-visual-label">MedConnect</span>
             </div>
-            <span class="badge badge-accent" style="margin-bottom:var(--space-3);">Healthcare</span>
+            <span class="badge badge-accent wad-badge-mb">Healthcare</span>
             <h3 class="card-title">MedConnect Patient Portal</h3>
             <p class="card-text">Booking, teleconsultation, and patient-record management for an independent clinic chain — reducing admin time by 40%.</p>
             <a href="./work/" class="card-link">View Case Study →</a>
           </article>
 
         </div>
-        <div style="text-align:center; margin-top:var(--space-10);">
+        <div class="wad-view-all">
           <a href="./work/" class="btn btn-ghost-dark">View All Projects →</a>
         </div>
       </div>
@@ -277,8 +277,8 @@
         </div>
 
         <!-- Frontend -->
-        <div style="margin-bottom: var(--space-8);">
-          <h3 style="font-size:var(--text-sm); text-transform:uppercase; letter-spacing:var(--tracking-wide); color:var(--color-accent); margin-bottom:var(--space-4);">Frontend</h3>
+        <div class="wad-tech-category">
+          <h3>Frontend</h3>
           <div class="stack-tags">
             <span class="tag">React</span>
             <span class="tag">Next.js</span>
@@ -290,8 +290,8 @@
         </div>
 
         <!-- Backend -->
-        <div style="margin-bottom: var(--space-8);">
-          <h3 style="font-size:var(--text-sm); text-transform:uppercase; letter-spacing:var(--tracking-wide); color:var(--color-accent); margin-bottom:var(--space-4);">Backend &amp; APIs</h3>
+        <div class="wad-tech-category">
+          <h3>Backend &amp; APIs</h3>
           <div class="stack-tags">
             <span class="tag">Node.js</span>
             <span class="tag">NestJS</span>
@@ -303,8 +303,8 @@
         </div>
 
         <!-- Databases -->
-        <div style="margin-bottom: var(--space-8);">
-          <h3 style="font-size:var(--text-sm); text-transform:uppercase; letter-spacing:var(--tracking-wide); color:var(--color-accent); margin-bottom:var(--space-4);">Databases</h3>
+        <div class="wad-tech-category">
+          <h3>Databases</h3>
           <div class="stack-tags">
             <span class="tag">PostgreSQL</span>
             <span class="tag">MongoDB</span>
@@ -316,8 +316,8 @@
         </div>
 
         <!-- Cloud & DevOps -->
-        <div>
-          <h3 style="font-size:var(--text-sm); text-transform:uppercase; letter-spacing:var(--tracking-wide); color:var(--color-accent); margin-bottom:var(--space-4);">Cloud &amp; DevOps</h3>
+        <div class="wad-tech-category">
+          <h3>Cloud &amp; DevOps</h3>
           <div class="stack-tags">
             <span class="tag">AWS</span>
             <span class="tag">Vercel</span>
@@ -343,29 +343,17 @@
             <p style="color:rgba(255,255,255,0.65); max-width:30rem; margin-bottom:var(--space-8);">
               Tell us about your product and we'll respond within 1–2 business days with a free consultation and quote.
             </p>
-            <ul style="list-style:none; display:flex; flex-direction:column; gap:var(--space-4);">
-              <li style="display:flex; align-items:center; gap:var(--space-3); color:rgba(255,255,255,0.75); font-size:var(--text-sm);">
-                <span style="color:var(--color-teal); font-size:var(--text-lg);">✓</span>
-                Free project scoping and quote within 48 hours
-              </li>
-              <li style="display:flex; align-items:center; gap:var(--space-3); color:rgba(255,255,255,0.75); font-size:var(--text-sm);">
-                <span style="color:var(--color-teal); font-size:var(--text-lg);">✓</span>
-                No upfront payment required to start planning
-              </li>
-              <li style="display:flex; align-items:center; gap:var(--space-3); color:rgba(255,255,255,0.75); font-size:var(--text-sm);">
-                <span style="color:var(--color-teal); font-size:var(--text-lg);">✓</span>
-                SA-based team — your time zone, your language
-              </li>
-              <li style="display:flex; align-items:center; gap:var(--space-3); color:rgba(255,255,255,0.75); font-size:var(--text-sm);">
-                <span style="color:var(--color-teal); font-size:var(--text-lg);">✓</span>
-                Fixed-price or retainer engagement models
-              </li>
+            <ul class="wad-checklist">
+              <li><span aria-hidden="true">✓</span> Free project scoping and quote within 48 hours</li>
+              <li><span aria-hidden="true">✓</span> No upfront payment required to start planning</li>
+              <li><span aria-hidden="true">✓</span> SA-based team — your time zone, your language</li>
+              <li><span aria-hidden="true">✓</span> Fixed-price or retainer engagement models</li>
             </ul>
-            <div style="margin-top:var(--space-10); display:flex; gap:var(--space-3); flex-wrap:wrap;">
-              <a href="mailto:info@MapengoInnovations.co.za" class="btn btn-ghost" style="font-size:var(--text-sm);">
+            <div class="wad-contact-actions">
+              <a href="mailto:info@MapengoInnovations.co.za" class="btn btn-ghost btn-sm">
                 📧 info@MapengoInnovations.co.za
               </a>
-              <a href="https://wa.me/27665520197" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="font-size:var(--text-sm);">
+              <a href="https://wa.me/27665520197" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
                 💬 Chat on WhatsApp
               </a>
             </div>
@@ -376,7 +364,7 @@
             <div class="wad-contact-form">
               <form id="wad-contact-form" novalidate>
 
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:var(--space-4);">
+                <div class="wad-form-row">
                   <div class="wad-field">
                     <label for="wad-name">Full Name <span aria-hidden="true">*</span></label>
                     <input type="text" id="wad-name" name="name" placeholder="Jane Dlamini" required autocomplete="name">
@@ -574,7 +562,8 @@
             }
             return;
           }
-          // In production, replace with your preferred form endpoint or Formspree
+          // TODO: Replace with your preferred form endpoint (e.g. Formspree, Netlify Forms, or a serverless function)
+          // Example: fetch('/api/contact', { method:'POST', body: new FormData(form) })
           if (success) success.style.display = 'block';
           if (error)   error.style.display   = 'none';
           form.reset();
