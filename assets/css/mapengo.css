@@ -749,7 +749,7 @@
 }
 
 .mn-field input:focus,
-.mn-field select,
+.mn-field select:focus,
 .mn-field textarea:focus {
   outline: none;
   border-color: var(--mn-indigo);
