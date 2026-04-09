@@ -2052,6 +2052,7 @@
 .cs-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-3); }
 .tech-tag { display: inline-block; font-size: .75rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--color-grey-100,#f3f4f6); color: var(--color-primary); border: 1px solid var(--color-grey-200,#e5e7eb); }
 .cs-actions { display: flex; gap: var(--space-2); margin-top: var(--space-4); }
+.cs-img-placeholder { display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.25); font-size: 3rem; }
 
 /* ── Inline contact form ─────────────────────────────────── */
 .contact-form { background: var(--color-white); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-md); }
