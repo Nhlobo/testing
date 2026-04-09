@@ -13,22 +13,22 @@ export default function AboutPage() {
   return (
     <div className="pt-24">
       {/* Hero */}
-      <section className="section-padding bg-navy-950">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left">
               <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 border border-teal/20 text-teal text-sm font-medium mb-4">
                 About Us
               </span>
-              <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+              <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6">
                 Built in South Africa,{" "}
                 <span className="gradient-text">Built for Growth</span>
               </h1>
-              <p className="text-slate-400 text-xl leading-relaxed mb-6">
+              <p className="text-gray-500 text-xl leading-relaxed mb-6">
                 Mapengo Innovations is a Johannesburg-based digital agency that builds premium web
                 and mobile products for South African businesses ready to grow.
               </p>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-gray-500 leading-relaxed">
                 We understand the unique challenges of the South African market — from load shedding
                 to mobile-first users and POPIA compliance — and we build products that are resilient,
                 fast and effective in this context.
@@ -45,11 +45,11 @@ export default function AboutPage() {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="p-6 rounded-xl bg-navy-800 border border-navy-700 text-center"
+                    className="p-6 rounded-xl bg-gray-50 border border-gray-200 text-center"
                   >
                     <div className="text-3xl mb-2">{item.icon}</div>
-                    <p className="text-white font-bold">{item.label}</p>
-                    <p className="text-slate-400 text-sm">{item.desc}</p>
+                    <p className="text-gray-900 font-bold">{item.label}</p>
+                    <p className="text-gray-500 text-sm">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -59,13 +59,13 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="section-padding bg-navy-900">
+      <section className="section-padding bg-gray-50">
         <div className="container-custom max-w-3xl mx-auto text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6">
               Our <span className="gradient-text">Mission</span>
             </h2>
-            <p className="text-slate-300 text-xl leading-relaxed">
+            <p className="text-gray-600 text-xl leading-relaxed">
               To democratise access to world-class digital technology for South African businesses
               of all sizes — helping them compete locally and globally with tools that actually work
               in the South African context.
@@ -75,10 +75,10 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="section-padding bg-navy-950">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
               Meet the <span className="gradient-text">Team</span>
             </h2>
           </AnimatedSection>
@@ -86,23 +86,23 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {teamMembers.map((member, i) => (
               <AnimatedSection key={member.id} delay={i * 0.1}>
-                <div className="p-6 rounded-xl bg-navy-800 border border-navy-700 hover:border-teal/30 transition-all">
+                <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover:border-teal/30 transition-all">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-teal flex items-center justify-center text-white font-bold text-xl mb-4">
                     {member.name
                       .split(" ")
                       .map((n) => n[0])
                       .join("")}
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-1">{member.name}</h3>
+                  <h3 className="text-gray-900 font-bold text-lg mb-1">{member.name}</h3>
                   <p className="text-accent text-sm font-medium mb-3">{member.role}</p>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-4">{member.bio}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{member.bio}</p>
                   <div className="flex items-center gap-3">
                     {member.github && (
                       <a
                         href={`https://github.com/${member.github}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-slate-400 hover:text-white transition-colors"
+                        className="text-gray-400 hover:text-gray-700 transition-colors"
                         aria-label="GitHub"
                       >
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -115,7 +115,7 @@ export default function AboutPage() {
                         href={siteConfig.social.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-slate-400 hover:text-accent transition-colors"
+                        className="text-gray-400 hover:text-accent transition-colors"
                         aria-label="LinkedIn"
                       >
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -133,15 +133,15 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-navy-900">
+      <section className="section-padding bg-gray-50">
         <div className="container-custom text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6">
               Ready to Work With Us?
             </h2>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent text-white font-semibold hover:bg-accent-dark transition-all shadow-lg hover:shadow-accent/30"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent text-white font-semibold hover:bg-accent-dark transition-all shadow-sm"
             >
               Get in Touch
             </Link>

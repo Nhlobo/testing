@@ -23,16 +23,16 @@ const MEMBERS_PASSWORD = "members2024";
 function MembersContent() {
   return (
     <div className="space-y-8">
-      <div className="p-6 rounded-xl bg-navy-800 border border-teal/30">
-        <h2 className="text-white font-bold text-xl mb-2">🎉 Welcome, Member!</h2>
-        <p className="text-slate-400 text-sm">
+      <div className="p-6 rounded-xl bg-green-50 border border-teal/30">
+        <h2 className="text-gray-900 font-bold text-xl mb-2">🎉 Welcome, Member!</h2>
+        <p className="text-gray-500 text-sm">
           You have exclusive access to the resources below.
         </p>
       </div>
 
       {/* Resource downloads */}
       <section>
-        <h3 className="text-white font-bold text-lg mb-4">📥 Downloads</h3>
+        <h3 className="text-gray-900 font-bold text-lg mb-4">📥 Downloads</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
             {
@@ -62,12 +62,12 @@ function MembersContent() {
           ].map((resource) => (
             <div
               key={resource.title}
-              className="flex items-start gap-4 p-5 rounded-xl bg-navy-800 border border-navy-700 hover:border-teal/30 transition-all"
+              className="flex items-start gap-4 p-5 rounded-xl bg-white border border-gray-200 hover:border-teal/30 transition-all"
             >
               <span className="text-2xl">{resource.icon}</span>
               <div className="flex-1 min-w-0">
-                <p className="text-white font-semibold text-sm mb-1">{resource.title}</p>
-                <p className="text-slate-400 text-xs mb-2">{resource.desc}</p>
+                <p className="text-gray-900 font-semibold text-sm mb-1">{resource.title}</p>
+                <p className="text-gray-500 text-xs mb-2">{resource.desc}</p>
                 <span className="text-teal text-xs">{resource.size}</span>
               </div>
               <button
@@ -83,7 +83,7 @@ function MembersContent() {
 
       {/* Early access */}
       <section>
-        <h3 className="text-white font-bold text-lg mb-4">🚀 Early Access</h3>
+        <h3 className="text-gray-900 font-bold text-lg mb-4">🚀 Early Access</h3>
         <div className="space-y-3">
           {[
             {
@@ -99,11 +99,11 @@ function MembersContent() {
           ].map((item) => (
             <div
               key={item.title}
-              className="flex items-center justify-between p-4 rounded-xl bg-navy-800 border border-navy-700"
+              className="flex items-center justify-between p-4 rounded-xl bg-white border border-gray-200"
             >
               <div>
-                <p className="text-white font-semibold text-sm">{item.title}</p>
-                <p className="text-slate-400 text-xs mt-0.5">{item.status}</p>
+                <p className="text-gray-900 font-semibold text-sm">{item.title}</p>
+                <p className="text-gray-500 text-xs mt-0.5">{item.status}</p>
               </div>
               <span className="px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold">
                 {item.badge}
@@ -114,9 +114,9 @@ function MembersContent() {
       </section>
 
       {/* Newsletter */}
-      <section className="p-6 rounded-xl bg-gradient-to-r from-accent/10 to-teal/10 border border-accent/20">
-        <h3 className="text-white font-bold text-lg mb-2">📬 Members Newsletter</h3>
-        <p className="text-slate-400 text-sm mb-4">
+      <section className="p-6 rounded-xl bg-orange-50 border border-accent/20">
+        <h3 className="text-gray-900 font-bold text-lg mb-2">📬 Members Newsletter</h3>
+        <p className="text-gray-500 text-sm mb-4">
           Get monthly exclusive insights, tutorials and early-access invites straight to your inbox.
         </p>
         <Link
@@ -164,33 +164,33 @@ export default function MembersPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen pt-24 flex items-center justify-center bg-navy-950">
+      <div className="min-h-screen pt-24 flex items-center justify-center bg-white">
         <div className="w-8 h-8 rounded-full border-2 border-accent border-t-transparent animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="pt-24 min-h-screen bg-navy-950">
+    <div className="pt-24 min-h-screen bg-white">
       <div className="container-custom py-16 max-w-2xl mx-auto">
         {!isAuthenticated ? (
           // Password gate
           <div className="text-center">
-            <div className="w-16 h-16 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center text-3xl mx-auto mb-6">
+            <div className="w-16 h-16 rounded-2xl bg-gray-100 border border-gray-200 flex items-center justify-center text-3xl mx-auto mb-6">
               🔒
             </div>
-            <h1 className="text-3xl font-extrabold text-white mb-2">Members Area</h1>
-            <p className="text-slate-400 mb-8">
+            <h1 className="text-3xl font-extrabold text-gray-900 mb-2">Members Area</h1>
+            <p className="text-gray-500 mb-8">
               This area is for Mapengo Innovations clients and partners.
             </p>
 
             <form
               onSubmit={handleSubmit}
-              className="p-8 rounded-2xl bg-navy-800 border border-navy-700 text-left"
+              className="p-8 rounded-2xl bg-gray-50 border border-gray-200 text-left"
             >
               <label
                 htmlFor="password"
-                className="block text-sm text-slate-300 font-medium mb-2"
+                className="block text-sm text-gray-700 font-medium mb-2"
               >
                 Access Password
               </label>
@@ -204,10 +204,10 @@ export default function MembersPage() {
                 }}
                 placeholder="Enter your password…"
                 autoComplete="current-password"
-                className="w-full px-4 py-3 rounded-lg bg-navy-700 border border-navy-600 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-accent transition-colors mb-4"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-accent transition-colors mb-4"
               />
               {error && (
-                <p className="mb-4 text-red-400 text-sm">❌ {error}</p>
+                <p className="mb-4 text-red-500 text-sm">❌ {error}</p>
               )}
               <button
                 type="submit"
@@ -216,7 +216,7 @@ export default function MembersPage() {
                 Enter Members Area
               </button>
 
-              <p className="mt-4 text-center text-slate-500 text-xs">
+              <p className="mt-4 text-center text-gray-400 text-xs">
                 Don't have access?{" "}
                 <Link href="/contact" className="text-accent hover:underline">
                   Contact us
@@ -230,12 +230,12 @@ export default function MembersPage() {
           <div>
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h1 className="text-3xl font-extrabold text-white">Members Area</h1>
-                <p className="text-slate-400 text-sm mt-1">Exclusive resources for members</p>
+                <h1 className="text-3xl font-extrabold text-gray-900">Members Area</h1>
+                <p className="text-gray-500 text-sm mt-1">Exclusive resources for members</p>
               </div>
               <button
                 onClick={handleLogout}
-                className="px-4 py-2 rounded-lg border border-slate-600 text-slate-400 text-sm hover:border-red-400 hover:text-red-400 transition-colors"
+                className="px-4 py-2 rounded-lg border border-gray-200 text-gray-500 text-sm hover:border-red-300 hover:text-red-500 transition-colors"
               >
                 Sign Out
               </button>
