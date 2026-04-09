@@ -14,17 +14,17 @@ export default function PricingPage() {
   return (
     <div className="pt-24">
       {/* Hero */}
-      <section className="section-padding bg-navy-950">
+      <section className="section-padding bg-white">
         <div className="container-custom text-center">
           <AnimatedSection>
             <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 border border-teal/20 text-teal text-sm font-medium mb-4">
               Pricing
             </span>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6">
               Transparent{" "}
               <span className="gradient-text">Pricing</span>
             </h1>
-            <p className="text-slate-400 text-xl max-w-2xl mx-auto">
+            <p className="text-gray-500 text-xl max-w-2xl mx-auto">
               No hidden fees. No surprises. Just great digital products at fair South African prices.
             </p>
           </AnimatedSection>
@@ -32,7 +32,7 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing tiers */}
-      <section className="section-padding bg-navy-900">
+      <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {pricingTiers.map((tier, i) => (
@@ -41,8 +41,8 @@ export default function PricingPage() {
                   className={cn(
                     "flex flex-col p-8 rounded-2xl border h-full",
                     tier.highlighted
-                      ? "bg-gradient-to-b from-accent/10 to-navy-800 border-accent/40 shadow-2xl shadow-accent/10 scale-105"
-                      : "bg-navy-800 border-navy-700"
+                      ? "bg-white border-accent/40 shadow-lg scale-105"
+                      : "bg-white border-gray-200"
                   )}
                 >
                   {tier.highlighted && (
@@ -53,18 +53,18 @@ export default function PricingPage() {
                     </div>
                   )}
 
-                  <h2 className="text-2xl font-bold text-white mb-2">{tier.name}</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">{tier.name}</h2>
                   <div className="mb-4">
-                    <span className="text-4xl font-extrabold text-white">{tier.price}</span>
+                    <span className="text-4xl font-extrabold text-gray-900">{tier.price}</span>
                     {tier.price !== "Custom" && (
-                      <span className="text-slate-400 text-sm ml-1">starting from</span>
+                      <span className="text-gray-400 text-sm ml-1">starting from</span>
                     )}
                   </div>
-                  <p className="text-slate-400 text-sm mb-6">{tier.description}</p>
+                  <p className="text-gray-500 text-sm mb-6">{tier.description}</p>
 
                   <ul className="space-y-3 flex-1 mb-8">
                     {tier.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm text-slate-300">
+                      <li key={feature} className="flex items-start gap-3 text-sm text-gray-600">
                         <svg
                           className="w-5 h-5 text-teal shrink-0 mt-0.5"
                           viewBox="0 0 24 24"
@@ -84,8 +84,8 @@ export default function PricingPage() {
                     className={cn(
                       "w-full text-center py-3.5 rounded-xl font-semibold transition-all",
                       tier.highlighted
-                        ? "bg-accent text-white hover:bg-accent-dark shadow-lg hover:shadow-accent/25"
-                        : "bg-navy-700 text-white hover:bg-navy-600 border border-navy-600"
+                        ? "bg-accent text-white hover:bg-accent-dark shadow-sm"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
                     )}
                   >
                     {tier.cta}
@@ -96,7 +96,7 @@ export default function PricingPage() {
           </div>
 
           <AnimatedSection className="mt-16 text-center">
-            <p className="text-slate-400 text-sm">
+            <p className="text-gray-400 text-sm">
               All prices are in South African Rand (ZAR) and exclude VAT.{" "}
               <Link href="/contact" className="text-accent hover:underline">
                 Contact us

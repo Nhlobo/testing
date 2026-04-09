@@ -53,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* JSON-LD structured data */}
         <script
@@ -79,25 +79,8 @@ export default function RootLayout({
             }),
           }}
         />
-        {/* Inline script to apply theme before first paint, avoiding flash */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var t = localStorage.getItem('theme');
-                  if (t === 'light') {
-                    document.documentElement.classList.remove('dark');
-                  } else {
-                    document.documentElement.classList.add('dark');
-                  }
-                } catch(e) {}
-              })();
-            `,
-          }}
-        />
       </head>
-      <body className={`${geistSans.variable} font-sans antialiased bg-navy-900 text-slate-100`}>
+      <body className={`${geistSans.variable} font-sans antialiased bg-white text-gray-900`}>
         <Header />
         <main>{children}</main>
         <Footer />
