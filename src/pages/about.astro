@@ -6,7 +6,7 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
 const team = [
   {
     name: 'Nhlovo Mathebula',
-    role: 'Full-stack Developer & Founder',
+    role: 'Founder & Lead Engineer',
     bio: 'Full-stack developer with 8+ years building production systems for South African businesses. Passionate about making enterprise-grade technology accessible to every SA business.',
     initials: 'NM',
   },
@@ -35,17 +35,15 @@ const milestones = [
   title="About Mapengo Innovations"
   description="We're a South African digital innovation company building world-class systems for businesses that want to grow. Meet the team and our story."
 >
-  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-3) var(--space-4);position:sticky;top:0;z-index:500;box-shadow:0 2px 12px rgba(0,0,0,.25);">
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
     <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
-      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;flex-shrink:0;">Mapengo<span style="color:var(--color-accent);">.</span></a>
-      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;align-items:center;">
-        <li><a href={`${base}services/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Services</a></li>
-        <li><a href={`${base}industries/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Industries</a></li>
-        <li><a href={`${base}case-studies/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Case Studies</a></li>
-        <li><a href={`${base}work/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Work</a></li>
-        <li><a href={`${base}about/`} style="color:var(--color-white);font-weight:700;border-bottom:2px solid var(--color-accent);padding-bottom:2px;text-decoration:none;font-size:.9375rem;">About</a></li>
-        <li><a href={`${base}blog/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Blog</a></li>
-        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:9px 22px;border-radius:var(--radius-full);font-weight:700;font-size:.875rem;text-decoration:none;">Get Quote</a></li>
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
+        <li><a href={`${base}services/`} style="color:var(--color-white);text-decoration:none;">Services</a></li>
+        <li><a href={`${base}industries/`} style="color:var(--color-white);text-decoration:none;">Industries</a></li>
+        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
+        <li><a href={`${base}about/`} style="color:var(--color-accent);text-decoration:none;font-weight:600;">About</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -62,48 +60,16 @@ const milestones = [
       </p>
     </section>
 
-    <!-- Mission & Vision -->
+    <!-- Mission -->
     <section style="padding:var(--space-12) var(--space-4);">
-      <div style="max-width:var(--max-width);margin:0 auto;">
-        <p style="text-align:center;color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">Who We Are</p>
-        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-6);">Founded to Democratise Technology</h2>
-        <p style="text-align:center;max-width:780px;margin:0 auto var(--space-8);font-size:1.05rem;color:var(--color-grey-700);line-height:1.8;">
-          Nhlovo Mathebula founded Mapengo Innovations in 2019 with a simple but powerful belief: <strong>every South African business — regardless of size or budget — deserves world-class technology</strong>. Most software is built for the US or European market and sold to SA as an afterthought. We build differently, starting with the SA context: our infrastructure constraints, our regulatory environment, and our people's unique needs.
+      <div style="max-width:860px;margin:0 auto;text-align:center;">
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-4);">Our Mission</h2>
+        <p style="font-size:1.2rem;color:var(--color-grey-800);line-height:1.8;margin-bottom:var(--space-3);">
+          Most software is built for the US or European market — then sold to South Africa as an afterthought. We build differently. Every system we create starts with the SA context: our infrastructure constraints, our regulatory environment, our economic reality, and our people's needs.
         </p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4);">
-          <div style="background:var(--color-primary);color:var(--color-white);padding:var(--space-5);border-radius:var(--radius-lg);">
-            <p style="font-size:1.75rem;margin-bottom:var(--space-2);">🎯</p>
-            <h3 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:800;margin-bottom:var(--space-2);">Our Mission</h3>
-            <p style="opacity:.85;line-height:1.7;font-size:.975rem;">To become the most trusted technology partner for South African businesses — democratising access to enterprise-grade systems from the spaza shop floor to the JSE boardroom.</p>
-          </div>
-          <div style="background:var(--color-accent);color:var(--color-white);padding:var(--space-5);border-radius:var(--radius-lg);">
-            <p style="font-size:1.75rem;margin-bottom:var(--space-2);">🔭</p>
-            <h3 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:800;margin-bottom:var(--space-2);">Our Vision</h3>
-            <p style="opacity:.9;line-height:1.7;font-size:.975rem;">A South Africa where digital transformation is not a privilege of large corporates but a competitive tool available to every ambitious entrepreneur and growing business.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section style="padding:var(--space-12) var(--space-4);">
-      <div style="max-width:var(--max-width);margin:0 auto;">
-        <p style="text-align:center;color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">Why Mapengo</p>
-        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-8);">Why Businesses Choose Us</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-4);">
-          {[
-            { icon: '🇿🇦', title: 'SA-Specific Expertise', desc: 'We understand load shedding resilience, POPIA compliance, mobile-first SA users, and rand-denominated pricing — so you never have to educate us on the basics.' },
-            { icon: '⚙️', title: 'Full-Stack Delivery', desc: 'From UX design to cloud infrastructure, we own the entire stack. One team accountable for the full result — no finger-pointing between agencies.' },
-            { icon: '🚀', title: 'Performance Obsessed', desc: 'We target Lighthouse 95+ on every site we ship. Faster pages mean better user experience, higher conversions, and lower bounce rates for your business.' },
-            { icon: '🤝', title: 'Long-Term Partnership', desc: 'We don\'t disappear after go-live. Retainer clients get proactive updates, performance monitoring, and a team that grows alongside their business.' },
-          ].map(d => (
-            <div style="background:var(--color-white);padding:var(--space-4);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border-top:3px solid var(--color-accent);">
-              <p style="font-size:2rem;margin-bottom:var(--space-2);">{d.icon}</p>
-              <h3 style="font-family:var(--font-heading);font-size:1.05rem;font-weight:700;color:var(--color-primary);margin-bottom:8px;">{d.title}</h3>
-              <p style="color:var(--color-grey-600);font-size:.9rem;line-height:1.65;">{d.desc}</p>
-            </div>
-          ))}
-        </div>
+        <p style="font-size:1.1rem;color:var(--color-grey-600);line-height:1.8;">
+          Our goal is to become the most trusted technology partner for South African businesses — from township spaza shops to JSE-listed enterprises.
+        </p>
       </div>
     </section>
 
@@ -140,28 +106,6 @@ const milestones = [
       </div>
     </section>
 
-    <!-- Team -->
-    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
-      <div style="max-width:var(--max-width);margin:0 auto;">
-        <p style="text-align:center;color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">The People</p>
-        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-8);">Meet the Founder</h2>
-        <div style="max-width:540px;margin:0 auto;">
-          {team.map(member => (
-            <div style="background:var(--color-white);padding:var(--space-5);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);display:flex;gap:var(--space-4);align-items:flex-start;">
-              <div style="width:72px;height:72px;border-radius:50%;background:var(--color-primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <span style="font-family:var(--font-heading);font-size:1.4rem;font-weight:800;color:var(--color-white);">{member.initials}</span>
-              </div>
-              <div>
-                <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--color-primary);margin-bottom:4px;">{member.name}</h3>
-                <p style="color:var(--color-accent);font-size:.875rem;font-weight:600;margin-bottom:var(--space-2);">{member.role} · Johannesburg</p>
-                <p style="color:var(--color-grey-600);font-size:.9rem;line-height:1.65;">{member.bio}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
     <!-- Stats -->
     <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
       <div style="max-width:var(--max-width);margin:0 auto;">
@@ -170,8 +114,8 @@ const milestones = [
           {[
             { value: '50+', label: 'Projects Delivered' },
             { value: 'R5M+', label: 'Client Revenue Enabled' },
-            { value: '9+', label: 'Industries Served' },
-            { value: '3', label: 'Cities Active' },
+            { value: '6', label: 'Industries Served' },
+            { value: '95+', label: 'Average Lighthouse Score' },
           ].map(s => (
             <div>
               <p style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:var(--color-accent);">{s.value}</p>

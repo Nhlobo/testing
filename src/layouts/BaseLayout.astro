@@ -1,7 +1,5 @@
 ---
 import '../styles/global.css';
-import '../styles/motion.css';
-import '../styles/hero.css';
 
 interface Props {
   title: string;
@@ -23,49 +21,6 @@ const siteUrl = 'https://nhlobo.github.io/testing';
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 const ogImageUrl = ogImage ? `${siteUrl}/${ogImage}` : `${siteUrl}/favicon.svg`;
 const fullTitle = title.includes('Mapengo') ? title : `${title} | Mapengo Innovations`;
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
-      "name": "Mapengo Innovations",
-      "url": siteUrl,
-      "logo": `${siteUrl}/favicon.svg`,
-      "description": "South African software development company specialising in web development, mobile apps, and business systems.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Johannesburg",
-        "addressRegion": "Gauteng",
-        "addressCountry": "ZA"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "email": "hello@mapengoinnovations.co.za",
-        "availableLanguage": ["English", "Zulu", "Sotho"]
-      },
-      "areaServed": "ZA",
-      "sameAs": []
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      "url": siteUrl,
-      "name": "Mapengo Innovations",
-      "publisher": { "@id": `${siteUrl}/#organization` }
-    },
-    {
-      "@type": "WebPage",
-      "@id": `${canonical}#webpage`,
-      "url": canonical,
-      "name": fullTitle,
-      "description": description,
-      "isPartOf": { "@id": `${siteUrl}/#website` }
-    }
-  ]
-};
 ---
 
 <!doctype html>
@@ -103,9 +58,6 @@ const jsonLd = {
     <!-- PWA -->
     <link rel="manifest" href={`${base}manifest.json`} />
     <meta name="theme-color" content="#0A1628" />
-
-    <!-- Structured Data JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- Fonts preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
