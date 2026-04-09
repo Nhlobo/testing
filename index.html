@@ -8,7 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/main.css"><link rel="stylesheet" href="./assets/css/pages.css"><meta property="og:title" content="Home | Mapengo Innovations">
   <meta property="og:description" content="Mapengo Innovations — High-performance websites, mobile apps and business systems built for South African businesses. Fast, affordable, SA-focused.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/img/og-image.svg">
+  <meta property="og:url" content="https://nhlobo.github.io/testing/">
+  <meta property="og:image" content="https://nhlobo.github.io/testing/assets/img/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Home | Mapengo Innovations">
+  <meta name="twitter:description" content="Mapengo Innovations — High-performance websites, mobile apps and business systems built for South African businesses. Fast, affordable, SA-focused.">
+  <meta name="twitter:image" content="https://nhlobo.github.io/testing/assets/img/og-image.svg">
   <link rel="icon" href="/testing/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/testing/favicon.ico" sizes="any">
   <script type="application/ld+json">
@@ -332,22 +337,29 @@
           <!-- Left: Contact Form -->
           <div>
             <h2 style="font-family: var(--font-heading); font-size: var(--text-3xl); font-weight: var(--font-bold); color: var(--color-white); margin-bottom: var(--space-6);">Send Us a Message</h2>
-            <form id="home-contact-form" class="contact-form" novalidate>
+            <form id="home-contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+              <!-- Honeypot for spam protection -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="_subject" value="New enquiry from Mapengo Innovations homepage">
               <div class="form-row">
                 <div class="form-group">
                   <label for="home-name" class="form-label">Your Name</label>
                   <input type="text" id="home-name" name="name" class="form-control" placeholder="Thabo Dlamini" required>
+                  <span class="form-error" id="home-name-error" role="alert"></span>
                 </div>
                 <div class="form-group">
                   <label for="home-email" class="form-label">Email Address</label>
                   <input type="email" id="home-email" name="email" class="form-control" placeholder="thabo@business.co.za" required>
+                  <span class="form-error" id="home-email-error" role="alert"></span>
                 </div>
               </div>
               <div class="form-group">
                 <label for="home-message" class="form-label">Message</label>
                 <textarea id="home-message" name="message" class="form-control" rows="5" placeholder="Tell us about your project..." required></textarea>
+                <span class="form-error" id="home-message-error" role="alert"></span>
               </div>
-              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Send Message →</button>
+              <div id="home-form-status" class="form-status" role="alert"></div>
+              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" aria-busy="false">Send Message →</button>
             </form>
             <div id="home-form-success" class="form-success" style="display: none; text-align: center; padding: var(--space-10);">
               <div style="font-size: 3rem; margin-bottom: var(--space-4);">✓</div>
@@ -405,19 +417,8 @@
           item.classList.toggle('open');
         });
       });
-      // Contact form
-      var form = document.getElementById('home-contact-form');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var name = form.querySelector('[name="name"]').value.trim();
-          var email = form.querySelector('[name="email"]').value.trim();
-          var message = form.querySelector('[name="message"]').value.trim();
-          if (!name || !email || !message) { alert('Please fill in all fields.'); return; }
-          form.style.display = 'none';
-          document.getElementById('home-form-success').style.display = 'block';
-        });
-      }
+      // Contact form is handled by main.js initHomeForm() via Formspree
+      // with inline field-level validation and no alert() calls.
     });
   </script>
 </body>

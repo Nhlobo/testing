@@ -8,7 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/pages.css"><meta property="og:title" content="Pricing | Mapengo Innovations">
   <meta property="og:description" content="Transparent, flat-rate project pricing for South African businesses. No hidden fees, no hourly surprises. View our project, retainer and SaaS pricing.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="../assets/img/og-image.svg">
+  <meta property="og:url" content="https://nhlobo.github.io/testing/pricing/">
+  <meta property="og:image" content="https://nhlobo.github.io/testing/assets/img/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing | Mapengo Innovations">
+  <meta name="twitter:description" content="Transparent, flat-rate project pricing for South African businesses. No hidden fees, no hourly surprises. View our project, retainer and SaaS pricing.">
+  <meta name="twitter:image" content="https://nhlobo.github.io/testing/assets/img/og-image.svg">
   <link rel="icon" href="/testing/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/testing/favicon.ico" sizes="any">
   <script type="application/ld+json">
@@ -260,16 +265,21 @@
         <h2 class="section-title text-center">Get Your Custom Quote</h2>
         <p class="section-sub text-center">Tell us about your project</p>
 
-        <form class="contact-form" id="pricing-quote-form" novalidate>
+        <form class="contact-form" id="pricing-quote-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <!-- Honeypot for spam protection -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_subject" value="New quote request from Mapengo Innovations website">
 
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="quote-name">Name</label>
+              <label class="form-label" for="quote-name">Name <span aria-hidden="true">*</span></label>
               <input class="form-control" type="text" id="quote-name" name="name" placeholder="Your name" required>
+              <span class="form-error" id="quote-name-error" role="alert"></span>
             </div>
             <div class="form-group">
-              <label class="form-label" for="quote-email">Email</label>
+              <label class="form-label" for="quote-email">Email <span aria-hidden="true">*</span></label>
               <input class="form-control" type="email" id="quote-email" name="email" placeholder="your@email.com" required>
+              <span class="form-error" id="quote-email-error" role="alert"></span>
             </div>
           </div>
 
@@ -312,7 +322,11 @@
             <textarea class="form-control" id="quote-message" name="message" rows="5" placeholder="Describe your project, goals and any specific requirements..."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg">Request Quote →</button>
+          <div id="pricing-form-status" class="form-status" role="alert"></div>
+
+          <button type="submit" id="pricing-quote-submit" class="btn btn-primary btn-lg" aria-busy="false">
+            <span class="submit-btn-label">Request Quote →</span>
+          </button>
 
         </form>
 
@@ -352,21 +366,8 @@
         });
       });
 
-      // Quote form
-      var quoteForm = document.getElementById('pricing-quote-form');
-      if (quoteForm) {
-        quoteForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var name = quoteForm.querySelector('[name="name"]').value.trim();
-          var email = quoteForm.querySelector('[name="email"]').value.trim();
-          if (!name || !email) {
-            alert('Please fill in your name and email.');
-            return;
-          }
-          quoteForm.style.display = 'none';
-          document.getElementById('pricing-form-success').style.display = 'block';
-        });
-      }
+      // Quote form — handled by main.js initQuoteForm() via Formspree
+      // (replaces old alert-based fake submit)
     });
   </script>
 </body>
