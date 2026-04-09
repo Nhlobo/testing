@@ -19,16 +19,16 @@ export const navLinks: NavLink[] = [
 ];
 
 export const stats: Stat[] = [
-  { value: "50+", numericValue: 50, suffix: "+", label: "Projects Delivered", icon: "🚀" },
-  { value: "R5M+", numericValue: 5, suffix: "M+", label: "Revenue Enabled", icon: "💰" },
-  { value: "95+", numericValue: 95, suffix: "+", label: "Lighthouse Score", icon: "⚡" },
-  { value: "6", numericValue: 6, suffix: "", label: "Industries Served", icon: "🌍" },
+  { value: "50+", numericValue: 50, suffix: "+", label: "Projects Delivered", icon: "Rocket" },
+  { value: "R5M+", numericValue: 5, suffix: "M+", label: "Revenue Enabled", icon: "TrendingUp" },
+  { value: "95+", numericValue: 95, suffix: "+", label: "Lighthouse Score", icon: "Zap" },
+  { value: "6", numericValue: 6, suffix: "", label: "Industries Served", icon: "Globe" },
 ];
 
 export const services: Service[] = [
   {
     id: "web-dev",
-    icon: "🌐",
+    icon: "Globe",
     title: "Web Development",
     description:
       "High-performance websites and web applications built with modern frameworks. From landing pages to complex SaaS platforms.",
@@ -37,7 +37,7 @@ export const services: Service[] = [
   },
   {
     id: "mobile-apps",
-    icon: "📱",
+    icon: "Smartphone",
     title: "Mobile Apps",
     description:
       "Native and cross-platform mobile apps for iOS and Android. Beautiful UX that keeps users engaged.",
@@ -46,7 +46,7 @@ export const services: Service[] = [
   },
   {
     id: "business-systems",
-    icon: "🏗️",
+    icon: "LayoutDashboard",
     title: "Business Systems",
     description:
       "Custom ERP, CRM and workflow automation systems that streamline operations and reduce manual effort.",
@@ -55,7 +55,7 @@ export const services: Service[] = [
   },
   {
     id: "ui-ux",
-    icon: "🎨",
+    icon: "Palette",
     title: "UI/UX Design",
     description:
       "User-centred design that converts visitors into customers. We craft experiences that are both beautiful and functional.",
@@ -64,7 +64,7 @@ export const services: Service[] = [
   },
   {
     id: "devops",
-    icon: "⚙️",
+    icon: "Server",
     title: "DevOps & Cloud",
     description:
       "CI/CD pipelines, cloud infrastructure and monitoring that keep your digital products running smoothly.",
@@ -73,7 +73,7 @@ export const services: Service[] = [
   },
   {
     id: "digital-strategy",
-    icon: "📊",
+    icon: "BarChart3",
     title: "Digital Strategy",
     description:
       "Data-driven digital transformation roadmaps tailored for South African markets and growth objectives.",

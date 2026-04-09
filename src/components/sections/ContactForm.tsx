@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { CheckCircle, XCircle } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { siteConfig } from "@/lib/data";
 
@@ -278,13 +279,15 @@ export function ContactForm() {
 
               {/* Success / Error messages */}
               {status === "success" && (
-                <div className="mt-4 p-4 rounded-lg bg-green-50 border border-green-200 text-green-700 text-sm">
-                  ✅ Message sent! We'll get back to you within 24 hours.
+                <div className="mt-4 flex items-start gap-2.5 p-4 rounded-lg bg-green-50 border border-green-200 text-green-700 text-sm">
+                  <CheckCircle size={16} strokeWidth={2} className="shrink-0 mt-0.5" />
+                  Message sent! We&apos;ll get back to you within 24 hours.
                 </div>
               )}
               {status === "error" && (
-                <div className="mt-4 p-4 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm">
-                  ❌ Something went wrong. Please try again or email us directly.
+                <div className="mt-4 flex items-start gap-2.5 p-4 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm">
+                  <XCircle size={16} strokeWidth={2} className="shrink-0 mt-0.5" />
+                  Something went wrong. Please try again or email us directly.
                 </div>
               )}
 

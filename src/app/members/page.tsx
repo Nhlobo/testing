@@ -15,6 +15,18 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import {
+  Lock,
+  BarChart3,
+  ShieldCheck,
+  Zap,
+  Smartphone,
+  Rocket,
+  Mail,
+  ArrowRight,
+  Download,
+  CheckCircle,
+} from "lucide-react";
 
 const MEMBERS_TOKEN_KEY = "mi_members_token";
 // In production, use an environment variable and server-side validation
@@ -23,58 +35,65 @@ const MEMBERS_PASSWORD = "members2024";
 function MembersContent() {
   return (
     <div className="space-y-8">
-      <div className="p-6 rounded-xl bg-green-50 border border-teal/30">
-        <h2 className="text-gray-900 font-bold text-xl mb-2">🎉 Welcome, Member!</h2>
-        <p className="text-gray-500 text-sm">
-          You have exclusive access to the resources below.
-        </p>
+      <div className="flex items-center gap-3 p-5 rounded-xl bg-teal/5 border border-teal/20">
+        <div className="w-9 h-9 rounded-xl bg-teal/10 flex items-center justify-center text-teal shrink-0">
+          <CheckCircle size={18} strokeWidth={2} />
+        </div>
+        <div>
+          <h2 className="text-gray-900 font-bold text-base">Welcome, Member!</h2>
+          <p className="text-gray-500 text-sm">
+            You have exclusive access to the resources below.
+          </p>
+        </div>
       </div>
 
       {/* Resource downloads */}
       <section>
-        <h3 className="text-gray-900 font-bold text-lg mb-4">📥 Downloads</h3>
+        <h3 className="text-gray-900 font-bold text-lg mb-4">Downloads</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
             {
               title: "South African Digital Market Report 2024",
               desc: "50-page in-depth analysis of SA digital trends",
               size: "4.2 MB PDF",
-              icon: "📊",
+              Icon: BarChart3,
             },
             {
               title: "POPIA Compliance Checklist for Web Apps",
               desc: "Developer-ready checklist for POPIA compliance",
               size: "1.1 MB PDF",
-              icon: "🛡️",
+              Icon: ShieldCheck,
             },
             {
               title: "Next.js Performance Optimization Guide",
               desc: "Our internal playbook for 95+ Lighthouse scores",
               size: "2.8 MB PDF",
-              icon: "⚡",
+              Icon: Zap,
             },
             {
               title: "React Native Offline-First Template",
               desc: "Starter template with SQLite and sync engine",
               size: "GitHub Repository",
-              icon: "📱",
+              Icon: Smartphone,
             },
           ].map((resource) => (
             <div
               key={resource.title}
               className="flex items-start gap-4 p-5 rounded-xl bg-white border border-gray-200 hover:border-teal/30 transition-all"
             >
-              <span className="text-2xl">{resource.icon}</span>
+              <div className="w-9 h-9 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center text-accent shrink-0">
+                <resource.Icon size={17} strokeWidth={1.75} />
+              </div>
               <div className="flex-1 min-w-0">
                 <p className="text-gray-900 font-semibold text-sm mb-1">{resource.title}</p>
                 <p className="text-gray-500 text-xs mb-2">{resource.desc}</p>
                 <span className="text-teal text-xs">{resource.size}</span>
               </div>
               <button
-                className="shrink-0 px-3 py-1.5 rounded-lg bg-teal/10 border border-teal/30 text-teal text-xs font-semibold hover:bg-teal hover:text-white transition-all"
+                className="shrink-0 p-2 rounded-lg bg-teal/10 border border-teal/30 text-teal hover:bg-teal hover:text-white transition-all"
                 aria-label={`Download ${resource.title}`}
               >
-                Download
+                <Download size={14} strokeWidth={2} />
               </button>
             </div>
           ))}
@@ -83,7 +102,10 @@ function MembersContent() {
 
       {/* Early access */}
       <section>
-        <h3 className="text-gray-900 font-bold text-lg mb-4">🚀 Early Access</h3>
+        <div className="flex items-center gap-2 mb-4">
+          <Rocket size={18} strokeWidth={1.75} className="text-accent" />
+          <h3 className="text-gray-900 font-bold text-lg">Early Access</h3>
+        </div>
         <div className="space-y-3">
           {[
             {
@@ -114,17 +136,23 @@ function MembersContent() {
       </section>
 
       {/* Newsletter */}
-      <section className="p-6 rounded-xl bg-orange-50 border border-accent/20">
-        <h3 className="text-gray-900 font-bold text-lg mb-2">📬 Members Newsletter</h3>
-        <p className="text-gray-500 text-sm mb-4">
-          Get monthly exclusive insights, tutorials and early-access invites straight to your inbox.
-        </p>
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-white text-sm font-semibold hover:bg-accent-dark transition-all"
-        >
-          Subscribe Now
-        </Link>
+      <section className="flex items-start gap-4 p-6 rounded-xl bg-orange-50 border border-accent/20">
+        <div className="w-10 h-10 rounded-xl bg-white border border-accent/20 flex items-center justify-center text-accent shrink-0">
+          <Mail size={18} strokeWidth={1.75} />
+        </div>
+        <div className="flex-1">
+          <h3 className="text-gray-900 font-bold text-base mb-1">Members Newsletter</h3>
+          <p className="text-gray-500 text-sm mb-4">
+            Get monthly exclusive insights, tutorials and early-access invites straight to your inbox.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-white text-sm font-semibold hover:bg-accent-dark transition-all"
+          >
+            Subscribe Now
+            <ArrowRight size={14} strokeWidth={2.5} />
+          </Link>
+        </div>
       </section>
     </div>
   );
@@ -176,8 +204,8 @@ export default function MembersPage() {
         {!isAuthenticated ? (
           // Password gate
           <div className="text-center">
-            <div className="w-16 h-16 rounded-2xl bg-gray-100 border border-gray-200 flex items-center justify-center text-3xl mx-auto mb-6">
-              🔒
+            <div className="w-16 h-16 rounded-2xl bg-gray-100 border border-gray-200 flex items-center justify-center mx-auto mb-6 text-gray-400">
+              <Lock size={28} strokeWidth={1.5} />
             </div>
             <h1 className="text-3xl font-extrabold text-gray-900 mb-2">Members Area</h1>
             <p className="text-gray-500 mb-8">
@@ -207,7 +235,7 @@ export default function MembersPage() {
                 className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-accent transition-colors mb-4"
               />
               {error && (
-                <p className="mb-4 text-red-500 text-sm">❌ {error}</p>
+                <p className="mb-4 text-red-500 text-sm">{error}</p>
               )}
               <button
                 type="submit"
@@ -217,7 +245,7 @@ export default function MembersPage() {
               </button>
 
               <p className="mt-4 text-center text-gray-400 text-xs">
-                Don't have access?{" "}
+                Don&apos;t have access?{" "}
                 <Link href="/contact" className="text-accent hover:underline">
                   Contact us
                 </Link>{" "}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Flag, Zap, ShieldCheck, Handshake, ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { teamMembers, siteConfig } from "@/lib/data";
 
@@ -38,16 +39,18 @@ export default function AboutPage() {
             <AnimatedSection direction="right">
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: "🇿🇦", label: "South African", desc: "100% local team" },
-                  { icon: "⚡", label: "Fast", desc: "95+ Lighthouse avg" },
-                  { icon: "🛡️", label: "Compliant", desc: "POPIA by default" },
-                  { icon: "🤝", label: "Committed", desc: "Long-term partners" },
+                  { Icon: Flag, label: "South African", desc: "100% local team" },
+                  { Icon: Zap, label: "Fast", desc: "95+ Lighthouse avg" },
+                  { Icon: ShieldCheck, label: "Compliant", desc: "POPIA by default" },
+                  { Icon: Handshake, label: "Committed", desc: "Long-term partners" },
                 ].map((item) => (
                   <div
                     key={item.label}
                     className="p-6 rounded-xl bg-gray-50 border border-gray-200 text-center"
                   >
-                    <div className="text-3xl mb-2">{item.icon}</div>
+                    <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center mx-auto mb-3 text-accent">
+                      <item.Icon size={20} strokeWidth={1.75} />
+                    </div>
                     <p className="text-gray-900 font-bold">{item.label}</p>
                     <p className="text-gray-500 text-sm">{item.desc}</p>
                   </div>
@@ -144,6 +147,7 @@ export default function AboutPage() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent text-white font-semibold hover:bg-accent-dark transition-all shadow-sm"
             >
               Get in Touch
+              <ArrowRight size={16} strokeWidth={2.5} />
             </Link>
           </AnimatedSection>
         </div>

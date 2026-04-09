@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { blogPosts } from "@/lib/data";
 import { formatDate } from "@/lib/utils";
@@ -57,9 +58,10 @@ export default function BlogPage() {
                     </time>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="text-xs font-semibold text-accent hover:text-accent-dark transition-colors"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-accent hover:text-accent-dark transition-colors"
                     >
-                      Read article →
+                      Read article
+                      <ArrowRight size={12} strokeWidth={2.5} />
                     </Link>
                   </div>
                 </article>
