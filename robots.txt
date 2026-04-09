@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nhlobo.github.io/testing/sitemap.xml
