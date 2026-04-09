@@ -26,6 +26,7 @@ import {
   ArrowRight,
   Download,
   CheckCircle,
+  XCircle,
 } from "lucide-react";
 
 const MEMBERS_TOKEN_KEY = "mi_members_token";
@@ -235,7 +236,10 @@ export default function MembersPage() {
                 className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-accent transition-colors mb-4"
               />
               {error && (
-                <p className="mb-4 text-red-500 text-sm">{error}</p>
+                <div className="mb-4 flex items-start gap-2.5 p-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm">
+                  <XCircle size={16} strokeWidth={2} className="shrink-0 mt-0.5" />
+                  {error}
+                </div>
               )}
               <button
                 type="submit"
