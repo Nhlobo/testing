@@ -1,95 +1,143 @@
-# Mapengo Innovations — Website
+# Mapengo Innovations
 
-[![Deploy to GitHub Pages](https://github.com/Nhlobo/testing/actions/workflows/deploy.yml/badge.svg)](https://github.com/Nhlobo/testing/actions/workflows/deploy.yml)
+Premium South African digital agency — Next.js 14 web application.
 
-Live site: **<https://nhlobo.github.io/testing/>**
+**Live site:** https://nhlobo.github.io/testing
+
+---
 
 ## Tech Stack
 
-- [Astro 5](https://astro.build) — static-site framework
-- MDX content collections (blog, solutions, case studies)
-- Vanilla CSS design system (`src/styles/global.css`)
-- PWA-ready (service worker + web manifest)
-- GitHub Actions → GitHub Pages CI/CD
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Animations | Framer Motion |
+| UI Primitives | Radix UI |
+| Deployment | GitHub Pages (static export) |
+
+---
 
 ## Local Development
 
 ```bash
 # Install dependencies
-npm ci
+npm install
 
-# Start dev server (http://localhost:4321/testing/)
+# Start development server
 npm run dev
+# → http://localhost:3000
 
-# Build for production (output to dist/)
+# Build for production
 npm run build
 
-# Preview production build locally
-npm run preview
+# Preview the production build
+npx serve out
 ```
 
-## Project Structure
+---
+
+## Architecture
 
 ```
 src/
-  content/        # MDX content collections
-    blog/         # Blog posts
-    solutions/    # Service/solution pages
-    case-studies/ # Portfolio case studies
-  layouts/
-    BaseLayout.astro   # Shared HTML shell
-  pages/
-    index.astro        # Home
-    pricing.astro      # Pricing
-    contact.astro      # Contact form
-    blog/              # Blog index + [slug] detail
-    services/          # Services index + [slug] detail
-    work/              # Case studies index + [slug] detail
-    legal/             # Privacy + Terms
-    404.astro          # Not-found page
-    offline.astro      # Offline fallback
-  styles/
-    global.css    # Design system tokens & global styles
+  app/               # Next.js App Router pages
+    layout.tsx       # Root layout (fonts, metadata, Header, Footer)
+    page.tsx         # Home page
+    about/
+    services/
+    work/
+    blog/
+      page.tsx       # Blog index
+      [slug]/        # Dynamic blog post pages
+    contact/
+    members/         # Password-gated members area
+    pricing/
+    sitemap.ts       # Auto-generated sitemap
+    robots.ts        # Auto-generated robots.txt
+  components/
+    layout/          # Header, Footer
+    sections/        # Page sections (Hero, Services, etc.)
+    ui/              # Reusable UI components
   lib/
-    analytics.ts  # Client-side analytics helpers
-    consent.ts    # Consent management helpers
-public/
-  favicon.svg
-  manifest.json
-  robots.txt
-  sw.js           # Service worker (offline support)
-.github/
-  workflows/
-    deploy.yml    # Build & deploy to GitHub Pages
+    data.ts          # All static content
+    utils.ts         # Utility functions (cn, formatDate)
+  types/
+    index.ts         # TypeScript interfaces
 ```
+
+---
 
 ## Deployment
 
-The site deploys automatically to **GitHub Pages** on every push to `main`.
+### GitHub Pages (current)
 
-### One-time GitHub setup
+Deployed automatically via GitHub Actions on push to `main`. The workflow:
+1. Runs `npm run build` → generates `out/` directory
+2. Uploads `out/` as a Pages artifact
+3. Deploys to GitHub Pages
 
-1. In your repo go to **Settings → Pages**.
-2. Set **Source** to **GitHub Actions**.
-3. Push to `main` — the workflow will build and deploy automatically.
+> **Config:** `next.config.mjs` sets `output: "export"`, `basePath: "/testing"`, `trailingSlash: true`.
 
-That's it. The live URL will be `https://nhlobo.github.io/testing/`.
+### Vercel (recommended for production)
 
-### Optional: Contact form endpoint
+1. Import the repo at [vercel.com/new](https://vercel.com/new)
+2. Remove the `basePath` and `output: "export"` settings in `next.config.mjs`
+3. Deploy — Vercel handles everything automatically
 
-The contact form (`/contact/`) can POST to any form-handling API. To wire it up:
+---
 
-1. Go to **Settings → Secrets and variables → Actions**.
-2. Add a secret named `CONTACT_FORM_ENDPOINT` with the URL of your form handler
-   (e.g. a Formspree endpoint `https://formspree.io/f/XXXXXXXX`).
+## Customising Content
 
-The workflow already passes this secret as an environment variable at build time.
+All site content is in **`src/lib/data.ts`**:
 
-## Content Editing
+- `siteConfig` — name, contact info, social links
+- `services` — service cards
+- `caseStudies` — portfolio items
+- `testimonials` — client testimonials
+- `blogPosts` — blog articles
+- `pricingTiers` — pricing table
+- `teamMembers` — about page team
 
-All content lives in `src/content/` as MDX files. Edit them directly and push
-to `main` — the site rebuilds and redeploys automatically.
+---
 
-## License
+## Members Area
 
-© Mapengo Innovations. All rights reserved.
+The `/members` page is password-gated:
+
+- **Demo password:** `members2024`
+- Password is checked client-side and the session token is stored in `localStorage`
+- To change the password, update `MEMBERS_PASSWORD` in `src/app/members/page.tsx`
+- For production, replace with proper authentication (NextAuth, Clerk, Supabase Auth, etc.)
+
+---
+
+## Environment Variables
+
+No environment variables are required for the current setup. For production extensions:
+
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_FORMSPREE_ID` | Formspree form ID for contact form |
+| `NEXT_PUBLIC_GA_ID` | Google Analytics measurement ID |
+
+---
+
+## Contact Form
+
+The contact form POSTs to [Formspree](https://formspree.io). To activate:
+
+1. Create a free account at formspree.io
+2. Create a new form and get your form ID
+3. Replace `YOUR_FORM_ID` in `src/components/sections/ContactForm.tsx`
+
+---
+
+## Contact
+
+**Mapengo Innovations**  
+📧 info@MapengoInnovations.co.za  
+📱 +27665520197  
+💬 [WhatsApp](https://wa.me/27665520197)  
+📍 Johannesburg, Gauteng, South Africa
