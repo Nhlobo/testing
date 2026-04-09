@@ -352,7 +352,159 @@
     });
   }
 
-  /* ── Init all ───────────────────────────────────────────── */
+  /* ── Pricing quote form → Formspree submission ─────────── */
+  function initQuoteForm() {
+    var form = document.getElementById('pricing-quote-form');
+    if (!form) return;
+
+    var submitBtn = document.getElementById('pricing-quote-submit');
+    var submitLabel = submitBtn ? submitBtn.querySelector('.submit-btn-label') : null;
+    var statusEl = document.getElementById('pricing-form-status');
+
+    function setFieldError(id, message) {
+      var el = document.getElementById(id + '-error');
+      if (el) el.textContent = message || '';
+    }
+
+    function clearFieldErrors() {
+      ['quote-name', 'quote-email'].forEach(function (id) { setFieldError(id, ''); });
+    }
+
+    function setStatus(message, type) {
+      if (!statusEl) return;
+      statusEl.textContent = message || '';
+      statusEl.classList.remove('success', 'error');
+      if (type) statusEl.classList.add(type);
+    }
+
+    function setLoading(loading) {
+      if (!submitBtn) return;
+      submitBtn.disabled = loading;
+      submitBtn.classList.toggle('is-loading', loading);
+      submitBtn.setAttribute('aria-busy', loading ? 'true' : 'false');
+      if (submitLabel) submitLabel.textContent = loading ? 'Sending request...' : 'Request Quote →';
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearFieldErrors();
+      setStatus('');
+
+      var hasError = false;
+      var nameEl = document.getElementById('quote-name');
+      var emailEl = document.getElementById('quote-email');
+
+      if (nameEl && !nameEl.value.trim()) {
+        setFieldError('quote-name', 'Please enter your name.');
+        hasError = true;
+      }
+      if (emailEl && !emailEl.checkValidity()) {
+        setFieldError('quote-email', 'Please enter a valid email address.');
+        hasError = true;
+      }
+
+      if (hasError) {
+        setStatus('Please correct the highlighted fields and try again.', 'error');
+        return;
+      }
+
+      setLoading(true);
+
+      var formData = new FormData(form);
+      fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: formData })
+        .then(function (res) {
+          if (!res.ok) throw new Error('failed');
+          form.reset();
+          setStatus('Quote request received! We\'ll prepare a custom quote within 4 business hours.', 'success');
+        })
+        .catch(function () {
+          setStatus('Submission failed. Please try again or email info@MapengoInnovations.co.za.', 'error');
+        })
+        .finally(function () {
+          setLoading(false);
+        });
+    });
+  }
+
+  /* ── Home contact form → Formspree submission ───────────── */
+  function initHomeForm() {
+    var form = document.getElementById('home-contact-form');
+    if (!form) return;
+
+    var submitBtn = form.querySelector('[type="submit"]');
+    var statusEl = document.getElementById('home-form-status');
+
+    function setStatus(message, type) {
+      if (!statusEl) return;
+      statusEl.textContent = message || '';
+      statusEl.classList.remove('success', 'error');
+      if (type) statusEl.classList.add(type);
+    }
+
+    function setLoading(loading) {
+      if (!submitBtn) return;
+      submitBtn.disabled = loading;
+      submitBtn.setAttribute('aria-busy', loading ? 'true' : 'false');
+      submitBtn.textContent = loading ? 'Sending...' : 'Send Message →';
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      setStatus('');
+
+      var nameEl  = form.querySelector('[name="name"]');
+      var emailEl = form.querySelector('[name="email"]');
+      var msgEl   = form.querySelector('[name="message"]');
+
+      var nameErr  = document.getElementById('home-name-error');
+      var emailErr = document.getElementById('home-email-error');
+      var msgErr   = document.getElementById('home-message-error');
+
+      var hasError = false;
+      if (nameErr) nameErr.textContent = '';
+      if (emailErr) emailErr.textContent = '';
+      if (msgErr) msgErr.textContent = '';
+
+      if (nameEl && !nameEl.value.trim()) {
+        if (nameErr) nameErr.textContent = 'Please enter your name.';
+        hasError = true;
+      }
+      if (emailEl && !emailEl.checkValidity()) {
+        if (emailErr) emailErr.textContent = 'Please enter a valid email address.';
+        hasError = true;
+      }
+      if (msgEl && !msgEl.value.trim()) {
+        if (msgErr) msgErr.textContent = 'Please enter a message.';
+        hasError = true;
+      }
+
+      if (hasError) return;
+
+      if (!form.action || form.action === window.location.href) {
+        // No Formspree endpoint configured — show success without submitting
+        var successEl = document.getElementById('home-form-success');
+        if (successEl) { form.style.display = 'none'; successEl.style.display = 'block'; }
+        return;
+      }
+
+      setLoading(true);
+
+      var formData = new FormData(form);
+      fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: formData })
+        .then(function (res) {
+          if (!res.ok) throw new Error('failed');
+          var successEl = document.getElementById('home-form-success');
+          if (successEl) { form.style.display = 'none'; successEl.style.display = 'block'; }
+        })
+        .catch(function () {
+          setStatus('Submission failed. Please email info@MapengoInnovations.co.za directly.', 'error');
+        })
+        .finally(function () {
+          setLoading(false);
+        });
+    });
+  }
+
   /* ── Contact form → Formspree submission ───────────────── */
   function initContactForm() {
     const form = document.getElementById('contact-form');
@@ -477,5 +629,7 @@
     initTestimonialSlider();
     initActiveNav();
     initContactForm();
+    initQuoteForm();
+    initHomeForm();
   });
 })();

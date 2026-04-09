@@ -8,7 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/pages.css"><meta property="og:title" content="Contact | Mapengo Innovations">
   <meta property="og:description" content="Contact Mapengo Innovations — start your project today. We respond within 4 business hours. Based in Johannesburg, serving all of South Africa.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="../assets/img/og-image.svg">
+  <meta property="og:url" content="https://nhlobo.github.io/testing/contact/">
+  <meta property="og:image" content="https://nhlobo.github.io/testing/assets/img/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact | Mapengo Innovations">
+  <meta name="twitter:description" content="Contact Mapengo Innovations — start your project today. We respond within 4 business hours. Based in Johannesburg, serving all of South Africa.">
+  <meta name="twitter:image" content="https://nhlobo.github.io/testing/assets/img/og-image.svg">
   <link rel="icon" href="/testing/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/testing/favicon.ico" sizes="any">
   <link rel="canonical" href="https://nhlobo.github.io/testing/contact/">
@@ -36,12 +41,16 @@
 
           <!-- Left: Form -->
           <div>
-            <form class="contact-form" id="main-contact-form" novalidate>
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+              <!-- Honeypot for spam protection -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="_subject" value="New project enquiry from Mapengo Innovations website">
 
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label" for="contact-name">Full Name <span aria-hidden="true">*</span></label>
                   <input class="form-control" type="text" id="contact-name" name="name" placeholder="Your full name" required>
+                  <span class="form-error" id="contact-name-error" role="alert"></span>
                 </div>
                 <div class="form-group">
                   <label class="form-label" for="contact-company">Company Name</label>
@@ -53,16 +62,18 @@
                 <div class="form-group">
                   <label class="form-label" for="contact-email">Email Address <span aria-hidden="true">*</span></label>
                   <input class="form-control" type="email" id="contact-email" name="email" placeholder="your@email.com" required>
+                  <span class="form-error" id="contact-email-error" role="alert"></span>
                 </div>
                 <div class="form-group">
                   <label class="form-label" for="contact-phone">Phone Number</label>
                   <input class="form-control" type="tel" id="contact-phone" name="phone" placeholder="+27 00 000 0000">
+                  <span class="form-error" id="contact-phone-error" role="alert"></span>
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="contact-type">Project Type <span aria-hidden="true">*</span></label>
-                <select class="form-control" id="contact-type" name="project_type" required>
+                <label class="form-label" for="contact-service">Project Type <span aria-hidden="true">*</span></label>
+                <select class="form-control" id="contact-service" name="project_type" required>
                   <option value="">Select project type</option>
                   <option value="website">Website</option>
                   <option value="mobile-app">Mobile App</option>
@@ -70,6 +81,7 @@
                   <option value="ecommerce">E-Commerce</option>
                   <option value="other">Other</option>
                 </select>
+                <span class="form-error" id="contact-service-error" role="alert"></span>
               </div>
 
               <div class="form-group">
@@ -87,10 +99,14 @@
               <div class="form-group">
                 <label class="form-label" for="contact-message">Message <span aria-hidden="true">*</span></label>
                 <textarea class="form-control" id="contact-message" name="message" rows="5" placeholder="Tell us about your project and goals" required></textarea>
+                <span class="form-error" id="contact-message-error" role="alert"></span>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Send Message →</button>
+              <div id="contact-form-status" class="form-status" role="alert"></div>
 
+              <button type="submit" id="contact-submit" class="btn btn-primary btn-lg" style="width:100%;" aria-busy="false">
+                <span class="submit-btn-label">Send Secure Enquiry</span>
+              </button>
             </form>
 
             <div id="contact-form-success" class="form-success" style="display:none; text-align:center; padding: 2rem;">
@@ -251,18 +267,8 @@
         });
       });
 
-      var contactForm = document.getElementById('main-contact-form');
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var name = contactForm.querySelector('[name="name"]').value.trim();
-          var email = contactForm.querySelector('[name="email"]').value.trim();
-          var message = contactForm.querySelector('[name="message"]').value.trim();
-          if (!name || !email || !message) { alert('Please fill in all required fields.'); return; }
-          contactForm.style.display = 'none';
-          document.getElementById('contact-form-success').style.display = 'block';
-        });
-      }
+      // Contact form is handled by main.js initContactForm() which uses Formspree
+      // with inline field-level validation and no alert() calls.
     });
   </script>
 </body>
