@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/lib/data";
 import { formatDate } from "@/lib/utils";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -34,9 +35,7 @@ export function BlogPreview() {
             className="shrink-0 inline-flex items-center gap-2 text-accent font-semibold hover:text-accent-dark transition-colors"
           >
             View all articles
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="m9 18 6-6-6-6" />
-            </svg>
+            <ArrowRight size={16} strokeWidth={2.5} />
           </Link>
         </AnimatedSection>
 
@@ -68,9 +67,10 @@ export function BlogPreview() {
                 </time>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="text-xs font-semibold text-accent hover:text-accent-dark transition-colors"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-accent hover:text-accent-dark transition-colors"
                 >
-                  Read more →
+                  Read more
+                  <ArrowRight size={12} strokeWidth={2.5} />
                 </Link>
               </div>
             </motion.article>
