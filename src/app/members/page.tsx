@@ -1,0 +1,249 @@
+"use client";
+
+/**
+ * Members Area — Password-gated page.
+ *
+ * Gating approach:
+ * - A password form is shown initially.
+ * - On correct password entry, a token is saved to localStorage.
+ * - On mount, if the token exists, the gated content is shown immediately.
+ * - The password check is client-side (suitable for lightweight content gating).
+ * - For production, replace with a proper auth solution (NextAuth, Clerk, etc.).
+ *
+ * Demo password: "members2024"
+ */
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+
+const MEMBERS_TOKEN_KEY = "mi_members_token";
+// In production, use an environment variable and server-side validation
+const MEMBERS_PASSWORD = "members2024";
+
+function MembersContent() {
+  return (
+    <div className="space-y-8">
+      <div className="p-6 rounded-xl bg-navy-800 border border-teal/30">
+        <h2 className="text-white font-bold text-xl mb-2">🎉 Welcome, Member!</h2>
+        <p className="text-slate-400 text-sm">
+          You have exclusive access to the resources below.
+        </p>
+      </div>
+
+      {/* Resource downloads */}
+      <section>
+        <h3 className="text-white font-bold text-lg mb-4">📥 Downloads</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            {
+              title: "South African Digital Market Report 2024",
+              desc: "50-page in-depth analysis of SA digital trends",
+              size: "4.2 MB PDF",
+              icon: "📊",
+            },
+            {
+              title: "POPIA Compliance Checklist for Web Apps",
+              desc: "Developer-ready checklist for POPIA compliance",
+              size: "1.1 MB PDF",
+              icon: "🛡️",
+            },
+            {
+              title: "Next.js Performance Optimization Guide",
+              desc: "Our internal playbook for 95+ Lighthouse scores",
+              size: "2.8 MB PDF",
+              icon: "⚡",
+            },
+            {
+              title: "React Native Offline-First Template",
+              desc: "Starter template with SQLite and sync engine",
+              size: "GitHub Repository",
+              icon: "📱",
+            },
+          ].map((resource) => (
+            <div
+              key={resource.title}
+              className="flex items-start gap-4 p-5 rounded-xl bg-navy-800 border border-navy-700 hover:border-teal/30 transition-all"
+            >
+              <span className="text-2xl">{resource.icon}</span>
+              <div className="flex-1 min-w-0">
+                <p className="text-white font-semibold text-sm mb-1">{resource.title}</p>
+                <p className="text-slate-400 text-xs mb-2">{resource.desc}</p>
+                <span className="text-teal text-xs">{resource.size}</span>
+              </div>
+              <button
+                className="shrink-0 px-3 py-1.5 rounded-lg bg-teal/10 border border-teal/30 text-teal text-xs font-semibold hover:bg-teal hover:text-white transition-all"
+                aria-label={`Download ${resource.title}`}
+              >
+                Download
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Early access */}
+      <section>
+        <h3 className="text-white font-bold text-lg mb-4">🚀 Early Access</h3>
+        <div className="space-y-3">
+          {[
+            {
+              title: "AI-Powered SEO Tool (Beta)",
+              status: "Launching Q2 2024",
+              badge: "Coming Soon",
+            },
+            {
+              title: "SA Business Analytics Dashboard",
+              status: "Members get 30% off at launch",
+              badge: "Pre-order",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="flex items-center justify-between p-4 rounded-xl bg-navy-800 border border-navy-700"
+            >
+              <div>
+                <p className="text-white font-semibold text-sm">{item.title}</p>
+                <p className="text-slate-400 text-xs mt-0.5">{item.status}</p>
+              </div>
+              <span className="px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold">
+                {item.badge}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="p-6 rounded-xl bg-gradient-to-r from-accent/10 to-teal/10 border border-accent/20">
+        <h3 className="text-white font-bold text-lg mb-2">📬 Members Newsletter</h3>
+        <p className="text-slate-400 text-sm mb-4">
+          Get monthly exclusive insights, tutorials and early-access invites straight to your inbox.
+        </p>
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-white text-sm font-semibold hover:bg-accent-dark transition-all"
+        >
+          Subscribe Now
+        </Link>
+      </section>
+    </div>
+  );
+}
+
+export default function MembersPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Check for existing session token on mount
+    const token = localStorage.getItem(MEMBERS_TOKEN_KEY);
+    if (token === "authenticated") {
+      setIsAuthenticated(true);
+    }
+    setIsLoading(false);
+  }, []);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (password === MEMBERS_PASSWORD) {
+      localStorage.setItem(MEMBERS_TOKEN_KEY, "authenticated");
+      setIsAuthenticated(true);
+      setError("");
+    } else {
+      setError("Incorrect password. Please try again.");
+      setPassword("");
+    }
+  }
+
+  function handleLogout() {
+    localStorage.removeItem(MEMBERS_TOKEN_KEY);
+    setIsAuthenticated(false);
+  }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen pt-24 flex items-center justify-center bg-navy-950">
+        <div className="w-8 h-8 rounded-full border-2 border-accent border-t-transparent animate-spin" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="pt-24 min-h-screen bg-navy-950">
+      <div className="container-custom py-16 max-w-2xl mx-auto">
+        {!isAuthenticated ? (
+          // Password gate
+          <div className="text-center">
+            <div className="w-16 h-16 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center text-3xl mx-auto mb-6">
+              🔒
+            </div>
+            <h1 className="text-3xl font-extrabold text-white mb-2">Members Area</h1>
+            <p className="text-slate-400 mb-8">
+              This area is for Mapengo Innovations clients and partners.
+            </p>
+
+            <form
+              onSubmit={handleSubmit}
+              className="p-8 rounded-2xl bg-navy-800 border border-navy-700 text-left"
+            >
+              <label
+                htmlFor="password"
+                className="block text-sm text-slate-300 font-medium mb-2"
+              >
+                Access Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setError("");
+                }}
+                placeholder="Enter your password…"
+                autoComplete="current-password"
+                className="w-full px-4 py-3 rounded-lg bg-navy-700 border border-navy-600 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-accent transition-colors mb-4"
+              />
+              {error && (
+                <p className="mb-4 text-red-400 text-sm">❌ {error}</p>
+              )}
+              <button
+                type="submit"
+                className="w-full py-3.5 rounded-xl bg-accent text-white font-semibold hover:bg-accent-dark transition-all"
+              >
+                Enter Members Area
+              </button>
+
+              <p className="mt-4 text-center text-slate-500 text-xs">
+                Don't have access?{" "}
+                <Link href="/contact" className="text-accent hover:underline">
+                  Contact us
+                </Link>{" "}
+                to become a member.
+              </p>
+            </form>
+          </div>
+        ) : (
+          // Authenticated content
+          <div>
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h1 className="text-3xl font-extrabold text-white">Members Area</h1>
+                <p className="text-slate-400 text-sm mt-1">Exclusive resources for members</p>
+              </div>
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 rounded-lg border border-slate-600 text-slate-400 text-sm hover:border-red-400 hover:text-red-400 transition-colors"
+              >
+                Sign Out
+              </button>
+            </div>
+            <MembersContent />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
