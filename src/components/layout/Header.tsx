@@ -40,7 +40,7 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               <Image
-                src="/testing/logo.png"
+                src="/logo.png"
                 alt="Mapengo Innovations"
                 width={130}
                 height={90}
@@ -123,7 +123,7 @@ export function Header() {
           {/* Drawer header */}
           <div className="flex items-center justify-between p-5 border-b border-gray-200">
             <Image
-              src="/testing/logo.png"
+              src="/logo.png"
               alt="Mapengo Innovations"
               width={110}
               height={76}
