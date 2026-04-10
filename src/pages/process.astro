@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
+
+const phases = [
+  {
+    number: '01',
+    title: 'Discovery & Strategy',
+    duration: '1–2 weeks',
+    desc: 'We learn your business deeply — your goals, your users, your constraints. We map out the full system architecture and agree on success metrics before writing a single line of code.',
+    deliverables: ['Business requirements document', 'Technical architecture plan', 'Project timeline and milestones', 'Fixed-price or phased quote'],
+  },
+  {
+    number: '02',
+    title: 'Design & Prototyping',
+    duration: '1–3 weeks',
+    desc: 'We design the user experience before we build it. You get clickable prototypes to test with real users, making it easy to catch issues early — when changes are cheap.',
+    deliverables: ['UI/UX wireframes', 'Interactive prototype', 'Design system components', 'Stakeholder sign-off'],
+  },
+  {
+    number: '03',
+    title: 'Agile Development',
+    duration: '4–16 weeks',
+    desc: 'We build in two-week sprints. You see working software every two weeks, give feedback, and stay in control. No surprises at the end.',
+    deliverables: ['Bi-weekly demo sessions', 'Continuous deployment to staging', 'Weekly progress reports', 'Test-driven development'],
+  },
+  {
+    number: '04',
+    title: 'Quality Assurance',
+    duration: '1–2 weeks',
+    desc: 'Rigorous testing before anything goes live: automated tests, manual QA, performance audits, security scanning, and cross-device/browser testing.',
+    deliverables: ['Automated test suite', 'Performance audit (Lighthouse 95+)', 'Security assessment', 'UAT sign-off'],
+  },
+  {
+    number: '05',
+    title: 'Launch & Go-Live',
+    duration: '3–5 days',
+    desc: 'Planned, zero-downtime launch with rollback capability. We monitor intensively for the first 72 hours to catch anything unexpected.',
+    deliverables: ['Production deployment', '72-hour intensive monitoring', 'Launch checklist verification', 'Team training and handover'],
+  },
+  {
+    number: '06',
+    title: 'Support & Growth',
+    duration: 'Ongoing',
+    desc: 'We don\'t disappear after launch. Monthly retainer options keep your system healthy, secure, and evolving. We treat your system like our own.',
+    deliverables: ['Monthly maintenance updates', 'Performance monitoring', 'Feature development', 'Proactive security patches'],
+  },
+];
+
+const faqs = [
+  { q: 'How long does a typical project take?', a: 'A basic website: 2–4 weeks. A web app or mobile app: 8–16 weeks. Complex enterprise systems: 3–6 months. We always give you a detailed timeline before starting.' },
+  { q: 'What does it cost?', a: 'Starter projects from R8,500. Business systems from R24,000. Enterprise/custom work from R80,000+. See our pricing page for full details.' },
+  { q: 'Will I own the code and IP?', a: 'Yes. Once paid in full, you own all source code and IP. No exceptions.' },
+  { q: 'What if I need changes after launch?', a: 'Minor changes are included for 3 months post-launch. Major features are scoped and priced separately. Monthly retainers give you ongoing flexibility.' },
+  { q: 'Do you work with startups?', a: 'Yes — we have special startup packages and are open to equity arrangements for the right opportunities. Book a call to discuss.' },
+];
+---
+
+<BaseLayout
+  title="Our Process"
+  description="How Mapengo Innovations builds software — from discovery to launch and beyond. Transparent, disciplined, and results-focused."
+>
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+    <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
+        <li><a href={`${base}services/`} style="color:var(--color-white);text-decoration:none;">Services</a></li>
+        <li><a href={`${base}industries/`} style="color:var(--color-white);text-decoration:none;">Industries</a></li>
+        <li><a href={`${base}work/`} style="color:var(--color-white);text-decoration:none;">Work</a></li>
+        <li><a href={`${base}about/`} style="color:var(--color-white);text-decoration:none;">About</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <p style="color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">How We Work</p>
+      <h1 style="font-family:var(--font-heading);font-size:clamp(2.5rem,5vw,3.5rem);font-weight:800;margin-bottom:var(--space-2);">Our Process</h1>
+      <p style="opacity:.8;font-size:1.1rem;max-width:600px;margin:0 auto;">No surprises. No black boxes. A clear, disciplined process that keeps you in control from start to finish.</p>
+    </section>
+
+    <!-- Process Phases -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:var(--space-6);">
+        {phases.map((phase, i) => (
+          <div style={`display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start;${i % 2 === 0 ? '' : ''}`}>
+            <div style="text-align:center;min-width:64px;">
+              <div style="width:64px;height:64px;border-radius:50%;background:var(--color-accent);color:var(--color-white);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.25rem;font-weight:800;">{phase.number}</div>
+              {i < phases.length - 1 && <div style="width:2px;height:var(--space-6);background:var(--color-grey-200);margin:4px auto 0;"></div>}
+            </div>
+            <div style="background:var(--color-grey-50);padding:var(--space-4);border-radius:var(--radius-lg);">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--space-1);margin-bottom:var(--space-2);">
+                <h2 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:var(--color-primary);">{phase.title}</h2>
+                <span style="background:var(--color-white);color:var(--color-grey-600);font-size:.8rem;font-weight:600;padding:4px 12px;border-radius:var(--radius-full);border:1px solid var(--color-grey-200);">{phase.duration}</span>
+              </div>
+              <p style="color:var(--color-grey-800);font-size:.95rem;line-height:1.7;margin-bottom:var(--space-3);">{phase.desc}</p>
+              <div>
+                <p style="font-size:.8rem;font-weight:700;color:var(--color-primary);margin-bottom:8px;">DELIVERABLES</p>
+                <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px;">
+                  {phase.deliverables.map(d => (
+                    <li style="background:var(--color-white);color:var(--color-grey-600);font-size:.8rem;padding:4px 10px;border-radius:var(--radius-full);border:1px solid var(--color-grey-200);">{d}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:720px;margin:0 auto;">
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-8);">Frequently Asked Questions</h2>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+          {faqs.map(faq => (
+            <details style="background:var(--color-white);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;">
+              <summary style="padding:var(--space-3) var(--space-4);font-family:var(--font-heading);font-weight:700;color:var(--color-primary);cursor:pointer;font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+                {faq.q} <span style="color:var(--color-accent);font-size:1.25rem;">+</span>
+              </summary>
+              <p style="padding:0 var(--space-4) var(--space-3);color:var(--color-grey-800);font-size:.95rem;line-height:1.7;">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:var(--color-accent);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;margin-bottom:var(--space-2);">Ready to Start?</h2>
+      <p style="opacity:.9;margin-bottom:var(--space-4);font-size:1.05rem;">Book a free 30-minute discovery call. No pressure, no commitment.</p>
+      <a href={`${base}contact/`} data-smart-cta style="background:var(--color-white);color:var(--color-accent);padding:14px 36px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;display:inline-block;">Book a Free Call</a>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
+    <p>&copy; {new Date().getFullYear()} Mapengo Innovations — <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Privacy</a> · <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Terms</a></p>
+  </footer>
+</BaseLayout>

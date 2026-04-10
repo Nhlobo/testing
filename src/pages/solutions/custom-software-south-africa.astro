@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
+---
+
+<BaseLayout
+  title="Custom Software Development South Africa — Bespoke Systems Built for SA"
+  description="Custom software development in South Africa. We build bespoke applications, integrations, and platforms designed exactly for your business — not adapted from generic templates."
+>
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+    <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;">
+        <li><a href={`${base}services/`} style="color:var(--color-white);text-decoration:none;">Services</a></li>
+        <li><a href={`${base}industries/`} style="color:var(--color-white);text-decoration:none;">Industries</a></li>
+        <li><a href={`${base}pricing/`} style="color:var(--color-white);text-decoration:none;">Pricing</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:8px 20px;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">Get a Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-16) var(--space-4);text-align:center;">
+      <p style="color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">Custom Software · South Africa</p>
+      <h1 style="font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:var(--space-3);max-width:760px;margin-left:auto;margin-right:auto;">
+        Software Built Exactly<br/>for Your Business
+      </h1>
+      <p style="font-size:1.1rem;opacity:.85;max-width:640px;margin:0 auto var(--space-5);">
+        Off-the-shelf tools force you to adapt your business to their limitations. We build custom software that adapts to you — precisely engineered for your workflows, your data, and your growth.
+      </p>
+      <div style="display:flex;gap:var(--space-2);justify-content:center;flex-wrap:wrap;">
+        <a href={`${base}contact/`} data-smart-cta style="background:var(--color-accent);color:var(--color-white);padding:14px 32px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;">Discuss Your Project</a>
+        <a href={`${base}process/`} style="border:2px solid rgba(255,255,255,.3);color:var(--color-white);padding:14px 32px;border-radius:var(--radius-full);font-weight:600;text-decoration:none;">How We Work</a>
+      </div>
+    </section>
+
+    <!-- When to go custom -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:860px;margin:0 auto;">
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-2);">When Custom Software Is the Right Answer</h2>
+        <p style="text-align:center;color:var(--color-grey-600);margin-bottom:var(--space-8);">Custom development isn't for everyone — but for the right business, it's transformative.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-3);">
+          {[
+            { icon: '🔧', title: 'No Off-the-Shelf Fit', desc: 'Your business processes are unique enough that generic tools create more work than they save.' },
+            { icon: '🔗', title: 'Complex Integrations', desc: 'You need systems to talk to each other in ways no existing tool supports.' },
+            { icon: '📈', title: 'Competitive Advantage', desc: 'Your software is your moat — you need something nobody else can copy.' },
+            { icon: '🏗️', title: 'Scaling Bottlenecks', desc: 'Current tools can\'t scale with your growth without becoming cost-prohibitive.' },
+            { icon: '🇿🇦', title: 'SA-Specific Requirements', desc: 'Local regulations, payment methods, and market nuances that global tools don\'t handle.' },
+            { icon: '💡', title: 'New Business Model', desc: 'You\'re building a new product or SaaS and need a foundation to build on.' },
+          ].map(r => (
+            <div style="padding:var(--space-3);border-radius:var(--radius-lg);background:var(--color-grey-50);display:flex;gap:var(--space-2);align-items:flex-start;">
+              <span style="font-size:1.5rem;flex-shrink:0;">{r.icon}</span>
+              <div>
+                <h3 style="font-family:var(--font-heading);font-size:1rem;font-weight:700;color:var(--color-primary);margin-bottom:4px;">{r.title}</h3>
+                <p style="color:var(--color-grey-600);font-size:.88rem;line-height:1.6;">{r.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech stack -->
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:var(--max-width);margin:0 auto;text-align:center;">
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">Our Technology Stack</h2>
+        <p style="color:var(--color-grey-600);margin-bottom:var(--space-8);">Modern, proven technologies selected for performance, reliability, and longevity.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);justify-content:center;">
+          {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'AWS', 'Azure', 'Docker', 'React Native', 'FastAPI'].map(tech => (
+            <span style="background:var(--color-white);color:var(--color-primary);font-weight:600;font-size:.9rem;padding:8px 18px;border-radius:var(--radius-full);box-shadow:var(--shadow-sm);border:1px solid var(--color-grey-200);">{tech}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing guide -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-2);">Investment Guide</h2>
+        <p style="text-align:center;color:var(--color-grey-600);margin-bottom:var(--space-8);">Custom development is priced based on scope. Here are typical ranges.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-3);">
+          {[
+            { tier: 'Growth', range: 'R15k – R80k', desc: 'Internal tools, integrations, automations, simple web apps' },
+            { tier: 'Enterprise', range: 'R80k – R300k', desc: 'Complex platforms, mobile apps, multi-tenant systems' },
+            { tier: 'Transformational', range: 'R300k+', desc: 'Full ERP replacements, SaaS products, enterprise-wide systems' },
+          ].map(t => (
+            <div style="background:var(--color-grey-50);padding:var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--color-grey-200);">
+              <h3 style="font-family:var(--font-heading);font-size:1.05rem;font-weight:700;color:var(--color-primary);margin-bottom:4px;">{t.tier}</h3>
+              <p style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-accent);margin-bottom:var(--space-1);">{t.range}</p>
+              <p style="color:var(--color-grey-600);font-size:.88rem;line-height:1.6;">{t.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p style="text-align:center;color:var(--color-grey-600);font-size:.9rem;margin-top:var(--space-4);">All projects are fixed-price or milestone-based. No hourly billing surprises.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:var(--color-accent);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;margin-bottom:var(--space-2);">Let's Build Something Extraordinary</h2>
+      <p style="opacity:.9;margin-bottom:var(--space-4);font-size:1.05rem;">Tell us what you're building. We'll tell you how to build it right.</p>
+      <a href={`${base}contact/`} style="background:var(--color-white);color:var(--color-accent);padding:14px 36px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;display:inline-block;">Start the Conversation</a>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
+    <p>&copy; {new Date().getFullYear()} Mapengo Innovations — <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Privacy</a> · <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Terms</a></p>
+  </footer>
+</BaseLayout>

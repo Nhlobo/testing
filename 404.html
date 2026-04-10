@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found — Mapengo Innovations. The page you're looking for doesn't exist or has been moved.">
+  <title>404 — Page Not Found | Mapengo Innovations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/pages.css">
+  <meta property="og:title" content="404 — Page Not Found | Mapengo Innovations">
+  <meta property="og:description" content="Page not found — Mapengo Innovations. The page you're looking for doesn't exist or has been moved.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/img/og-image.svg">
+  <link rel="icon" href="./assets/img/favicon-32.png" type="image/png">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+  <main id="main-content">
+
+    <section style="min-height: 80vh; display:flex; align-items:center; justify-content:center; text-align:center; background: var(--gradient-hero); color: var(--color-white); padding: 2rem;">
+      <div>
+
+        <div style="font-size: clamp(6rem, 20vw, 12rem); font-weight: 800; font-family: var(--font-heading); background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1;">
+          404
+        </div>
+
+        <h1 style="margin: 1rem 0 0.75rem;">Page Not Found</h1>
+        <p style="font-size: 1.125rem; opacity: 0.85; margin-bottom: 0.5rem;">The page you're looking for doesn't exist or has been moved.</p>
+        <p style="opacity: 0.7; margin-bottom: 2rem;">Redirecting to homepage in <span id="countdown">30</span> seconds...</p>
+
+        <p style="margin-bottom: 1.25rem; font-weight: 600;">Here are some helpful links:</p>
+
+        <div style="display:flex; flex-wrap:wrap; gap: 0.75rem; justify-content:center; margin-bottom: 2rem;">
+          <a href="./" class="btn btn-primary">Home</a>
+          <a href="./about/" class="btn btn-outline">About</a>
+          <a href="./services/" class="btn btn-outline">Services</a>
+          <a href="./work/" class="btn btn-outline">Our Work</a>
+          <a href="./pricing/" class="btn btn-outline">Pricing</a>
+          <a href="./contact/" class="btn btn-outline">Contact</a>
+        </div>
+
+        <a href="https://wa.me/27665520197" class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="background: #25D366; border-color: #25D366;">
+          Need help? Chat with us on WhatsApp →
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="./assets/js/consent.js"></script>
+  <script src="./assets/js/intelligence.js"></script>
+  <script src="./assets/js/analytics.js"></script>
+  <script src="./assets/js/components.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof MIIntelligence !== 'undefined') {
+        MIIntelligence.init();
+        MIIntelligence.trackPageView(window.location.pathname);
+        MIIntelligence.autoDetectIndustry();
+        MIIntelligence.initScrollTracking();
+      }
+      if (typeof MIAnalytics !== 'undefined') {
+        MIAnalytics.trackPageview();
+        MIAnalytics.attachCTATracking();
+        MIAnalytics.initSectionTracking();
+      }
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          this.closest('.faq-item').classList.toggle('open');
+        });
+      });
+
+      // Countdown and auto-redirect
+      var count = 30;
+      var el = document.getElementById('countdown');
+      if (el) {
+        var timer = setInterval(function() {
+          count--;
+          if (el) el.textContent = count;
+          if (count <= 0) { clearInterval(timer); window.location.href = './'; }
+        }, 1000);
+      }
+    });
+  </script>
+</body>
+</html>

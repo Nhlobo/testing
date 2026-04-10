@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection('caseStudies');
+  return caseStudies.map(cs => ({
+    params: { slug: cs.id.replace(/\.mdx?$/, '') },
+    props: { cs },
+  }));
+}
+
+const { cs } = Astro.props;
+const slug = cs.id.replace(/\.mdx?$/, '');
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
+const target = `${base}work/${slug}/`;
+---
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <meta http-equiv="refresh" content={`0;url=${target}`} />
+  <link rel="canonical" href={target} />
+</head>
+<body>
+  <p>Redirecting to <a href={target}>{target}</a>…</p>
+</body>
+</html>
