@@ -1925,3 +1925,143 @@
   .table-responsive th,
   .table-responsive td    { padding: var(--space-2) var(--space-3); }
 }
+
+/* ============================================================
+   SUPPLEMENTAL — Missing utility classes
+   ============================================================ */
+
+/* reveal-up — alias for .reveal (fade + slide up) */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+.reveal-up.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Article lead paragraph ─────────────────────────────── */
+.article-lead {
+  font-size: var(--text-xl);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-regular);
+  margin-bottom: var(--space-8);
+}
+
+/* ── Article tags (flex chip row) ───────────────────────── */
+.article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+/* ── Article sidebar ─────────────────────────────────────── */
+.article-sidebar {
+  position: sticky;
+  top: calc(72px + var(--space-6));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ── Sidebar card ────────────────────────────────────────── */
+.sidebar-card {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Sidebar card header ─────────────────────────────────── */
+.sidebar-card-header {
+  margin-bottom: var(--space-4);
+}
+
+/* ── Sidebar label ───────────────────────────────────────── */
+.sidebar-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+/* ── Share links strip ───────────────────────────────────── */
+.share-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* ── Individual share link ───────────────────────────────── */
+.share-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-xs);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  transition: background var(--transition-fast), color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+.share-link:hover {
+  background: var(--color-text);
+  color: #fff;
+  border-color: var(--color-text);
+}
+
+/* ── CTA section background element ─────────────────────── */
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Pricing panel content wrapper ──────────────────────── */
+.pricing-panel-content {
+  width: 100%;
+}
+
+/* ── Button variants used by pricing page ───────────────── */
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 1.5px solid var(--color-border);
+}
+.btn-outline:hover {
+  background: var(--color-bg-subtle);
+  border-color: #c9d4e0;
+  color: var(--color-text);
+}
+.btn-accent {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.btn-outline.btn-accent {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: transparent;
+}
+.btn-outline.btn-accent:hover {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: var(--shadow-accent);
+}
+
+@media (max-width: 768px) {
+  .article-sidebar { position: static; top: auto; }
+  .article-lead    { font-size: var(--text-lg); }
+}

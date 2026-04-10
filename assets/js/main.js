@@ -154,7 +154,7 @@
   /* ── Scroll reveal (IntersectionObserver) ───────────────── */
   function initReveal() {
     // Reveal individual elements
-    const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-up');
     // Reveal stagger containers
     const staggerEls = document.querySelectorAll('.stagger');
 
