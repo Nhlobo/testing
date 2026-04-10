@@ -27,15 +27,25 @@
 <body>
   <header id="site-header"></header>
 
-  <div class="bg-blur bg-blur-one"></div>
-  <div class="bg-blur bg-blur-two"></div>
-  <header class="work-hero container reveal">
-    <h1>Software Solutions Delivered Across Every Growth Stage</h1>
-    <p class="hero-sub">Case studies spanning independent operators, small businesses, enterprise organisations, and government institutions.</p>
-    <a href="../contact/index.html" class="btn-primary">Discuss Your Project</a>
-  </header>
+  <main>
+    <section class="hero hero-page">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="bg-blur bg-blur-one"></div>
+        <div class="bg-blur bg-blur-two"></div>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-badge hero-animate-1">
+          <span class="overline">Our Work</span>
+        </div>
+        <h1 class="hero-animate-2">Software Solutions Delivered Across <span class="text-gradient">Every Growth Stage</span></h1>
+        <p class="lead hero-animate-3">Case studies spanning independent operators, small businesses, enterprise organisations, and government institutions.</p>
+        <div class="hero-actions hero-animate-4">
+          <a href="../contact/index.html" class="btn btn-primary btn-lg">Discuss Your Project</a>
+        </div>
+      </div>
+    </section>
 
-  <main class="container">
+    <div class="container">
     <section class="filter-bar reveal">
       <h2>Work Portfolio by Client Maturity Level</h2>
       <div class="filters" role="tablist" aria-label="Project filters">
@@ -90,6 +100,8 @@
         <article class="project-card reveal" data-filter="systems" data-segment="Government"><a href="./projects/crime-solution.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1453873623425-02e3b9b4a1b4?auto=format&fit=crop&w=1400&q=80" alt="Public Safety Intelligence & Incident Response System" loading="lazy" class="project-image" /><span class="project-tag">GovTech</span></div><div class="project-content"><p class="project-segment">Government</p><h3>Public Safety Intelligence & Incident Response System</h3><p>A secure multi-agency platform for incident management, hotspot intelligence, and coordinated response.</p><span class="project-cta">View Case Study →</span></div></a></article>
       </div>
     </section>
+
+  </div><!-- /.container -->
   </main>
 
   <footer id="site-footer"></footer>

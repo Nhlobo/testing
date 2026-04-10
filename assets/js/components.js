@@ -239,13 +239,10 @@
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.25);
+        background: transparent;
         z-index: 2999;
         opacity: 0;
-        transition: opacity 300ms cubic-bezier(0.4,0,0.2,1);
-      }
-      .mobile-nav-overlay.open {
-        opacity: 1;
+        pointer-events: none;
       }
     `;
     document.head.appendChild(style);
