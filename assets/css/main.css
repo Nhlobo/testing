@@ -70,8 +70,9 @@
   --glass-border-white: rgba(255,255,255,0.32);
 
   /* ── Typography ──────────────────────────────────────── */
-  /* NOTE: Google Fonts link in HTML should use &display=swap for FOIT prevention */
-  /* font-display: swap is handled at the @font-face level by Google Fonts */
+  /* IMPORTANT: The Google Fonts <link> tag in HTML must include &display=swap
+     e.g. https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap
+     This triggers font-display:swap at the @font-face level, preventing FOIT. */
   --font-body:    'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-heading: 'Poppins', 'Syne', 'Inter', sans-serif;
   --font-mono:    'Fira Code', 'Courier New', monospace;
@@ -246,8 +247,7 @@ img, picture, video, canvas, svg {
   max-width: 100%;
 }
 
-/* CLS prevention — enforce aspect-ratio on project images */
-img[width][height] { aspect-ratio: attr(width) / attr(height); }
+/* CLS prevention — enforce aspect-ratio on project image containers */
 .project-img, .project-visual { aspect-ratio: 16 / 9; }
 
 input, button, textarea, select { font: inherit; }
@@ -1817,8 +1817,9 @@ p + p { margin-top: var(--space-4); }
   gap: var(--space-16);
   align-items: center;
 }
-.service-full-grid.reverse           { direction: rtl; }
-.service-full-grid.reverse > *       { direction: ltr; }
+.service-full-grid.reverse { grid-template-columns: 1fr 1fr; }
+.service-full-grid.reverse > *:first-child { order: 2; }
+.service-full-grid.reverse > *:last-child  { order: 1; }
 .service-full-visual {
   border-radius: var(--radius-2xl);
   aspect-ratio: 4 / 3;
@@ -1876,6 +1877,12 @@ p + p { margin-top: var(--space-4); }
 .form-control:invalid:not(:placeholder-shown) {
   border-color: #ef4444;
   box-shadow: 0 0 0 3px rgba(239,68,68,0.12);
+  /* Non-color indicator: error icon via padding + background */
+  padding-right: var(--space-10);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23ef4444'%3E%3Cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  background-size: 18px 18px;
 }
 
 textarea.form-control {
@@ -1884,10 +1891,25 @@ textarea.form-control {
 }
 
 select.form-control {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' viewBox='0 0 12 12'%3E%3Cpath fill='%236c757d' d='M6 8L1 3h10L6 8z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right var(--space-4) center;
+  /* Custom arrow using CSS border trick — no hardcoded SVG color needed */
+  background-image: none;
   padding-right: var(--space-10);
+  cursor: pointer;
+}
+/* Render dropdown arrow using a pseudo-element wrapper pattern via box-shadow trick */
+.form-select-wrap { position: relative; display: block; }
+.form-select-wrap::after {
+  content: '';
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--text-muted);
+  pointer-events: none;
 }
 
 .form-hint {
@@ -1972,11 +1994,19 @@ select.form-control {
   color: var(--text-secondary);
 }
 .pricing-features li::before {
-  content: '';
+  content: '✓';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 18px;
   height: 18px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%232563eb'%3E%3Cpath fill-rule='evenodd' d='M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat center / contain;
+  border-radius: 50%;
+  background: rgba(37,99,235,0.12);
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: var(--font-bold);
   flex-shrink: 0;
+  line-height: 1;
 }
 
 /* ============================================================
