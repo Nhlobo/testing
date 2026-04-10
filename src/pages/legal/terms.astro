@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
+---
+
+<BaseLayout title="Terms of Service" description="Terms of service for Mapengo Innovations." noindex>
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-6) var(--space-4);">
+    <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <a href={base} style="color:var(--color-accent);text-decoration:none;">← Home</a>
+    </nav>
+  </header>
+
+  <main style="max-width:760px;margin:0 auto;padding:var(--space-10) var(--space-4);">
+    <h1 style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">Terms of Service</h1>
+    <p style="color:var(--color-grey-600);margin-bottom:var(--space-6);">Last updated: {new Date().toLocaleDateString('en-ZA', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+
+    <section style="margin-bottom:var(--space-5);">
+      <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-2);">1. Acceptance of Terms</h2>
+      <p style="line-height:1.8;color:#374151;">By accessing this website or engaging our services, you agree to be bound by these Terms of Service and all applicable South African laws.</p>
+    </section>
+
+    <section style="margin-bottom:var(--space-5);">
+      <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-2);">2. Services</h2>
+      <p style="line-height:1.8;color:#374151;">Mapengo Innovations provides digital design and development services. Specific deliverables, timelines, and payment terms are defined in individual client agreements or proposals.</p>
+    </section>
+
+    <section style="margin-bottom:var(--space-5);">
+      <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-2);">3. Intellectual Property</h2>
+      <p style="line-height:1.8;color:#374151;">Upon full payment, clients own the final deliverables. Mapengo Innovations retains the right to showcase work in our portfolio unless otherwise agreed in writing.</p>
+    </section>
+
+    <section style="margin-bottom:var(--space-5);">
+      <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-2);">4. Limitation of Liability</h2>
+      <p style="line-height:1.8;color:#374151;">Mapengo Innovations is not liable for indirect, incidental, or consequential damages arising from the use of our services or this website.</p>
+    </section>
+
+    <section>
+      <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--color-primary);margin-bottom:var(--space-2);">5. Governing Law</h2>
+      <p style="line-height:1.8;color:#374151;">These terms are governed by the laws of the Republic of South Africa. Any disputes shall be resolved in the courts of Gauteng, South Africa.</p>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
+    <p>&copy; {new Date().getFullYear()} Mapengo Innovations — <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Privacy</a></p>
+  </footer>
+</BaseLayout>

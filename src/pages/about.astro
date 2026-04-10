@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
+
+const team = [
+  {
+    name: 'Nhlovo Mathebula',
+    role: 'Full-stack Developer & Founder',
+    bio: 'Full-stack developer with 8+ years building production systems for South African businesses. Passionate about making enterprise-grade technology accessible to every SA business.',
+    initials: 'NM',
+  },
+];
+
+const values = [
+  { icon: '🇿🇦', title: 'South Africa First', desc: 'Every system we build is designed for the SA context — our infrastructure, our regulations, our people.' },
+  { icon: '⚡', title: 'Speed & Quality', desc: 'Fast sites, clean code, no compromises. We aim for Lighthouse 95+ on everything we ship.' },
+  { icon: '🤝', title: 'Partnership Over Projects', desc: 'We don\'t disappear after launch. We stay invested in your success long-term.' },
+  { icon: '🔍', title: 'Transparency', desc: 'No hidden costs. Clear timelines. Honest communication — even when it\'s uncomfortable.' },
+];
+
+const milestones = [
+  { year: '2019', event: 'Founded in Johannesburg. First client: a Soweto-based retail chain.' },
+  { year: '2020', event: 'Expanded into mobile app development. Delivered 5 apps during the COVID period.' },
+  { year: '2021', event: 'Launched our first SaaS product: a POS system for informal retailers.' },
+  { year: '2022', event: 'Team grew to 6 engineers. Started serving enterprise clients.' },
+  { year: '2023', event: 'R5M+ in client revenue enabled. 30+ active projects delivered.' },
+  { year: '2024', event: 'Introduced AI-augmented development. Expanded into East Africa.' },
+  { year: '2025', event: 'Launched category-leading platforms for SA\'s key industries. Reached 50+ delivered projects.' },
+  { year: '2026', event: 'Expanding into East Africa. AI-augmented development across all service lines.' },
+];
+---
+
+<BaseLayout
+  title="About Mapengo Innovations"
+  description="We're a South African digital innovation company building world-class systems for businesses that want to grow. Meet the team and our story."
+>
+  <header style="background:var(--color-primary);color:var(--color-white);padding:var(--space-3) var(--space-4);position:sticky;top:0;z-index:500;box-shadow:0 2px 12px rgba(0,0,0,.25);">
+    <nav style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-2);">
+      <a href={base} style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--color-white);text-decoration:none;flex-shrink:0;">Mapengo<span style="color:var(--color-accent);">.</span></a>
+      <ul style="list-style:none;display:flex;gap:var(--space-3);margin:0;padding:0;flex-wrap:wrap;align-items:center;">
+        <li><a href={`${base}services/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Services</a></li>
+        <li><a href={`${base}industries/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Industries</a></li>
+        <li><a href={`${base}case-studies/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Case Studies</a></li>
+        <li><a href={`${base}work/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Work</a></li>
+        <li><a href={`${base}about/`} style="color:var(--color-white);font-weight:700;border-bottom:2px solid var(--color-accent);padding-bottom:2px;text-decoration:none;font-size:.9375rem;">About</a></li>
+        <li><a href={`${base}blog/`} style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9375rem;">Blog</a></li>
+        <li><a href={`${base}contact/`} style="background:var(--color-accent);color:var(--color-white);padding:9px 22px;border-radius:var(--radius-full);font-weight:700;font-size:.875rem;text-decoration:none;">Get Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-16) var(--space-4);text-align:center;">
+      <p style="color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">Our Story</p>
+      <h1 style="font-family:var(--font-heading);font-size:clamp(2.5rem,5vw,3.75rem);font-weight:800;line-height:1.1;margin-bottom:var(--space-3);">
+        Building South Africa's<br/><span style="color:var(--color-accent);">Digital Future</span>
+      </h1>
+      <p style="font-size:1.15rem;opacity:.85;max-width:680px;margin:0 auto;">
+        We started in a Johannesburg garage with one belief: that every South African business deserves world-class technology — regardless of size or budget.
+      </p>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <p style="text-align:center;color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">Who We Are</p>
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-6);">Founded to Democratise Technology</h2>
+        <p style="text-align:center;max-width:780px;margin:0 auto var(--space-8);font-size:1.05rem;color:var(--color-grey-700);line-height:1.8;">
+          Nhlovo Mathebula founded Mapengo Innovations in 2019 with a simple but powerful belief: <strong>every South African business — regardless of size or budget — deserves world-class technology</strong>. Most software is built for the US or European market and sold to SA as an afterthought. We build differently, starting with the SA context: our infrastructure constraints, our regulatory environment, and our people's unique needs.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4);">
+          <div style="background:var(--color-primary);color:var(--color-white);padding:var(--space-5);border-radius:var(--radius-lg);">
+            <p style="font-size:1.75rem;margin-bottom:var(--space-2);">🎯</p>
+            <h3 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:800;margin-bottom:var(--space-2);">Our Mission</h3>
+            <p style="opacity:.85;line-height:1.7;font-size:.975rem;">To become the most trusted technology partner for South African businesses — democratising access to enterprise-grade systems from the spaza shop floor to the JSE boardroom.</p>
+          </div>
+          <div style="background:var(--color-accent);color:var(--color-white);padding:var(--space-5);border-radius:var(--radius-lg);">
+            <p style="font-size:1.75rem;margin-bottom:var(--space-2);">🔭</p>
+            <h3 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:800;margin-bottom:var(--space-2);">Our Vision</h3>
+            <p style="opacity:.9;line-height:1.7;font-size:.975rem;">A South Africa where digital transformation is not a privilege of large corporates but a competitive tool available to every ambitious entrepreneur and growing business.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <p style="text-align:center;color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">Why Mapengo</p>
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-8);">Why Businesses Choose Us</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-4);">
+          {[
+            { icon: '🇿🇦', title: 'SA-Specific Expertise', desc: 'We understand load shedding resilience, POPIA compliance, mobile-first SA users, and rand-denominated pricing — so you never have to educate us on the basics.' },
+            { icon: '⚙️', title: 'Full-Stack Delivery', desc: 'From UX design to cloud infrastructure, we own the entire stack. One team accountable for the full result — no finger-pointing between agencies.' },
+            { icon: '🚀', title: 'Performance Obsessed', desc: 'We target Lighthouse 95+ on every site we ship. Faster pages mean better user experience, higher conversions, and lower bounce rates for your business.' },
+            { icon: '🤝', title: 'Long-Term Partnership', desc: 'We don\'t disappear after go-live. Retainer clients get proactive updates, performance monitoring, and a team that grows alongside their business.' },
+          ].map(d => (
+            <div style="background:var(--color-white);padding:var(--space-4);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border-top:3px solid var(--color-accent);">
+              <p style="font-size:2rem;margin-bottom:var(--space-2);">{d.icon}</p>
+              <h3 style="font-family:var(--font-heading);font-size:1.05rem;font-weight:700;color:var(--color-primary);margin-bottom:8px;">{d.title}</h3>
+              <p style="color:var(--color-grey-600);font-size:.9rem;line-height:1.65;">{d.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-8);">What We Stand For</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-4);">
+          {values.map(v => (
+            <div style="background:var(--color-white);padding:var(--space-4);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);">
+              <p style="font-size:2rem;margin-bottom:var(--space-2);">{v.icon}</p>
+              <h3 style="font-family:var(--font-heading);font-size:1.1rem;font-weight:700;color:var(--color-primary);margin-bottom:8px;">{v.title}</h3>
+              <p style="color:var(--color-grey-600);font-size:.95rem;line-height:1.6;">{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section style="padding:var(--space-12) var(--space-4);">
+      <div style="max-width:720px;margin:0 auto;">
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-8);">Our Journey</h2>
+        <div style="position:relative;padding-left:var(--space-5);">
+          <div style="position:absolute;left:16px;top:0;bottom:0;width:2px;background:var(--color-grey-200);"></div>
+          {milestones.map(m => (
+            <div style="position:relative;margin-bottom:var(--space-4);">
+              <div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--color-accent);border:2px solid var(--color-white);box-shadow:0 0 0 3px var(--color-accent);"></div>
+              <p style="font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--color-accent);margin-bottom:4px;">{m.year}</p>
+              <p style="color:var(--color-grey-800);font-size:.95rem;line-height:1.6;">{m.event}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section style="padding:var(--space-12) var(--space-4);background:var(--color-grey-50);">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <p style="text-align:center;color:var(--color-accent);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.85rem;margin-bottom:var(--space-2);">The People</p>
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);text-align:center;margin-bottom:var(--space-8);">Meet the Founder</h2>
+        <div style="max-width:540px;margin:0 auto;">
+          {team.map(member => (
+            <div style="background:var(--color-white);padding:var(--space-5);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);display:flex;gap:var(--space-4);align-items:flex-start;">
+              <div style="width:72px;height:72px;border-radius:50%;background:var(--color-primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-family:var(--font-heading);font-size:1.4rem;font-weight:800;color:var(--color-white);">{member.initials}</span>
+              </div>
+              <div>
+                <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--color-primary);margin-bottom:4px;">{member.name}</h3>
+                <p style="color:var(--color-accent);font-size:.875rem;font-weight:600;margin-bottom:var(--space-2);">{member.role} · Johannesburg</p>
+                <p style="color:var(--color-grey-600);font-size:.9rem;line-height:1.65;">{member.bio}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section style="background:var(--color-primary);color:var(--color-white);padding:var(--space-12) var(--space-4);text-align:center;">
+      <div style="max-width:var(--max-width);margin:0 auto;">
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;margin-bottom:var(--space-8);">By the Numbers</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--space-4);">
+          {[
+            { value: '50+', label: 'Projects Delivered' },
+            { value: 'R5M+', label: 'Client Revenue Enabled' },
+            { value: '9+', label: 'Industries Served' },
+            { value: '3', label: 'Cities Active' },
+          ].map(s => (
+            <div>
+              <p style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:var(--color-accent);">{s.value}</p>
+              <p style="opacity:.75;font-size:.9rem;">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding:var(--space-12) var(--space-4);text-align:center;">
+      <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary);margin-bottom:var(--space-2);">Let's Build Something Great Together</h2>
+      <p style="color:var(--color-grey-600);margin-bottom:var(--space-4);font-size:1.05rem;">Whether you're a spaza shop or a listed company — we'd love to hear about your project.</p>
+      <a href={`${base}contact/`} data-smart-cta style="background:var(--color-accent);color:var(--color-white);padding:14px 36px;border-radius:var(--radius-full);font-weight:700;text-decoration:none;display:inline-block;">Start the Conversation</a>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-primary);color:rgba(255,255,255,.7);padding:var(--space-6) var(--space-4);text-align:center;font-size:.9rem;">
+    <p>&copy; {new Date().getFullYear()} Mapengo Innovations — <a href={`${base}legal/privacy/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Privacy</a> · <a href={`${base}legal/terms/`} style="color:rgba(255,255,255,.6);text-decoration:none;">Terms</a></p>
+  </footer>
+</BaseLayout>
