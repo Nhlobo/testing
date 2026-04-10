@@ -9,6 +9,7 @@ export interface Service {
   title: string;
   description: string;
   features: string[];
+  benefits: string[];
   href: string;
 }
 
@@ -21,8 +22,11 @@ export interface CaseStudy {
   result: string;
   resultLabel: string;
   gradient: string;
+  accentColor: string;
   tags: string[];
   href: string;
+  liveUrl?: string;
+  githubUrl?: string;
 }
 
 export interface Testimonial {

@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import { MapPin, Clock } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with Mapengo Innovations for your next digital project.",
+  title: "Contact Us — Start Your Project",
+  description:
+    "Get in touch with Mapengo Innovations. Tell us about your project and we'll respond within 24 hours with a tailored proposal.",
 };
 
 export default function ContactPage() {
   return (
     <div className="pt-24">
-      {/* Hero */}
+      {/* Page hero */}
       <section className="py-16 bg-white">
         <div className="container-custom">
           <AnimatedSection className="max-w-3xl">
@@ -23,8 +25,8 @@ export default function ContactPage() {
               <span className="gradient-text">Amazing</span>
             </h1>
             <p className="text-gray-500 text-xl leading-relaxed">
-              Have a project in mind? We'd love to hear about it. Send us a message and we'll be in
-              touch within 24 hours.
+              Have a project in mind? We'd love to hear about it. Send us a message and we'll be
+              in touch within 24 hours.
             </p>
           </AnimatedSection>
         </div>
@@ -32,19 +34,25 @@ export default function ContactPage() {
 
       <ContactForm />
 
-      {/* Map / location info */}
-      <section className="py-16 bg-gray-50">
+      {/* Location info */}
+      <section className="py-12 bg-gray-50 border-t border-gray-200">
         <div className="container-custom">
-          <AnimatedSection className="text-center">
-            <p className="text-gray-500">
-              📍 Based in{" "}
-              <span className="text-gray-900 font-semibold">{siteConfig.location}</span>
-              {" — "}
-              serving clients across South Africa and globally.
-            </p>
+          <AnimatedSection className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500 text-center sm:text-left">
+            <span className="flex items-center gap-2">
+              <MapPin size={16} className="text-accent shrink-0" />
+              Based in <strong className="text-gray-900 ml-1">{siteConfig.location}</strong>
+            </span>
+            <span className="hidden sm:block text-gray-300">·</span>
+            <span>Serving clients across South Africa and globally</span>
+            <span className="hidden sm:block text-gray-300">·</span>
+            <span className="flex items-center gap-2">
+              <Clock size={16} className="text-accent shrink-0" />
+              Response within <strong className="text-gray-900 ml-1">24 hours</strong>
+            </span>
           </AnimatedSection>
         </div>
       </section>
     </div>
   );
 }
+
