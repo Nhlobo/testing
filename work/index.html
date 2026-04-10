@@ -1,215 +1,45 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore software, website, and app delivery case studies from Mapengo Innovations across startups, SMEs, enterprises, and public-sector organisations.">
-  <meta name="keywords" content="software company South Africa, website development case studies, app development portfolio, Mapengo Innovations work">
-  <meta property="og:title" content="Work | Software Case Studies | Mapengo Innovations">
-  <meta property="og:description" content="See how Mapengo Innovations delivers measurable digital solutions across industries.">
-  <meta property="og:image" content="https://www.mapengoinnovations.co.za/assets/img/og-image.svg">
-  <meta property="og:url" content="https://www.mapengoinnovations.co.za/work/">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Work | Mapengo Innovations">
-  <meta name="twitter:description" content="Software delivery case studies from a South African digital team.">
-  <link rel="canonical" href="https://www.mapengoinnovations.co.za/work/" />
-  <title>Work | Software Company Case Studies | Mapengo Innovations</title>
-  <link rel="icon" href="../favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
-  <link rel="stylesheet" href="../assets/css/pages.css" />
+  <title>Work | North Lab Studio</title>
+  <meta name="description" content="Recent projects covering service businesses, platforms, and lead-generation sites." />
+  <link rel="stylesheet" href="/testing/styles.css" />
 </head>
 <body>
-  <header id="site-header"></header>
 
-  <main id="main-content">
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary navigation">
+    <a class="brand" href="/testing/index.html">North Lab Studio</a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+    <ul class="nav-links" aria-label="Desktop navigation">
+      <li><a href="/testing/services/">Services</a></li>
+      <li><a href="/testing/work/">Work</a></li>
+      <li><a href="/testing/pricing/">Pricing</a></li>
+      <li><a href="/testing/about/">About</a></li>
+      <li><a href="/testing/contact/">Contact</a></li>
+      <li><a href="/testing/terms.html">Terms</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="/testing/services/">Services</a>
+    <a href="/testing/work/">Work</a>
+    <a href="/testing/pricing/">Pricing</a>
+    <a href="/testing/about/">About</a>
+    <a href="/testing/contact/">Contact</a>
+    <a href="/testing/terms.html">Terms</a>
+  </div>
+</header>
 
-    <!-- ── Hero ───────────────────────────────────────────── -->
-    <section class="hero hero-page" aria-label="Work portfolio hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-inner reveal">
-        <span class="overline">Our Portfolio · Mapengo Innovations</span>
-        <h1>Proof in the Work —<br><span class="text-gradient">Projects That Delivered Results</span></h1>
-        <p class="lead">Real solutions built for real clients. Every project below represents measurable impact for South African businesses and institutions.</p>
-        <div class="hero-actions">
-          <a href="../contact/index.html" class="btn btn-primary btn-lg">Start Your Project</a>
-          <a href="../pricing/index.html" class="btn btn-ghost btn-lg">View Pricing</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Portfolio ──────────────────────────────────────── -->
-    <section class="section" aria-labelledby="portfolio-heading">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="overline">Selected Work</span>
-          <h2 id="portfolio-heading">Projects That Made a Difference</h2>
-          <p class="section-lead">Filter by discipline to explore our capabilities across web, mobile, and e-commerce.</p>
-        </div>
-
-        <!-- Filter tabs -->
-        <div class="filter-tabs reveal" role="tablist" aria-label="Filter projects by category">
-          <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
-          <button class="filter-tab" data-filter="web" role="tab" aria-selected="false">Web Development</button>
-          <button class="filter-tab" data-filter="mobile" role="tab" aria-selected="false">Mobile</button>
-          <button class="filter-tab" data-filter="ecommerce" role="tab" aria-selected="false">E-Commerce</button>
-        </div>
-
-        <!-- Portfolio grid -->
-        <div class="portfolio-grid stagger" id="portfolio-grid">
-
-          <!-- Crime Solution -->
-          <article class="portfolio-card reveal" data-category="web" aria-label="Crime Solution project">
-            <div class="portfolio-img">
-              <img
-                src="../assets/img/portfolio/crime-solution.jpg"
-                alt="Crime Solution — Public Safety Web Application"
-                loading="lazy"
-                style="aspect-ratio:16/9;width:100%;object-fit:cover;"
-              />
-              <span class="portfolio-badge">Web Application</span>
-            </div>
-            <div class="portfolio-info">
-              <span class="portfolio-category">Web Development</span>
-              <h3>Crime Solution</h3>
-              <p>A secure, multi-agency public safety platform for incident management, hotspot intelligence, and coordinated law enforcement response across South Africa.</p>
-              <div class="portfolio-tags" aria-label="Technologies used">
-                <span class="tag">React</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">PostgreSQL</span>
-                <span class="tag">GIS Mapping</span>
-              </div>
-              <a href="../contact/index.html" class="btn btn-ghost btn-sm">Discuss a Similar Project</a>
-            </div>
-          </article>
-
-          <!-- Juta Daco Construction -->
-          <article class="portfolio-card reveal" data-category="web" aria-label="Juta Daco Construction project">
-            <div class="portfolio-img">
-              <img
-                src="../assets/img/portfolio/juta-daco-construction.png"
-                alt="Juta Daco Construction — Corporate Website"
-                loading="lazy"
-                style="aspect-ratio:16/9;width:100%;object-fit:cover;"
-              />
-              <span class="portfolio-badge">Corporate Website</span>
-            </div>
-            <div class="portfolio-info">
-              <span class="portfolio-category">Web Development</span>
-              <h3>Juta Daco Construction</h3>
-              <p>A performance-optimised corporate website for a growing South African construction firm, built to generate qualified leads and showcase project credibility.</p>
-              <div class="portfolio-tags" aria-label="Technologies used">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">SEO</span>
-              </div>
-              <a href="../contact/index.html" class="btn btn-ghost btn-sm">Discuss a Similar Project</a>
-            </div>
-          </article>
-
-          <!-- Madyaswanyuku -->
-          <article class="portfolio-card reveal" data-category="web" aria-label="Madyaswanyuku project">
-            <div class="portfolio-img">
-              <img
-                src="../assets/img/portfolio/madyaswanyuku.jpg"
-                alt="Madyaswanyuku — Digital Platform"
-                loading="lazy"
-                style="aspect-ratio:16/9;width:100%;object-fit:cover;"
-              />
-              <span class="portfolio-badge">Digital Platform</span>
-            </div>
-            <div class="portfolio-info">
-              <span class="portfolio-category">Web Development</span>
-              <h3>Madyaswanyuku</h3>
-              <p>A community-focused digital platform connecting rural South African communities to essential services, information, and economic opportunities online.</p>
-              <div class="portfolio-tags" aria-label="Technologies used">
-                <span class="tag">Vue.js</span>
-                <span class="tag">Firebase</span>
-                <span class="tag">PWA</span>
-                <span class="tag">Zulu Localisation</span>
-              </div>
-              <a href="../contact/index.html" class="btn btn-ghost btn-sm">Discuss a Similar Project</a>
-            </div>
-          </article>
-
-          <!-- ShopZA E-Commerce -->
-          <article class="portfolio-card reveal" data-category="ecommerce" aria-label="ShopZA E-Commerce project">
-            <div class="portfolio-img">
-              <img
-                src="../assets/img/portfolio/shopza-ecommerce.jpg"
-                alt="ShopZA E-Commerce — E-Commerce Platform"
-                loading="lazy"
-                style="aspect-ratio:16/9;width:100%;object-fit:cover;"
-              />
-              <span class="portfolio-badge">E-Commerce Platform</span>
-            </div>
-            <div class="portfolio-info">
-              <span class="portfolio-category">E-Commerce</span>
-              <h3>ShopZA E-Commerce</h3>
-              <p>A fully localised South African e-commerce platform with PayFast integration, inventory management, and a streamlined checkout optimised for mobile-first shoppers.</p>
-              <div class="portfolio-tags" aria-label="Technologies used">
-                <span class="tag">Next.js</span>
-                <span class="tag">Stripe / PayFast</span>
-                <span class="tag">Sanity CMS</span>
-                <span class="tag">Tailwind CSS</span>
-              </div>
-              <a href="../contact/index.html" class="btn btn-ghost btn-sm">Discuss a Similar Project</a>
-            </div>
-          </article>
-
-        </div><!-- /portfolio-grid -->
-      </div>
-    </section>
-
-    <!-- ── Stats bar ──────────────────────────────────────── -->
-    <section class="section section-tinted" aria-label="Company stats">
-      <div class="container">
-        <div class="stats-grid stagger reveal">
-          <div class="stat-item">
-            <span class="stat-number">30+</span>
-            <span class="stat-label">Projects Delivered</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">On-Time Delivery</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">5+</span>
-            <span class="stat-label">Industries Served</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">24h</span>
-            <span class="stat-label">Quote Turnaround</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── CTA ────────────────────────────────────────────── -->
-    <section class="section cta-section reveal" aria-labelledby="work-cta-heading">
-      <div class="container cta-inner">
-        <span class="overline">Ready to Build?</span>
-        <h2 id="work-cta-heading">Your Project Could Be Next</h2>
-        <p>We build practical, high-performance digital products for South African businesses. Get a no-obligation quote within 24 hours.</p>
-        <div class="cta-actions">
-          <a href="../contact/index.html" class="btn btn-primary btn-lg">Get a Free Quote</a>
-          <a href="../pricing/index.html" class="btn btn-outline btn-lg">See Pricing</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer id="site-footer"></footer>
-  <script src="../assets/js/components.js" defer></script>
-  <script src="../assets/js/main.js" defer></script>
-</body>
-</html>
+<main class="section">
+  <div class="container terms-layout">
+    <p class="eyebrow">Work</p>
+    <h1>Examples of delivery across industries.</h1>
+    <p class="lead">Recent projects covering service businesses, platforms, and lead-generation sites.</p>
+    <section><h2>Project outcomes</h2><p>Each case focused on clearer positioning, stronger mobile UX, and faster conversion paths.</p></section>
+  </div>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><p>© <span id="year"></span> North Lab Studio</p><p><a href="/testing/terms.html">Terms of Service</a></p></div></footer>
+<script src="/testing/script.js"></script>
+</body></html>

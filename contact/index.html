@@ -1,290 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Get a Quote in 24 Hours | Mapengo Innovations</title>
-  <meta name="description" content="Contact Mapengo Innovations for website, app, and e-commerce project enquiries across South Africa. Get a free quote within 24 hours.">
-  <meta property="og:title" content="Contact | Mapengo Innovations">
-  <meta property="og:description" content="Tell us about your project and we'll get back to you within 24 hours.">
-  <meta property="og:image" content="https://www.mapengoinnovations.co.za/assets/img/og-image.svg">
-  <meta property="og:url" content="https://www.mapengoinnovations.co.za/contact/">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact | Mapengo Innovations">
-  <meta name="twitter:description" content="Contact our team to discuss practical, high-performance digital product delivery.">
-  <link rel="canonical" href="https://www.mapengoinnovations.co.za/contact/">
-  <link rel="icon" href="../favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/pages.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | North Lab Studio</title>
+  <meta name="description" content="Share your project goals, timeline, and budget range. We respond with a clear next-step plan." />
+  <link rel="stylesheet" href="/testing/styles.css" />
 </head>
 <body>
-  <header id="site-header"></header>
 
-  <main id="main-content">
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary navigation">
+    <a class="brand" href="/testing/index.html">North Lab Studio</a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+    <ul class="nav-links" aria-label="Desktop navigation">
+      <li><a href="/testing/services/">Services</a></li>
+      <li><a href="/testing/work/">Work</a></li>
+      <li><a href="/testing/pricing/">Pricing</a></li>
+      <li><a href="/testing/about/">About</a></li>
+      <li><a href="/testing/contact/">Contact</a></li>
+      <li><a href="/testing/terms.html">Terms</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="/testing/services/">Services</a>
+    <a href="/testing/work/">Work</a>
+    <a href="/testing/pricing/">Pricing</a>
+    <a href="/testing/about/">About</a>
+    <a href="/testing/contact/">Contact</a>
+    <a href="/testing/terms.html">Terms</a>
+  </div>
+</header>
 
-    <!-- Hero -->
-    <section class="hero hero-page" aria-label="Contact hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-inner reveal">
-        <span class="overline">Mapengo Innovations · South Africa</span>
-        <h1>Let's Build Something Remarkable —<br><span class="text-gradient">Get a Quote in 24 Hours</span></h1>
-        <p class="lead">Tell us about your project and our team will respond with a clear proposal — no jargon, no pressure.</p>
-      </div>
-    </section>
-
-    <!-- Contact section -->
-    <section class="section contact-section" aria-labelledby="contact-heading">
-      <div class="container">
-        <div class="contact-shell stagger">
-
-          <!-- Form column -->
-          <div class="contact-form-container reveal">
-            <div class="contact-form-head">
-              <h2 id="contact-heading">Project Enquiry Form</h2>
-              <p>Complete the details below and our team will contact you with clear next steps.</p>
-            </div>
-
-            <form
-              id="contact-form"
-              class="business-form"
-              action="https://formspree.io/f/YOUR_FORM_ID"
-              method="POST"
-              novalidate
-            >
-              <input type="hidden" name="_subject" value="New Mapengo Website Enquiry">
-              <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="contact-name">Full Name <span class="required" aria-hidden="true">*</span></label>
-                  <input
-                    id="contact-name"
-                    name="full_name"
-                    type="text"
-                    class="form-input"
-                    autocomplete="name"
-                    required
-                    minlength="2"
-                    maxlength="80"
-                    placeholder="e.g. Sipho Dlamini"
-                    aria-describedby="contact-name-error"
-                  >
-                  <span id="contact-name-error" class="form-error" role="alert" aria-live="polite"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="contact-email">Email Address <span class="required" aria-hidden="true">*</span></label>
-                  <input
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    class="form-input"
-                    autocomplete="email"
-                    required
-                    maxlength="120"
-                    placeholder="you@company.co.za"
-                    aria-describedby="contact-email-error"
-                  >
-                  <span id="contact-email-error" class="form-error" role="alert" aria-live="polite"></span>
-                </div>
-              </div>
-
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="contact-phone">Phone / WhatsApp</label>
-                  <input
-                    id="contact-phone"
-                    name="phone"
-                    type="tel"
-                    class="form-input"
-                    autocomplete="tel"
-                    inputmode="tel"
-                    maxlength="30"
-                    placeholder="+27 66 552 0197"
-                    aria-describedby="contact-phone-error"
-                  >
-                  <span id="contact-phone-error" class="form-error" role="alert" aria-live="polite"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="contact-service">Service Needed <span class="required" aria-hidden="true">*</span></label>
-                  <select
-                    id="contact-service"
-                    name="service_needed"
-                    class="form-select"
-                    required
-                    aria-describedby="contact-service-error"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="Website Development">Website Development</option>
-                    <option value="Web Application">Web Application</option>
-                    <option value="Mobile App Development">Mobile App Development</option>
-                    <option value="E-Commerce Platform">E-Commerce Platform</option>
-                    <option value="UI/UX Design">UI/UX Design</option>
-                    <option value="Custom Software">Custom Software</option>
-                    <option value="Maintenance and Support">Maintenance &amp; Support</option>
-                    <option value="Other">Other</option>
-                  </select>
-                  <span id="contact-service-error" class="form-error" role="alert" aria-live="polite"></span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-budget">Approximate Budget</label>
-                <select id="contact-budget" name="budget" class="form-select">
-                  <option value="">Select a budget range</option>
-                  <option value="Under R 8,000">Under R 8,000</option>
-                  <option value="R 8,000 - R 15,000">R 8,000 – R 15,000</option>
-                  <option value="R 15,000 - R 30,000">R 15,000 – R 30,000</option>
-                  <option value="R 30,000 - R 60,000">R 30,000 – R 60,000</option>
-                  <option value="R 60,000 - R 100,000">R 60,000 – R 100,000</option>
-                  <option value="R 100,000+">R 100,000+</option>
-                  <option value="Not sure yet">Not sure yet</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-message">Project Details <span class="required" aria-hidden="true">*</span></label>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  class="form-textarea"
-                  required
-                  minlength="20"
-                  maxlength="3000"
-                  rows="6"
-                  placeholder="Share your goals, timeline, and any specific requirements. The more detail you give, the faster we can quote."
-                  aria-describedby="contact-message-error"
-                ></textarea>
-                <span id="contact-message-error" class="form-error" role="alert" aria-live="polite"></span>
-              </div>
-
-              <p class="form-popia-note" role="note">
-                Your information is kept confidential and processed in accordance with POPIA.
-              </p>
-
-              <button id="contact-submit" type="submit" class="btn btn-primary btn-lg submit-btn">
-                <span class="submit-btn-label">Send Enquiry — Free &amp; No Obligation</span>
-              </button>
-
-              <p id="contact-form-status" class="form-status" role="status" aria-live="polite"></p>
-            </form>
-          </div>
-
-          <!-- Sidebar -->
-          <aside class="contact-sidebar reveal" aria-label="Contact information">
-            <div class="contact-info-card">
-              <h3>Get in Touch Directly</h3>
-
-              <ul class="contact-info-list">
-                <li class="contact-info-item">
-                  <div>
-                    <strong>Email</strong>
-                    <a href="mailto:info@mapengoinnovations.co.za">info@mapengoinnovations.co.za</a>
-                  </div>
-                </li>
-                <li class="contact-info-item">
-                  <div>
-                    <strong>Phone</strong>
-                    <a href="tel:+27665520197">+27 66 552 0197</a>
-                  </div>
-                </li>
-                <li class="contact-info-item">
-                  <div>
-                    <strong>WhatsApp</strong>
-                    <a href="https://wa.me/27665520197" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-                  </div>
-                </li>
-                <li class="contact-info-item">
-                  <div>
-                    <strong>Location</strong>
-                    <span>Johannesburg, South Africa</span>
-                  </div>
-                </li>
-                <li class="contact-info-item">
-                  <div>
-                    <strong>Response Time</strong>
-                    <span>Within 24 business hours</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div class="contact-trust-card">
-              <h4>Why Work With Us?</h4>
-              <ul class="trust-list">
-                <li>Fixed-price quotes — no surprise invoices</li>
-                <li>South African team, local support</li>
-                <li>POPIA-compliant data handling</li>
-                <li>Agile delivery with weekly check-ins</li>
-                <li>Post-launch support included</li>
-              </ul>
-            </div>
-          </aside>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section section-tinted" aria-labelledby="contact-faq-heading">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="overline">Questions</span>
-          <h2 id="contact-faq-heading">Frequently Asked Questions</h2>
-        </div>
-
-        <div class="faq-grid stagger">
-
-          <div class="faq-item reveal">
-            <h3>How quickly will I get a response?</h3>
-            <p>We respond to all enquiries within 24 business hours. For urgent projects, WhatsApp us directly at <a href="https://wa.me/27665520197" target="_blank" rel="noopener noreferrer">+27 66 552 0197</a> for a faster reply.</p>
-          </div>
-
-          <div class="faq-item reveal">
-            <h3>What information should I include in my message?</h3>
-            <p>The more context the better — share your business goals, your audience, your timeline, and any specific features you need. Budget range is helpful too but not required at this stage.</p>
-          </div>
-
-          <div class="faq-item reveal">
-            <h3>Do you work with clients outside Johannesburg?</h3>
-            <p>Absolutely. We work with clients across all nine South African provinces and collaborate entirely remotely via video call, email, and shared project tools.</p>
-          </div>
-
-          <div class="faq-item reveal">
-            <h3>What payment methods do you accept?</h3>
-            <p>We accept EFT (South African bank transfer), PayFast, and card payments. All projects are billed in South African Rand (ZAR) with milestone-based payment schedules.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section cta-section reveal" aria-labelledby="contact-cta-heading">
-      <div class="container cta-inner">
-        <span class="overline">No Obligation</span>
-        <h2 id="contact-cta-heading">Ready to Get Started?</h2>
-        <p>Submit the form above or email us directly. We'll send you a clear, itemised quote within 24 hours.</p>
-        <div class="cta-actions">
-          <a href="mailto:info@mapengoinnovations.co.za" class="btn btn-primary btn-lg">Email Us Directly</a>
-          <a href="../work/index.html" class="btn btn-outline btn-lg">See Our Work</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer id="site-footer"></footer>
-  <script src="../assets/js/components.js" defer></script>
-  <script src="../assets/js/main.js" defer></script>
-</body>
-</html>
+<main class="section">
+  <div class="container terms-layout">
+    <p class="eyebrow">Contact</p>
+    <h1>Tell us what you need built.</h1>
+    <p class="lead">Share your project goals, timeline, and budget range. We respond with a clear next-step plan.</p>
+    <section><h2>Response time</h2><p>Most enquiries receive a response within one business day.</p></section>
+<section><h2>Project fit</h2><p>We prioritize projects where we can define measurable conversion outcomes.</p></section>
+  </div>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><p>© <span id="year"></span> North Lab Studio</p><p><a href="/testing/terms.html">Terms of Service</a></p></div></footer>
+<script src="/testing/script.js"></script>
+</body></html>
