@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Flag, Zap, ShieldCheck, Handshake, ArrowRight, CheckCircle } from "lucide-react";
+import { Flag, Zap, ShieldCheck, Handshake, ArrowRight, CheckCircle, CheckSquare, Eye } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { teamMembers, siteConfig } from "@/lib/data";
 
@@ -77,10 +77,7 @@ export default function AboutPage() {
             <AnimatedSection direction="left">
               <div className="h-full p-8 md:p-10 rounded-2xl bg-white border border-gray-200">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-5">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
+                  <CheckSquare size={22} strokeWidth={1.75} />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
                   Our <span className="gradient-text">Mission</span>
@@ -96,11 +93,7 @@ export default function AboutPage() {
             <AnimatedSection direction="right">
               <div className="h-full p-8 md:p-10 rounded-2xl bg-gray-900 border border-gray-800">
                 <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-white mb-5">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="8" x2="12" y2="12" />
-                    <line x1="12" y1="16" x2="12.01" y2="16" />
-                  </svg>
+                  <Eye size={22} strokeWidth={1.75} />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4">
                   Our <span className="text-accent">Vision</span>

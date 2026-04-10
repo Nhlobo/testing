@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MapPin, Clock } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { siteConfig } from "@/lib/data";
@@ -38,20 +39,14 @@ export default function ContactPage() {
         <div className="container-custom">
           <AnimatedSection className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500 text-center sm:text-left">
             <span className="flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent shrink-0">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
+              <MapPin size={16} className="text-accent shrink-0" />
               Based in <strong className="text-gray-900 ml-1">{siteConfig.location}</strong>
             </span>
             <span className="hidden sm:block text-gray-300">·</span>
             <span>Serving clients across South Africa and globally</span>
             <span className="hidden sm:block text-gray-300">·</span>
             <span className="flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent shrink-0">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
+              <Clock size={16} className="text-accent shrink-0" />
               Response within <strong className="text-gray-900 ml-1">24 hours</strong>
             </span>
           </AnimatedSection>

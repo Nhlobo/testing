@@ -76,7 +76,7 @@ export default function WorkPage() {
                       className="text-6xl font-extrabold tracking-widest uppercase"
                       style={{ color: study.accentColor, opacity: 0.25 }}
                     >
-                      {study.client.substring(0, 3)}
+                      {study.client.substring(0, Math.min(3, study.client.length))}
                     </p>
                     <p className="text-4xl font-extrabold text-gray-900 mt-1">{study.result}</p>
                     <p className="text-gray-500 text-sm font-medium mt-0.5">{study.resultLabel}</p>
