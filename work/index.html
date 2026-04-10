@@ -15,86 +15,201 @@
   <meta name="twitter:description" content="Software delivery case studies from a South African digital team.">
   <link rel="canonical" href="https://www.mapengoinnovations.co.za/work/" />
   <title>Work | Software Company Case Studies | Mapengo Innovations</title>
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-  <link rel="dns-prefetch" href="https://images.unsplash.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/pages.css" />
-  <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
   <header id="site-header"></header>
 
-  <div class="bg-blur bg-blur-one"></div>
-  <div class="bg-blur bg-blur-two"></div>
-  <header class="work-hero container reveal">
-    <h1>Software Solutions Delivered Across Every Growth Stage</h1>
-    <p class="hero-sub">Case studies spanning independent operators, small businesses, enterprise organisations, and government institutions.</p>
-    <a href="../contact/index.html" class="btn-primary">Discuss Your Project</a>
-  </header>
+  <main id="main-content">
 
-  <main class="container">
-    <section class="filter-bar reveal">
-      <h2>Work Portfolio by Client Maturity Level</h2>
-      <div class="filters" role="tablist" aria-label="Project filters">
-        <button class="filter-btn is-active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Platforms</button>
-        <button class="filter-btn" data-filter="apps">Applications</button>
-        <button class="filter-btn" data-filter="systems">Systems</button>
+    <!-- ── Hero ───────────────────────────────────────────── -->
+    <section class="hero hero-page" aria-label="Work portfolio hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner reveal">
+        <span class="overline">Our Portfolio · Mapengo Innovations</span>
+        <h1>Proof in the Work —<br><span class="text-gradient">Projects That Delivered Results</span></h1>
+        <p class="lead">Real solutions built for real clients. Every project below represents measurable impact for South African businesses and institutions.</p>
+        <div class="hero-actions">
+          <a href="../contact/index.html" class="btn btn-primary btn-lg">Start Your Project</a>
+          <a href="../pricing/index.html" class="btn btn-ghost btn-lg">View Pricing</a>
+        </div>
       </div>
     </section>
 
-    <section class="segment reveal">
-      <div class="segment-head"><h3>INDIVIDUAL</h3><p>Revenue and authority platforms for independent professionals.</p></div>
-      <div class="project-grid">
-        <article class="project-card reveal" data-filter="web" data-segment="Individual"><a href="./projects/portfolio.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80" alt="Personal Brand Growth Platform" loading="lazy" class="project-image" /><span class="project-tag">Platform</span></div><div class="project-content"><p class="project-segment">Individual</p><h3>Personal Brand Growth Platform</h3><p>A conversion-focused personal authority system with automated lead qualification and consultation booking.</p><span class="project-cta">View Case Study →</span></div></a></article>
-        <article class="project-card reveal" data-filter="web" data-segment="Individual"><a href="./projects/blog.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=80" alt="Thought Leadership Publishing System" loading="lazy" class="project-image" /><span class="project-tag">System</span></div><div class="project-content"><p class="project-segment">Individual</p><h3>Thought Leadership Publishing System</h3><p>An editorial and audience growth system that turns expert content into measurable pipeline activity.</p><span class="project-cta">View Case Study →</span></div></a></article>
+    <!-- ── Portfolio ──────────────────────────────────────── -->
+    <section class="section" aria-labelledby="portfolio-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="overline">Selected Work</span>
+          <h2 id="portfolio-heading">Projects That Made a Difference</h2>
+          <p class="section-lead">Filter by discipline to explore our capabilities across web, mobile, and e-commerce.</p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs reveal" role="tablist" aria-label="Filter projects by category">
+          <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
+          <button class="filter-tab" data-filter="web" role="tab" aria-selected="false">Web Development</button>
+          <button class="filter-tab" data-filter="mobile" role="tab" aria-selected="false">Mobile</button>
+          <button class="filter-tab" data-filter="ecommerce" role="tab" aria-selected="false">E-Commerce</button>
+        </div>
+
+        <!-- Portfolio grid -->
+        <div class="portfolio-grid stagger" id="portfolio-grid">
+
+          <!-- Crime Solution -->
+          <article class="portfolio-card reveal" data-category="web" aria-label="Crime Solution project">
+            <div class="portfolio-img">
+              <img
+                src="../assets/img/portfolio/crime-solution.jpg"
+                alt="Crime Solution — Public Safety Web Application"
+                loading="lazy"
+                style="aspect-ratio:16/9;width:100%;object-fit:cover;"
+              />
+              <span class="portfolio-badge">Web Application</span>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-category">Web Development</span>
+              <h3>Crime Solution</h3>
+              <p>A secure, multi-agency public safety platform for incident management, hotspot intelligence, and coordinated law enforcement response across South Africa.</p>
+              <div class="portfolio-tags" aria-label="Technologies used">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">GIS Mapping</span>
+              </div>
+              <a href="../contact/index.html" class="btn btn-ghost btn-sm">Discuss a Similar Project</a>
+            </div>
+          </article>
+
+          <!-- Juta Daco Construction -->
+          <article class="portfolio-card reveal" data-category="web" aria-label="Juta Daco Construction project">
+            <div class="portfolio-img">
+              <img
+                src="../assets/img/portfolio/juta-daco-construction.png"
+                alt="Juta Daco Construction — Corporate Website"
+                loading="lazy"
+                style="aspect-ratio:16/9;width:100%;object-fit:cover;"
+              />
+              <span class="portfolio-badge">Corporate Website</span>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-category">Web Development</span>
+              <h3>Juta Daco Construction</h3>
+              <p>A performance-optimised corporate website for a growing South African construction firm, built to generate qualified leads and showcase project credibility.</p>
+              <div class="portfolio-tags" aria-label="Technologies used">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">SEO</span>
+              </div>
+              <a href="../contact/index.html" class="btn btn-ghost btn-sm">Discuss a Similar Project</a>
+            </div>
+          </article>
+
+          <!-- Madyaswanyuku -->
+          <article class="portfolio-card reveal" data-category="web" aria-label="Madyaswanyuku project">
+            <div class="portfolio-img">
+              <img
+                src="../assets/img/portfolio/madyaswanyuku.jpg"
+                alt="Madyaswanyuku — Digital Platform"
+                loading="lazy"
+                style="aspect-ratio:16/9;width:100%;object-fit:cover;"
+              />
+              <span class="portfolio-badge">Digital Platform</span>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-category">Web Development</span>
+              <h3>Madyaswanyuku</h3>
+              <p>A community-focused digital platform connecting rural South African communities to essential services, information, and economic opportunities online.</p>
+              <div class="portfolio-tags" aria-label="Technologies used">
+                <span class="tag">Vue.js</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">PWA</span>
+                <span class="tag">Zulu Localisation</span>
+              </div>
+              <a href="../contact/index.html" class="btn btn-ghost btn-sm">Discuss a Similar Project</a>
+            </div>
+          </article>
+
+          <!-- ShopZA E-Commerce -->
+          <article class="portfolio-card reveal" data-category="ecommerce" aria-label="ShopZA E-Commerce project">
+            <div class="portfolio-img">
+              <img
+                src="../assets/img/portfolio/shopza-ecommerce.jpg"
+                alt="ShopZA E-Commerce — E-Commerce Platform"
+                loading="lazy"
+                style="aspect-ratio:16/9;width:100%;object-fit:cover;"
+              />
+              <span class="portfolio-badge">E-Commerce Platform</span>
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-category">E-Commerce</span>
+              <h3>ShopZA E-Commerce</h3>
+              <p>A fully localised South African e-commerce platform with PayFast integration, inventory management, and a streamlined checkout optimised for mobile-first shoppers.</p>
+              <div class="portfolio-tags" aria-label="Technologies used">
+                <span class="tag">Next.js</span>
+                <span class="tag">Stripe / PayFast</span>
+                <span class="tag">Sanity CMS</span>
+                <span class="tag">Tailwind CSS</span>
+              </div>
+              <a href="../contact/index.html" class="btn btn-ghost btn-sm">Discuss a Similar Project</a>
+            </div>
+          </article>
+
+        </div><!-- /portfolio-grid -->
       </div>
     </section>
 
-    <section class="segment reveal">
-      <div class="segment-head"><h3>SMALL BUSINESS</h3><p>Operational software for lean teams scaling service delivery.</p></div>
-      <div class="project-grid">
-        <article class="project-card reveal" data-filter="systems" data-segment="Small Business"><a href="./projects/pest-control.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=80" alt="Field Service Operations Management System" loading="lazy" class="project-image" /><span class="project-tag">System</span></div><div class="project-content"><p class="project-segment">Small Business</p><h3>Field Service Operations Management System</h3><p>Digitized booking, dispatch, and technician reporting for reliable field execution.</p><span class="project-cta">View Case Study →</span></div></a></article>
-        <article class="project-card reveal" data-filter="apps" data-segment="Small Business"><a href="./projects/car-wash.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1400&q=80" alt="Service Booking & Queue Intelligence Platform" loading="lazy" class="project-image" /><span class="project-tag">Platform</span></div><div class="project-content"><p class="project-segment">Small Business</p><h3>Service Booking & Queue Intelligence Platform</h3><p>A throughput and queue optimization solution for customer-centric service centers.</p><span class="project-cta">View Case Study →</span></div></a></article>
-        <article class="project-card reveal" data-filter="apps" data-segment="Small Business"><a href="./projects/beauty-booking.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=80" alt="On-Demand Beauty Services Marketplace System" loading="lazy" class="project-image" /><span class="project-tag">System</span></div><div class="project-content"><p class="project-segment">Small Business</p><h3>On-Demand Beauty Services Marketplace System</h3><p>A trusted booking ecosystem with provider verification and payment orchestration.</p><span class="project-cta">View Case Study →</span></div></a></article>
-        <article class="project-card reveal" data-filter="web" data-segment="Small Business"><a href="./projects/creche.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80" alt="Early Learning Enrollment & Parent Engagement Platform" loading="lazy" class="project-image" /><span class="project-tag">Platform</span></div><div class="project-content"><p class="project-segment">Small Business</p><h3>Early Learning Enrollment & Parent Engagement Platform</h3><p>A secure admissions and parent communication solution for early learning centers.</p><span class="project-cta">View Case Study →</span></div></a></article>
-        <article class="project-card reveal" data-filter="systems" data-segment="Small Business"><a href="./projects/transport.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1400&q=80" alt="School Transport Coordination & Safety System" loading="lazy" class="project-image" /><span class="project-tag">System</span></div><div class="project-content"><p class="project-segment">Small Business</p><h3>School Transport Coordination & Safety System</h3><p>Route intelligence and safety workflows for student transport operations.</p><span class="project-cta">View Case Study →</span></div></a></article>
-        <article class="project-card reveal" data-filter="web" data-segment="Small Business"><a href="./projects/catering.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1400&q=80" alt="Event Catering Commerce & Fulfillment System" loading="lazy" class="project-image" /><span class="project-tag">System</span></div><div class="project-content"><p class="project-segment">Small Business</p><h3>Event Catering Commerce & Fulfillment System</h3><p>A quote-to-delivery operations platform for high-volume event teams.</p><span class="project-cta">View Case Study →</span></div></a></article>
-        <article class="project-card reveal" data-filter="web" data-segment="Small Business"><a href="./projects/church.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=80" alt="Faith Community Engagement & Operations Platform" loading="lazy" class="project-image" /><span class="project-tag">Platform</span></div><div class="project-content"><p class="project-segment">Small Business</p><h3>Faith Community Engagement & Operations Platform</h3><p>A centralized communication and participation system for community organizations.</p><span class="project-cta">View Case Study →</span></div></a></article>
+    <!-- ── Stats bar ──────────────────────────────────────── -->
+    <section class="section section-tinted" aria-label="Company stats">
+      <div class="container">
+        <div class="stats-grid stagger reveal">
+          <div class="stat-item">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Projects Delivered</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">On-Time Delivery</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">5+</span>
+            <span class="stat-label">Industries Served</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">24h</span>
+            <span class="stat-label">Quote Turnaround</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="segment reveal">
-      <div class="segment-head"><h3>GROWING BUSINESS</h3><p>Commercial and operational systems designed for expansion.</p></div>
-      <div class="project-grid">
-        <article class="project-card reveal" data-filter="systems" data-segment="Growing Business"><a href="./projects/construction.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80" alt="Construction Delivery Intelligence Platform" loading="lazy" class="project-image" /><span class="project-tag">Platform</span></div><div class="project-content"><p class="project-segment">Growing Business</p><h3>Construction Delivery Intelligence Platform</h3><p>A command-center system for milestone control, procurement visibility, and project risk governance.</p><span class="project-cta">View Case Study →</span></div></a></article>
-        <article class="project-card reveal" data-filter="systems" data-segment="Growing Business"><a href="./projects/restaurant.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80" alt="Hospitality Operations & POS Orchestration System" loading="lazy" class="project-image" /><span class="project-tag">System</span></div><div class="project-content"><p class="project-segment">Growing Business</p><h3>Hospitality Operations & POS Orchestration System</h3><p>An integrated operational layer connecting reservations, tables, and POS performance.</p><span class="project-cta">View Case Study →</span></div></a></article>
-        <article class="project-card reveal" data-filter="apps" data-segment="Growing Business"><a href="./projects/dealership.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1400&q=80" alt="Automotive Sales & Rental Commerce Platform" loading="lazy" class="project-image" /><span class="project-tag">Platform</span></div><div class="project-content"><p class="project-segment">Growing Business</p><h3>Automotive Sales & Rental Commerce Platform</h3><p>A commerce system for inventory, finance workflows, and rental conversion optimization.</p><span class="project-cta">View Case Study →</span></div></a></article>
+    <!-- ── CTA ────────────────────────────────────────────── -->
+    <section class="section cta-section reveal" aria-labelledby="work-cta-heading">
+      <div class="container cta-inner">
+        <span class="overline">Ready to Build?</span>
+        <h2 id="work-cta-heading">Your Project Could Be Next</h2>
+        <p>We build practical, high-performance digital products for South African businesses. Get a no-obligation quote within 24 hours.</p>
+        <div class="cta-actions">
+          <a href="../contact/index.html" class="btn btn-primary btn-lg">Get a Free Quote</a>
+          <a href="../pricing/index.html" class="btn btn-outline btn-lg">See Pricing</a>
+        </div>
       </div>
     </section>
 
-    <section class="segment reveal">
-      <div class="segment-head"><h3>ENTERPRISE</h3><p>High-governance platforms for complex, data-intensive organizations.</p></div>
-      <div class="project-grid">
-        <article class="project-card reveal" data-filter="systems" data-segment="Enterprise"><a href="./projects/weather.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1400&q=80" alt="Climate Risk Intelligence & Forecasting Platform" loading="lazy" class="project-image" /><span class="project-tag">Platform</span></div><div class="project-content"><p class="project-segment">Enterprise</p><h3>Climate Risk Intelligence & Forecasting Platform</h3><p>A decision system converting weather signals into risk alerts and resilience planning.</p><span class="project-cta">View Case Study →</span></div></a></article>
-        <article class="project-card reveal" data-filter="systems" data-segment="Enterprise"><a href="./projects/learning-platform.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" alt="Enterprise Learning & Workforce Readiness Platform" loading="lazy" class="project-image" /><span class="project-tag">Platform</span></div><div class="project-content"><p class="project-segment">Enterprise</p><h3>Enterprise Learning & Workforce Readiness Platform</h3><p>A SaaS workforce development system for compliance, onboarding, and capability analytics.</p><span class="project-cta">View Case Study →</span></div></a></article>
-      </div>
-    </section>
-
-    <section class="segment reveal">
-      <div class="segment-head"><h3>GOVERNMENT</h3><p>Mission-critical public systems for security, transparency, and service accountability.</p></div>
-      <div class="project-grid">
-        <article class="project-card reveal" data-filter="systems" data-segment="Government"><a href="./projects/crime-solution.html" class="project-link"><div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1453873623425-02e3b9b4a1b4?auto=format&fit=crop&w=1400&q=80" alt="Public Safety Intelligence & Incident Response System" loading="lazy" class="project-image" /><span class="project-tag">GovTech</span></div><div class="project-content"><p class="project-segment">Government</p><h3>Public Safety Intelligence & Incident Response System</h3><p>A secure multi-agency platform for incident management, hotspot intelligence, and coordinated response.</p><span class="project-cta">View Case Study →</span></div></a></article>
-      </div>
-    </section>
   </main>
 
   <footer id="site-footer"></footer>
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
-  <script src="./js/script.js" defer></script>
 </body>
 </html>

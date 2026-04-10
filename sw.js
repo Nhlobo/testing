@@ -1,10 +1,11 @@
-const CACHE_NAME = 'mapengo-static-v1';
+const CACHE_NAME = 'mapengo-v2';
 const OFFLINE_URL = 'offline.html';
 
 const CORE_ASSETS = [
   './',
   './index.html',
   './offline.html',
+  './404.html',
   './assets/css/main.css',
   './assets/css/pages.css',
   './assets/js/main.js',
@@ -12,10 +13,18 @@ const CORE_ASSETS = [
   './assets/img/logo.png',
   './assets/img/favicon-32.png',
   './assets/img/favicon-16.png',
-  './contact/',
+  './about/',
   './services/',
   './work/',
-  './about/'
+  './contact/',
+  './pricing/',
+  './blog/',
+  './careers/',
+  './technologies/',
+  './products/',
+  './legal/privacy.html',
+  './legal/terms.html',
+  './legal/cookies.html'
 ];
 
 self.addEventListener('install', event => {
