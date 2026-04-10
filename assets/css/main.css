@@ -1,30 +1,47 @@
 :root {
-    /* Professional SaaS palette */
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --accent-color: #ffc107;
-    --background-color: #f8f9fa;
-    --text-color: #343a40;
-
-    /* Glassmorphism tokens */
-    --glass-background: rgba(255, 255, 255, 0.1);
-    --glass-blur: 10px;
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F7F7F7;
+  --color-text: #333333;
+  --color-primary: #007BFF;
+  --color-secondary: #6C757D;
+  --color-accent: #17A2B8;
+  --font-display: 'Roboto', sans-serif;
 }
 
 body {
-    background: radial-gradient(circle at center, #e3f2fd, #bbdefb);
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-display);
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.1), rgba(255,255,255,0.05)), var(--color-bg);
+  color: var(--color-text);
 }
 
-/* Glass surfaces section */
-.card,
-.card-dark,
-.service-card,
+/* 2.1 GLASSMORPHISM SURFACES (subtle; no HTML changes) */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-dark {
+  background: rgba(50, 50, 50, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.service-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 .project-card {
-    background: var(--glass-background);
-    backdrop-filter: blur(var(--glass-blur));
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 #site-header.header-scrolled {
-    backdrop-filter: blur(5px);
-    opacity: 0.9;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
