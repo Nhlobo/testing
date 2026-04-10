@@ -1,47 +1,819 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing | North Lab Studio</title>
-  <meta name="description" content="Pricing is based on scope, complexity, and required delivery speed." />
-  <link rel="stylesheet" href="/testing/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Mapengo Innovations — Website & App Development</title>
+  <meta name="description" content="Transparent pricing guidance for website and app development by Mapengo Innovations in South Africa.">
+  <meta name="keywords" content="website pricing South Africa, app development cost, web development prices Johannesburg, mobile app development cost SA, Mapengo Innovations pricing">
+  <meta property="og:title" content="Pricing | Mapengo Innovations">
+  <meta property="og:description" content="Transparent website and app pricing guidance for South African businesses.">
+  <meta property="og:image" content="https://www.mapengoinnovations.co.za/assets/img/og-image.svg">
+  <meta property="og:url" content="https://www.mapengoinnovations.co.za/pricing/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing | Mapengo Innovations">
+  <meta name="twitter:description" content="Transparent website & app development pricing for South African businesses.">
+  <link rel="canonical" href="https://www.mapengoinnovations.co.za/pricing/">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+  <style>
+    /* ── Pricing page styles ─────────────────────────────── */
+    .pricing-tabs {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-12);
+      flex-wrap: wrap;
+    }
+
+    .pricing-tab-btn {
+      padding: var(--space-3) var(--space-8);
+      border-radius: var(--radius-full);
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      font-family: var(--font-heading);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      border: 2px solid var(--color-accent);
+      background: transparent;
+      color: var(--color-accent);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .pricing-tab-btn.active,
+    .pricing-tab-btn:hover {
+      background: var(--color-accent);
+      color: var(--color-white);
+      box-shadow: var(--shadow-accent);
+    }
+
+    .pricing-panel { display: none; }
+    .pricing-panel.active { display: block; }
+
+    /* Pricing grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-6);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Pricing card */
+    .pricing-card {
+      background: var(--color-white);
+      border-radius: var(--radius-2xl);
+      border: 2px solid var(--color-light-300);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-accent);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-accent), var(--shadow-lg);
+    }
+
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-accent);
+      color: var(--color-white);
+      font-size: var(--text-xs);
+      font-weight: var(--font-bold);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      padding: var(--space-1) var(--space-5);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+    }
+
+    .pricing-header {
+      padding: var(--space-8) var(--space-6) var(--space-6);
+      border-bottom: 1px solid var(--color-light-300);
+      text-align: center;
+    }
+
+    .pricing-card.featured .pricing-header {
+      background: linear-gradient(135deg, #f0f6ff 0%, #e8f2ff 100%);
+    }
+
+    .pricing-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-1) var(--space-3);
+      background: rgba(26,115,232,0.1);
+      color: var(--color-accent);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--font-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+
+    .pricing-name {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+    }
+
+    .pricing-price {
+      margin-bottom: var(--space-2);
+    }
+
+    .pricing-price .from-label {
+      font-size: var(--text-sm);
+      color: var(--color-muted-dark);
+      display: block;
+      margin-bottom: var(--space-1);
+    }
+
+    .pricing-price .amount {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: var(--font-extrabold);
+      color: var(--color-accent);
+      line-height: 1;
+    }
+
+    .pricing-price .currency {
+      font-size: var(--text-xl);
+      font-weight: var(--font-semibold);
+      vertical-align: top;
+      margin-top: var(--space-2);
+      display: inline-block;
+    }
+
+    .pricing-timeline {
+      font-size: var(--text-sm);
+      color: var(--color-muted-dark);
+      margin-top: var(--space-3);
+      font-weight: var(--font-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+    }
+
+    .pricing-timeline svg {
+      width: 14px;
+      height: 14px;
+      color: var(--color-teal);
+    }
+
+    .pricing-tagline {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-top: var(--space-3);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Features list */
+    .pricing-features {
+      padding: var(--space-6);
+      flex: 1;
+    }
+
+    .pricing-features ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      line-height: var(--leading-relaxed);
+    }
+
+    .pricing-features li .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: var(--radius-full);
+      background: rgba(0,176,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pricing-features li .check-icon svg {
+      width: 11px;
+      height: 11px;
+      stroke: var(--color-teal);
+    }
+
+    /* CTA area */
+    .pricing-cta {
+      padding: var(--space-6);
+      padding-top: 0;
+    }
+
+    .pricing-cta .btn {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Note */
+    .pricing-note {
+      text-align: center;
+      font-size: var(--text-sm);
+      color: var(--color-muted-dark);
+      margin-top: var(--space-10);
+      padding: var(--space-6);
+      background: var(--color-light);
+      border-radius: var(--radius-xl);
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid var(--color-light-300);
+    }
+
+    .pricing-note strong {
+      color: var(--color-text);
+    }
+
+    /* FAQ pricing */
+    .pricing-faq {
+      max-width: 720px;
+      margin: var(--space-12) auto 0;
+    }
+
+    .pricing-faq-item {
+      border-bottom: 1px solid var(--color-light-300);
+      padding: var(--space-5) 0;
+    }
+
+    .pricing-faq-item summary {
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      color: var(--color-text);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding-right: var(--space-2);
+    }
+
+    .pricing-faq-item summary::after {
+      content: '+';
+      font-size: var(--text-2xl);
+      font-weight: var(--font-light);
+      color: var(--color-accent);
+      flex-shrink: 0;
+      line-height: 1;
+      transition: transform var(--transition-fast);
+    }
+
+    .pricing-faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .pricing-faq-item p {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      line-height: var(--leading-relaxed);
+      padding-top: var(--space-4);
+    }
+
+    @media (max-width: 640px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Radio-input tab system ──────────────────────────── */
+    #website-tab,
+    #app-tab {
+      display: none;
+    }
+
+    .pricing-tabs-nav {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      background: var(--color-light, #f5f7fb);
+      border-radius: var(--radius-full);
+      padding: 4px;
+      max-width: 440px;
+      margin: 0 auto var(--space-12);
+      gap: 0;
+    }
+
+    .pricing-tab-label {
+      flex: 1;
+      text-align: center;
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      font-family: var(--font-heading);
+      cursor: pointer;
+      z-index: 1;
+      position: relative;
+      transition: color 0.3s;
+      color: var(--color-text);
+      white-space: nowrap;
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .pricing-tab-slider {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--gradient-accent, var(--color-accent));
+      border-radius: var(--radius-full);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 0;
+      box-shadow: 0 2px 8px rgba(26, 115, 232, 0.35);
+    }
+
+    /* Active label: white text over slider */
+    #website-tab:checked ~ .pricing-tabs-nav .pricing-tab-label[for="website-tab"],
+    #app-tab:checked ~ .pricing-tabs-nav .pricing-tab-label[for="app-tab"] {
+      color: var(--color-white);
+    }
+
+    /* Slide to app position */
+    #app-tab:checked ~ .pricing-tabs-nav .pricing-tab-slider {
+      transform: translateX(100%);
+    }
+
+    /* Tab panel visibility */
+    .app-pricing { display: none; }
+    #website-tab:checked ~ .pricing-tab-panels .website-pricing { display: block; }
+    #app-tab:checked ~ .pricing-tab-panels .app-pricing  { display: block; }
+    #app-tab:checked ~ .pricing-tab-panels .website-pricing { display: none; }
+
+    /* Single-card centred layout */
+    .pricing-tab-panels {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Font Awesome check icon style */
+    .pricing-features li i.fas {
+      font-size: 11px;
+      color: var(--color-teal, #00b0ff);
+      background: rgba(0, 176, 255, 0.12);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 480px) {
+      .pricing-tabs-nav {
+        max-width: 100%;
+      }
+      .pricing-tab-label {
+        font-size: var(--text-xs);
+        padding: var(--space-2) var(--space-3);
+      }
+    }
+  </style>
 </head>
 <body>
+  <header id="site-header"></header>
 
-<header class="site-header">
-  <nav class="nav container" aria-label="Primary navigation">
-    <a class="brand" href="/testing/index.html">North Lab Studio</a>
-    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
-    <ul class="nav-links" aria-label="Desktop navigation">
-      <li><a href="/testing/services/">Services</a></li>
-      <li><a href="/testing/work/">Work</a></li>
-      <li><a href="/testing/pricing/">Pricing</a></li>
-      <li><a href="/testing/about/">About</a></li>
-      <li><a href="/testing/contact/">Contact</a></li>
-      <li><a href="/testing/terms.html">Terms</a></li>
-    </ul>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="/testing/services/">Services</a>
-    <a href="/testing/work/">Work</a>
-    <a href="/testing/pricing/">Pricing</a>
-    <a href="/testing/about/">About</a>
-    <a href="/testing/contact/">Contact</a>
-    <a href="/testing/terms.html">Terms</a>
-  </div>
-</header>
+  <main>
 
-<main class="section">
-  <div class="container terms-layout">
-    <p class="eyebrow">Pricing</p>
-    <h1>Clear project pricing from R3000+.</h1>
-    <p class="lead">Pricing is based on scope, complexity, and required delivery speed.</p>
-    <section><h2>Starting point</h2><p>Most projects start from R3000+ and include planning, design, build, and launch QA.</p></section>
-<section><h2>Payment structure</h2><p>50% upfront secures production time; remaining 50% is due before final delivery.</p></section>
-<section><h2>What affects cost</h2><p>Page count, integrations, copy support, and timeline urgency.</p></section>
-  </div>
-</main>
-<footer class="site-footer"><div class="container footer-grid"><p>© <span id="year"></span> North Lab Studio</p><p><a href="/testing/terms.html">Terms of Service</a></p></div></footer>
-<script src="/testing/script.js"></script>
-</body></html>
+    <!-- ══════════ HERO ══════════ -->
+    <section class="hero hero-page" aria-label="Pricing hero">
+      <div class="hero-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="prhg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1a73e8" stop-opacity="0.10"/>
+              <stop offset="100%" stop-color="#00b0ff" stop-opacity="0.06"/>
+            </linearGradient>
+          </defs>
+          <polygon points="900,0 1440,0 1440,500" fill="url(#prhg1)"/>
+          <circle cx="1300" cy="150" r="200" fill="#00b0ff" fill-opacity="0.05"/>
+          <circle cx="200" cy="400" r="180" fill="#1a73e8" fill-opacity="0.04"/>
+          <polygon points="0,550 300,600 0,600" fill="#1a73e8" fill-opacity="0.06"/>
+          <g stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1">
+            <line x1="360" y1="0" x2="360" y2="600"/>
+            <line x1="720" y1="0" x2="720" y2="600"/>
+            <line x1="1080" y1="0" x2="1080" y2="600"/>
+            <line x1="0" y1="200" x2="1440" y2="200"/>
+            <line x1="0" y1="400" x2="1440" y2="400"/>
+          </g>
+        </svg>
+      </div>
+      <div class="container hero-inner">
+        <span class="overline">Transparent Pricing</span>
+        <h1>Website &amp; App Development <span class="text-gradient">Pricing</span></h1>
+        <p class="lead">
+          Clear starting prices for common website and app projects.
+          Final quotes are based on scope, features, and delivery timelines.
+        </p>
+        <div class="hero-actions" style="margin-top:var(--space-8);">
+          <a href="../contact/" class="btn btn-primary btn-lg">Get a Custom Quote →</a>
+          <a href="../services/" class="btn btn-ghost btn-lg">View Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PRICING TABS ══════════ -->
+    <section id="pricing" class="pricing-section section" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <span class="overline">Choose Your Plan</span>
+          <h2 id="pricing-heading">Pick a <span class="text-gradient">Category</span></h2>
+          <p>Switch between website and app pricing to review typical starting packages.</p>
+        </div>
+
+        <!-- Radio tab controls (hidden but functional via labels) -->
+        <input type="radio" name="pricing-tab" id="website-tab" checked>
+        <input type="radio" name="pricing-tab" id="app-tab">
+
+        <!-- Tab labels with animated slider -->
+        <div class="pricing-tabs-nav reveal" aria-label="Pricing categories">
+          <label for="website-tab" class="pricing-tab-label"> Website Development</label>
+          <label for="app-tab" class="pricing-tab-label"> App Development</label>
+          <div class="pricing-tab-slider" aria-hidden="true"></div>
+        </div>
+
+        <!-- Tab panels (one card visible at a time, cycled via Next Plan) -->
+        <div class="pricing-tab-panels">
+
+          <!-- ═══ WEBSITE DEVELOPMENT PRICING ═══ -->
+          <div class="pricing-panel-content website-pricing">
+
+            <!-- Basic Website (shown first) -->
+            <div class="pricing-card reveal" id="website-card-0">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge">Starter</span>
+                <div class="pricing-name">Basic Website</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount"><span class="currency">R</span>3,000</span>
+                </div>
+                <div class="pricing-tagline">Good for a simple online presence such as a profile site or small business starter website.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> 1–3 pages</li>
+                  <li><i class="fas fa-check"></i> Custom landing page design</li>
+                  <li><i class="fas fa-check"></i> Contact form integration</li>
+                  <li><i class="fas fa-check"></i> Basic SEO setup</li>
+                  <li><i class="fas fa-check"></i> Responsive design (mobile-friendly)</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <button class="btn btn-outline btn-accent" onclick="nextCard('website')">Next Plan</button>
+              </div>
+            </div>
+
+            <!-- Standard Website (hidden) -->
+            <div class="pricing-card featured reveal" id="website-card-1" style="display:none">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge">Popular</span>
+                <div class="pricing-name">Standard Website</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount"><span class="currency">R</span>6,000</span>
+                </div>
+                <div class="pricing-tagline">Suitable for businesses that need a full multi-page website with service and company pages.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> 4–8 pages</li>
+                  <li><i class="fas fa-check"></i> Custom homepage and inner page design</li>
+                  <li><i class="fas fa-check"></i> Contact form, gallery, or blog</li>
+                  <li><i class="fas fa-check"></i> Basic SEO optimization</li>
+                  <li><i class="fas fa-check"></i> Social media integration</li>
+                  <li><i class="fas fa-check"></i> Mobile responsiveness</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <button class="btn btn-primary" onclick="nextCard('website')">Next Plan</button>
+              </div>
+            </div>
+
+            <!-- Premium Website (hidden) -->
+            <div class="pricing-card reveal" id="website-card-2" style="display:none">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge" style="background:rgba(0,176,255,0.1);color:var(--color-teal);">Premium</span>
+                <div class="pricing-name">Premium Website</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount" style="color:var(--color-teal);"><span class="currency">R</span>12,000</span>
+                </div>
+                <div class="pricing-tagline">For growing teams that need more pages, content structure, and custom functionality.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> 9–15 pages</li>
+                  <li><i class="fas fa-check"></i> Custom UI/UX design</li>
+                  <li><i class="fas fa-check"></i> Advanced SEO optimization</li>
+                  <li><i class="fas fa-check"></i> Blog / CMS integration</li>
+                  <li><i class="fas fa-check"></i> Analytics &amp; performance setup</li>
+                  <li><i class="fas fa-check"></i> Social media integration</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <button class="btn btn-outline" style="border-color:var(--color-teal);color:var(--color-teal);" onclick="nextCard('website')">Next Plan</button>
+              </div>
+            </div>
+
+            <!-- E-commerce Package (hidden) -->
+            <div class="pricing-card reveal" id="website-card-3" style="display:none">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge">E-Commerce</span>
+                <div class="pricing-name">E-commerce Package</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount"><span class="currency">R</span>10,000</span>
+                </div>
+                <div class="pricing-tagline">For businesses that want to sell products online with payments and order handling.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> Product listings &amp; catalogue</li>
+                  <li><i class="fas fa-check"></i> Shopping cart &amp; checkout</li>
+                  <li><i class="fas fa-check"></i> Payment gateway integration</li>
+                  <li><i class="fas fa-check"></i> Order management system</li>
+                  <li><i class="fas fa-check"></i> Inventory tracking</li>
+                  <li><i class="fas fa-check"></i> Mobile responsive store</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <button class="btn btn-outline btn-accent" onclick="nextCard('website')">Next Plan</button>
+              </div>
+            </div>
+
+            <div class="pricing-note reveal">
+              <strong>Need a larger, custom website?</strong> Enterprise solutions, booking systems, and custom web applications are also available.
+              <a href="../contact/" style="color:var(--color-accent);font-weight:var(--font-semibold);">Contact us for a custom quote →</a>
+            </div>
+
+          </div>
+
+          <!-- ═══ APP DEVELOPMENT PRICING ═══ -->
+          <div class="pricing-panel-content app-pricing">
+
+            <!-- Basic App (shown first) -->
+            <div class="pricing-card reveal" id="app-card-0">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge">Starter</span>
+                <div class="pricing-name">Basic App</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount"><span class="currency">R</span>50,000</span>
+                </div>
+                <div class="pricing-timeline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Development Time: 2–4 months
+                </div>
+                <div class="pricing-tagline">Starter mobile app package with core features and one main workflow.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> User login and registration</li>
+                  <li><i class="fas fa-check"></i> Basic UI/UX design</li>
+                  <li><i class="fas fa-check"></i> Simple functionality (forms, calculators)</li>
+                  <li><i class="fas fa-check"></i> Push notifications (optional)</li>
+                  <li><i class="fas fa-check"></i> Single platform (Android or iOS)</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <button class="btn btn-outline btn-accent" onclick="nextCard('app')">Next Plan</button>
+              </div>
+            </div>
+
+            <!-- Standard App (hidden) -->
+            <div class="pricing-card featured reveal" id="app-card-1" style="display:none">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge">Popular</span>
+                <div class="pricing-name">Standard App</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount"><span class="currency">R</span>75,000</span>
+                </div>
+                <div class="pricing-timeline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Development Time: 4–6 months
+                </div>
+                <div class="pricing-tagline">Mid-level app package for businesses that need user accounts, dashboards, and integrations.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> User profiles and login system</li>
+                  <li><i class="fas fa-check"></i> Advanced UI/UX design</li>
+                  <li><i class="fas fa-check"></i> Third-party API integration</li>
+                  <li><i class="fas fa-check"></i> Admin dashboard for content management</li>
+                  <li><i class="fas fa-check"></i> Cross-platform (iOS &amp; Android)</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <button class="btn btn-primary" onclick="nextCard('app')">Next Plan</button>
+              </div>
+            </div>
+
+            <!-- Premium App (hidden) -->
+            <div class="pricing-card reveal" id="app-card-2" style="display:none">
+              <div class="pricing-header">
+                <span class="pricing-tier-badge" style="background:rgba(0,176,255,0.1);color:var(--color-teal);">Premium</span>
+                <div class="pricing-name">Premium App</div>
+                <div class="pricing-price">
+                  <span class="from-label">From</span>
+                  <span class="amount" style="color:var(--color-teal);"><span class="currency">R</span>120,000</span>
+                </div>
+                <div class="pricing-timeline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Development Time: 9–12 months
+                </div>
+                <div class="pricing-tagline">Advanced app package for larger workflows, role management, and ongoing iteration.</div>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> Complete custom app design and development</li>
+                  <li><i class="fas fa-check"></i> Multiple integrations (payments, cloud, etc.)</li>
+                  <li><i class="fas fa-check"></i> Real-time features (chat, live tracking)</li>
+                  <li><i class="fas fa-check"></i> Advanced user roles and permissions</li>
+                  <li><i class="fas fa-check"></i> Dedicated post-launch support</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <button class="btn btn-outline" style="border-color:var(--color-teal);color:var(--color-teal);" onclick="nextCard('app')">Next Plan</button>
+              </div>
+            </div>
+
+            <div class="pricing-note reveal">
+              <strong>All app quotes include:</strong> Cross-platform (iOS &amp; Android) development, code ownership, and a 30-day post-launch support window.
+              <a href="../contact/" style="color:var(--color-accent);font-weight:var(--font-semibold);">Have a unique requirement? Let's chat →</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PROCESS STRIP ══════════ -->
+    <section class="section bg-light" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <span class="overline">How It Works</span>
+          <h2 id="process-heading">From Idea to <span class="text-gradient">Deployment</span></h2>
+          <p>A simple, transparent process so you always know where your project stands.</p>
+        </div>
+        <div class="grid grid-4 stagger" style="gap:var(--space-8);margin-top:var(--space-10);">
+          <div class="reveal" style="text-align:center;">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-accent);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4);font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:#fff;">1</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);">Discovery Call</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-light);">We discuss your goals, requirements, and vision. Free, no-obligation consultation.</p>
+          </div>
+          <div class="reveal" style="text-align:center;">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-accent);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4);font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:#fff;">2</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);">Proposal &amp; Quote</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-light);">You receive a detailed proposal with pricing, timeline, and deliverables — no surprises.</p>
+          </div>
+          <div class="reveal" style="text-align:center;">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-accent);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4);font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:#fff;">3</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);">Build &amp; Review</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-light);">We design and develop your solution with regular check-ins and progress updates throughout.</p>
+          </div>
+          <div class="reveal" style="text-align:center;">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-accent);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4);font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:#fff;">4</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);">Launch &amp; Support</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-light);">Your product goes live. We provide handover, training, and post-launch support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PRICING FAQ ══════════ -->
+    <section class="section" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <span class="overline">Common Questions</span>
+          <h2 id="faq-heading">Pricing <span class="text-gradient">FAQ</span></h2>
+        </div>
+
+        <div class="pricing-faq reveal">
+
+          <details class="pricing-faq-item">
+            <summary>Are these prices fixed or can they change?</summary>
+            <p>The prices shown are starting prices ("from"). The final quote depends on your specific requirements, number of features, integrations needed, and design complexity. We always provide a detailed, fixed quote before starting work so there are no surprises.</p>
+          </details>
+
+          <details class="pricing-faq-item">
+            <summary>Do you require a deposit?</summary>
+            <p>Yes — we typically require a 50% deposit to begin work and the remaining 50% on delivery. For larger projects, a staged payment schedule is available. All payment terms are clearly outlined in your contract.</p>
+          </details>
+
+          <details class="pricing-faq-item">
+            <summary>Do your prices include hosting?</summary>
+            <p>Hosting is not included in the listed prices but can be arranged as an add-on. We can advise on the best hosting solution for your project and budget, from shared hosting to dedicated cloud infrastructure.</p>
+          </details>
+
+          <details class="pricing-faq-item">
+            <summary>Can I upgrade my plan later?</summary>
+            <p>Absolutely. We build with growth in mind. You can always start with a Basic plan and upgrade to add more features, pages, or functionality as your business grows.</p>
+          </details>
+
+          <details class="pricing-faq-item">
+            <summary>What payment methods do you accept?</summary>
+            <p>We accept EFT bank transfers and selected mobile payment methods. All payments are in South African Rand (ZAR). Receipts and invoices are issued for every transaction.</p>
+          </details>
+
+          <details class="pricing-faq-item">
+            <summary>Do you offer maintenance after delivery?</summary>
+            <p>Yes. We offer ongoing maintenance and support packages to keep your site or app updated, secure, and running smoothly. Ask about our monthly maintenance plans when requesting a quote.</p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CTA ══════════ -->
+    <section class="section cta-section" aria-labelledby="pricing-cta-heading">
+      <div class="cta-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4">
+          <polygon points="0,0 600,0 400,400 0,400" fill="#1a73e8" fill-opacity="0.06"/>
+          <polygon points="1440,0 800,0 1100,400 1440,400" fill="#00b0ff" fill-opacity="0.06"/>
+        </svg>
+      </div>
+      <div class="container" style="position:relative;z-index:2;">
+        <div class="reveal" style="text-align:center;">
+          <span class="badge badge-light" style="margin-bottom:var(--space-5);">Let's Talk</span>
+          <h2 id="pricing-cta-heading">Not Sure Which Plan <span class="text-gradient">Is Right for You?</span></h2>
+          <p style="max-width:560px;margin:0 auto var(--space-8);">Every project is different. Contact us for a detailed quote based on your goals, required features, and timeline.</p>
+          <div class="flex justify-center gap-4 flex-wrap">
+            <a href="../contact/" class="btn btn-primary btn-lg">Request a Quote →</a>
+            <a href="mailto:info@MapengoInnovations.co.za" class="btn btn-ghost btn-lg">info@MapengoInnovations.co.za</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../assets/js/components.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script>
+    /* ── nextCard: cycle through pricing cards in a tab ─── */
+    function nextCard(tab) {
+      var container = document.querySelector('.' + tab + '-pricing');
+      if (!container) return;
+      var cards = container.querySelectorAll('.pricing-card');
+      var currentIdx = 0;
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none') {
+          currentIdx = i;
+          break;
+        }
+      }
+      cards[currentIdx].style.display = 'none';
+      var nextIdx = (currentIdx + 1) % cards.length;
+      cards[nextIdx].style.display = 'flex';
+    }
+  </script>
+</body>
+</html>

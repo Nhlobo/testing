@@ -21,30 +21,12 @@
     if (!header) return;
 
     function updateHeader() {
-      if (window.scrollY > 60) {
-        header.classList.add('header-scrolled');
-        header.classList.remove('header-transparent');
-      } else {
-        header.classList.remove('header-scrolled');
-        header.classList.add('header-transparent');
-      }
+      header.classList.remove('header-transparent');
+      header.classList.add('header-scrolled');
     }
 
     window.addEventListener('scroll', throttle(updateHeader, 50), { passive: true });
     updateHeader(); // run on load
-  }
-
-  /* ── Navigation scroll progress indicator ──────────────── */
-  function initScrollProgress() {
-    function updateProgress() {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      document.documentElement.style.setProperty('--scroll-progress', progress + '%');
-    }
-
-    window.addEventListener('scroll', throttle(updateProgress, 16), { passive: true });
-    updateProgress();
   }
 
   /* ── Mobile hamburger nav ───────────────────────────────── */
@@ -179,14 +161,6 @@
 
   /* ── Intersection Observer — reveal animations ──────────── */
   function initReveal() {
-    // Inject stagger indices before observing
-    document.querySelectorAll('.stagger').forEach(function (container) {
-      Array.from(container.children).forEach(function (child, i) {
-        child.style.setProperty('--stagger-index', i);
-        child.style.setProperty('--stagger-delay', i);
-      });
-    });
-
     const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
     if (!els.length) return;
 
@@ -358,6 +332,8 @@
     });
   }
 
+
+
   /* ── Service worker (offline support) ─────────────────── */
   function initServiceWorker() {
     if (!('serviceWorker' in navigator)) return;
@@ -376,6 +352,7 @@
     });
   }
 
+  /* ── Init all ───────────────────────────────────────────── */
   /* ── Contact form → Formspree submission ───────────────── */
   function initContactForm() {
     const form = document.getElementById('contact-form');
@@ -486,9 +463,7 @@
     });
   }
 
-  /* ── Init all ───────────────────────────────────────────── */
   initStickyHeader();
-  initScrollProgress();
   initMobileNav();
   initSmoothScroll();
   initBackToTop();
@@ -496,7 +471,6 @@
   initServiceWorker();
 
   document.addEventListener('DOMContentLoaded', function () {
-    document.body.classList.add('page-loaded');
     initReveal();
     initCounters();
     initPortfolioFilter();
