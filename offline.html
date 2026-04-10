@@ -1,101 +1,45 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offline | Mapengo Innovations</title>
-  <meta name="description" content="You are offline. Visit Mapengo Innovations again when connectivity returns.">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/pages.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline | North Lab Studio</title>
+  <meta name="description" content="Please reconnect and refresh to continue browsing the site." />
+  <link rel="stylesheet" href="/testing/styles.css" />
 </head>
 <body>
-  <header id="site-header"></header>
 
-  <main id="main-content">
-    <div class="page-offline">
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary navigation">
+    <a class="brand" href="/testing/index.html">North Lab Studio</a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+    <ul class="nav-links" aria-label="Desktop navigation">
+      <li><a href="/testing/services/">Services</a></li>
+      <li><a href="/testing/work/">Work</a></li>
+      <li><a href="/testing/pricing/">Pricing</a></li>
+      <li><a href="/testing/about/">About</a></li>
+      <li><a href="/testing/contact/">Contact</a></li>
+      <li><a href="/testing/terms.html">Terms</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="/testing/services/">Services</a>
+    <a href="/testing/work/">Work</a>
+    <a href="/testing/pricing/">Pricing</a>
+    <a href="/testing/about/">About</a>
+    <a href="/testing/contact/">Contact</a>
+    <a href="/testing/terms.html">Terms</a>
+  </div>
+</header>
 
-      <!-- Decorative SVG background -->
-      <svg
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden;"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <circle cx="200" cy="150" r="200" fill="#1a73e8" fill-opacity="0.05"/>
-        <circle cx="1240" cy="500" r="250" fill="#00b0ff" fill-opacity="0.05"/>
-        <polygon points="720,40 800,100 720,160 640,100" fill="none" stroke="#1a73e8" stroke-width="1.5" opacity="0.10"/>
-        <circle cx="1100" cy="120" r="60" fill="none" stroke="#00b0ff" stroke-width="1.5" opacity="0.10"/>
-        <circle cx="80" cy="500" r="90" fill="none" stroke="#1a73e8" stroke-width="1" opacity="0.08"/>
-        <!-- Wifi-off signal arcs -->
-        <g transform="translate(660,200)" opacity="0.08" stroke="#fff" stroke-width="2" fill="none">
-          <path d="M-40,10 Q0,-20 40,10"/>
-          <path d="M-70,5 Q0,-50 70,5"/>
-          <line x1="0" y1="20" x2="0" y2="30" stroke-linecap="round"/>
-          <line x1="-80" y1="-30" x2="80" y2="60" stroke="#e53e3e" stroke-width="2.5"/>
-        </g>
-      </svg>
-
-      <div class="container" style="position:relative;z-index:2;text-align:center;">
-
-        <!-- Icon -->
-        <div style="margin-bottom:2rem;display:flex;justify-content:center;">
-          <div style="width:96px;height:96px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M1 1l22 22" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
-              <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
-              <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
-              <path d="M10.71 5.05A16 16 0 0 1 22.56 9" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round"/>
-              <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round"/>
-              <path d="M8.53 16.11a6 6 0 0 1 6.95 0" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
-              <line x1="12" y1="20" x2="12.01" y2="20" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </div>
-
-        <h1 style="font-family:var(--font-heading);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;color:#fff;margin-bottom:1rem;letter-spacing:-0.03em;">
-          You're Offline
-        </h1>
-
-        <p style="font-size:1.1rem;color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto 2.5rem;line-height:1.7;">
-          It looks like your internet connection is unavailable. Check your connection and try again — we'll be here when you're back online.
-        </p>
-
-        <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;">
-          <button
-            onclick="window.location.reload()"
-            class="btn btn-primary btn-lg"
-            type="button"
-          >
-            ↻ Try Again
-          </button>
-          <a href="./" class="btn btn-ghost btn-lg">Back to Home</a>
-        </div>
-
-        <div style="padding:1.5rem 2rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;max-width:420px;margin:0 auto;">
-          <p style="font-size:0.875rem;color:rgba(255,255,255,0.45);margin:0;line-height:1.6;">
-            Some pages may still be available if you visited them recently. Try navigating back or check your cached pages.
-          </p>
-        </div>
-
-        <p style="margin-top:3rem;color:rgba(255,255,255,0.2);font-size:0.8rem;">
-          Mapengo Innovations · Johannesburg, South Africa 🇿🇦
-        </p>
-
-      </div>
-    </div>
-  </main>
-
-  <footer id="site-footer"></footer>
-  <script src="assets/js/components.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
-</body>
-</html>
+<main class="section">
+  <div class="container terms-layout">
+    <p class="eyebrow">Status</p>
+    <h1>You are currently offline.</h1>
+    <p class="lead">Please reconnect and refresh to continue browsing the site.</p>
+    
+  </div>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><p>© <span id="year"></span> North Lab Studio</p><p><a href="/testing/terms.html">Terms of Service</a></p></div></footer>
+<script src="/testing/script.js"></script>
+</body></html>

@@ -1,376 +1,47 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Mapengo Innovations</title>
-  <meta name="description" content="Learn about Mapengo Innovations, a South African digital solutions company helping local businesses build practical websites and apps.">
-  <meta name="keywords" content="about Mapengo Innovations, South African digital agency, web development company Johannesburg, software development South Africa, digital solutions">
-  <meta property="og:title" content="About Us | Mapengo Innovations">
-  <meta property="og:description" content="Our story, values, and how we work with South African businesses on websites and app projects.">
-  <meta property="og:image" content="https://www.mapengoinnovations.co.za/assets/img/og-image.svg">
-  <meta property="og:url" content="https://www.mapengoinnovations.co.za/about/">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Us | Mapengo Innovations">
-  <meta name="twitter:description" content="Meet the team behind Mapengo Innovations and learn how we work with South African businesses.">
-  <link rel="canonical" href="https://www.mapengoinnovations.co.za/about/">
-  <link rel="icon" href="../favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/pages.css">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "About Mapengo Innovations",
-    "url": "https://www.mapengoinnovations.co.za/about/",
-    "description": "Learn about Mapengo Innovations — our story, values, and how we support South African businesses.",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "Mapengo Innovations",
-      "foundingDate": "2022",
-      "foundingLocation": "Johannesburg, South Africa",
-      "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 10 }
-    }
-  }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | North Lab Studio</title>
+  <meta name="description" content="North Lab Studio is a product and web studio focused on measurable outcomes for service-led businesses." />
+  <link rel="stylesheet" href="/testing/styles.css" />
 </head>
 <body>
-  <header id="site-header"></header>
 
-  <main id="main-content">
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary navigation">
+    <a class="brand" href="/testing/index.html">North Lab Studio</a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+    <ul class="nav-links" aria-label="Desktop navigation">
+      <li><a href="/testing/services/">Services</a></li>
+      <li><a href="/testing/work/">Work</a></li>
+      <li><a href="/testing/pricing/">Pricing</a></li>
+      <li><a href="/testing/about/">About</a></li>
+      <li><a href="/testing/contact/">Contact</a></li>
+      <li><a href="/testing/terms.html">Terms</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="/testing/services/">Services</a>
+    <a href="/testing/work/">Work</a>
+    <a href="/testing/pricing/">Pricing</a>
+    <a href="/testing/about/">About</a>
+    <a href="/testing/contact/">Contact</a>
+    <a href="/testing/terms.html">Terms</a>
+  </div>
+</header>
 
-    <!-- ══════════ HERO ══════════ -->
-    <section class="hero hero-page" aria-label="About hero">
-      <div class="hero-bg" aria-hidden="true">
-        <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="abg1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#2563eb" stop-opacity="0.12"/>
-              <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.06"/>
-            </linearGradient>
-            <linearGradient id="abg2" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#2563eb" stop-opacity="0.07"/>
-              <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0.00"/>
-            </linearGradient>
-          </defs>
-          <rect width="1440" height="600" fill="url(#abg2)"/>
-          <polygon points="900,0 1440,0 1440,420" fill="url(#abg1)"/>
-          <circle cx="160" cy="480" r="220" fill="#2563eb" fill-opacity="0.05"/>
-          <circle cx="1280" cy="120" r="160" fill="#60a5fa" fill-opacity="0.06"/>
-          <line x1="0" y1="300" x2="1440" y2="300" stroke="#2563eb" stroke-width="0.5" stroke-opacity="0.08"/>
-        </svg>
-      </div>
-      <div class="container hero-content">
-        <span class="overline reveal">Our Story</span>
-        <h1 class="reveal" style="transition-delay:80ms">
-          Built in South Africa,<br>
-          <span class="text-accent">Focused on Real Business Needs</span>
-        </h1>
-        <p class="hero-lead reveal" style="transition-delay:160ms">
-          We're a Johannesburg-based digital studio that turns practical problems into clean, working software — without the agency bloat, without the offshore disconnect, and without the jargon.
-        </p>
-        <div class="hero-actions reveal" style="transition-delay:240ms">
-          <a href="../contact/" class="btn btn-primary">Work with us</a>
-          <a href="../work/" class="btn btn-ghost">See our work</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ STATS STRIP ══════════ -->
-    <section class="stats-strip" aria-label="Company highlights">
-      <div class="container">
-        <div class="stats-row">
-          <div class="stat-item reveal">
-            <span class="stat-number">3+</span>
-            <span class="stat-label">Years building in SA</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item reveal" style="transition-delay:80ms">
-            <span class="stat-number">40+</span>
-            <span class="stat-label">Projects delivered</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item reveal" style="transition-delay:160ms">
-            <span class="stat-number">98%</span>
-            <span class="stat-label">Client satisfaction</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item reveal" style="transition-delay:240ms">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Local team</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ MISSION ══════════ -->
-    <section class="section" id="mission" aria-labelledby="mission-heading">
-      <div class="container">
-        <div class="mission-layout">
-          <div class="mission-text">
-            <span class="overline reveal">Our Mission</span>
-            <h2 id="mission-heading" class="reveal" style="transition-delay:80ms">
-              Digital solutions that actually work for South African businesses
-            </h2>
-            <p class="reveal" style="transition-delay:160ms">
-              South Africa's business landscape is unique — load-shedding, variable connectivity, lean budgets, and a market that rewards trust over flash. We've built our practice around that reality since day one.
-            </p>
-            <p class="reveal" style="transition-delay:200ms">
-              We don't copy-paste Western agency playbooks. Every project starts with understanding your customers, your constraints, and your growth trajectory. Then we build something that fits — technically solid, easy to maintain, and designed to convert.
-            </p>
-            <p class="reveal" style="transition-delay:240ms">
-              Whether you're a startup in Sandton, a retailer in Cape Town, or a professional services firm looking to modernise — we bring the same rigour, honesty, and follow-through to every engagement.
-            </p>
-          </div>
-          <div class="mission-visual reveal stagger" aria-hidden="true">
-            <div class="mission-card">
-              <div class="mission-icon">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M20 4C11.163 4 4 11.163 4 20s7.163 16 16 16 16-7.163 16-16S28.837 4 20 4zm0 4a12 12 0 1 1 0 24A12 12 0 0 1 20 8zm-1 4v9l7 4-1.5 2.5-8.5-5V12h3z" fill="#2563eb"/>
-                </svg>
-              </div>
-              <p class="mission-card-label">On time, every time</p>
-            </div>
-            <div class="mission-card">
-              <div class="mission-icon">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M20 6l2.9 8.9H32l-7.4 5.4 2.8 8.9L20 24l-7.4 5.2 2.8-8.9L8 15h9.1L20 6z" fill="#2563eb"/>
-                </svg>
-              </div>
-              <p class="mission-card-label">Results you can measure</p>
-            </div>
-            <div class="mission-card">
-              <div class="mission-icon">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M33 14H26V7a1 1 0 0 0-1-1H15a1 1 0 0 0-1 1v7H7a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h26a1 1 0 0 0 1-1V15a1 1 0 0 0-1-1zM16 8h8v6h-8V8zm16 24H8V16h24v16z" fill="#2563eb"/>
-                </svg>
-              </div>
-              <p class="mission-card-label">Locally built &amp; supported</p>
-            </div>
-            <div class="mission-card">
-              <div class="mission-icon">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M20 4a16 16 0 1 0 0 32A16 16 0 0 0 20 4zm0 2a14 14 0 1 1 0 28A14 14 0 0 1 20 6zm-1 4v11h8v-2h-6V10h-2z" fill="#2563eb"/>
-                </svg>
-              </div>
-              <p class="mission-card-label">Clear timelines</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ VALUES ══════════ -->
-    <section class="section section-alt" id="values" aria-labelledby="values-heading">
-      <div class="container">
-        <header class="section-header reveal">
-          <span class="overline">What we stand for</span>
-          <h2 id="values-heading">The principles we work by</h2>
-          <p>Not buzzwords. Behaviours we hold ourselves to on every project.</p>
-        </header>
-
-        <div class="values-grid stagger">
-          <article class="value-card reveal">
-            <div class="value-icon" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm6.293 9.293-8 8a1 1 0 0 1-1.414 0l-3.5-3.5a1 1 0 0 1 1.414-1.414L13.586 17.17l7.293-7.293a1 1 0 1 1 1.414 1.414z" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>Client Outcomes First</h3>
-            <p>We measure success by your results — more leads, faster processes, happier customers — not by lines of code or hours billed. If a simpler solution gets you there, we'll recommend it.</p>
-          </article>
-
-          <article class="value-card reveal">
-            <div class="value-icon" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm0 18H4V8h24v16zm-14-4h2v2h-2zm0-10h2v8h-2z" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>Transparent Process</h3>
-            <p>No black boxes. You'll have access to the project board, weekly updates, and plain-English explanations of every decision. Surprises belong in birthday parties, not in project delivery.</p>
-          </article>
-
-          <article class="value-card reveal">
-            <div class="value-icon" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-4.293 9.293-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L15 17.172l5.293-5.293a1 1 0 0 1 1.414 1.414z" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>Quality Code</h3>
-            <p>Clean architecture, documented functions, and automated tests aren't optional extras — they're the baseline. Code you can hand to another developer in two years and have them understand in an hour.</p>
-          </article>
-
-          <article class="value-card reveal">
-            <div class="value-icon" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 2a14 14 0 1 0 0 28A14 14 0 0 0 16 2zm0 2c.74 0 1.46.07 2.16.2L15 7.34l-3 1-.55 2.2-2.75 1.37-1.83-.46-2.5 2.5.46 1.83-1.37 2.75-2.2.55-.97 2.97A12 12 0 0 1 4 16 12 12 0 0 1 16 4zm0 24a12 12 0 0 1-7.3-2.47l.82-2.53 2-.5 1.37-2.75-.46-1.83 2.57-2.57 1.5.37 2.75-1.37.5-2 3.55-1.18 1.7 1.7v3.3l2.75 2.75A12 12 0 0 1 16 28z" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>South Africa Focus</h3>
-            <p>We understand SA's infrastructure realities — load-shedding resilience, data costs, local payment gateways, POPIA compliance. Solutions built for the SA context, not retrofitted from elsewhere.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ FOUNDER / TEAM ══════════ -->
-    <section class="section" id="team" aria-labelledby="team-heading">
-      <div class="container">
-        <header class="section-header reveal">
-          <span class="overline">The team</span>
-          <h2 id="team-heading">Real people, real accountability</h2>
-          <p>When you work with Mapengo Innovations, you deal directly with the people building your product.</p>
-        </header>
-
-        <div class="team-feature reveal">
-          <div class="team-feature-content">
-            <div class="team-feature-badge" aria-hidden="true">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="24" r="24" fill="#2563eb" fill-opacity="0.1"/>
-                <path d="M24 12a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm0 14c6.627 0 12 2.686 12 6v2H12v-2c0-3.314 5.373-6 12-6z" fill="#2563eb"/>
-              </svg>
-            </div>
-            <blockquote class="founder-quote">
-              <p>"I started Mapengo Innovations because I was tired of watching South African businesses overpay for offshore work that missed the mark, or get burned by local agencies that disappeared after launch. We're here for the long game — your growth is our portfolio."</p>
-              <footer>
-                <strong>Mapengo Innovations Founder</strong>
-                <span>Johannesburg, South Africa</span>
-              </footer>
-            </blockquote>
-          </div>
-          <div class="team-feature-values stagger">
-            <div class="team-value-pill reveal">
-              <span class="pill-icon" aria-hidden="true">🇿🇦</span>
-              <span>100% South African team</span>
-            </div>
-            <div class="team-value-pill reveal" style="transition-delay:80ms">
-              <span class="pill-icon" aria-hidden="true">📞</span>
-              <span>Direct access to developers</span>
-            </div>
-            <div class="team-value-pill reveal" style="transition-delay:160ms">
-              <span class="pill-icon" aria-hidden="true">🕐</span>
-              <span>SA business hours support</span>
-            </div>
-            <div class="team-value-pill reveal" style="transition-delay:240ms">
-              <span class="pill-icon" aria-hidden="true">📋</span>
-              <span>Fixed-scope proposals</span>
-            </div>
-            <div class="team-value-pill reveal" style="transition-delay:320ms">
-              <span class="pill-icon" aria-hidden="true">🔒</span>
-              <span>POPIA-aligned projects</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ PROCESS ══════════ -->
-    <section class="section section-alt" id="process" aria-labelledby="process-heading">
-      <div class="container">
-        <header class="section-header reveal">
-          <span class="overline">How we work</span>
-          <h2 id="process-heading">Our 5-step project process</h2>
-          <p>A structured approach that keeps projects on time, in scope, and free of nasty surprises.</p>
-        </header>
-
-        <ol class="process-steps" aria-label="Project process steps">
-          <li class="process-step reveal">
-            <div class="step-number" aria-hidden="true">01</div>
-            <div class="step-body">
-              <h3>Discovery</h3>
-              <p>We start by listening. Understanding your business goals, your customers, your existing systems, and your constraints. A thorough brief prevents expensive rework later.</p>
-              <ul class="step-deliverables">
-                <li>Stakeholder interviews</li>
-                <li>Requirements document</li>
-                <li>Technical feasibility</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="process-step reveal" style="transition-delay:80ms">
-            <div class="step-number" aria-hidden="true">02</div>
-            <div class="step-body">
-              <h3>Design</h3>
-              <p>Wireframes first, visuals second. We map user flows and screen layouts before touching colours so that every design decision is rooted in how people actually use the product.</p>
-              <ul class="step-deliverables">
-                <li>Wireframes &amp; user flows</li>
-                <li>UI design in Figma</li>
-                <li>Client sign-off before build</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="process-step reveal" style="transition-delay:160ms">
-            <div class="step-number" aria-hidden="true">03</div>
-            <div class="step-body">
-              <h3>Build</h3>
-              <p>Clean, documented code using the right tools for your project. We maintain a staging environment so you can review real progress — not just screenshots — throughout the build.</p>
-              <ul class="step-deliverables">
-                <li>Iterative sprints</li>
-                <li>Staging environment access</li>
-                <li>Progress updates every week</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="process-step reveal" style="transition-delay:240ms">
-            <div class="step-number" aria-hidden="true">04</div>
-            <div class="step-body">
-              <h3>Test</h3>
-              <p>Cross-browser, cross-device, and load testing on South African network conditions before anything goes live. We break it in testing so your users don't.</p>
-              <ul class="step-deliverables">
-                <li>Functional QA testing</li>
-                <li>Performance &amp; load tests</li>
-                <li>Accessibility audit</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="process-step reveal" style="transition-delay:320ms">
-            <div class="step-number" aria-hidden="true">05</div>
-            <div class="step-body">
-              <h3>Launch &amp; Support</h3>
-              <p>Go-live on your schedule. Post-launch, we monitor, fix bugs, and provide ongoing support — because a website or app isn't a one-time project, it's a living asset.</p>
-              <ul class="step-deliverables">
-                <li>Managed deployment</li>
-                <li>30-day bug warranty</li>
-                <li>Ongoing retainer available</li>
-              </ul>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ══════════ CTA ══════════ -->
-    <section class="section cta-section" aria-labelledby="cta-heading">
-      <div class="container">
-        <div class="cta-card reveal">
-          <span class="overline">Ready to start?</span>
-          <h2 id="cta-heading">Let's build something that works</h2>
-          <p>Tell us about your project. No obligation, no hard sell — just an honest conversation about what's possible and what it'll take.</p>
-          <div class="cta-actions">
-            <a href="../contact/" class="btn btn-primary btn-lg">Start a conversation</a>
-            <a href="../services/" class="btn btn-ghost btn-lg">Explore our services</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer id="site-footer"></footer>
-
-  <script src="../assets/js/components.js" defer></script>
-  <script src="../assets/js/main.js" defer></script>
-</body>
-</html>
+<main class="section">
+  <div class="container terms-layout">
+    <p class="eyebrow">Company</p>
+    <h1>Built for practical digital growth.</h1>
+    <p class="lead">North Lab Studio is a product and web studio focused on measurable outcomes for service-led businesses.</p>
+    <section><h2>What we do</h2><p>We plan, design, and develop websites that help clients generate qualified enquiries and close work faster.</p></section>
+<section><h2>How we deliver</h2><p>Each project is scoped in phases with clear milestones, weekly updates, and transparent decision logs.</p></section>
+<section><h2>Operating model</h2><p>We collaborate with a network of trusted designers and developers to deliver high-quality projects.</p></section>
+  </div>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><p>© <span id="year"></span> North Lab Studio</p><p><a href="/testing/terms.html">Terms of Service</a></p></div></footer>
+<script src="/testing/script.js"></script>
+</body></html>
