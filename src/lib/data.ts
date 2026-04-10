@@ -11,10 +11,9 @@ import type {
 
 export const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -33,6 +32,12 @@ export const services: Service[] = [
     description:
       "High-performance websites and web applications built with modern frameworks. From landing pages to complex SaaS platforms.",
     features: ["Next.js / React", "TypeScript", "SEO Optimised", "99.9% Uptime"],
+    benefits: [
+      "Lightning-fast page loads even on 3G connections",
+      "Fully responsive across mobile, tablet and desktop",
+      "Built-in SEO best practices for South African search visibility",
+      "Scalable architecture ready to grow with your business",
+    ],
     href: "/services#web-development",
   },
   {
@@ -42,6 +47,12 @@ export const services: Service[] = [
     description:
       "Native and cross-platform mobile apps for iOS and Android. Beautiful UX that keeps users engaged.",
     features: ["React Native", "Expo", "Push Notifications", "Offline Support"],
+    benefits: [
+      "Works offline — critical for load-shedding resilience",
+      "Single codebase for iOS and Android reduces cost",
+      "Smooth animations and native-feel interactions",
+      "App Store and Google Play submission handled for you",
+    ],
     href: "/services#mobile-apps",
   },
   {
@@ -51,6 +62,12 @@ export const services: Service[] = [
     description:
       "Custom ERP, CRM and workflow automation systems that streamline operations and reduce manual effort.",
     features: ["Process Automation", "API Integrations", "Real-time Dashboards", "Role-based Access"],
+    benefits: [
+      "Eliminate repetitive manual tasks and human error",
+      "Real-time visibility into business performance",
+      "Seamless integration with tools you already use",
+      "Role-based access keeps sensitive data secure",
+    ],
     href: "/services#business-systems",
   },
   {
@@ -60,6 +77,12 @@ export const services: Service[] = [
     description:
       "User-centred design that converts visitors into customers. We craft experiences that are both beautiful and functional.",
     features: ["Figma Prototypes", "Usability Testing", "Design Systems", "Brand Identity"],
+    benefits: [
+      "Higher conversion rates through intuitive user flows",
+      "Consistent brand identity across all touchpoints",
+      "Validated designs before a single line of code is written",
+      "Design system that accelerates future development",
+    ],
     href: "/services#ui-ux",
   },
   {
@@ -69,6 +92,12 @@ export const services: Service[] = [
     description:
       "CI/CD pipelines, cloud infrastructure and monitoring that keep your digital products running smoothly.",
     features: ["AWS / Vercel", "Docker & Kubernetes", "CI/CD Pipelines", "24/7 Monitoring"],
+    benefits: [
+      "Zero-downtime deployments with automated rollbacks",
+      "Auto-scaling infrastructure that handles traffic spikes",
+      "Proactive monitoring with instant incident alerts",
+      "Significant cost savings versus traditional hosting",
+    ],
     href: "/services#devops",
   },
   {
@@ -78,6 +107,12 @@ export const services: Service[] = [
     description:
       "Data-driven digital transformation roadmaps tailored for South African markets and growth objectives.",
     features: ["Market Analysis", "Tech Roadmapping", "KPI Framework", "Quarterly Reviews"],
+    benefits: [
+      "Clear, prioritised roadmap aligned with business goals",
+      "Avoid costly technology mistakes with expert guidance",
+      "Data-driven decisions backed by market research",
+      "Regular reviews keep your strategy current and effective",
+    ],
     href: "/services#digital-strategy",
   },
 ];
@@ -93,8 +128,11 @@ export const caseStudies: CaseStudy[] = [
     result: "340%",
     resultLabel: "Revenue Growth",
     gradient: "from-accent/20 to-orange-600/10",
-    tags: ["Next.js", "Stripe", "PostgreSQL"],
+    accentColor: "#FF6B35",
+    tags: ["Next.js", "Stripe", "PostgreSQL", "Vercel"],
     href: "/work#shopza",
+    liveUrl: "https://nhlobo.github.io/testing/",
+    githubUrl: "https://github.com/nhlobo",
   },
   {
     id: "medconnect",
@@ -106,8 +144,11 @@ export const caseStudies: CaseStudy[] = [
     result: "60%",
     resultLabel: "Admin Time Saved",
     gradient: "from-teal/20 to-cyan-600/10",
-    tags: ["React", "Node.js", "POPIA Compliant"],
+    accentColor: "#00C9A7",
+    tags: ["React", "Node.js", "PostgreSQL", "POPIA Compliant"],
     href: "/work#medconnect",
+    liveUrl: "https://nhlobo.github.io/testing/",
+    githubUrl: "https://github.com/nhlobo",
   },
   {
     id: "agritrack",
@@ -119,8 +160,59 @@ export const caseStudies: CaseStudy[] = [
     result: "28%",
     resultLabel: "Yield Improvement",
     gradient: "from-green-500/20 to-emerald-600/10",
-    tags: ["React Native", "IoT", "Data Analytics"],
+    accentColor: "#4ADE80",
+    tags: ["React Native", "IoT", "AWS", "Data Analytics"],
     href: "/work#agritrack",
+    liveUrl: "https://nhlobo.github.io/testing/",
+    githubUrl: "https://github.com/nhlobo",
+  },
+  {
+    id: "finvault",
+    client: "FinVault",
+    industry: "Fintech",
+    title: "Digital Banking Dashboard",
+    description:
+      "Designed and built a secure, real-time digital banking dashboard for a South African fintech startup — complete with transaction analytics, budgeting tools and multi-user role management.",
+    result: "4.8★",
+    resultLabel: "App Store Rating",
+    gradient: "from-blue-500/20 to-indigo-600/10",
+    accentColor: "#60A5FA",
+    tags: ["React Native", "TypeScript", "Node.js", "Redis"],
+    href: "/work#finvault",
+    liveUrl: "https://nhlobo.github.io/testing/",
+    githubUrl: "https://github.com/nhlobo",
+  },
+  {
+    id: "edubridge",
+    client: "EduBridge",
+    industry: "Education",
+    title: "E-Learning Platform",
+    description:
+      "Created a responsive e-learning platform for a Gauteng-based EdTech startup, featuring course management, live video sessions and offline-capable lesson delivery.",
+    result: "12K+",
+    resultLabel: "Active Students",
+    gradient: "from-purple-500/20 to-violet-600/10",
+    accentColor: "#A78BFA",
+    tags: ["Next.js", "WebRTC", "Firebase", "Tailwind CSS"],
+    href: "/work#edubridge",
+    liveUrl: "https://nhlobo.github.io/testing/",
+    githubUrl: "https://github.com/nhlobo",
+  },
+  {
+    id: "logistix",
+    client: "Logistix",
+    industry: "Logistics",
+    title: "Fleet & Delivery Tracker",
+    description:
+      "Built a real-time fleet management and delivery tracking system for a Cape Town logistics company, integrating GPS telemetry, route optimisation and customer notifications.",
+    result: "35%",
+    resultLabel: "Fuel Cost Reduction",
+    gradient: "from-yellow-400/20 to-orange-400/10",
+    accentColor: "#FBBF24",
+    tags: ["React", "Google Maps API", "Node.js", "WebSockets"],
+    href: "/work#logistix",
+    liveUrl: "https://nhlobo.github.io/testing/",
+    githubUrl: "https://github.com/nhlobo",
   },
 ];
 
