@@ -1,95 +1,142 @@
-# Mapengo Innovations — Website
+# Mapengo Innovations Website
 
-[![Deploy to GitHub Pages](https://github.com/Nhlobo/testing/actions/workflows/deploy.yml/badge.svg)](https://github.com/Nhlobo/testing/actions/workflows/deploy.yml)
+A premium, multi-page static website for **Mapengo Innovations** — a South African digital/tech consultancy based in Johannesburg, Gauteng.
 
-Live site: **<https://nhlobo.github.io/testing/>**
+![Mapengo Innovations Homepage](https://github.com/user-attachments/assets/8dfd9558-022e-497a-b3e5-0c09e2e4079b)
 
-## Tech Stack
+---
 
-- [Astro 5](https://astro.build) — static-site framework
-- MDX content collections (blog, solutions, case studies)
-- Vanilla CSS design system (`src/styles/global.css`)
-- PWA-ready (service worker + web manifest)
-- GitHub Actions → GitHub Pages CI/CD
+## Pages
 
-## Local Development
+| Page | Path |
+|------|------|
+| Home | `index.html` |
+| About | `about/index.html` |
+| Services | `services/index.html` |
+| Work / Portfolio | `work/index.html` |
+| Products | `products/index.html` |
+| Technologies | `technologies/index.html` |
+| Blog | `blog/index.html` |
+| Blog Post — Digital Transformation | `blog/posts/digital-transformation-sa/index.html` |
+| Blog Post — Building Mobile Apps | `blog/posts/building-mobile-apps-south-africa/index.html` |
+| Blog Post — Designing for Africa | `blog/posts/designing-for-africa/index.html` |
+| Careers | `careers/index.html` |
+| Contact | `contact/index.html` |
+| 404 | `404.html` |
+
+---
+
+## Local Preview
+
+### Option 1 — Python (no install needed)
 
 ```bash
-# Install dependencies
-npm ci
+# Python 3
+python3 -m http.server 8080
 
-# Start dev server (http://localhost:4321/testing/)
-npm run dev
-
-# Build for production (output to dist/)
-npm run build
-
-# Preview production build locally
-npm run preview
+# Then open: http://localhost:8080
 ```
+
+### Option 2 — Node.js `serve`
+
+```bash
+npx serve .
+# Then open the URL shown in the terminal (typically http://localhost:3000)
+```
+
+### Option 3 — VS Code Live Server
+
+1. Install the **Live Server** extension in VS Code.
+2. Right-click `index.html` → **Open with Live Server**.
+
+> **Note:** The site must be served over HTTP (not opened as `file://`) so that JavaScript modules, relative asset paths, and the shared header/footer component injection work correctly.
+
+---
 
 ## Project Structure
 
 ```
-src/
-  content/        # MDX content collections
-    blog/         # Blog posts
-    solutions/    # Service/solution pages
-    case-studies/ # Portfolio case studies
-  layouts/
-    BaseLayout.astro   # Shared HTML shell
-  pages/
-    index.astro        # Home
-    pricing.astro      # Pricing
-    contact.astro      # Contact form
-    blog/              # Blog index + [slug] detail
-    services/          # Services index + [slug] detail
-    work/              # Case studies index + [slug] detail
-    legal/             # Privacy + Terms
-    404.astro          # Not-found page
-    offline.astro      # Offline fallback
-  styles/
-    global.css    # Design system tokens & global styles
-  lib/
-    analytics.ts  # Client-side analytics helpers
-    consent.ts    # Consent management helpers
-public/
-  favicon.svg
-  manifest.json
-  robots.txt
-  sw.js           # Service worker (offline support)
-.github/
-  workflows/
-    deploy.yml    # Build & deploy to GitHub Pages
+testing/
+├── index.html                              # Home
+├── about/index.html
+├── services/index.html
+├── work/index.html
+├── products/index.html
+├── technologies/index.html
+├── blog/
+│   ├── index.html
+│   └── posts/
+│       ├── digital-transformation-sa/
+│       │   └── index.html
+│       ├── building-mobile-apps-south-africa/
+│       │   └── index.html
+│       └── designing-for-africa/
+│           └── index.html
+├── careers/index.html
+├── contact/index.html
+├── legal/
+│   ├── privacy.html
+│   ├── terms.html
+│   └── cookies.html
+├── 404.html
+├── robots.txt
+├── sitemap.xml
+└── assets/
+    ├── css/
+    │   ├── main.css        # Design system & global styles
+    │   └── pages.css       # Page-specific component styles
+    ├── js/
+    │   ├── main.js         # Core interactions (nav, scroll, animations)
+    │   └── components.js   # Shared header/footer injection
+    ├── data/
+    │   └── site.json       # Centralised site content/configuration
+    └── img/
+        ├── logo.svg
+        ├── favicon.svg
+        └── og-image.svg
 ```
+
+---
+
+## Tech Stack
+
+- **HTML5** — semantic markup, ARIA attributes, structured data (JSON-LD)
+- **CSS3** — custom properties design system, fluid typography, CSS Grid/Flexbox, scroll animations
+- **Vanilla JavaScript** — shared component injection, mobile nav, scroll effects, counter animations, cookie consent
+
+No build tools or external frameworks are required. The site works as plain static files.
+
+---
+
+## Design System
+
+| Token | Value |
+|-------|-------|
+| Primary | `#0A1628` (dark navy) |
+| Accent | `#FF6B35` (orange) |
+| Teal | `#00C9A7` |
+| Heading font | Syne (Google Fonts) |
+| Body font | Inter (Google Fonts) |
+
+---
+
+## SEO & Performance
+
+- Unique `<title>` and `<meta name="description">` per page
+- Open Graph and Twitter Card meta tags
+- JSON-LD structured data (Organization, Service, BlogPosting, JobPosting, etc.)
+- `robots.txt` and `sitemap.xml`
+- SVG assets (zero raster images, sub-1 KB overhead)
+- Google Fonts loaded with `preconnect` for fast rendering
+
+---
 
 ## Deployment
 
-The site deploys automatically to **GitHub Pages** on every push to `main`.
+The site is configured for **GitHub Pages** at:
 
-### One-time GitHub setup
+```
+https://www.mapengoinnovations.co.za/
+```
 
-1. In your repo go to **Settings → Pages**.
-2. Set **Source** to **GitHub Actions**.
-3. Push to `main` — the workflow will build and deploy automatically.
-
-That's it. The live URL will be `https://nhlobo.github.io/testing/`.
-
-### Optional: Contact form endpoint
-
-The contact form (`/contact/`) can POST to any form-handling API. To wire it up:
-
-1. Go to **Settings → Secrets and variables → Actions**.
-2. Add a secret named `CONTACT_FORM_ENDPOINT` with the URL of your form handler
-   (e.g. a Formspree endpoint `https://formspree.io/f/XXXXXXXX`).
-
-The workflow already passes this secret as an environment variable at build time.
-
-## Content Editing
-
-All content lives in `src/content/` as MDX files. Edit them directly and push
-to `main` — the site rebuilds and redeploys automatically.
-
-## License
-
-© Mapengo Innovations. All rights reserved.
+The `assets/js/components.js` file automatically detects the base path depth so all relative links and asset references resolve correctly both locally and on GitHub Pages.
