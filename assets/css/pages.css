@@ -40,7 +40,7 @@
 
 .service-card:hover {
   box-shadow: var(--shadow-hover);
-  border-color: rgba(37,99,235,0.20);
+  border-color: rgba(10,102,255,0.20);
   transform: translateY(-2px);
 }
 
@@ -90,7 +90,7 @@
 }
 .project-card:hover {
   box-shadow: var(--shadow-hover);
-  border-color: rgba(37,99,235,0.20);
+  border-color: rgba(10,102,255,0.20);
   transform: translateY(-2px);
 }
 
@@ -192,14 +192,14 @@
 .value-card:hover {
   background: var(--color-bg);
   box-shadow: var(--shadow-md);
-  border-color: rgba(37,99,235,0.20);
+  border-color: rgba(10,102,255,0.20);
 }
 
 .value-icon {
   width: 60px;
   height: 60px;
   border-radius: var(--radius-sm);
-  background: rgba(37,99,235,0.08);
+  background: rgba(10,102,255,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
