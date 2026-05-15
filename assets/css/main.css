@@ -12,6 +12,7 @@
   --color-bg-subtle:       #d4e0ff;
   --color-bg-muted:        #bfceef;
   --color-text:            #111111;
+  --color-heading:         #000000;
   --color-text-secondary:  #1a1a1a;
   --color-text-muted:      #2a2a2a;
   --color-accent:          #c1121f;
@@ -201,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
-  color: var(--color-accent);
+  color: var(--color-heading);
 }
 
 h1 { font-size: 4.5rem; }
