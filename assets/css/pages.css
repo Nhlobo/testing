@@ -365,7 +365,7 @@
 .filter-tab:hover {
   background: var(--color-bg);
   color: var(--color-text);
-  border-color: #2b3f69;
+  border-color: var(--color-border);
   box-shadow: var(--shadow-sm);
 }
 .filter-tab.active {
@@ -1593,7 +1593,7 @@
 .form-textarea::placeholder { color: var(--color-text-muted); }
 .form-input:hover,
 .form-textarea:hover,
-.form-select:hover { border-color: #2b3f69; }
+.form-select:hover { border-color: var(--color-border); }
 .form-input:focus,
 .form-textarea:focus,
 .form-select:focus {
@@ -1837,7 +1837,7 @@
 .error-nav-link:hover {
   background: var(--color-bg-subtle);
   color: var(--color-text);
-  border-color: #2b3f69;
+  border-color: var(--color-border);
 }
 
 /* ============================================================
@@ -2043,7 +2043,7 @@
 }
 .btn-outline:hover {
   background: var(--color-bg-subtle);
-  border-color: #2b3f69;
+  border-color: var(--color-border);
   color: var(--color-text);
 }
 .btn-accent {

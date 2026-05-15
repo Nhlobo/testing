@@ -1195,7 +1195,7 @@ p + p { margin-top: var(--space-4); }
   position: relative;
   transition: box-shadow var(--transition-base), border-color var(--transition-base);
 }
-.testimonial-card:hover { box-shadow: var(--shadow-hover); border-color: #2b3f69; }
+.testimonial-card:hover { box-shadow: var(--shadow-hover); border-color: var(--color-border); }
 
 .testimonial-card::before {
   content: '\201C';
