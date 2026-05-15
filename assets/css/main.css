@@ -14,10 +14,10 @@
   --color-text:            #111111;
   --color-text-secondary:  #111111;
   --color-text-muted:      #2a2a2a;
-  --color-accent:          #e63946;
-  --color-accent-hover:    #c81d2c;
+  --color-accent:          #c1121f;
+  --color-accent-hover:    #9b0d18;
   --color-border:          #2b3f69;
-  --color-border-focus:    #e63946;
+  --color-border-focus:    #c1121f;
 
   /* ── Footer ─────────────────────────────────────────────── */
   --color-footer-bg:       #071120;
@@ -33,16 +33,16 @@
   --color-light-200:       #bfceef;
   --color-light-300:       #2b3f69;
   --color-grey-100:        #bfceef;
-  --color-teal:            #e63946;
-  --color-teal-dark:       #c81d2c;
+  --color-teal:            #c1121f;
+  --color-teal-dark:       #9b0d18;
 
   /* ── Gradients ─────────────────────────────────────────── */
-  --gradient-accent:   linear-gradient(135deg, #ff7b86 0%, #e63946 50%, #c81d2c 100%);
+  --gradient-accent:   linear-gradient(135deg, #e43a4a 0%, #c1121f 50%, #9b0d18 100%);
   --gradient-primary:  linear-gradient(135deg, #14213d 0%, #1f2f54 100%);
   /* Placeholder bg for project/blog visuals */
   --gradient-hero:     linear-gradient(135deg, #14213d 0%, #1f2f54 100%);
   /* Accent text gradient */
-  --gradient-text:     linear-gradient(135deg, #ff7b86 0%, #e63946 100%);
+  --gradient-text:     linear-gradient(135deg, #e43a4a 0%, #c1121f 100%);
   --gradient-grey-hero: linear-gradient(135deg, #d4e0ff 0%, #bfceef 100%);
 
   /* ── Typography ────────────────────────────────────────── */
@@ -118,7 +118,7 @@
   --shadow-lg:    0 8px 24px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.06);
   --shadow-hover: 0 12px 32px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
   --shadow-xl:    0 12px 32px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
-  --shadow-accent: 0 4px 16px rgba(230,57,70,0.28);
+  --shadow-accent: 0 4px 16px rgba(193,18,31,0.28);
 
   /* ── Transitions ────────────────────────────────────────── */
   --transition-fast: 150ms cubic-bezier(0.4,0,0.2,1);
