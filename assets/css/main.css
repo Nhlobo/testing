@@ -1053,7 +1053,7 @@ p + p { margin-top: var(--space-4); }
   letter-spacing: 1px;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  color: #fff;
+  color: #fff !important;
   z-index: 3;
 }
 
