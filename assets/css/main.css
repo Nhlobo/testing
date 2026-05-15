@@ -12,7 +12,7 @@
   --color-bg-subtle:       #d4e0ff;
   --color-bg-muted:        #bfceef;
   --color-text:            #111111;
-  --color-heading:         #000000;
+  --color-heading:         #151515;
   --color-text-secondary:  #1a1a1a;
   --color-text-muted:      #2a2a2a;
   --color-accent:          #c1121f;
@@ -203,6 +203,26 @@ h1, h2, h3, h4, h5, h6 {
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-heading);
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  color: var(--color-heading) !important;
+}
+
+:is(h1, h2, h3, h4, h5, h6) :is(span, strong, em, b, i, small, mark, a) {
+  color: inherit;
+}
+
+:is(h1, h2, h3, h4, h5, h6) :is(
+  .text-gradient,
+  .text-gradient-accent,
+  .text-muted,
+  .heading-muted,
+  [style*="color:"]
+) {
+  color: var(--color-heading) !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 
 h1 { font-size: 4.5rem; }
