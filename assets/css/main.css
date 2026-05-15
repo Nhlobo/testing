@@ -384,7 +384,7 @@ p + p { margin-top: var(--space-4); }
 /* Primary */
 .btn-primary {
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-white);
   border-color: var(--color-accent);
 }
 .btn-primary:hover {
