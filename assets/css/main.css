@@ -1056,7 +1056,7 @@ p + p { margin-top: var(--space-4); }
 .hero:not(.hero-page) .btn-primary {
   padding: 12px 30px;
   font-size: 16px;
-  background-color: #d5deef;
+  background-color: var(--color-accent);
   color: var(--color-text);
   text-decoration: none;
   border-radius: 5px;
@@ -1066,7 +1066,7 @@ p + p { margin-top: var(--space-4); }
 
 .hero:not(.hero-page) .cta-button:hover,
 .hero:not(.hero-page) .btn-primary:hover {
-  background-color: #b7c6dc;
+  background-color: var(--color-accent-hover);
 }
 
 /* Hero background element */
