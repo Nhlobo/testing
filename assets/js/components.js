@@ -122,6 +122,9 @@
           <a href="https://facebook.com/mapengoinnovations" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.2c0-.9.3-1.5 1.6-1.5h1.7V5.1c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.2V11H8v3h2.4v8z"/></svg>
           </a>
+          <a href="https://x.com/mapengoinnovations" class="social-link" aria-label="Twitter" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2h3.7l-8.1 9.2L24 22h-7.5l-5.9-7.7L3.8 22H0l8.7-9.9L0 2h7.7l5.3 7 5.9-7zM17.6 20h2.1L6.6 3.9H4.4z"/></svg>
+          </a>
           <a href="https://instagram.com/mapengoinnovations" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A5.5 5.5 0 1112 18.5 5.5 5.5 0 0112 7.5zm0 2A3.5 3.5 0 1012 16.5 3.5 3.5 0 0012 9.5zm6.2-3.3a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
           </a>
