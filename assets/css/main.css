@@ -264,7 +264,7 @@ p + p { margin-top: var(--space-4); }
   font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: #ff0000;
 }
 
 /* ============================================================
