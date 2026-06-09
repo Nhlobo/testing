@@ -22,6 +22,7 @@ jobs:
         run: |
           api_url="https://api.github.com/repos/$REPO"
           status=$(curl -sSL \
+            -H "Authorization: Bearer ${{ github.token }}" \
             -H "Accept: application/vnd.github+json" \
             "$api_url" | jq -r '.security_and_analysis.advanced_security.status // empty' || true)
 
