@@ -21,10 +21,16 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           api_url="https://api.github.com/repos/$REPO"
-          status=$(curl -sSL \
+          response=$(curl -sSL \
             -H "Authorization: Bearer ${{ github.token }}" \
             -H "Accept: application/vnd.github+json" \
-            "$api_url" | jq -r '.security_and_analysis.advanced_security.status // empty' || true)
+            "$api_url")
+
+          if ! status=$(printf '%s' "$response" | jq -r '.security_and_analysis.advanced_security.status // empty'); then
+            echo "supported=false" >> "$GITHUB_OUTPUT"
+            echo "Unable to determine dependency review support from repository metadata."
+            exit 0
+          fi
 
           if [ "$status" = "enabled" ]; then
             echo "supported=true" >> "$GITHUB_OUTPUT"
