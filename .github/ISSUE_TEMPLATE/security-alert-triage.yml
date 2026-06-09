@@ -1,0 +1,59 @@
+name: Security Alert Triage
+description: Track ownership, priority, and SLA for security alerts.
+title: '[Security Triage]: '
+labels:
+  - security
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to track remediation for CodeQL, secret scanning, and dependency alerts.
+  - type: input
+    id: alert-source
+    attributes:
+      label: Alert source
+      description: Code scanning, secret scanning, dependency review, or Dependabot alert.
+      placeholder: code-scanning
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - critical
+        - high
+        - medium
+        - low
+        - note
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: Alert owner
+      description: GitHub username responsible for remediation.
+      placeholder: '@owner'
+    validations:
+      required: true
+  - type: input
+    id: sla-date
+    attributes:
+      label: SLA due date
+      description: Date by which the fix or dismissal evidence is expected.
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+  - type: textarea
+    id: remediation-plan
+    attributes:
+      label: Remediation plan
+      description: Steps to fix, test, and deploy the remediation.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Link to PR, commit, or dismissal reason and proof.

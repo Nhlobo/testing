@@ -140,3 +140,20 @@ https://www.mapengoinnovations.co.za/
 ```
 
 The `assets/js/components.js` file automatically detects the base path depth so all relative links and asset references resolve correctly both locally and on GitHub Pages.
+
+
+---
+
+## Security Automation
+
+This repository now includes GitHub-native security automation:
+
+- `/.github/workflows/codeql.yml` — CodeQL scanning on pull requests, pushes, and weekly schedule
+- `/.github/workflows/dependency-review.yml` — dependency risk checks on pull requests
+- `/.github/workflows/security-alerts-summary.yml` — weekly summary issue with open security alerts
+- `/.github/dependabot.yml` — weekly Dependabot updates for GitHub Actions
+- `/.github/ISSUE_TEMPLATE/security-alert-triage.yml` — triage template with owner + SLA tracking
+- `/SECURITY.md` — repository security operations and required repository settings
+
+After merging these files, complete one-time setup in repository settings to enable Code Scanning, Secret Scanning, Dependabot alerts, and Copilot Autofix.
+

@@ -1,0 +1,7 @@
+# Default owner
+* @Nhlobo
+
+# Security-sensitive paths
+/.github/** @Nhlobo
+/assets/js/** @Nhlobo
+/work/js/** @Nhlobo
