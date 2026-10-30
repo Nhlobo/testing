@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapengo Innovations | Digital Products for South African Businesses</title>
-  <meta name="description" content="Mapengo Innovations partners with startups, SMEs, and growing businesses to design and ship websites, web apps, and mobile apps — built for South Africa.">
+  <title>Mapengo Innovations | We build the systems businesses run on</title>
+  <meta name="description" content="Mapengo Innovations designs and builds fast, secure websites, apps and the systems behind them — for South African startups, SMEs, enterprises and government.">
   <meta name="keywords" content="web development South Africa, mobile app development Johannesburg, website design SA, custom software, e-commerce, digital product partner South Africa, Mapengo Innovations">
-  <meta property="og:title" content="Mapengo Innovations | Digital Products for South African Businesses">
-  <meta property="og:description" content="Websites, web apps, and mobile apps — designed and built for South African businesses. Custom, responsive, production-grade.">
-  <meta property="og:image" content="https://www.mapengoinnovations.co.za/assets/img/og-image.svg">
+  <meta property="og:title" content="Mapengo Innovations | We build the systems businesses run on">
+  <meta property="og:description" content="Fast, secure websites, apps and the systems behind them — designed and engineered end to end by our own teams.">
+  <meta property="og:image" content="https://www.mapengoinnovations.co.za/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mapengo Innovations — We build the systems businesses run on.">
+  <meta name="twitter:image" content="https://www.mapengoinnovations.co.za/assets/img/og-image.png">
   <meta property="og:url" content="https://www.mapengoinnovations.co.za/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mapengo Innovations | Digital Products for South Africa">
-  <meta name="twitter:description" content="Websites, apps, and digital products built for South African businesses.">
+  <meta name="twitter:title" content="Mapengo Innovations | We build the systems businesses run on">
+  <meta name="twitter:description" content="Fast, secure websites, apps and the systems behind them, engineered end to end by our own teams.">
   <link rel="canonical" href="https://www.mapengoinnovations.co.za/">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/home.css">
@@ -33,8 +36,8 @@
     "@type": "Organization",
     "name": "Mapengo Innovations",
     "url": "https://www.mapengoinnovations.co.za/",
-    "logo": "https://www.mapengoinnovations.co.za/assets/img/logo.svg",
-    "description": "Mapengo Innovations is a South African digital solutions company building websites, web applications, and mobile apps for local businesses.",
+    "logo": "https://www.mapengoinnovations.co.za/assets/img/logo.png",
+    "description": "Mapengo Innovations is a Johannesburg engineering studio. Its own teams design and build websites, web and mobile apps, and the systems behind them.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Johannesburg",
@@ -55,55 +58,83 @@
   }
   </script>
 </head>
-<body>
+<body class="mx-home">
   <header id="site-header"></header>
 
   <main>
     <!-- ══════════ HERO ══════════ -->
-    <section class="mx-hero" aria-label="Hero">
-      <div class="mx-hero-bg" aria-hidden="true"></div>
+    <section class="mx-hero mx-dark" aria-label="Hero">
+      <canvas class="mx-topo" id="mx-topo" aria-hidden="true"></canvas>
+      <div class="mx-hero-shade" aria-hidden="true"></div>
       <div class="container mx-hero-inner">
         <div class="mx-hero-copy">
-          <h1>Innovate with confidence.<br>Ship systems that hold up.</h1>
-          <p class="mx-hero-lead">Multiple specialised teams. Every generation of tooling, from legacy systems to the newest stacks. One standard: production-grade. We turn ideas of any size &mdash; individual, SME, enterprise, or government &mdash; into software built to last.</p>
+          <h1><span class="mx-h1-line"><span>We build the systems</span></span> <span class="mx-h1-line"><span>businesses run on.</span></span></h1>
+          <p class="mx-hero-lead">Fast, secure systems, engineered end to end by our own teams: we write the code, design the architecture and model the workflow, in the languages serious systems are built in. No templates. No stitched-together platforms.</p>
           <div class="mx-hero-actions">
             <a href="contact/" class="btn btn-primary btn-lg">Request a Quote</a>
           </div>
         </div>
+        <div class="mx-hud" aria-hidden="true">
+          <p class="mx-hud-title"><i></i>Topology <em>live render</em></p>
+          <dl>
+            <div><dt>Layers</dt><dd data-hud="layers">4</dd></div>
+            <div><dt>Nodes</dt><dd data-hud="nodes">&ndash;</dd></div>
+            <div><dt>Links</dt><dd data-hud="links">&ndash;</dd></div>
+            <div><dt>Packets</dt><dd data-hud="packets">&ndash;</dd></div>
+            <div><dt>Frame rate</dt><dd data-hud="fps">&ndash;</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="mx-hero-stats" role="group" aria-label="Company statistics">
+        <div class="container mx-stats-grid">
+        <div class="mx-stat">
+          <span class="mx-stat-num"><span data-counter="1" data-suffix="">1</span></span>
+          <span class="mx-stat-label">Home market: South Africa</span>
+        </div>
+        <div class="mx-stat">
+          <span class="mx-stat-num"><span data-counter="100" data-suffix="%">100%</span></span>
+          <span class="mx-stat-label">Custom-built, never templated</span>
+        </div>
+        <div class="mx-stat">
+          <span class="mx-stat-num"><span data-counter="5" data-suffix="">5</span></span>
+          <span class="mx-stat-label">Steps from brief to launch</span>
+        </div>
+        <div class="mx-stat">
+          <span class="mx-stat-num"><span data-counter="1" data-suffix="">1</span></span>
+          <span class="mx-stat-label">Team, design to deployment</span>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CONSOLE ══════════ -->
+    <section class="mx-console mx-dark" aria-label="System console">
+      <div class="container">
         <div class="mx-hero-device">
           <div class="mx-terminal">
             <div class="mx-terminal-bar">
               <span></span><span></span><span></span>
               <p>mapengo-innovations &mdash; status</p>
             </div>
-            <div class="mx-terminal-body">
-              <p class="mx-type mx-type-1"><span class="mx-t-dim">$</span> scale --check</p>
-              <p class="mx-type mx-type-2 mx-t-dim">individual &middot; sme &middot; enterprise &middot; government</p>
-              <p class="mx-type mx-type-3"><span class="mx-t-ok">&check;</span> one standard: production-grade<span class="mx-terminal-cursor"></span></p>
+            <div class="mx-terminal-grid">
+              <div class="mx-pane">
+                <p class="mx-pane-label">System <em>status</em></p>
+                <div class="mx-terminal-body">
+                  <p class="mx-type" style="--n:15;--d:.4s"><span class="mx-t-dim">$</span> scale --check</p>
+                  <p class="mx-type mx-t-dim" style="--n:42;--d:1.1s">individual &middot; sme &middot; enterprise &middot; government</p>
+                  <p class="mx-type" style="--n:33;--d:2.4s"><span class="mx-t-ok">&check;</span> one standard: production-grade</p>
+                </div>
+              </div>
+              <div class="mx-pane">
+                <p class="mx-pane-label">Workflow <em>map</em></p>
+                <div class="mx-terminal-body">
+                  <p class="mx-type" style="--n:16;--d:.8s"><span class="mx-t-dim">$</span> map --workflow</p>
+                  <p class="mx-type mx-t-dim" style="--n:36;--d:1.7s">intake &gt; triage &gt; approve &gt; dispatch</p>
+                  <p class="mx-type" style="--n:26;--d:3.1s"><span class="mx-t-ok">&check;</span> every handoff modelled<span class="mx-terminal-cursor"></span></p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ STATS STRIP ══════════ -->
-    <section class="mx-stats" aria-label="Company statistics">
-      <div class="container mx-stats-grid">
-        <div class="mx-stat">
-          <span class="mx-stat-num"><span data-counter="1" data-suffix="">1</span></span>
-          <span class="mx-stat-label">Market focus: South Africa</span>
-        </div>
-        <div class="mx-stat">
-          <span class="mx-stat-num"><span data-counter="100" data-suffix="%">100%</span></span>
-          <span class="mx-stat-label">Custom-built delivery</span>
-        </div>
-        <div class="mx-stat">
-          <span class="mx-stat-num"><span data-counter="5" data-suffix="">5</span></span>
-          <span class="mx-stat-label">Step quality process</span>
-        </div>
-        <div class="mx-stat">
-          <span class="mx-stat-num"><span data-counter="1" data-suffix="">1</span></span>
-          <span class="mx-stat-label">Dedicated product team</span>
         </div>
       </div>
     </section>
@@ -111,23 +142,28 @@
     <!-- ══════════ CAPABILITY ══════════ -->
     <section class="mx-capability" aria-labelledby="capability-heading">
       <div class="container">
-        <p class="mx-eyebrow">Why Mapengo</p>
-        <h2 id="capability-heading" class="mx-capability-heading">Built like an enterprise, because we run like one</h2>
+        <div class="mx-section-head">
+          <p class="mx-eyebrow"><span class="mx-eyebrow-i">01</span>Why Mapengo</p>
+          <h2 id="capability-heading">Built like an enterprise, because we run like one</h2>
+        </div>
         <div class="mx-capability-grid">
           <div class="mx-capability-item">
+            <div class="mx-fig is-live" aria-hidden="true"><span class="mx-fig-cap">Stack</span><svg viewBox="0 0 320 180" role="presentation" focusable="false"><path class="b" d="M6 16V6H16M304 6H314V16M314 164V174H304M16 174H6V164"/><path class="l" d="M40 43V139"/><path class="l" d="M40 43H62M40 91H62M40 139H62"/><g class="stk-slab s1"><rect class="sl" x="64" y="26" width="216" height="34"/><text class="tx sl-t" x="76" y="46">interface</text><rect class="bx u1" x="196" y="38" width="10" height="10"/><rect class="bx u2" x="212" y="38" width="10" height="10"/><rect class="bx u3" x="228" y="38" width="10" height="10"/><path class="l" d="M246 43H266"/></g><g class="stk-slab s2"><rect class="sl" x="64" y="74" width="216" height="34"/><text class="tx sl-t" x="76" y="94">services</text><rect class="bx v1" x="178" y="84" width="18" height="14"/><rect class="bx v2" x="210" y="84" width="18" height="14"/><rect class="bx v3" x="242" y="84" width="18" height="14"/><path class="l" d="M196 91H210M228 91H242"/></g><g class="stk-slab s3"><rect class="sl" x="64" y="122" width="216" height="34"/><text class="tx sl-t" x="76" y="142">data</text><path class="rec r1" d="M190 130H266"/><path class="rec r2" d="M190 139H266"/><path class="rec r3" d="M190 148H266"/></g><rect class="pk" x="36" y="39" width="8" height="8"/></svg></div>
             <span class="mx-capability-num">01</span>
-            <h3>Multi-disciplinary teams</h3>
-            <p>Dedicated specialists across product, engineering, and design &mdash; not generalists stretched across every role.</p>
+            <h3>Engineering depth</h3>
+            <p>Specialist teams across product, architecture, and engineering. We write the code ourselves, in the languages serious systems demand.</p>
           </div>
           <div class="mx-capability-item">
+            <div class="mx-fig is-live" aria-hidden="true"><span class="mx-fig-cap">Workflow</span><svg viewBox="0 0 320 180" role="presentation" focusable="false"><path class="b" d="M6 16V6H16M304 6H314V16M314 164V174H304M16 174H6V164"/><g class="wf-node n1"><rect class="nd" x="20" y="58" width="56" height="30"/><text class="tx in" x="48" y="50" text-anchor="middle">intake</text></g><text class="tx sm" x="48" y="102" text-anchor="middle">front desk</text><g class="wf-node n2"><rect class="nd" x="92" y="58" width="56" height="30"/><text class="tx in" x="120" y="50" text-anchor="middle">review</text></g><text class="tx sm" x="120" y="102" text-anchor="middle">operations</text><g class="wf-node n3"><rect class="nd" x="164" y="58" width="56" height="30"/><text class="tx in" x="192" y="50" text-anchor="middle">approve</text></g><text class="tx sm" x="192" y="102" text-anchor="middle">manager</text><g class="wf-node n4"><rect class="nd" x="236" y="58" width="56" height="30"/><text class="tx in" x="264" y="50" text-anchor="middle">dispatch</text></g><text class="tx sm" x="264" y="102" text-anchor="middle">field team</text><path class="l" d="M76 73H92"/><path class="l" d="M88 69L92 73L88 77"/><path class="l" d="M148 73H164"/><path class="l" d="M160 69L164 73L160 77"/><path class="l" d="M220 73H236"/><path class="l" d="M232 69L236 73L232 77"/><path class="l d" d="M146 88V132H14V73H20"/><path class="l" d="M16 69L20 73L16 77"/><text class="tx sm wf-ret" x="86" y="126" text-anchor="middle">returned</text><g class="tk"><rect class="tk-o" x="44" y="69" width="8" height="8"/><rect class="tk-i" x="46" y="71" width="4" height="4"/></g></svg></div>
             <span class="mx-capability-num">02</span>
-            <h3>Every generation of tooling</h3>
-            <p>From legacy systems we still maintain to the newest frameworks we ship in &mdash; matched to what each project actually needs.</p>
+            <h3>Business fluency</h3>
+            <p>We model how your operation actually runs &mdash; workflows, handoffs, constraints &mdash; before we design a single screen.</p>
           </div>
           <div class="mx-capability-item">
+            <div class="mx-fig is-live" aria-hidden="true"><span class="mx-fig-cap">Tooling</span><svg viewBox="0 0 320 180" role="presentation" focusable="false"><path class="b" d="M6 16V6H16M304 6H314V16M314 164V174H304M16 174H6V164"/><rect class="l" x="28" y="30" width="264" height="136"/><path class="l" d="M28 48H292"/><rect class="l" x="36" y="36" width="5" height="5"/><rect class="l" x="44" y="36" width="5" height="5"/><rect class="l" x="52" y="36" width="5" height="5"/><text class="tx ck-run" x="70" y="43">running</text><text class="tx ck-pass" x="70" y="43">all checks passed</text><g class="ck-row k1"><rect class="chk" x="40" y="60" width="12" height="12"/><rect class="run" x="44" y="64" width="4" height="4"/><rect class="done" x="40" y="60" width="12" height="12"/><path class="tick" d="M43.5 66l3 3l5.5 -6"/><text class="tx" x="62" y="69">format</text><rect class="track" x="128" y="64" width="150" height="4"/><rect class="fillbar" x="128" y="64" width="150" height="4"/></g><g class="ck-row k2"><rect class="chk" x="40" y="81" width="12" height="12"/><rect class="run" x="44" y="85" width="4" height="4"/><rect class="done" x="40" y="81" width="12" height="12"/><path class="tick" d="M43.5 87l3 3l5.5 -6"/><text class="tx" x="62" y="90">lint</text><rect class="track" x="128" y="85" width="150" height="4"/><rect class="fillbar" x="128" y="85" width="150" height="4"/></g><g class="ck-row k3"><rect class="chk" x="40" y="102" width="12" height="12"/><rect class="run" x="44" y="106" width="4" height="4"/><rect class="done" x="40" y="102" width="12" height="12"/><path class="tick" d="M43.5 108l3 3l5.5 -6"/><text class="tx" x="62" y="111">types</text><rect class="track" x="128" y="106" width="150" height="4"/><rect class="fillbar" x="128" y="106" width="150" height="4"/></g><g class="ck-row k4"><rect class="chk" x="40" y="123" width="12" height="12"/><rect class="run" x="44" y="127" width="4" height="4"/><rect class="done" x="40" y="123" width="12" height="12"/><path class="tick" d="M43.5 129l3 3l5.5 -6"/><text class="tx" x="62" y="132">tests</text><rect class="track" x="128" y="127" width="150" height="4"/><rect class="fillbar" x="128" y="127" width="150" height="4"/></g><g class="ck-row k5"><rect class="chk" x="40" y="144" width="12" height="12"/><rect class="run" x="44" y="148" width="4" height="4"/><rect class="done" x="40" y="144" width="12" height="12"/><path class="tick" d="M43.5 150l3 3l5.5 -6"/><text class="tx" x="62" y="153">build</text><rect class="track" x="128" y="148" width="150" height="4"/><rect class="fillbar" x="128" y="148" width="150" height="4"/></g></svg></div>
             <span class="mx-capability-num">03</span>
-            <h3>Individual to enterprise</h3>
-            <p>The same rigour whether we're building a founder's first product or a government-scale platform.</p>
+            <h3>Modern tooling</h3>
+            <p>Mature, battle-tested languages and the newest ones, chosen for what each system genuinely needs &mdash; never for fashion.</p>
           </div>
         </div>
         <div class="mx-sectors">
@@ -144,59 +180,54 @@
     <section class="mx-services" aria-labelledby="services-heading">
       <div class="container">
         <div class="mx-section-head">
-          <p class="mx-eyebrow">What we do</p>
-          <h2 id="services-heading">Websites &amp; app development</h2>
-          <p>End-to-end product delivery &mdash; strategy, design, and engineering under one roof, for companies that can't afford to get it wrong.</p>
+          <p class="mx-eyebrow"><span class="mx-eyebrow-i">02</span>What we do</p>
+          <h2 id="services-heading">Web, mobile, and the systems behind them</h2>
+          <p>Strategy, design, and engineering under one roof &mdash; every layer written by our own teams, from the interface to the database.</p>
         </div>
 
-        <div class="mx-services-grid">
-          <div class="mx-service">
-            <div class="mx-service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3-3 3"/><line x1="13" y1="11" x2="17" y2="11"/></svg>
-            </div>
-            <h3>Web Development</h3>
-            <p>High-performance web platforms engineered to scale &mdash; architecture your next team won't need to rewrite.</p>
-            <div class="mx-service-tags"><span>React</span><span>Next.js</span><span>TypeScript</span></div>
+        <div class="mx-svc" data-services>
+          <div class="mx-svc-list" role="tablist" aria-label="Services" aria-orientation="vertical">
+            <button type="button" class="mx-svc-tab is-active" role="tab" id="svc-tab-1" aria-controls="svc-panel-1" aria-selected="true"><span class="mx-svc-num">01</span><span class="mx-svc-name">Web development</span></button>
+            <button type="button" class="mx-svc-tab" role="tab" id="svc-tab-2" aria-controls="svc-panel-2" aria-selected="false"><span class="mx-svc-num">02</span><span class="mx-svc-name">Mobile apps</span></button>
+            <button type="button" class="mx-svc-tab" role="tab" id="svc-tab-3" aria-controls="svc-panel-3" aria-selected="false"><span class="mx-svc-num">03</span><span class="mx-svc-name">UI/UX design</span></button>
+            <button type="button" class="mx-svc-tab" role="tab" id="svc-tab-4" aria-controls="svc-panel-4" aria-selected="false"><span class="mx-svc-num">04</span><span class="mx-svc-name">E-commerce</span></button>
+            <button type="button" class="mx-svc-tab" role="tab" id="svc-tab-5" aria-controls="svc-panel-5" aria-selected="false"><span class="mx-svc-num">05</span><span class="mx-svc-name">Deployment &amp; launch</span></button>
           </div>
-
-          <div class="mx-service">
-            <div class="mx-service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-linecap="round" stroke-width="2.5"/></svg>
+          <div class="mx-svc-stage">
+            <div class="mx-svc-panel is-active" role="tabpanel" id="svc-panel-1" aria-labelledby="svc-tab-1">
+              <div class="mx-fig mx-fig-lg is-live" aria-hidden="true"><span class="mx-fig-cap">Web</span><svg viewBox="0 0 440 280" role="presentation" focusable="false"><path class="b" d="M6 16V6H16M424 6H434V16M434 264V274H424M16 274H6V264"/><rect class="l" x="64" y="40" width="312" height="200"/><path class="l" d="M64 62L376 62"/><rect class="l" x="72" y="47" width="6" height="6"/><rect class="l" x="82" y="47" width="6" height="6"/><rect class="l" x="92" y="47" width="6" height="6"/><rect class="l" x="112" y="46" width="150" height="8"/><rect class="addr" x="112" y="46" width="150" height="8"/><rect class="l" x="80" y="76" width="280" height="14"/><rect class="l" x="80" y="100" width="176" height="76"/><path class="l wl1" d="M92 114L190 114"/><path class="l wl2" d="M92 126L166 126"/><rect class="s web-btn" x="92" y="150" width="48" height="14"/><rect class="l web-side" x="266" y="100" width="94" height="76"/><path class="l" d="M276 116L350 116"/><path class="l" d="M276 128L330 128"/><path class="l" d="M276 140L344 140"/><rect class="bx wc1" x="80" y="188" width="88" height="40"/><rect class="bx wc2" x="176" y="188" width="88" height="40"/><rect class="bx wc3" x="272" y="188" width="88" height="40"/><path class="cur web-cur" d="M0 0V22L6 17L11 28L15 26L10 16H18Z"/></svg></div>
+              <h3>Web Development</h3>
+              <p>High-performance web platforms engineered to scale &mdash; architecture your next team won't need to rewrite.</p>
+              <div class="mx-service-tags"><span>TypeScript</span><span>JavaScript</span><span>Go</span><span>Python</span><span>SQL</span></div>
             </div>
-            <h3>Mobile Apps</h3>
-            <p>Native-grade iOS and Android apps built for daily use at scale, not just app-store screenshots.</p>
-            <div class="mx-service-tags"><span>React Native</span><span>Flutter</span><span>PWA</span></div>
-          </div>
-
-          <div class="mx-service">
-            <div class="mx-service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
+            <div class="mx-svc-panel" role="tabpanel" id="svc-panel-2" aria-labelledby="svc-tab-2">
+              <div class="mx-fig mx-fig-lg is-live" aria-hidden="true"><span class="mx-fig-cap">Mobile</span><svg viewBox="0 0 440 280" role="presentation" focusable="false"><path class="b" d="M6 16V6H16M424 6H434V16M434 264V274H424M16 274H6V264"/><rect class="l" x="104" y="34" width="108" height="212"/><path class="l" d="M142 44L174 44"/><rect class="l" x="116" y="58" width="84" height="24"/><rect class="l" x="116" y="92" width="84" height="60"/><path class="l" d="M116 164L180 164"/><path class="l" d="M116 176L160 176"/><rect class="s" x="116" y="214" width="84" height="18"/><rect class="tap" x="116" y="214" width="84" height="18"/><rect class="l" x="236" y="58" width="100" height="188"/><path class="l" d="M268 68L304 68"/><rect class="bx mb1" x="248" y="82" width="76" height="40"/><rect class="bx mb2" x="248" y="132" width="76" height="22"/><rect class="bx mb3" x="248" y="162" width="76" height="22"/><path class="l" d="M248 196L310 196"/><path class="l d flow" d="M212 140H236"/></svg></div>
+              <h3>Mobile Apps</h3>
+              <p>Native-grade iOS and Android apps engineered for daily use at scale &mdash; not demos.</p>
+              <div class="mx-service-tags"><span>Kotlin</span><span>Swift</span><span>Dart</span></div>
             </div>
-            <h3>UI/UX Design</h3>
-            <p>Interfaces designed around how people actually work &mdash; validated with real users, not assumptions.</p>
-            <div class="mx-service-tags"><span>Figma</span><span>User Research</span><span>Prototyping</span></div>
-          </div>
-
-          <div class="mx-service">
-            <div class="mx-service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            <div class="mx-svc-panel" role="tabpanel" id="svc-panel-3" aria-labelledby="svc-tab-3">
+              <div class="mx-fig mx-fig-lg is-live" aria-hidden="true"><span class="mx-fig-cap">Interface</span><svg viewBox="0 0 440 280" role="presentation" focusable="false"><path class="b" d="M6 16V6H16M424 6H434V16M434 264V274H424M16 274H6V264"/><rect class="l" x="48" y="40" width="344" height="200"/><path class="l d" d="M100 40V240"/><path class="l d ug2" d="M160 40V240"/><path class="l d" d="M220 40V240"/><path class="l d ug4" d="M280 40V240"/><path class="l d" d="M340 40V240"/><rect class="l" x="240" y="84" width="100" height="28"/><rect class="l" x="240" y="124" width="100" height="32"/><rect class="l" x="100" y="176" width="240" height="40"/><g class="ui-sel"><rect class="l" x="100" y="84" width="120" height="72"/><path class="l" d="M112 100L196 100"/><path class="l" d="M112 112L170 112"/><rect class="s" x="97" y="81" width="6" height="6"/><rect class="s" x="217" y="81" width="6" height="6"/><rect class="s" x="97" y="153" width="6" height="6"/><rect class="s" x="217" y="153" width="6" height="6"/></g><path class="cur ui-cur" d="M0 0V22L6 17L11 28L15 26L10 16H18Z"/></svg></div>
+              <h3>UI/UX Design</h3>
+              <p>Interfaces designed around how people actually work &mdash; validated with real users, not assumptions.</p>
+              <div class="mx-service-tags"><span>HTML</span><span>CSS</span><span>Design systems</span><span>Prototyping</span></div>
             </div>
-            <h3>E-Commerce</h3>
-            <p>Commerce platforms built for South African payment rails, inventory complexity, and checkout conversion.</p>
-            <div class="mx-service-tags"><span>Shopify</span><span>WooCommerce</span><span>Custom</span></div>
-          </div>
-
-          <div class="mx-service">
-            <div class="mx-service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
+            <div class="mx-svc-panel" role="tabpanel" id="svc-panel-4" aria-labelledby="svc-tab-4">
+              <div class="mx-fig mx-fig-lg is-live" aria-hidden="true"><span class="mx-fig-cap">Commerce</span><svg viewBox="0 0 440 280" role="presentation" focusable="false"><path class="b" d="M6 16V6H16M424 6H434V16M434 264V274H424M16 274H6V264"/><text class="tx" x="48" y="90">cart</text><text class="tx" x="174" y="90">payment</text><text class="tx" x="300" y="90">order</text><rect class="l sp-cart" x="48" y="100" width="92" height="56"/><rect class="s" x="174" y="100" width="92" height="56"/><rect class="l sp-order" x="300" y="100" width="92" height="56"/><path class="l" d="M140 128H174"/><path class="l" d="M168 122L174 128L168 134"/><path class="l" d="M266 128H300"/><path class="l" d="M294 122L300 128L294 134"/><path class="l" d="M48 64L392 64"/><rect class="l" x="48" y="196" width="76" height="44"/><rect class="l" x="136" y="196" width="76" height="44"/><rect class="l" x="224" y="196" width="76" height="44"/><rect class="l" x="312" y="196" width="80" height="44"/><path class="sp-tick" d="M332 124l8 8l16 -18"/><rect class="sp-ring" x="170" y="96" width="100" height="64"/><g class="tkn sp-tk"><rect class="tk-o" x="89" y="123" width="10" height="10"/><rect class="tk-i" x="92" y="126" width="4" height="4"/></g></svg></div>
+              <h3>E-Commerce</h3>
+              <p>Custom-built commerce engines &mdash; payments, inventory, and checkout engineered for South African rails, not bolted on from a template.</p>
+              <div class="mx-service-tags"><span>TypeScript</span><span>Go</span><span>SQL</span></div>
             </div>
-            <h3>Deployment &amp; Launch</h3>
-            <p>Production deployment on infrastructure that scales with you &mdash; CI/CD, environment management, and launch support included.</p>
-            <div class="mx-service-tags"><span>Render</span><span>GitHub Actions</span><span>CI/CD</span></div>
+            <div class="mx-svc-panel" role="tabpanel" id="svc-panel-5" aria-labelledby="svc-tab-5">
+              <div class="mx-fig mx-fig-lg is-live" aria-hidden="true"><span class="mx-fig-cap">Delivery</span><svg viewBox="0 0 440 280" role="presentation" focusable="false"><path class="b" d="M6 16V6H16M424 6H434V16M434 264V274H424M16 274H6V264"/><rect class="l" x="48" y="44" width="344" height="48"/><rect class="l" x="48" y="116" width="344" height="48"/><rect class="l" x="48" y="188" width="344" height="48"/><text class="tx" x="58" y="58">dev</text><text class="tx" x="58" y="130">staging</text><text class="tx" x="58" y="202">production</text><rect class="l" x="150" y="60" width="44" height="20"/><rect class="l" x="222" y="132" width="44" height="20"/><rect class="s sh-prod" x="294" y="204" width="44" height="20"/><path class="l" d="M194 70H208V142H222"/><path class="l" d="M266 142H280V214H294"/><path class="l d sh-rb" d="M338 214H356V142H266"/><path class="l" d="M272 136L266 142L272 148"/><g class="tkn sh-tk"><rect class="tk-o" x="167" y="65" width="10" height="10"/><rect class="tk-i" x="170" y="68" width="4" height="4"/></g></svg></div>
+              <h3>Deployment &amp; Launch</h3>
+              <p>Delivery pipelines and infrastructure as code, engineered like the product itself &mdash; so every release is repeatable and reversible.</p>
+              <div class="mx-service-tags"><span>Go</span><span>Rust</span><span>Python</span><span>Bash</span></div>
+            </div>
           </div>
         </div>
 
-        <div class="text-center" style="margin-top:var(--space-10);">
+        <div class="mx-svc-cta">
           <a href="services/" class="btn btn-ghost btn-lg">View All Services</a>
         </div>
       </div>
@@ -206,41 +237,108 @@
     <section class="mx-work" aria-labelledby="work-heading">
       <div class="container">
         <div class="mx-section-head">
-          <p class="mx-eyebrow">Evidence</p>
+          <p class="mx-eyebrow"><span class="mx-eyebrow-i">03</span>Evidence</p>
           <h2 id="work-heading">The kind of work companies trust us with</h2>
-          <p>Government-scale public safety systems. Production software, not prototypes.</p>
+          <p>Public safety systems for government security operations. Production software, not prototypes.</p>
+
+          <div class="mx-ownership-rows mx-evidence-rows">
+            <div class="mx-ownership-row">
+              <span>Domain</span>
+              <p>Public safety, where downtime has consequences.</p>
+            </div>
+            <div class="mx-ownership-row">
+              <span>Approach</span>
+              <p>Designed around how the operation actually runs.</p>
+            </div>
+            <div class="mx-ownership-row">
+              <span>Systems</span>
+              <p>Durable, decoupled services. See a request traced below.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="mx-flagship">
+        <div class="mx-flagship mx-flagship-v2">
           <div class="mx-flagship-visual">
-            <img src="assets/img/portfolio/crime-solution.jpg" alt="Public Safety Intelligence System Screenshot" loading="lazy">
+            <picture><source type="image/webp" srcset="assets/img/portfolio/crime-solution.webp"><img src="assets/img/portfolio/crime-solution.jpg" alt="Public Safety Intelligence System Screenshot" width="1280" height="720" loading="lazy" decoding="async"></picture>
+            <div class="mx-flagship-scrim"></div>
+            <div class="mx-flagship-overlay">
+              <img src="assets/img/logo-mono-sm.png" alt="Mapengo Innovations" class="mx-flagship-logo" width="32" height="22">
+              <p class="mx-project-client">Government Security Operations</p>
+              <h3>Public Safety Intelligence System</h3>
+            </div>
           </div>
           <div class="mx-flagship-body">
-            <div class="mx-flagship-brand">
-              <img src="assets/img/logo.png" alt="Mapengo Innovations" class="mx-flagship-logo">
-              <span>Delivered by Mapengo Innovations</span>
-            </div>
-            <p class="mx-project-client">Government Security Operations</p>
-            <h3>Public Safety Intelligence System</h3>
-            <p>A secure incident intelligence and response platform for coordinated public safety operations &mdash; built, tested, and shipped by our own pipeline.</p>
+            <p>A secure incident intelligence and response platform for coordinated public safety operations &mdash; designed and engineered end to end by our own teams.</p>
 
-            <div class="mx-pipeline" aria-hidden="true">
-              <svg viewBox="0 0 600 20" class="mx-pipeline-svg" preserveAspectRatio="none">
-                <line x1="10" y1="10" x2="590" y2="10" class="mx-pipeline-track"></line>
-                <line x1="10" y1="10" x2="590" y2="10" class="mx-pipeline-flow"></line>
-                <circle cx="10" cy="10" r="5" class="mx-pipeline-node"></circle>
-                <circle cx="155" cy="10" r="5" class="mx-pipeline-node"></circle>
-                <circle cx="300" cy="10" r="5" class="mx-pipeline-node"></circle>
-                <circle cx="445" cy="10" r="5" class="mx-pipeline-node"></circle>
-                <circle cx="590" cy="10" r="5" class="mx-pipeline-node mx-pipeline-node-live"></circle>
-              </svg>
-              <div class="mx-pipeline-labels">
-                <span>Code</span><span>Build</span><span>Test</span><span>Deploy</span><span>Live</span>
+            <div class="mx-flagship-foot">
+              <div class="mx-project-stack"><span>Dart</span></div>
+              <a href="https://nhlobo.github.io/Crime-Solution/" target="_blank" class="mx-project-link">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ UNDER THE HOOD ══════════ -->
+    <section class="mx-trace-sec mx-dark" aria-labelledby="trace-heading">
+      <div class="container">
+        <div class="mx-trace" data-trace>
+          <div class="mx-trace-head mx-section-head">
+            <p class="mx-eyebrow"><span class="mx-eyebrow-i">04</span>Under the hood</p>
+            <h2 id="trace-heading">One report, traced from the first line of code to the responder.</h2>
+            <p>Illustrative &mdash; how we engineer a request path: validated, transactional, and durable before anything else happens.</p>
+          </div>
+
+          <div class="mx-trace-stage" role="img" aria-label="Animated illustration: a single incident report written in Go, traced through the system from the citizen's device to the responder on the ground.">
+            <div class="mx-trace-editor">
+              <div class="mx-trace-tab">
+                <span class="mx-trace-dots"><i></i><i></i><i></i></span>
+                <b>incident/service.go</b>
+                <em>Go</em>
+              </div>
+              <pre class="mx-trace-code" tabindex="0" role="region" aria-label="Go source code (illustrative)"><span class="ln" data-status="receiving the request" data-node="2"><span class="k">func</span> (s *<span class="t">Service</span>) <span class="f">Submit</span>(ctx <span class="t">context.Context</span>, in <span class="t">Report</span>) (<span class="t">Incident</span>, <span class="t">error</span>) {</span><span class="ln" style="--i:1" data-status="validating the input" data-node="2"><span class="k">if</span> err := in.<span class="f">Validate</span>(); err != <span class="b">nil</span> {</span><span class="ln" style="--i:2"><span class="k">return</span> <span class="t">Incident</span>{}, err</span><span class="ln" style="--i:1">}</span><span class="ln" style="--i:1" data-status="opening a transaction" data-node="2">tx, err := s.db.<span class="f">BeginTx</span>(ctx, <span class="b">nil</span>)</span><span class="ln" style="--i:1"><span class="k">if</span> err != <span class="b">nil</span> {</span><span class="ln" style="--i:2"><span class="k">return</span> <span class="t">Incident</span>{}, err</span><span class="ln" style="--i:1">}</span><span class="ln" style="--i:1" data-status="guarding with a rollback" data-node="2"><span class="k">defer</span> tx.<span class="f">Rollback</span>()</span><span class="ln"></span><span class="ln" style="--i:1" data-status="persisting the incident" data-node="2">inc, err := s.store.<span class="f">Create</span>(ctx, tx, in)</span><span class="ln" style="--i:1"><span class="k">if</span> err != <span class="b">nil</span> {</span><span class="ln" style="--i:2"><span class="k">return</span> <span class="t">Incident</span>{}, err</span><span class="ln" style="--i:1">}</span><span class="ln" style="--i:1"><span class="c">// same transaction: the event is durable, or nothing happened</span></span><span class="ln" style="--i:1" data-status="recording the event durably" data-node="3"><span class="k">if</span> err := s.outbox.<span class="f">Add</span>(ctx, tx, <span class="s">"incident.created"</span>, inc); err != <span class="b">nil</span> {</span><span class="ln" style="--i:2"><span class="k">return</span> <span class="t">Incident</span>{}, err</span><span class="ln" style="--i:1">}</span><span class="ln" style="--i:1" data-status="committing atomically" data-node="3"><span class="k">if</span> err := tx.<span class="f">Commit</span>(); err != <span class="b">nil</span> {</span><span class="ln" style="--i:2"><span class="k">return</span> <span class="t">Incident</span>{}, err</span><span class="ln" style="--i:1">}</span><span class="ln" style="--i:1"><span class="k">return</span> inc, <span class="b">nil</span></span><span class="ln">}</span></pre>
+              <div class="mx-trace-status">
+                <span><i class="mx-trace-dot"></i><span data-status>citizen files a report</span></span>
+                <span data-ln>client</span>
               </div>
             </div>
 
-            <div class="mx-project-stack"><span>Flutter</span><span>Firebase</span><span>CI/CD</span></div>
-            <a href="https://nhlobo.github.io/Crime-Solution/" target="_blank" class="mx-project-link">View Project &rarr;</a>
+            <div class="mx-trace-map">
+              <div class="mx-trace-maphead"><span>Request path</span><em>illustrative</em></div>
+              <div class="mx-trace-flowwrap">
+                <ol class="mx-trace-flow">
+                  <li data-status="citizen files a report"><span class="mx-node-name">client</span><span class="mx-node-desc">Citizen files a report</span></li>
+                  <li data-status="authenticated and rate-limited"><span class="mx-node-name">gateway</span><span class="mx-node-desc">Authenticated &middot; rate-limited</span></li>
+                  <li><span class="mx-node-name">incident-svc</span><span class="mx-node-desc">Validated &middot; persisted</span></li>
+                  <li><span class="mx-node-name">outbox</span><span class="mx-node-desc">Event stored in the same transaction</span></li>
+                  <li data-status="relay publishes the stored event"><span class="mx-node-name">event-bus</span><span class="mx-node-desc">Fanned out to every consumer</span></li>
+                  <li data-status="nearest responder assigned"><span class="mx-node-name">dispatch-svc</span><span class="mx-node-desc">Nearest responder assigned</span></li>
+                  <li data-status="acknowledged on the device"><span class="mx-node-name">responder</span><span class="mx-node-desc">Acknowledged on device</span></li>
+                </ol>
+                <span class="mx-trace-spine"></span>
+                <span class="mx-trace-fill"></span>
+                <span class="mx-packet"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mx-ownership-rows mx-evidence-rows mx-trace-notes mx-notes-4">
+            <div class="mx-ownership-row">
+              <span>Code</span>
+              <p>Explicit error handling. No silent failures.</p>
+            </div>
+            <div class="mx-ownership-row">
+              <span>Systems</span>
+              <p>Durable events. Nothing is lost between services.</p>
+            </div>
+            <div class="mx-ownership-row">
+              <span>Workflow</span>
+              <p>Modelled on how the operation actually runs.</p>
+            </div>
+            <div class="mx-ownership-row">
+              <span>Security</span>
+              <p>Input validated at the edge. Nothing trusted by default.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -249,22 +347,28 @@
     <!-- ══════════ HOW WE WORK ══════════ -->
     <section class="mx-process" id="how-we-work" aria-labelledby="process-heading">
       <div class="container">
-        <div class="mx-section-head">
-          <p class="mx-eyebrow">Our process</p>
-          <h2 id="process-heading">How we work</h2>
-          <p>Every project follows a structured, professional process &mdash; from your initial brief to launch and beyond. Our teams span every generation of web and mobile tooling, and we match the right specialists to your project regardless of its size.</p>
+        <div class="mx-process-grid">
+          <div class="mx-process-side">
+            <div class="mx-section-head">
+          <p class="mx-eyebrow"><span class="mx-eyebrow-i">05</span>Our process</p>
+          <h2 id="process-heading">A system for building systems.</h2>
+          <p>Every project runs through the same engineered process, from your first brief to launch and beyond. Our teams span every generation of web and mobile tooling, and we match the right specialists to the size of the job.</p>
         </div>
-
-        <div class="mx-process-list">
+            <div class="mx-process-actions">
+              <a href="contact/" class="btn btn-primary btn-lg">Request a Quote</a>
+              <a href="services/" class="btn btn-ghost btn-lg">Explore Services</a>
+            </div>
+          </div>
+          <div class="mx-process-list">
           <div class="mx-process-item">
             <div class="mx-process-num">01</div>
             <div>
               <h3>Consultation &amp; Idea Discovery</h3>
-              <p>The process begins when you share your idea, challenge, or business goal with us. Our team listens deeply &mdash; understanding your business needs, identifying the problem to solve, and recommending a suitable digital approach.</p>
+              <p>It starts with your business, not our tools. We map how the operation actually runs &mdash; the workflows, the handoffs, the constraints &mdash; then recommend the system that fits it.</p>
               <ul>
-                <li>Business needs analysis</li>
+                <li>Workflow mapping</li>
                 <li>Problem identification</li>
-                <li>Solution recommendation</li>
+                <li>Architecture recommendation</li>
                 <li>Free initial consultation</li>
               </ul>
             </div>
@@ -288,10 +392,10 @@
             <div class="mx-process-num">03</div>
             <div>
               <h3>Development of the Digital Solution</h3>
-              <p>Once design is approved, development begins. We build responsive websites, mobile applications, and custom digital platforms that work seamlessly across desktops, tablets, and smartphones.</p>
+              <p>Once design is approved, our engineers build in the languages the system demands &mdash; typed, tested, and documented &mdash; across web, mobile, and backend.</p>
               <ul>
-                <li>Responsive web &amp; mobile apps</li>
-                <li>Clean, documented code</li>
+                <li>Web, mobile &amp; backend</li>
+                <li>Typed, documented code</li>
                 <li>Performance-first approach</li>
                 <li>Secure &amp; scalable architecture</li>
               </ul>
@@ -326,10 +430,6 @@
             </div>
           </div>
         </div>
-
-        <div class="text-center" style="margin-top:var(--space-16);">
-          <a href="contact/" class="btn btn-primary btn-lg">Request a Quote</a>
-          <a href="services/" class="btn btn-ghost btn-lg" style="margin-left:var(--space-4);">Explore Services</a>
         </div>
       </div>
     </section>
@@ -338,7 +438,7 @@
     <section class="mx-ownership" aria-labelledby="ownership-heading">
       <div class="container mx-ownership-grid">
         <div class="mx-ownership-copy">
-          <p class="mx-eyebrow">Ownership</p>
+          <p class="mx-eyebrow"><span class="mx-eyebrow-i">06</span>Ownership</p>
           <h2 id="ownership-heading">What we build for you is yours. Full stop.</h2>
           <p>No proprietary lock-in, no surprise retainers, no holding your source code hostage. When a project ships, it's yours to run, extend, or hand to another team entirely.</p>
 
@@ -358,19 +458,21 @@
           </div>
         </div>
 
-        <div class="mx-nest" aria-hidden="true">
-          <div class="mx-nest-layer">
-            <div class="mx-nest-label"><span>Ownership</span><em>Yours from day one</em></div>
-            <div class="mx-nest-layer">
-              <div class="mx-nest-label"><span>Dedicated team</span><em>Assigned to you</em></div>
-              <div class="mx-nest-layer">
-                <div class="mx-nest-label"><span>Full source access</span><em>Every commit, yours</em></div>
-                <div class="mx-nest-layer mx-nest-core">
-                  <div class="mx-nest-label"><span>No lock-in</span><em>Take it anywhere</em></div>
-                </div>
-              </div>
-            </div>
+        <div class="mx-ho" role="img" aria-label="Animated illustration: on delivery day the source code, design files, documentation, test suite and deployment setup move from Mapengo to you.">
+          <div class="mx-ho-head">
+            <span class="mx-ho-title">Handover</span>
+            <span class="mx-ho-state"><i class="s1">Building</i><i class="s2">In review</i><i class="s3">Transferring</i><i class="s4">Delivered</i></span>
           </div>
+          <div class="mx-ho-bar"><span></span></div>
+          <div class="mx-ho-table" aria-hidden="true">
+            <div class="mx-ho-row mx-ho-cols"><span>Asset</span><span>Mapengo</span><span>You</span></div>
+        <div class="mx-ho-row r1"><span class="a">Source code</span><span class="w"><b class="x1">builds</b><b class="x2">handed over</b></span><span class="w"><b class="y1">reviews</b><b class="y2">owns</b></span></div>
+        <div class="mx-ho-row r2"><span class="a">Design files</span><span class="w"><b class="x1">builds</b><b class="x2">handed over</b></span><span class="w"><b class="y1">reviews</b><b class="y2">owns</b></span></div>
+        <div class="mx-ho-row r3"><span class="a">Documentation</span><span class="w"><b class="x1">builds</b><b class="x2">handed over</b></span><span class="w"><b class="y1">reviews</b><b class="y2">owns</b></span></div>
+        <div class="mx-ho-row r4"><span class="a">Test suite</span><span class="w"><b class="x1">builds</b><b class="x2">handed over</b></span><span class="w"><b class="y1">reviews</b><b class="y2">owns</b></span></div>
+        <div class="mx-ho-row r5"><span class="a">Deployment setup</span><span class="w"><b class="x1">builds</b><b class="x2">handed over</b></span><span class="w"><b class="y1">reviews</b><b class="y2">owns</b></span></div>
+          </div>
+          <div class="mx-ho-foot" aria-hidden="true"><span class="mx-ho-note">Delivery day</span><span class="mx-ho-stamp"><i></i>Transfer complete</span></div>
         </div>
       </div>
     </section>
@@ -379,7 +481,7 @@
     <section class="mx-testimonials" aria-labelledby="testimonials-heading">
       <div class="container">
         <div class="mx-section-head">
-          <p class="mx-eyebrow">Client feedback</p>
+          <p class="mx-eyebrow"><span class="mx-eyebrow-i">07</span>Client feedback</p>
           <h2 id="testimonials-heading">Trusted to get it right the first time</h2>
           <p>Feedback from clients we have worked with on websites and app projects.</p>
         </div>
@@ -425,15 +527,13 @@
     </section>
 
     <!-- ══════════ CTA SECTION ══════════ -->
-    <section class="mx-cta" aria-labelledby="cta-heading">
+    <section class="mx-cta mx-dark" aria-labelledby="cta-heading">
       <div class="container">
-        <div class="mx-cta-panel">
-          <h2 id="cta-heading">Let's build something that lasts.</h2>
-          <p>Tell us the problem, not the tech stack. We'll scope the right team, the right approach, and a solution built to hold up &mdash; whatever the size of the ambition.</p>
-          <div class="mx-cta-actions">
-            <a href="contact/" class="btn btn-primary btn-lg">Request a Quote</a>
-            <a href="pricing/" class="btn btn-ghost btn-lg">View Pricing</a>
-          </div>
+        <h2 id="cta-heading">Let's build something that lasts.</h2>
+        <p>Tell us the problem, not the tech stack. We'll scope the right team, the right approach, and a solution built to hold up &mdash; whatever the size of the ambition.</p>
+        <div class="mx-cta-actions">
+          <a href="contact/" class="btn btn-primary btn-lg">Request a Quote</a>
+          <a href="pricing/" class="btn btn-ghost btn-lg">View Pricing</a>
         </div>
       </div>
     </section>
@@ -443,5 +543,7 @@
 
   <script src="assets/js/components.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/home.js" defer></script>
+  <script src="assets/js/topology.js" defer></script>
 </body>
 </html>
